@@ -188,11 +188,19 @@ public class ExtrasMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_pointsBtnActionPerformed
 
     private void courseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseBtnActionPerformed
-        // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "COURSE_FINDER");
+        }
     }//GEN-LAST:event_courseBtnActionPerformed
 
     private void grindsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grindsBtnActionPerformed
-       
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "GRINDS_FINDER");
+        }
     }//GEN-LAST:event_grindsBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

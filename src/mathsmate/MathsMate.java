@@ -26,6 +26,8 @@ public class MathsMate extends javax.swing.JFrame {
         TrigMenu trigCard = new TrigMenu();
         ExtrasMenu extrasCard = new ExtrasMenu();
         PointsCalc calcCard = new PointsCalc();
+        GrindsFinder grindsCard = new GrindsFinder();
+        CourseFinder courseCard = new CourseFinder();
         
         cardsContainer = new JPanel(new CardLayout());
         cardsContainer.add(mainCard, "MAIN");
@@ -34,6 +36,8 @@ public class MathsMate extends javax.swing.JFrame {
         cardsContainer.add(trigCard, "TRIG_MENU");
         cardsContainer.add(extrasCard, "EXTRAS_MENU");
         cardsContainer.add(calcCard, "POINTS_CALC");
+        cardsContainer.add(grindsCard,"GRINDS_FINDER");
+        cardsContainer.add(courseCard, "COURSE_FINDER");
         this.add(cardsContainer);
         CardLayout cl = (CardLayout)(cardsContainer.getLayout());
         cl.show(cardsContainer, "MAIN");

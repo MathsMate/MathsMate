@@ -143,7 +143,7 @@ public class PointsCalc extends javax.swing.JPanel {
         pointsLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pointsLbl.setText("600 Points");
         mainMenuPanel.add(pointsLbl);
-        pointsLbl.setBounds(30, 470, 350, 70);
+        pointsLbl.setBounds(0, 470, 400, 70);
 
         subjectLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         subjectLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,7 +327,7 @@ public class PointsCalc extends javax.swing.JPanel {
 
         calculateBtn.setText("Calculate Points");
         mainMenuPanel.add(calculateBtn);
-        calculateBtn.setBounds(140, 430, 150, 23);
+        calculateBtn.setBounds(120, 430, 150, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

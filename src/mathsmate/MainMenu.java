@@ -144,7 +144,7 @@ public class MainMenu extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "TEST");
+            cl.show(getParent(), "ALGEBRA_MENU");
         }
     }//GEN-LAST:event_algebraBtnActionPerformed
 

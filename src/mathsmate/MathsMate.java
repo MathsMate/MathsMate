@@ -21,9 +21,11 @@ public class MathsMate extends javax.swing.JFrame {
     public MathsMate() {
         initComponents();
         MainMenu mainCard = new MainMenu();
+        AlgebraMenu algebraCard = new AlgebraMenu();
         
         cardsContainer = new JPanel(new CardLayout());
         cardsContainer.add(mainCard, "MAIN");
+        cardsContainer.add(algebraCard, "ALGEBRA_MENU");
         this.add(cardsContainer);
         CardLayout cl = (CardLayout)(cardsContainer.getLayout());
         cl.show(cardsContainer, "MAIN");

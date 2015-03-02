@@ -5,7 +5,7 @@ package mathsmate;
  */
 public class MathsMateApp {
     public static void main(String[] args) {
-        MainMenu m = new MainMenu();
+        MathsMate m = new MathsMate();
         m.setVisible(true);
     }
 }

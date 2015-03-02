@@ -5,14 +5,17 @@
  */
 package mathsmate;
 
+import java.awt.CardLayout;
+import java.awt.LayoutManager;
+
 /**
  *
  * @author Aaron
  */
-public class MainMenu extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JPanel {
 
     /**
-     * Creates new form MainMenu
+     * Creates new form MainMenuPanel
      */
     public MainMenu() {
         initComponents();
@@ -28,35 +31,25 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         mainMenuPanel = new javax.swing.JPanel();
-        titleLbl = new javax.swing.JLabel();
+        copyrightLbl = new javax.swing.JLabel();
         algebraBtn = new javax.swing.JButton();
         trigBtn = new javax.swing.JButton();
         geoBtn = new javax.swing.JButton();
         extrasBtn = new javax.swing.JButton();
-        copyrightLbl = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Maths Mate");
-        setBackground(new java.awt.Color(52, 152, 219));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(400, 640));
-        setMinimumSize(new java.awt.Dimension(400, 640));
-        setPreferredSize(new java.awt.Dimension(400, 640));
-        setResizable(false);
-        getContentPane().setLayout(null);
+        titleLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
         mainMenuPanel.setLayout(null);
 
-        titleLbl.setBackground(new java.awt.Color(255, 255, 255));
-        titleLbl.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        titleLbl.setForeground(new java.awt.Color(255, 255, 255));
-        titleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLbl.setText("Copyright © 2015 | Maths Mate");
-        titleLbl.setAlignmentY(0.0F);
-        mainMenuPanel.add(titleLbl);
-        titleLbl.setBounds(30, 580, 340, 30);
+        copyrightLbl.setBackground(new java.awt.Color(255, 255, 255));
+        copyrightLbl.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        copyrightLbl.setForeground(new java.awt.Color(255, 255, 255));
+        copyrightLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        copyrightLbl.setText("Copyright © 2015 | Maths Mate");
+        copyrightLbl.setAlignmentY(0.0F);
+        mainMenuPanel.add(copyrightLbl);
+        copyrightLbl.setBounds(30, 580, 340, 30);
 
         algebraBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/algebraIcon.png"))); // NOI18N
         algebraBtn.setAlignmentY(0.0F);
@@ -122,23 +115,37 @@ public class MainMenu extends javax.swing.JFrame {
         mainMenuPanel.add(extrasBtn);
         extrasBtn.setBounds(50, 360, 100, 130);
 
-        copyrightLbl.setBackground(new java.awt.Color(255, 255, 255));
-        copyrightLbl.setFont(new java.awt.Font("Calibri Light", 0, 60)); // NOI18N
-        copyrightLbl.setForeground(new java.awt.Color(255, 255, 255));
-        copyrightLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        copyrightLbl.setText("Maths Mate");
-        copyrightLbl.setAlignmentY(0.0F);
-        mainMenuPanel.add(copyrightLbl);
-        copyrightLbl.setBounds(50, 30, 307, 74);
+        titleLbl.setBackground(new java.awt.Color(255, 255, 255));
+        titleLbl.setFont(new java.awt.Font("Calibri Light", 0, 60)); // NOI18N
+        titleLbl.setForeground(new java.awt.Color(255, 255, 255));
+        titleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLbl.setText("Maths Mate");
+        titleLbl.setAlignmentY(0.0F);
+        mainMenuPanel.add(titleLbl);
+        titleLbl.setBounds(50, 30, 307, 74);
 
-        getContentPane().add(mainMenuPanel);
-        mainMenuPanel.setBounds(0, 0, 400, 640);
-
-        pack();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void algebraBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_algebraBtnActionPerformed
-        // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "TEST");
+        }
     }//GEN-LAST:event_algebraBtnActionPerformed
 
     private void trigBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trigBtnActionPerformed
@@ -153,40 +160,6 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_extrasBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainMenu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton algebraBtn;

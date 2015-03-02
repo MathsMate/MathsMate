@@ -12,12 +12,12 @@ import java.awt.LayoutManager;
  *
  * @author Aaron
  */
-public class AlgebraMenu extends javax.swing.JPanel {
+public class ExtrasMenu extends javax.swing.JPanel {
 
     /**
      * Creates new form AlgebraMenu
      */
-    public AlgebraMenu() {
+    public ExtrasMenu() {
         initComponents();
     }
 
@@ -34,9 +34,9 @@ public class AlgebraMenu extends javax.swing.JPanel {
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         titleLbl = new javax.swing.JLabel();
-        quizBtn = new javax.swing.JButton();
-        formulaBtn = new javax.swing.JButton();
-        notesBtn = new javax.swing.JButton();
+        pointsBtn = new javax.swing.JButton();
+        courseBtn = new javax.swing.JButton();
+        grindsBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
@@ -79,53 +79,53 @@ public class AlgebraMenu extends javax.swing.JPanel {
         mainMenuPanel.add(titleLbl);
         titleLbl.setBounds(50, 80, 310, 74);
 
-        quizBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/quizIcon.png"))); // NOI18N
-        quizBtn.setAlignmentY(0.0F);
-        quizBtn.setBorderPainted(false);
-        quizBtn.setContentAreaFilled(false);
-        quizBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        quizBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        quizBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        quizBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        quizBtn.addActionListener(new java.awt.event.ActionListener() {
+        pointsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/pointsIcon.png"))); // NOI18N
+        pointsBtn.setAlignmentY(0.0F);
+        pointsBtn.setBorderPainted(false);
+        pointsBtn.setContentAreaFilled(false);
+        pointsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pointsBtn.setMaximumSize(new java.awt.Dimension(100, 100));
+        pointsBtn.setMinimumSize(new java.awt.Dimension(100, 100));
+        pointsBtn.setPreferredSize(new java.awt.Dimension(100, 100));
+        pointsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quizBtnActionPerformed(evt);
+                pointsBtnActionPerformed(evt);
             }
         });
-        mainMenuPanel.add(quizBtn);
-        quizBtn.setBounds(50, 170, 310, 100);
+        mainMenuPanel.add(pointsBtn);
+        pointsBtn.setBounds(50, 170, 310, 100);
 
-        formulaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/formulaIcon.png"))); // NOI18N
-        formulaBtn.setAlignmentY(0.0F);
-        formulaBtn.setBorderPainted(false);
-        formulaBtn.setContentAreaFilled(false);
-        formulaBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        formulaBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        formulaBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        formulaBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        formulaBtn.addActionListener(new java.awt.event.ActionListener() {
+        courseBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/courseFinderIcon.png"))); // NOI18N
+        courseBtn.setAlignmentY(0.0F);
+        courseBtn.setBorderPainted(false);
+        courseBtn.setContentAreaFilled(false);
+        courseBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        courseBtn.setMaximumSize(new java.awt.Dimension(100, 100));
+        courseBtn.setMinimumSize(new java.awt.Dimension(100, 100));
+        courseBtn.setPreferredSize(new java.awt.Dimension(100, 100));
+        courseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formulaBtnActionPerformed(evt);
+                courseBtnActionPerformed(evt);
             }
         });
-        mainMenuPanel.add(formulaBtn);
-        formulaBtn.setBounds(50, 410, 310, 100);
+        mainMenuPanel.add(courseBtn);
+        courseBtn.setBounds(50, 410, 310, 100);
 
-        notesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/notesIcon.png"))); // NOI18N
-        notesBtn.setAlignmentY(0.0F);
-        notesBtn.setBorderPainted(false);
-        notesBtn.setContentAreaFilled(false);
-        notesBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        notesBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        notesBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        notesBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        notesBtn.addActionListener(new java.awt.event.ActionListener() {
+        grindsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/grindsFinderIcon.png"))); // NOI18N
+        grindsBtn.setAlignmentY(0.0F);
+        grindsBtn.setBorderPainted(false);
+        grindsBtn.setContentAreaFilled(false);
+        grindsBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grindsBtn.setMaximumSize(new java.awt.Dimension(100, 100));
+        grindsBtn.setMinimumSize(new java.awt.Dimension(100, 100));
+        grindsBtn.setPreferredSize(new java.awt.Dimension(100, 100));
+        grindsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                notesBtnActionPerformed(evt);
+                grindsBtnActionPerformed(evt);
             }
         });
-        mainMenuPanel.add(notesBtn);
-        notesBtn.setBounds(50, 290, 310, 100);
+        mainMenuPanel.add(grindsBtn);
+        grindsBtn.setBounds(50, 290, 310, 100);
 
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/backIcon.png"))); // NOI18N
         backBtn.setAlignmentY(0.0F);
@@ -146,7 +146,7 @@ public class AlgebraMenu extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Algebra Menu");
+        screenTitleLbl.setText("Extras Menu");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -179,17 +179,17 @@ public class AlgebraMenu extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
-    private void quizBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizBtnActionPerformed
+    private void pointsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pointsBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_quizBtnActionPerformed
+    }//GEN-LAST:event_pointsBtnActionPerformed
 
-    private void formulaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formulaBtnActionPerformed
+    private void courseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_formulaBtnActionPerformed
+    }//GEN-LAST:event_courseBtnActionPerformed
 
-    private void notesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notesBtnActionPerformed
+    private void grindsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grindsBtnActionPerformed
        
-    }//GEN-LAST:event_notesBtnActionPerformed
+    }//GEN-LAST:event_grindsBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
@@ -203,12 +203,12 @@ public class AlgebraMenu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
-    private javax.swing.JButton formulaBtn;
+    private javax.swing.JButton courseBtn;
+    private javax.swing.JButton grindsBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
-    private javax.swing.JButton notesBtn;
-    private javax.swing.JButton quizBtn;
+    private javax.swing.JButton pointsBtn;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables

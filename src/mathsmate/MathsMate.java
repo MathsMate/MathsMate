@@ -22,10 +22,16 @@ public class MathsMate extends javax.swing.JFrame {
         initComponents();
         MainMenu mainCard = new MainMenu();
         AlgebraMenu algebraCard = new AlgebraMenu();
+        GeometryMenu geometryCard = new GeometryMenu();
+        TrigMenu trigCard = new TrigMenu();
+        ExtrasMenu extrasCard = new ExtrasMenu();
         
         cardsContainer = new JPanel(new CardLayout());
         cardsContainer.add(mainCard, "MAIN");
         cardsContainer.add(algebraCard, "ALGEBRA_MENU");
+        cardsContainer.add(geometryCard, "GEOMETRY_MENU");
+        cardsContainer.add(trigCard, "TRIG_MENU");
+        cardsContainer.add(extrasCard, "EXTRAS_MENU");
         this.add(cardsContainer);
         CardLayout cl = (CardLayout)(cardsContainer.getLayout());
         cl.show(cardsContainer, "MAIN");
@@ -42,7 +48,9 @@ public class MathsMate extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maths Mate");
+        setAutoRequestFocus(false);
         setBackground(new java.awt.Color(52, 152, 219));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(400, 640));
         setMinimumSize(new java.awt.Dimension(400, 640));

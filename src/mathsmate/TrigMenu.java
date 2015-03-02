@@ -12,12 +12,12 @@ import java.awt.LayoutManager;
  *
  * @author Aaron
  */
-public class AlgebraMenu extends javax.swing.JPanel {
+public class TrigMenu extends javax.swing.JPanel {
 
     /**
      * Creates new form AlgebraMenu
      */
-    public AlgebraMenu() {
+    public TrigMenu() {
         initComponents();
     }
 
@@ -146,7 +146,7 @@ public class AlgebraMenu extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Algebra Menu");
+        screenTitleLbl.setText("Trig Menu");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 

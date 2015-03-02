@@ -34,8 +34,8 @@ public class MainMenu extends javax.swing.JPanel {
         copyrightLbl = new javax.swing.JLabel();
         algebraBtn = new javax.swing.JButton();
         trigBtn = new javax.swing.JButton();
-        geoBtn = new javax.swing.JButton();
         extrasBtn = new javax.swing.JButton();
+        geometryBtn = new javax.swing.JButton();
         titleLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
@@ -83,23 +83,7 @@ public class MainMenu extends javax.swing.JPanel {
         mainMenuPanel.add(trigBtn);
         trigBtn.setBounds(260, 150, 100, 130);
 
-        geoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/extraIcon.png"))); // NOI18N
-        geoBtn.setAlignmentY(0.0F);
-        geoBtn.setBorderPainted(false);
-        geoBtn.setContentAreaFilled(false);
-        geoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        geoBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        geoBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        geoBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        geoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                geoBtnActionPerformed(evt);
-            }
-        });
-        mainMenuPanel.add(geoBtn);
-        geoBtn.setBounds(260, 360, 100, 130);
-
-        extrasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/geomIcon.png"))); // NOI18N
+        extrasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/extraIcon.png"))); // NOI18N
         extrasBtn.setAlignmentY(0.0F);
         extrasBtn.setBorderPainted(false);
         extrasBtn.setContentAreaFilled(false);
@@ -113,7 +97,23 @@ public class MainMenu extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(extrasBtn);
-        extrasBtn.setBounds(50, 360, 100, 130);
+        extrasBtn.setBounds(260, 360, 100, 130);
+
+        geometryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/geomIcon.png"))); // NOI18N
+        geometryBtn.setAlignmentY(0.0F);
+        geometryBtn.setBorderPainted(false);
+        geometryBtn.setContentAreaFilled(false);
+        geometryBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        geometryBtn.setMaximumSize(new java.awt.Dimension(100, 100));
+        geometryBtn.setMinimumSize(new java.awt.Dimension(100, 100));
+        geometryBtn.setPreferredSize(new java.awt.Dimension(100, 100));
+        geometryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                geometryBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(geometryBtn);
+        geometryBtn.setBounds(50, 360, 100, 130);
 
         titleLbl.setBackground(new java.awt.Color(255, 255, 255));
         titleLbl.setFont(new java.awt.Font("Calibri Light", 0, 60)); // NOI18N
@@ -149,23 +149,35 @@ public class MainMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_algebraBtnActionPerformed
 
     private void trigBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trigBtnActionPerformed
-        // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "TRIG_MENU");
+        }
     }//GEN-LAST:event_trigBtnActionPerformed
 
-    private void geoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geoBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_geoBtnActionPerformed
-
     private void extrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extrasBtnActionPerformed
-        // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "EXTRAS_MENU");
+        }
     }//GEN-LAST:event_extrasBtnActionPerformed
+
+    private void geometryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geometryBtnActionPerformed
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "GEOMETRY_MENU");
+        }
+    }//GEN-LAST:event_geometryBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton algebraBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton extrasBtn;
-    private javax.swing.JButton geoBtn;
+    private javax.swing.JButton geometryBtn;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel titleLbl;
     private javax.swing.JButton trigBtn;

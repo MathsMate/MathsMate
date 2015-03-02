@@ -180,7 +180,11 @@ public class ExtrasMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void pointsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pointsBtnActionPerformed
-        // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "POINTS_CALC");
+        }
     }//GEN-LAST:event_pointsBtnActionPerformed
 
     private void courseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseBtnActionPerformed

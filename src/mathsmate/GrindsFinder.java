@@ -6,7 +6,9 @@
 package mathsmate;
 
 import java.awt.CardLayout;
+import java.awt.Desktop;
 import java.awt.LayoutManager;
+import java.net.URL;
 
 /**
  *
@@ -55,11 +57,42 @@ public class GrindsFinder extends javax.swing.JPanel {
         addressCheckBox = new javax.swing.JCheckBox();
         grindsScrollPane = new javax.swing.JScrollPane();
         grindsPanel = new javax.swing.JPanel();
-        grind1 = new javax.swing.JPanel();
-        grind2 = new javax.swing.JPanel();
-        grind3 = new javax.swing.JPanel();
-        grind4 = new javax.swing.JPanel();
-        grind5 = new javax.swing.JPanel();
+        pGrinds1 = new javax.swing.JPanel();
+        teacherLbl1 = new javax.swing.JLabel();
+        priceLbl1 = new javax.swing.JLabel();
+        phoneLbl1 = new javax.swing.JLabel();
+        websiteLbl1 = new javax.swing.JLabel();
+        iGrinds1 = new javax.swing.JPanel();
+        institutionLbl1 = new javax.swing.JLabel();
+        iAddressLbl1 = new javax.swing.JLabel();
+        placesLbl1 = new javax.swing.JLabel();
+        iPriceLbl1 = new javax.swing.JLabel();
+        iWebsiteLbl1 = new javax.swing.JLabel();
+        iPhoneLbl1 = new javax.swing.JLabel();
+        pGrinds2 = new javax.swing.JPanel();
+        teacherLbl2 = new javax.swing.JLabel();
+        priceLbl2 = new javax.swing.JLabel();
+        phoneLbl2 = new javax.swing.JLabel();
+        websiteLbl2 = new javax.swing.JLabel();
+        iGrinds2 = new javax.swing.JPanel();
+        institutionLbl2 = new javax.swing.JLabel();
+        iAddressLbl2 = new javax.swing.JLabel();
+        placesLbl2 = new javax.swing.JLabel();
+        iPriceLbl2 = new javax.swing.JLabel();
+        iWebsiteLbl2 = new javax.swing.JLabel();
+        iPhoneLbl2 = new javax.swing.JLabel();
+        iGrinds3 = new javax.swing.JPanel();
+        institutionLbl3 = new javax.swing.JLabel();
+        iAddressLbl3 = new javax.swing.JLabel();
+        placesLbl3 = new javax.swing.JLabel();
+        iPriceLbl3 = new javax.swing.JLabel();
+        iWebsiteLbl3 = new javax.swing.JLabel();
+        iPhoneLbl3 = new javax.swing.JLabel();
+        pGrinds3 = new javax.swing.JPanel();
+        teacherLbl3 = new javax.swing.JLabel();
+        priceLbl3 = new javax.swing.JLabel();
+        phoneLbl3 = new javax.swing.JLabel();
+        websiteLbl3 = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -182,121 +215,485 @@ public class GrindsFinder extends javax.swing.JPanel {
         mainMenuPanel.add(addressCheckBox);
         addressCheckBox.setBounds(360, 70, 20, 21);
 
+        grindsScrollPane.setBorder(null);
         grindsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        grindsScrollPane.setWheelScrollingEnabled(false);
 
         grindsPanel.setBackground(new java.awt.Color(52, 152, 219));
         grindsPanel.setLayout(new java.awt.GridBagLayout());
 
-        grind1.setBackground(new java.awt.Color(142, 68, 173));
-        grind1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        grind1.setMaximumSize(new java.awt.Dimension(340, 100));
-        grind1.setMinimumSize(new java.awt.Dimension(340, 100));
+        pGrinds1.setBackground(new java.awt.Color(142, 68, 173));
+        pGrinds1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pGrinds1.setMaximumSize(new java.awt.Dimension(340, 100));
+        pGrinds1.setMinimumSize(new java.awt.Dimension(340, 100));
+        pGrinds1.setPreferredSize(new java.awt.Dimension(400, 75));
+        pGrinds1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pGrinds1MouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout grind1Layout = new javax.swing.GroupLayout(grind1);
-        grind1.setLayout(grind1Layout);
-        grind1Layout.setHorizontalGroup(
-            grind1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+        teacherLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        teacherLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        teacherLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        teacherLbl1.setText("John Doe");
+
+        priceLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        priceLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        priceLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        priceLbl1.setText("€250/session");
+
+        phoneLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        phoneLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        phoneLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        phoneLbl1.setText("086-1234567");
+        phoneLbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                phoneLbl1MouseClicked(evt);
+            }
+        });
+
+        websiteLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        websiteLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        websiteLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        websiteLbl1.setText("www.jdgrinds.ie");
+
+        javax.swing.GroupLayout pGrinds1Layout = new javax.swing.GroupLayout(pGrinds1);
+        pGrinds1.setLayout(pGrinds1Layout);
+        pGrinds1Layout.setHorizontalGroup(
+            pGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pGrinds1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGrinds1Layout.createSequentialGroup()
+                        .addComponent(priceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(websiteLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                    .addGroup(pGrinds1Layout.createSequentialGroup()
+                        .addComponent(teacherLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(phoneLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(57, 57, 57))
         );
-        grind1Layout.setVerticalGroup(
-            grind1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        grindsPanel.add(grind1, new java.awt.GridBagConstraints());
-
-        grind2.setBackground(new java.awt.Color(142, 68, 173));
-        grind2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        grind2.setMaximumSize(new java.awt.Dimension(340, 100));
-        grind2.setMinimumSize(new java.awt.Dimension(340, 100));
-
-        javax.swing.GroupLayout grind2Layout = new javax.swing.GroupLayout(grind2);
-        grind2.setLayout(grind2Layout);
-        grind2Layout.setHorizontalGroup(
-            grind2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
-        grind2Layout.setVerticalGroup(
-            grind2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        pGrinds1Layout.setVerticalGroup(
+            pGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pGrinds1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teacherLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(websiteLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
-        grindsPanel.add(grind2, gridBagConstraints);
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
+        grindsPanel.add(pGrinds1, gridBagConstraints);
 
-        grind3.setBackground(new java.awt.Color(142, 68, 173));
-        grind3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        grind3.setMaximumSize(new java.awt.Dimension(340, 100));
-        grind3.setMinimumSize(new java.awt.Dimension(340, 100));
+        iGrinds1.setBackground(new java.awt.Color(142, 68, 173));
+        iGrinds1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iGrinds1.setMaximumSize(new java.awt.Dimension(340, 100));
+        iGrinds1.setMinimumSize(new java.awt.Dimension(340, 100));
+        iGrinds1.setPreferredSize(new java.awt.Dimension(400, 100));
+        iGrinds1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iGrinds1MouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout grind3Layout = new javax.swing.GroupLayout(grind3);
-        grind3.setLayout(grind3Layout);
-        grind3Layout.setHorizontalGroup(
-            grind3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+        institutionLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        institutionLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        institutionLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        institutionLbl1.setText("Irish Grinds Ltd.");
+
+        iAddressLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iAddressLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        iAddressLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        iAddressLbl1.setText("Finglas, Dublin 11");
+
+        placesLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        placesLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        placesLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        placesLbl1.setText("Places: 25");
+
+        iPriceLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iPriceLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        iPriceLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        iPriceLbl1.setText("Free");
+
+        iWebsiteLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iWebsiteLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        iWebsiteLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        iWebsiteLbl1.setText("www.irishgrinds.ie");
+
+        iPhoneLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iPhoneLbl1.setForeground(new java.awt.Color(255, 255, 255));
+        iPhoneLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        iPhoneLbl1.setText("086-1234567");
+
+        javax.swing.GroupLayout iGrinds1Layout = new javax.swing.GroupLayout(iGrinds1);
+        iGrinds1.setLayout(iGrinds1Layout);
+        iGrinds1Layout.setHorizontalGroup(
+            iGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iGrinds1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(iGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(iGrinds1Layout.createSequentialGroup()
+                        .addComponent(institutionLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(placesLbl1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iGrinds1Layout.createSequentialGroup()
+                        .addComponent(iAddressLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(iPriceLbl1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iGrinds1Layout.createSequentialGroup()
+                        .addComponent(iPhoneLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(iWebsiteLbl1)))
+                .addGap(57, 57, 57))
         );
-        grind3Layout.setVerticalGroup(
-            grind3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
-        grindsPanel.add(grind3, gridBagConstraints);
-
-        grind4.setBackground(new java.awt.Color(142, 68, 173));
-        grind4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        grind4.setMaximumSize(new java.awt.Dimension(340, 100));
-        grind4.setMinimumSize(new java.awt.Dimension(340, 100));
-
-        javax.swing.GroupLayout grind4Layout = new javax.swing.GroupLayout(grind4);
-        grind4.setLayout(grind4Layout);
-        grind4Layout.setHorizontalGroup(
-            grind4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
-        grind4Layout.setVerticalGroup(
-            grind4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        iGrinds1Layout.setVerticalGroup(
+            iGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iGrinds1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(iGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(institutionLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(placesLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(iGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iAddressLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iPriceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(iGrinds1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iWebsiteLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iPhoneLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
-        grindsPanel.add(grind4, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
+        grindsPanel.add(iGrinds1, gridBagConstraints);
 
-        grind5.setBackground(new java.awt.Color(142, 68, 173));
-        grind5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        grind5.setMaximumSize(new java.awt.Dimension(340, 100));
-        grind5.setMinimumSize(new java.awt.Dimension(340, 100));
+        pGrinds2.setBackground(new java.awt.Color(142, 68, 173));
+        pGrinds2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pGrinds2.setMaximumSize(new java.awt.Dimension(340, 100));
+        pGrinds2.setMinimumSize(new java.awt.Dimension(340, 100));
+        pGrinds2.setPreferredSize(new java.awt.Dimension(400, 75));
+        pGrinds2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pGrinds2MouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout grind5Layout = new javax.swing.GroupLayout(grind5);
-        grind5.setLayout(grind5Layout);
-        grind5Layout.setHorizontalGroup(
-            grind5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+        teacherLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        teacherLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        teacherLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        teacherLbl2.setText("John Doe");
+
+        priceLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        priceLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        priceLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        priceLbl2.setText("€250/session");
+
+        phoneLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        phoneLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        phoneLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        phoneLbl2.setText("086-1234567");
+
+        websiteLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        websiteLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        websiteLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        websiteLbl2.setText("www.jdgrinds.ie");
+
+        javax.swing.GroupLayout pGrinds2Layout = new javax.swing.GroupLayout(pGrinds2);
+        pGrinds2.setLayout(pGrinds2Layout);
+        pGrinds2Layout.setHorizontalGroup(
+            pGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pGrinds2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGrinds2Layout.createSequentialGroup()
+                        .addComponent(priceLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(websiteLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                    .addGroup(pGrinds2Layout.createSequentialGroup()
+                        .addComponent(teacherLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(phoneLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(57, 57, 57))
         );
-        grind5Layout.setVerticalGroup(
-            grind5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        pGrinds2Layout.setVerticalGroup(
+            pGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pGrinds2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teacherLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(websiteLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        grindsPanel.add(pGrinds2, gridBagConstraints);
+
+        iGrinds2.setBackground(new java.awt.Color(142, 68, 173));
+        iGrinds2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iGrinds2.setMaximumSize(new java.awt.Dimension(340, 100));
+        iGrinds2.setMinimumSize(new java.awt.Dimension(340, 100));
+        iGrinds2.setPreferredSize(new java.awt.Dimension(400, 100));
+        iGrinds2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iGrinds2MouseClicked(evt);
+            }
+        });
+
+        institutionLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        institutionLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        institutionLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        institutionLbl2.setText("Irish Grinds Ltd.");
+
+        iAddressLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iAddressLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        iAddressLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        iAddressLbl2.setText("Finglas, Dublin 11");
+
+        placesLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        placesLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        placesLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        placesLbl2.setText("Places: 25");
+
+        iPriceLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iPriceLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        iPriceLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        iPriceLbl2.setText("Free");
+
+        iWebsiteLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iWebsiteLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        iWebsiteLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        iWebsiteLbl2.setText("www.irishgrinds.ie");
+
+        iPhoneLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iPhoneLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        iPhoneLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        iPhoneLbl2.setText("086-1234567");
+
+        javax.swing.GroupLayout iGrinds2Layout = new javax.swing.GroupLayout(iGrinds2);
+        iGrinds2.setLayout(iGrinds2Layout);
+        iGrinds2Layout.setHorizontalGroup(
+            iGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iGrinds2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(iGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(iGrinds2Layout.createSequentialGroup()
+                        .addComponent(institutionLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(placesLbl2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iGrinds2Layout.createSequentialGroup()
+                        .addComponent(iAddressLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(iPriceLbl2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iGrinds2Layout.createSequentialGroup()
+                        .addComponent(iPhoneLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(iWebsiteLbl2)))
+                .addGap(57, 57, 57))
+        );
+        iGrinds2Layout.setVerticalGroup(
+            iGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iGrinds2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(iGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(institutionLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(placesLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(iGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iAddressLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iPriceLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(iGrinds2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iWebsiteLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iPhoneLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
-        grindsPanel.add(grind5, gridBagConstraints);
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
+        grindsPanel.add(iGrinds2, gridBagConstraints);
+
+        iGrinds3.setBackground(new java.awt.Color(142, 68, 173));
+        iGrinds3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iGrinds3.setMaximumSize(new java.awt.Dimension(340, 100));
+        iGrinds3.setMinimumSize(new java.awt.Dimension(340, 100));
+        iGrinds3.setPreferredSize(new java.awt.Dimension(400, 100));
+        iGrinds3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iGrinds3MouseClicked(evt);
+            }
+        });
+
+        institutionLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        institutionLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        institutionLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        institutionLbl3.setText("Irish Grinds Ltd.");
+
+        iAddressLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iAddressLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        iAddressLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        iAddressLbl3.setText("Finglas, Dublin 11");
+
+        placesLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        placesLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        placesLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        placesLbl3.setText("Places: 25");
+
+        iPriceLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iPriceLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        iPriceLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        iPriceLbl3.setText("Free");
+
+        iWebsiteLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iWebsiteLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        iWebsiteLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        iWebsiteLbl3.setText("www.irishgrinds.ie");
+
+        iPhoneLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        iPhoneLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        iPhoneLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        iPhoneLbl3.setText("086-1234567");
+
+        javax.swing.GroupLayout iGrinds3Layout = new javax.swing.GroupLayout(iGrinds3);
+        iGrinds3.setLayout(iGrinds3Layout);
+        iGrinds3Layout.setHorizontalGroup(
+            iGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iGrinds3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(iGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(iGrinds3Layout.createSequentialGroup()
+                        .addComponent(institutionLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(placesLbl3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iGrinds3Layout.createSequentialGroup()
+                        .addComponent(iAddressLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(iPriceLbl3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, iGrinds3Layout.createSequentialGroup()
+                        .addComponent(iPhoneLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(iWebsiteLbl3)))
+                .addGap(57, 57, 57))
+        );
+        iGrinds3Layout.setVerticalGroup(
+            iGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iGrinds3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(iGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(institutionLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(placesLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(iGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iAddressLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iPriceLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(iGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iWebsiteLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iPhoneLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
+        grindsPanel.add(iGrinds3, gridBagConstraints);
+
+        pGrinds3.setBackground(new java.awt.Color(142, 68, 173));
+        pGrinds3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pGrinds3.setMaximumSize(new java.awt.Dimension(340, 100));
+        pGrinds3.setMinimumSize(new java.awt.Dimension(340, 100));
+        pGrinds3.setPreferredSize(new java.awt.Dimension(400, 75));
+        pGrinds3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pGrinds3MouseClicked(evt);
+            }
+        });
+
+        teacherLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        teacherLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        teacherLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        teacherLbl3.setText("John Doe");
+
+        priceLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        priceLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        priceLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        priceLbl3.setText("€250/session");
+
+        phoneLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        phoneLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        phoneLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        phoneLbl3.setText("086-1234567");
+
+        websiteLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        websiteLbl3.setForeground(new java.awt.Color(255, 255, 255));
+        websiteLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        websiteLbl3.setText("www.jdgrinds.ie");
+
+        javax.swing.GroupLayout pGrinds3Layout = new javax.swing.GroupLayout(pGrinds3);
+        pGrinds3.setLayout(pGrinds3Layout);
+        pGrinds3Layout.setHorizontalGroup(
+            pGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pGrinds3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pGrinds3Layout.createSequentialGroup()
+                        .addComponent(priceLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(websiteLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                    .addGroup(pGrinds3Layout.createSequentialGroup()
+                        .addComponent(teacherLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(phoneLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(57, 57, 57))
+        );
+        pGrinds3Layout.setVerticalGroup(
+            pGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pGrinds3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teacherLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pGrinds3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(websiteLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
+        grindsPanel.add(pGrinds3, gridBagConstraints);
 
         grindsScrollPane.setViewportView(grindsPanel);
 
         mainMenuPanel.add(grindsScrollPane);
-        grindsScrollPane.setBounds(20, 190, 360, 390);
+        grindsScrollPane.setBounds(10, 190, 380, 390);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -342,6 +739,62 @@ public class GrindsFinder extends javax.swing.JPanel {
         addressTxtField.setEditable(addressCheckBox.isSelected());
     }//GEN-LAST:event_addressCheckBoxActionPerformed
 
+    private void pGrinds2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGrinds2MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_pGrinds2MouseClicked
+
+    private void iGrinds1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iGrinds1MouseClicked
+       try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_iGrinds1MouseClicked
+
+    private void phoneLbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phoneLbl1MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_phoneLbl1MouseClicked
+
+    private void iGrinds3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iGrinds3MouseClicked
+       try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_iGrinds3MouseClicked
+
+    private void pGrinds1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGrinds1MouseClicked
+       try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_pGrinds1MouseClicked
+
+    private void pGrinds3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pGrinds3MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_pGrinds3MouseClicked
+
+    private void iGrinds2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iGrinds2MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_iGrinds2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox addressCheckBox;
@@ -349,21 +802,46 @@ public class GrindsFinder extends javax.swing.JPanel {
     private javax.swing.JTextField addressTxtField;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
-    private javax.swing.JPanel grind1;
-    private javax.swing.JPanel grind2;
-    private javax.swing.JPanel grind3;
-    private javax.swing.JPanel grind4;
-    private javax.swing.JPanel grind5;
     private javax.swing.JPanel grindsPanel;
     private javax.swing.JScrollPane grindsScrollPane;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel iAddressLbl1;
+    private javax.swing.JLabel iAddressLbl2;
+    private javax.swing.JLabel iAddressLbl3;
+    private javax.swing.JPanel iGrinds1;
+    private javax.swing.JPanel iGrinds2;
+    private javax.swing.JPanel iGrinds3;
+    private javax.swing.JLabel iPhoneLbl1;
+    private javax.swing.JLabel iPhoneLbl2;
+    private javax.swing.JLabel iPhoneLbl3;
+    private javax.swing.JLabel iPriceLbl1;
+    private javax.swing.JLabel iPriceLbl2;
+    private javax.swing.JLabel iPriceLbl3;
+    private javax.swing.JLabel iWebsiteLbl1;
+    private javax.swing.JLabel iWebsiteLbl2;
+    private javax.swing.JLabel iWebsiteLbl3;
     private javax.swing.JCheckBox instituteCheckBox;
     private javax.swing.JLabel instituteFilterLbl;
     private javax.swing.JTextField instituteTxtField;
+    private javax.swing.JLabel institutionLbl1;
+    private javax.swing.JLabel institutionLbl2;
+    private javax.swing.JLabel institutionLbl3;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JPanel pGrinds1;
+    private javax.swing.JPanel pGrinds2;
+    private javax.swing.JPanel pGrinds3;
+    private javax.swing.JLabel phoneLbl1;
+    private javax.swing.JLabel phoneLbl2;
+    private javax.swing.JLabel phoneLbl3;
+    private javax.swing.JLabel placesLbl1;
+    private javax.swing.JLabel placesLbl2;
+    private javax.swing.JLabel placesLbl3;
     private javax.swing.JCheckBox priceCheckBox;
     private javax.swing.JLabel priceFilterLbl;
+    private javax.swing.JLabel priceLbl1;
+    private javax.swing.JLabel priceLbl2;
+    private javax.swing.JLabel priceLbl3;
     private javax.swing.JTextField priceTxtField;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.JButton searchBtn;
@@ -373,5 +851,11 @@ public class GrindsFinder extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
+    private javax.swing.JLabel teacherLbl1;
+    private javax.swing.JLabel teacherLbl2;
+    private javax.swing.JLabel teacherLbl3;
+    private javax.swing.JLabel websiteLbl1;
+    private javax.swing.JLabel websiteLbl2;
+    private javax.swing.JLabel websiteLbl3;
     // End of variables declaration//GEN-END:variables
 }

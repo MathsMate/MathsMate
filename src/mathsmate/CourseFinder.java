@@ -29,6 +29,7 @@ public class CourseFinder extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         subjectGroup1 = new javax.swing.ButtonGroup();
         subjectGroup2 = new javax.swing.ButtonGroup();
@@ -56,6 +57,12 @@ public class CourseFinder extends javax.swing.JPanel {
         addressCheckBox = new javax.swing.JCheckBox();
         searchBtn = new javax.swing.JButton();
         courseScrollPane = new javax.swing.JScrollPane();
+        coursePanel = new javax.swing.JPanel();
+        course1 = new javax.swing.JPanel();
+        course2 = new javax.swing.JPanel();
+        course3 = new javax.swing.JPanel();
+        course4 = new javax.swing.JPanel();
+        course5 = new javax.swing.JPanel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -197,8 +204,122 @@ public class CourseFinder extends javax.swing.JPanel {
         searchBtn.setText("Search");
         mainMenuPanel.add(searchBtn);
         searchBtn.setBounds(160, 190, 80, 23);
+
+        courseScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        coursePanel.setBackground(new java.awt.Color(52, 152, 219));
+        coursePanel.setLayout(new java.awt.GridBagLayout());
+
+        course1.setBackground(new java.awt.Color(142, 68, 173));
+        course1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        course1.setMaximumSize(new java.awt.Dimension(340, 100));
+        course1.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout course1Layout = new javax.swing.GroupLayout(course1);
+        course1.setLayout(course1Layout);
+        course1Layout.setHorizontalGroup(
+            course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        course1Layout.setVerticalGroup(
+            course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        coursePanel.add(course1, new java.awt.GridBagConstraints());
+
+        course2.setBackground(new java.awt.Color(142, 68, 173));
+        course2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        course2.setMaximumSize(new java.awt.Dimension(340, 100));
+        course2.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout course2Layout = new javax.swing.GroupLayout(course2);
+        course2.setLayout(course2Layout);
+        course2Layout.setHorizontalGroup(
+            course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        course2Layout.setVerticalGroup(
+            course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        coursePanel.add(course2, gridBagConstraints);
+
+        course3.setBackground(new java.awt.Color(142, 68, 173));
+        course3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        course3.setMaximumSize(new java.awt.Dimension(340, 100));
+        course3.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout course3Layout = new javax.swing.GroupLayout(course3);
+        course3.setLayout(course3Layout);
+        course3Layout.setHorizontalGroup(
+            course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        course3Layout.setVerticalGroup(
+            course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        coursePanel.add(course3, gridBagConstraints);
+
+        course4.setBackground(new java.awt.Color(142, 68, 173));
+        course4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        course4.setMaximumSize(new java.awt.Dimension(340, 100));
+        course4.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout course4Layout = new javax.swing.GroupLayout(course4);
+        course4.setLayout(course4Layout);
+        course4Layout.setHorizontalGroup(
+            course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        course4Layout.setVerticalGroup(
+            course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        coursePanel.add(course4, gridBagConstraints);
+
+        course5.setBackground(new java.awt.Color(142, 68, 173));
+        course5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        course5.setMaximumSize(new java.awt.Dimension(340, 100));
+        course5.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout course5Layout = new javax.swing.GroupLayout(course5);
+        course5.setLayout(course5Layout);
+        course5Layout.setHorizontalGroup(
+            course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        course5Layout.setVerticalGroup(
+            course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        coursePanel.add(course5, gridBagConstraints);
+
+        courseScrollPane.setViewportView(coursePanel);
+
         mainMenuPanel.add(courseScrollPane);
-        courseScrollPane.setBounds(20, 230, 360, 350);
+        courseScrollPane.setBounds(20, 220, 360, 360);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -255,6 +376,12 @@ public class CourseFinder extends javax.swing.JPanel {
     private javax.swing.JTextField addressTxtField;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JPanel course1;
+    private javax.swing.JPanel course2;
+    private javax.swing.JPanel course3;
+    private javax.swing.JPanel course4;
+    private javax.swing.JPanel course5;
+    private javax.swing.JPanel coursePanel;
     private javax.swing.JScrollPane courseScrollPane;
     private javax.swing.JButton homeBtn;
     private javax.swing.JCheckBox instituteCheckBox;

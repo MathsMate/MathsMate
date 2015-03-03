@@ -29,6 +29,7 @@ public class GrindsFinder extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         subjectGroup1 = new javax.swing.ButtonGroup();
         subjectGroup2 = new javax.swing.ButtonGroup();
@@ -53,6 +54,12 @@ public class GrindsFinder extends javax.swing.JPanel {
         instituteCheckBox = new javax.swing.JCheckBox();
         addressCheckBox = new javax.swing.JCheckBox();
         grindsScrollPane = new javax.swing.JScrollPane();
+        grindsPanel = new javax.swing.JPanel();
+        grind1 = new javax.swing.JPanel();
+        grind2 = new javax.swing.JPanel();
+        grind3 = new javax.swing.JPanel();
+        grind4 = new javax.swing.JPanel();
+        grind5 = new javax.swing.JPanel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -174,6 +181,120 @@ public class GrindsFinder extends javax.swing.JPanel {
         });
         mainMenuPanel.add(addressCheckBox);
         addressCheckBox.setBounds(360, 70, 20, 21);
+
+        grindsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        grindsPanel.setBackground(new java.awt.Color(52, 152, 219));
+        grindsPanel.setLayout(new java.awt.GridBagLayout());
+
+        grind1.setBackground(new java.awt.Color(142, 68, 173));
+        grind1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grind1.setMaximumSize(new java.awt.Dimension(340, 100));
+        grind1.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout grind1Layout = new javax.swing.GroupLayout(grind1);
+        grind1.setLayout(grind1Layout);
+        grind1Layout.setHorizontalGroup(
+            grind1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        grind1Layout.setVerticalGroup(
+            grind1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        grindsPanel.add(grind1, new java.awt.GridBagConstraints());
+
+        grind2.setBackground(new java.awt.Color(142, 68, 173));
+        grind2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grind2.setMaximumSize(new java.awt.Dimension(340, 100));
+        grind2.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout grind2Layout = new javax.swing.GroupLayout(grind2);
+        grind2.setLayout(grind2Layout);
+        grind2Layout.setHorizontalGroup(
+            grind2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        grind2Layout.setVerticalGroup(
+            grind2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        grindsPanel.add(grind2, gridBagConstraints);
+
+        grind3.setBackground(new java.awt.Color(142, 68, 173));
+        grind3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grind3.setMaximumSize(new java.awt.Dimension(340, 100));
+        grind3.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout grind3Layout = new javax.swing.GroupLayout(grind3);
+        grind3.setLayout(grind3Layout);
+        grind3Layout.setHorizontalGroup(
+            grind3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        grind3Layout.setVerticalGroup(
+            grind3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        grindsPanel.add(grind3, gridBagConstraints);
+
+        grind4.setBackground(new java.awt.Color(142, 68, 173));
+        grind4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grind4.setMaximumSize(new java.awt.Dimension(340, 100));
+        grind4.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout grind4Layout = new javax.swing.GroupLayout(grind4);
+        grind4.setLayout(grind4Layout);
+        grind4Layout.setHorizontalGroup(
+            grind4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        grind4Layout.setVerticalGroup(
+            grind4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        grindsPanel.add(grind4, gridBagConstraints);
+
+        grind5.setBackground(new java.awt.Color(142, 68, 173));
+        grind5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grind5.setMaximumSize(new java.awt.Dimension(340, 100));
+        grind5.setMinimumSize(new java.awt.Dimension(340, 100));
+
+        javax.swing.GroupLayout grind5Layout = new javax.swing.GroupLayout(grind5);
+        grind5.setLayout(grind5Layout);
+        grind5Layout.setHorizontalGroup(
+            grind5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        grind5Layout.setVerticalGroup(
+            grind5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 1, 0, 1);
+        grindsPanel.add(grind5, gridBagConstraints);
+
+        grindsScrollPane.setViewportView(grindsPanel);
+
         mainMenuPanel.add(grindsScrollPane);
         grindsScrollPane.setBounds(20, 190, 360, 390);
 
@@ -228,6 +349,12 @@ public class GrindsFinder extends javax.swing.JPanel {
     private javax.swing.JTextField addressTxtField;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JPanel grind1;
+    private javax.swing.JPanel grind2;
+    private javax.swing.JPanel grind3;
+    private javax.swing.JPanel grind4;
+    private javax.swing.JPanel grind5;
+    private javax.swing.JPanel grindsPanel;
     private javax.swing.JScrollPane grindsScrollPane;
     private javax.swing.JButton homeBtn;
     private javax.swing.JCheckBox instituteCheckBox;

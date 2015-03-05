@@ -103,7 +103,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        question1.setBackground(new java.awt.Color(137, 31, 168));
+        question1.setBackground(new java.awt.Color(142, 68, 173));
         question1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
 
         q1Lbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -115,7 +115,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         buttonGroup1.add(ans1RadBtn);
         ans1RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         ans1RadBtn.setForeground(new java.awt.Color(255, 255, 255));
-        ans1RadBtn.setText("  x = 7,   y = 3");
+        ans1RadBtn.setText("  y = 4,   x = 3");
         ans1RadBtn.setOpaque(false);
         ans1RadBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +137,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         buttonGroup1.add(ans3RadBtn);
         ans3RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         ans3RadBtn.setForeground(new java.awt.Color(255, 255, 255));
-        ans3RadBtn.setText("  x = 7,   y = 3");
+        ans3RadBtn.setText("  x = 6,   y = 1");
         ans3RadBtn.setOpaque(false);
         ans3RadBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

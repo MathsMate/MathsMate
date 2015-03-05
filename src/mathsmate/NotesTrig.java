@@ -99,7 +99,7 @@ public class NotesTrig extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Notes TRIG");
+        screenTitleLbl.setText("Trig Notes");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -114,17 +114,11 @@ public class NotesTrig extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -140,7 +134,7 @@ public class NotesTrig extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "MAIN");
+            cl.show(getParent(), "TRIG_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

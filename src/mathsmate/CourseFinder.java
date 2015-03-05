@@ -229,6 +229,11 @@ public class CourseFinder extends javax.swing.JPanel {
         addressCheckBox.setBounds(360, 70, 20, 21);
 
         searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(searchBtn);
         searchBtn.setBounds(160, 190, 80, 23);
 
@@ -701,6 +706,10 @@ public class CourseFinder extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }//GEN-LAST:event_course2MouseClicked
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

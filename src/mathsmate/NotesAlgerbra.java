@@ -100,7 +100,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Notes Algerbra");
+        screenTitleLbl.setText("Algebra Notes");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -140,7 +140,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "MAIN");
+            cl.show(getParent(), "ALGEBRA_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

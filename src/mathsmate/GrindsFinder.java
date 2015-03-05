@@ -100,7 +100,7 @@ public class GrindsFinder extends javax.swing.JPanel {
 
         searchBtn.setText("Search");
         mainMenuPanel.add(searchBtn);
-        searchBtn.setBounds(160, 160, 80, 23);
+        searchBtn.setBounds(160, 160, 80, 29);
 
         copyrightLbl.setBackground(new java.awt.Color(255, 255, 255));
         copyrightLbl.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
@@ -178,15 +178,15 @@ public class GrindsFinder extends javax.swing.JPanel {
 
         instituteTxtField.setEditable(false);
         mainMenuPanel.add(instituteTxtField);
-        instituteTxtField.setBounds(150, 130, 200, 20);
+        instituteTxtField.setBounds(150, 130, 200, 28);
 
         addressTxtField.setEditable(false);
         mainMenuPanel.add(addressTxtField);
-        addressTxtField.setBounds(150, 70, 200, 20);
+        addressTxtField.setBounds(150, 70, 200, 28);
 
         priceTxtField.setEditable(false);
         mainMenuPanel.add(priceTxtField);
-        priceTxtField.setBounds(150, 100, 200, 20);
+        priceTxtField.setBounds(150, 100, 200, 28);
 
         priceCheckBox.setContentAreaFilled(false);
         priceCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +195,7 @@ public class GrindsFinder extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(priceCheckBox);
-        priceCheckBox.setBounds(360, 100, 21, 21);
+        priceCheckBox.setBounds(360, 100, 28, 23);
 
         instituteCheckBox.setContentAreaFilled(false);
         instituteCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class GrindsFinder extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(instituteCheckBox);
-        instituteCheckBox.setBounds(360, 130, 21, 21);
+        instituteCheckBox.setBounds(360, 130, 28, 23);
 
         addressCheckBox.setContentAreaFilled(false);
         addressCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +213,7 @@ public class GrindsFinder extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(addressCheckBox);
-        addressCheckBox.setBounds(360, 70, 20, 21);
+        addressCheckBox.setBounds(360, 70, 20, 23);
 
         grindsScrollPane.setBorder(null);
         grindsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -693,7 +693,7 @@ public class GrindsFinder extends javax.swing.JPanel {
         grindsScrollPane.setViewportView(grindsPanel);
 
         mainMenuPanel.add(grindsScrollPane);
-        grindsScrollPane.setBounds(10, 190, 380, 390);
+        grindsScrollPane.setBounds(10, 200, 380, 390);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

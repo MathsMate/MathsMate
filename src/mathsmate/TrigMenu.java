@@ -180,11 +180,7 @@ public class TrigMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void quizBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizBtnActionPerformed
-        LayoutManager layout = getParent().getLayout();
-        if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "TRIG_QUIZ");
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_quizBtnActionPerformed
 
     private void formulaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formulaBtnActionPerformed
@@ -192,7 +188,11 @@ public class TrigMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_formulaBtnActionPerformed
 
     private void notesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notesBtnActionPerformed
-       
+         LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "TRIG_NOTES");
+        }
     }//GEN-LAST:event_notesBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

@@ -10,14 +10,14 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Aaron
+ * @author Elmo
  */
-public class AlgebraMenu extends javax.swing.JPanel {
+public class NotesGeometry extends javax.swing.JPanel {
 
     /**
      * Creates new form AlgebraMenu
      */
-    public AlgebraMenu() {
+    public NotesGeometry() {
         initComponents();
     }
 
@@ -30,16 +30,27 @@ public class AlgebraMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textField1 = new java.awt.TextField();
+        jLabel2 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jTextField1 = new javax.swing.JTextField();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
-        titleLbl = new javax.swing.JLabel();
-        quizBtn = new javax.swing.JButton();
-        formulaBtn = new javax.swing.JButton();
-        notesBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
+        textArea1 = new java.awt.TextArea();
+        jLabel3 = new javax.swing.JLabel();
+
+        textField1.setText("textField1");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Examples.fw.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        jTextField1.setText("jTextField1");
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -70,63 +81,6 @@ public class AlgebraMenu extends javax.swing.JPanel {
         mainMenuPanel.add(homeBtn);
         homeBtn.setBounds(300, 10, 80, 50);
 
-        titleLbl.setBackground(new java.awt.Color(255, 255, 255));
-        titleLbl.setFont(new java.awt.Font("Calibri Light", 0, 60)); // NOI18N
-        titleLbl.setForeground(new java.awt.Color(255, 255, 255));
-        titleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLbl.setText("Maths Mate");
-        titleLbl.setAlignmentY(0.0F);
-        mainMenuPanel.add(titleLbl);
-        titleLbl.setBounds(50, 80, 310, 74);
-
-        quizBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/quizIcon.png"))); // NOI18N
-        quizBtn.setAlignmentY(0.0F);
-        quizBtn.setBorderPainted(false);
-        quizBtn.setContentAreaFilled(false);
-        quizBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        quizBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        quizBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        quizBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        quizBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quizBtnActionPerformed(evt);
-            }
-        });
-        mainMenuPanel.add(quizBtn);
-        quizBtn.setBounds(50, 170, 310, 100);
-
-        formulaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/formulaIcon.png"))); // NOI18N
-        formulaBtn.setAlignmentY(0.0F);
-        formulaBtn.setBorderPainted(false);
-        formulaBtn.setContentAreaFilled(false);
-        formulaBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        formulaBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        formulaBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        formulaBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        formulaBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formulaBtnActionPerformed(evt);
-            }
-        });
-        mainMenuPanel.add(formulaBtn);
-        formulaBtn.setBounds(50, 410, 310, 100);
-
-        notesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/notesIcon.png"))); // NOI18N
-        notesBtn.setAlignmentY(0.0F);
-        notesBtn.setBorderPainted(false);
-        notesBtn.setContentAreaFilled(false);
-        notesBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        notesBtn.setMaximumSize(new java.awt.Dimension(100, 100));
-        notesBtn.setMinimumSize(new java.awt.Dimension(100, 100));
-        notesBtn.setPreferredSize(new java.awt.Dimension(100, 100));
-        notesBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                notesBtnActionPerformed(evt);
-            }
-        });
-        mainMenuPanel.add(notesBtn);
-        notesBtn.setBounds(50, 290, 310, 100);
-
         backBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/backIcon.png"))); // NOI18N
         backBtn.setAlignmentY(0.0F);
         backBtn.setBorderPainted(false);
@@ -146,7 +100,7 @@ public class AlgebraMenu extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Algebra Menu");
+        screenTitleLbl.setText("Notes Geometry ");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -154,6 +108,13 @@ public class AlgebraMenu extends javax.swing.JPanel {
         nameBg.setText("hello");
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
+        mainMenuPanel.add(textArea1);
+        textArea1.setBounds(40, 340, 330, 230);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Geometry Diagram.fw.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        mainMenuPanel.add(jLabel3);
+        jLabel3.setBounds(40, 30, 300, 310);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -179,22 +140,6 @@ public class AlgebraMenu extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
-    private void quizBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quizBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quizBtnActionPerformed
-
-    private void formulaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formulaBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formulaBtnActionPerformed
-
-    private void notesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notesBtnActionPerformed
-        LayoutManager layout = getParent().getLayout();
-        if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "ALGERBRA_NOTES");
-        }                                            
-    }//GEN-LAST:event_notesBtnActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
@@ -207,13 +152,17 @@ public class AlgebraMenu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
-    private javax.swing.JButton formulaBtn;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
-    private javax.swing.JButton notesBtn;
-    private javax.swing.JButton quizBtn;
     private javax.swing.JLabel screenTitleLbl;
-    private javax.swing.JLabel titleLbl;
+    private java.awt.TextArea textArea1;
+    private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,6 +40,13 @@ public class GeomQuiz extends javax.swing.JPanel {
         nxtBtn1 = new javax.swing.JButton();
         chkAnsBtn = new javax.swing.JButton();
         ansLbl = new javax.swing.JLabel();
+        q1GeomLbl = new javax.swing.JLabel();
+        multiAnsBox1 = new javax.swing.JComboBox();
+        multiAnsBox2 = new javax.swing.JComboBox();
+        multiAnsBox3 = new javax.swing.JComboBox();
+        geomPic1 = new javax.swing.JLabel();
+        geomPic2 = new javax.swing.JLabel();
+        geomPic3 = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -112,6 +119,26 @@ public class GeomQuiz extends javax.swing.JPanel {
         ansLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ansLbl.setText("Correct");
 
+        q1GeomLbl.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        q1GeomLbl.setForeground(new java.awt.Color(255, 255, 255));
+        q1GeomLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        q1GeomLbl.setText("Q1. Match the diagram to the answer");
+
+        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
+
+        multiAnsBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
+
+        multiAnsBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
+
+        geomPic1.setBackground(new java.awt.Color(255, 255, 255));
+        geomPic1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1GeomPic1.png")); // NOI18N
+
+        geomPic2.setBackground(new java.awt.Color(255, 255, 255));
+        geomPic2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1GeomPic1.png")); // NOI18N
+
+        geomPic3.setBackground(new java.awt.Color(255, 255, 255));
+        geomPic3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1GeomPic1.png")); // NOI18N
+
         javax.swing.GroupLayout question1Layout = new javax.swing.GroupLayout(question1);
         question1.setLayout(question1Layout);
         question1Layout.setHorizontalGroup(
@@ -119,20 +146,56 @@ public class GeomQuiz extends javax.swing.JPanel {
             .addGroup(question1Layout.createSequentialGroup()
                 .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(question1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(question1Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(question1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 10, Short.MAX_VALUE))
                     .addGroup(question1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(q1GeomLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(question1Layout.createSequentialGroup()
+                                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, question1Layout.createSequentialGroup()
+                                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(geomPic1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(geomPic2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(multiAnsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(multiAnsBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(question1Layout.createSequentialGroup()
+                                        .addComponent(geomPic3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(multiAnsBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(12, 12, 12)))))
+                .addContainerGap())
         );
         question1Layout.setVerticalGroup(
             question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(question1Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(ansLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(q1GeomLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(geomPic1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(multiAnsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(multiAnsBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(geomPic2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(geomPic3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(multiAnsBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(ansLbl)
                 .addGap(18, 18, 18)
                 .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,7 +204,7 @@ public class GeomQuiz extends javax.swing.JPanel {
         );
 
         mainMenuPanel.add(question1);
-        question1.setBounds(20, 80, 360, 430);
+        question1.setBounds(20, 80, 360, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -181,10 +244,17 @@ public class GeomQuiz extends javax.swing.JPanel {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton chkAnsBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JLabel geomPic1;
+    private javax.swing.JLabel geomPic2;
+    private javax.swing.JLabel geomPic3;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel mainMenuPanel;
+    private javax.swing.JComboBox multiAnsBox1;
+    private javax.swing.JComboBox multiAnsBox2;
+    private javax.swing.JComboBox multiAnsBox3;
     private javax.swing.JLabel nameBg;
     private javax.swing.JButton nxtBtn1;
+    private javax.swing.JLabel q1GeomLbl;
     private javax.swing.JPanel question1;
     private javax.swing.JLabel screenTitleLbl;
     // End of variables declaration//GEN-END:variables

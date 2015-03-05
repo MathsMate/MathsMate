@@ -30,6 +30,7 @@ public class TrigQuiz extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
@@ -40,6 +41,11 @@ public class TrigQuiz extends javax.swing.JPanel {
         nxtBtn1 = new javax.swing.JButton();
         chkAnsBtn = new javax.swing.JButton();
         ansLbl = new javax.swing.JLabel();
+        q1Lbl = new javax.swing.JLabel();
+        q1Pic = new javax.swing.JLabel();
+        ans1TrigLbl = new javax.swing.JRadioButton();
+        ans2TrigLbl = new javax.swing.JRadioButton();
+        ans3TrigLbl = new javax.swing.JRadioButton();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -112,6 +118,35 @@ public class TrigQuiz extends javax.swing.JPanel {
         ansLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ansLbl.setText("Correct");
 
+        q1Lbl.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        q1Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        q1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        q1Lbl.setText("Q1. Find x and H in the right triangle below");
+
+        q1Pic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        q1Pic.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1TrigPic.png")); // NOI18N
+
+        buttonGroup1.add(ans1TrigLbl);
+        ans1TrigLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ans1TrigLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ans1TrigLbl.setText("x = 10 / H = 13");
+        ans1TrigLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ans1TrigLbl.setOpaque(false);
+
+        buttonGroup1.add(ans2TrigLbl);
+        ans2TrigLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ans2TrigLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ans2TrigLbl.setText("x = 8 / H = 15");
+        ans2TrigLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ans2TrigLbl.setOpaque(false);
+
+        buttonGroup1.add(ans3TrigLbl);
+        ans3TrigLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ans3TrigLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ans3TrigLbl.setText("x = 11 / H = 12");
+        ans3TrigLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ans3TrigLbl.setOpaque(false);
+
         javax.swing.GroupLayout question1Layout = new javax.swing.GroupLayout(question1);
         question1.setLayout(question1Layout);
         question1Layout.setHorizontalGroup(
@@ -119,29 +154,52 @@ public class TrigQuiz extends javax.swing.JPanel {
             .addGroup(question1Layout.createSequentialGroup()
                 .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(question1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(q1Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(question1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(question1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(question1Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(question1Layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ans1TrigLbl)
+                                    .addComponent(ans2TrigLbl)
+                                    .addComponent(ans3TrigLbl)
+                                    .addComponent(q1Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         question1Layout.setVerticalGroup(
             question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(question1Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(ansLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(q1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(q1Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ans1TrigLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ans2TrigLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ans3TrigLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         mainMenuPanel.add(question1);
-        question1.setBounds(20, 80, 360, 430);
+        question1.setBounds(20, 80, 360, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -177,14 +235,20 @@ public class TrigQuiz extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton ans1TrigLbl;
+    private javax.swing.JRadioButton ans2TrigLbl;
+    private javax.swing.JRadioButton ans3TrigLbl;
     private javax.swing.JLabel ansLbl;
     private javax.swing.JButton backBtn;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton chkAnsBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
     private javax.swing.JButton nxtBtn1;
+    private javax.swing.JLabel q1Lbl;
+    private javax.swing.JLabel q1Pic;
     private javax.swing.JPanel question1;
     private javax.swing.JLabel screenTitleLbl;
     // End of variables declaration//GEN-END:variables

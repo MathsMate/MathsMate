@@ -10,7 +10,7 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Aaron
+ * @author Bernard Skerritt
  */
 public class AlgebraQuiz extends javax.swing.JPanel {
 
@@ -29,7 +29,6 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         mainMenuPanel = new javax.swing.JPanel();
@@ -113,6 +112,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         q1Lbl.setText("Q1. Solve {x+y = 10, x-y = 4}");
         q1Lbl.setAlignmentY(0.0F);
 
+        buttonGroup1.add(ans1RadBtn);
         ans1RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         ans1RadBtn.setForeground(new java.awt.Color(255, 255, 255));
         ans1RadBtn.setText("  x = 7,   y = 3");
@@ -123,6 +123,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
             }
         });
 
+        buttonGroup1.add(ans2RadBtn);
         ans2RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         ans2RadBtn.setForeground(new java.awt.Color(255, 255, 255));
         ans2RadBtn.setText("  x = 7,   y = 3");
@@ -133,6 +134,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
             }
         });
 
+        buttonGroup1.add(ans3RadBtn);
         ans3RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         ans3RadBtn.setForeground(new java.awt.Color(255, 255, 255));
         ans3RadBtn.setText("  x = 7,   y = 3");

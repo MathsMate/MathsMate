@@ -6,18 +6,20 @@
 package mathsmate;
 
 import java.awt.CardLayout;
+import java.awt.Desktop;
 import java.awt.LayoutManager;
+import java.net.URL;
 
 /**
  *
- * @author Elmo
+ * @author Ian Donnelly X14111659
  */
-public class NotesAlgerbra extends javax.swing.JPanel {
+public class AlgebraFormula extends javax.swing.JPanel {
 
     /**
      * Creates new form AlgebraMenu
      */
-    public NotesAlgerbra() {
+    public AlgebraFormula() {
         initComponents();
     }
 
@@ -29,28 +31,20 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        textField1 = new java.awt.TextField();
-        jLabel2 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jTextField1 = new javax.swing.JTextField();
+        subjectGroup1 = new javax.swing.ButtonGroup();
+        subjectGroup2 = new javax.swing.ButtonGroup();
+        subjectGroup3 = new javax.swing.ButtonGroup();
+        subjectGroup4 = new javax.swing.ButtonGroup();
+        subjectGroup5 = new javax.swing.ButtonGroup();
+        subjectGroup6 = new javax.swing.ButtonGroup();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
-        jLabel1 = new javax.swing.JLabel();
-
-        textField1.setText("textField1");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Examples.fw.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-
-        jTextField1.setText("jTextField1");
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -100,7 +94,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Algebra Notes");
+        screenTitleLbl.setText("Algebra Formula");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -108,33 +102,22 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         nameBg.setText("hello");
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
-        mainMenuPanel.add(textArea1);
-        textArea1.setBounds(50, 100, 310, 280);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/algerbra Equation.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        mainMenuPanel.add(jLabel1);
-        jLabel1.setBounds(50, 430, 300, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        LayoutManager layout = getParent().getLayout();
-        if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "MAIN");
-        }
-    }//GEN-LAST:event_homeBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
@@ -144,21 +127,27 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "MAIN");
+        }
+    }//GEN-LAST:event_homeBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
     private javax.swing.JLabel screenTitleLbl;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextField textField1;
+    private javax.swing.ButtonGroup subjectGroup1;
+    private javax.swing.ButtonGroup subjectGroup2;
+    private javax.swing.ButtonGroup subjectGroup3;
+    private javax.swing.ButtonGroup subjectGroup4;
+    private javax.swing.ButtonGroup subjectGroup5;
+    private javax.swing.ButtonGroup subjectGroup6;
     // End of variables declaration//GEN-END:variables
 }

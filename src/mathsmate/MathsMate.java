@@ -34,6 +34,9 @@ public class MathsMate extends javax.swing.JFrame {
         AlgebraQuiz algebraQuizCard = new AlgebraQuiz();
         GeomQuiz geomQuizCard = new GeomQuiz();
         TrigQuiz trigQuizCard = new TrigQuiz();
+        AlgebraFormula algebraFormCard = new AlgebraFormula();
+        TrigFormula trigFormCard = new TrigFormula();
+        GeometryFormula geometryFormCard = new GeometryFormula();
         
         cardsContainer = new JPanel(new CardLayout());
         cardsContainer.add(mainCard, "MAIN");
@@ -50,6 +53,9 @@ public class MathsMate extends javax.swing.JFrame {
         cardsContainer.add(algebraQuizCard, "ALGEBRA_QUIZ");
         cardsContainer.add(geomQuizCard, "GEOMETRY_QUIZ");
         cardsContainer.add(trigQuizCard, "TRIG_QUIZ");
+        cardsContainer.add(algebraFormCard, "ALGEBRA_FORMULA");
+        cardsContainer.add(trigFormCard, "TRIG_FORM");
+        cardsContainer.add(geometryFormCard, "GEOMETRY_FORM");
         this.add(cardsContainer);
         CardLayout cl = (CardLayout)(cardsContainer.getLayout());
         cl.show(cardsContainer, "MAIN");

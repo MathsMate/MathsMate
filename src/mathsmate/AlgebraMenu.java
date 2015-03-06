@@ -10,7 +10,7 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Aaron
+ * @author Aaron/Ian Donnelly x14111659
  */
 public class AlgebraMenu extends javax.swing.JPanel {
 
@@ -189,6 +189,11 @@ public class AlgebraMenu extends javax.swing.JPanel {
 
     private void formulaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formulaBtnActionPerformed
         // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "ALGEBRA_FORMULA");
+        }
     }//GEN-LAST:event_formulaBtnActionPerformed
 
     private void notesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notesBtnActionPerformed

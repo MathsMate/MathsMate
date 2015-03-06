@@ -46,6 +46,7 @@ public class TrigFormula extends javax.swing.JPanel {
         nameBg = new javax.swing.JLabel();
         videoLbl = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        trigFormula = new javax.swing.JLabel();
         nextBtn = new javax.swing.JButton();
         previousBtn = new javax.swing.JButton();
 
@@ -115,18 +116,21 @@ public class TrigFormula extends javax.swing.JPanel {
         mainMenuPanel.add(videoLbl);
         videoLbl.setBounds(100, 80, 200, 40);
 
-        jPanel1.setBackground(new java.awt.Color(142, 68, 173));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        trigFormula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Trig_Formula.png"))); // NOI18N
+        trigFormula.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addComponent(trigFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 354, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 264, Short.MAX_VALUE)
+            .addComponent(trigFormula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
         );
 
         mainMenuPanel.add(jPanel1);
@@ -200,6 +204,7 @@ public class TrigFormula extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
+    private javax.swing.JLabel trigFormula;
     private javax.swing.JLabel videoLbl;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,7 +49,7 @@ public class MainMenu extends javax.swing.JPanel {
         copyrightLbl.setText("Copyright © 2015 | Maths Mate");
         copyrightLbl.setAlignmentY(0.0F);
         mainMenuPanel.add(copyrightLbl);
-        copyrightLbl.setBounds(30, 580, 340, 30);
+        copyrightLbl.setBounds(20, 580, 350, 30);
 
         algebraBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/algebraIcon.png"))); // NOI18N
         algebraBtn.setAlignmentY(0.0F);
@@ -81,7 +81,7 @@ public class MainMenu extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(trigBtn);
-        trigBtn.setBounds(260, 150, 100, 130);
+        trigBtn.setBounds(250, 150, 100, 130);
 
         extrasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/extraIcon.png"))); // NOI18N
         extrasBtn.setAlignmentY(0.0F);
@@ -97,7 +97,7 @@ public class MainMenu extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(extrasBtn);
-        extrasBtn.setBounds(260, 360, 100, 130);
+        extrasBtn.setBounds(250, 360, 100, 130);
 
         geometryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/geomIcon.png"))); // NOI18N
         geometryBtn.setAlignmentY(0.0F);

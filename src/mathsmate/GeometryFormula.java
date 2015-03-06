@@ -122,7 +122,7 @@ public class GeometryFormula extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "EXTRAS_MENU");
+            cl.show(getParent(), "GEOMETRY_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

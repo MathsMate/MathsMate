@@ -123,7 +123,7 @@ public class AlgebraFormula extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "EXTRAS_MENU");
+            cl.show(getParent(), "ALGEBRA_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

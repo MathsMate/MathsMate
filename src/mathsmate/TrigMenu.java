@@ -10,7 +10,7 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Aaron
+ * @author Aaron Meaney / Bernard Skerritt
  */
 public class TrigMenu extends javax.swing.JPanel {
 

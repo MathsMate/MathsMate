@@ -189,6 +189,11 @@ public class TrigMenu extends javax.swing.JPanel {
 
     private void formulaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formulaBtnActionPerformed
         // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "TRIG_FORM");
+        }
     }//GEN-LAST:event_formulaBtnActionPerformed
 
     private void notesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notesBtnActionPerformed

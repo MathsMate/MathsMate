@@ -36,14 +36,16 @@ public class NotesGeometry extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jTextField1 = new javax.swing.JTextField();
+        textArea1 = new java.awt.TextArea();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         textField1.setText("textField1");
 
@@ -108,13 +110,19 @@ public class NotesGeometry extends javax.swing.JPanel {
         nameBg.setText("hello");
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
-        mainMenuPanel.add(textArea1);
-        textArea1.setBounds(40, 340, 330, 230);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Geometry Diagram.fw.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         mainMenuPanel.add(jLabel3);
         jLabel3.setBounds(40, 30, 300, 310);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Cons\nonantia, there live the blind texts. Separ\nated they live in Bookmarksgrove right at th\ne coast of the Semantics, a large language o\ncean. A small river named Duden flows by th\neir place and supplies it with the necessa\nry regelialia. It is a paradisematic country, in which r\noasted parts of sentences fly into your mo\nuth. Even the all-powerful Pointing has\n no control about the blind texts it \nis an almost unorthographic life One d\nay however a small line of blind text by\n the name of Lorem Ipsum decided to leave f\nor the far World of Grammar. The Big Ox\nmox advised her not to do so, because ther\ne were thousands of bad Commas, wild Ques\ntion Marks and devious Semikoli, but the\n Little Blind Text didn’t listen. She \npacked her seven versalia, put her initi\nal into the belt an\nd \nma\n,,,,");
+        jScrollPane4.setViewportView(jTextArea2);
+
+        mainMenuPanel.add(jScrollPane4);
+        jScrollPane4.setBounds(30, 340, 330, 230);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -157,7 +165,9 @@ public class NotesGeometry extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;

@@ -36,14 +36,16 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jTextField1 = new javax.swing.JTextField();
+        textArea1 = new java.awt.TextArea();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         textField1.setText("textField1");
 
@@ -108,13 +110,19 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         nameBg.setText("hello");
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
-        mainMenuPanel.add(textArea1);
-        textArea1.setBounds(50, 100, 310, 280);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/algerbra Equation.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         mainMenuPanel.add(jLabel1);
         jLabel1.setBounds(50, 430, 300, 90);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Con\nsonantia, there live the blind texts. Se\nparated they live in Bookmarksgrove right at \nthe coast of the Semantics, a large languag\ne ocean. A small river named Duden flo\nws by their place and supplies it with t\nhe necessary regelialia. It is a paradisem\natic country, in which roasted parts\n of sentences fly into your mouth. Even t\\h\ne all-powerful Pointing has no control ab\nout the blind texts it is an almost unorth\nographic life One day however a small lin\ne of blind text by the name of Lorem Ips\num decided to leave for the far World of G\nrammar. The Big Oxmox advised her no\nt to do so, because there were thou\nsands of bad Commas, wild Question \nMarks and devious Semikoli, but the Li\nttle Blind Text didn’t listen. She pac\nked her seven versalia, put her initia\nl into the belt and \n\nma");
+        jScrollPane3.setViewportView(jTextArea1);
+
+        mainMenuPanel.add(jScrollPane3);
+        jScrollPane3.setBounds(40, 70, 320, 340);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,7 +161,9 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;

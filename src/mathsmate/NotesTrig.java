@@ -36,13 +36,15 @@ public class NotesTrig extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jTextField1 = new javax.swing.JTextField();
+        textArea1 = new java.awt.TextArea();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         textField1.setText("textField1");
 
@@ -107,8 +109,14 @@ public class NotesTrig extends javax.swing.JPanel {
         nameBg.setText("hello");
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
-        mainMenuPanel.add(textArea1);
-        textArea1.setBounds(50, 140, 300, 440);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Far far away, behind the word \nmountains, far from the countries V\nokalia and Consonantia, there live \nthe blind texts. Separated they live\n in Bookmarksgrove right at the coast\n of the Semantics, a large language o\ncean. A small river named Duden flow\ns by their place and supplies it \nwith the necessary regelialia. I\nt is a paradisematic country, in w\nhich roasted parts of sentences fly into y\nour mouth. Even the all-powerful \nPointing has no control about the \nblind texts it is an almost unorthog\nraphic life One day however a small \nline of blind text by the name of Lorem Ip\nsum decided to leave for the far World of Grammar. \nThe Big Oxmox advised her not to \ndo so, because there were thousands \nof bad Commas, wild Question Marks\n and devious Semikoli, but the Lit\ntle Blind Text didn’t listen. She p\nacked her seven versalia, put her\n initial into the belt and \n\n\n,,,\n,,,\n\nma");
+        jScrollPane3.setViewportView(jTextArea1);
+
+        mainMenuPanel.add(jScrollPane3);
+        jScrollPane3.setBounds(60, 110, 280, 420);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -146,7 +154,9 @@ public class NotesTrig extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;

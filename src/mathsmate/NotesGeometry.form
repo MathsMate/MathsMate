@@ -30,6 +30,8 @@
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
     </Component>
+    <Component class="java.awt.TextArea" name="textArea1">
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -187,13 +189,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.TextArea" name="textArea1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="340" width="330" height="230"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -207,6 +202,27 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="340" width="330" height="230"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea2">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="Far far away, behind the word mountains,&#xa; far from the countries Vokalia and Cons&#xa;onantia, there live the blind texts. Separ&#xa;ated they live in Bookmarksgrove right at th&#xa;e coast of the Semantics, a large language o&#xa;cean. A small river named Duden flows by th&#xa;eir place and supplies it with the necessa&#xa;ry regelialia. It is a paradisematic country, in which r&#xa;oasted parts of sentences fly into your mo&#xa;uth. Even the all-powerful Pointing has&#xa; no control about the blind texts it &#xa;is an almost unorthographic life One d&#xa;ay however a small line of blind text by&#xa; the name of Lorem Ipsum decided to leave f&#xa;or the far World of Grammar. The Big Ox&#xa;mox advised her not to do so, because ther&#xa;e were thousands of bad Commas, wild Ques&#xa;tion Marks and devious Semikoli, but the&#xa; Little Blind Text didn&#x2019;t listen. She &#xa;packed her seven versalia, put her initi&#xa;al into the belt an&#xa;d &#xa;ma&#xa;,,,,"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

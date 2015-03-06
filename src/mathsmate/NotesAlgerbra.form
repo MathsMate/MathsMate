@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
 
@@ -29,6 +29,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
+    </Component>
+    <Component class="java.awt.TextArea" name="textArea1">
     </Component>
   </NonVisualComponents>
   <AuxValues>
@@ -181,13 +183,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.TextArea" name="textArea1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="100" width="310" height="280"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -201,6 +196,27 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="40" y="70" width="320" height="340"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="Far far away, behind the word mountains,&#xa; far from the countries Vokalia and Con&#xa;sonantia, there live the blind texts. Se&#xa;parated they live in Bookmarksgrove right at &#xa;the coast of the Semantics, a large languag&#xa;e ocean. A small river named Duden flo&#xa;ws by their place and supplies it with t&#xa;he necessary regelialia. It is a paradisem&#xa;atic country, in which roasted parts&#xa; of sentences fly into your mouth. Even t\u005ch&#xa;e all-powerful Pointing has no control ab&#xa;out the blind texts it is an almost unorth&#xa;ographic life One day however a small lin&#xa;e of blind text by the name of Lorem Ips&#xa;um decided to leave for the far World of G&#xa;rammar. The Big Oxmox advised her no&#xa;t to do so, because there were thou&#xa;sands of bad Commas, wild Question &#xa;Marks and devious Semikoli, but the Li&#xa;ttle Blind Text didn&#x2019;t listen. She pac&#xa;ked her seven versalia, put her initia&#xa;l into the belt and &#xa;&#xa;ma" containsInvalidXMLChars="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

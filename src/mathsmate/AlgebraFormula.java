@@ -6,9 +6,7 @@
 package mathsmate;
 
 import java.awt.CardLayout;
-import java.awt.Desktop;
 import java.awt.LayoutManager;
-import java.net.URL;
 
 /**
  *
@@ -31,7 +29,6 @@ public class AlgebraFormula extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         subjectGroup1 = new javax.swing.ButtonGroup();
         subjectGroup2 = new javax.swing.ButtonGroup();
@@ -45,6 +42,20 @@ public class AlgebraFormula extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
+        formula1JP = new javax.swing.JPanel();
+        mulPowJL = new javax.swing.JLabel();
+        mulPowFormJL = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        raisingPowJL = new javax.swing.JLabel();
+        raisingPowFormJL = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        prodPowJL = new javax.swing.JLabel();
+        prodPowFormJL = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        difPowJL = new javax.swing.JLabel();
+        difPowFormJL = new javax.swing.JLabel();
+        nextBtn = new javax.swing.JButton();
+        previousBtn = new javax.swing.JButton();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -103,6 +114,117 @@ public class AlgebraFormula extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
+        formula1JP.setBackground(new java.awt.Color(142, 68, 173));
+        formula1JP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        mulPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        mulPowJL.setForeground(new java.awt.Color(255, 255, 255));
+        mulPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mulPowJL.setText("Multiplying powers with the same base:");
+        mulPowJL.setPreferredSize(new java.awt.Dimension(270, 17));
+
+        mulPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        mulPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
+        mulPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mulPowFormJL.setText("x^a . x^b = x^a+b");
+
+        raisingPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        raisingPowJL.setForeground(new java.awt.Color(255, 255, 255));
+        raisingPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        raisingPowJL.setText("Raising a power to a power:");
+
+        raisingPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        raisingPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
+        raisingPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        raisingPowFormJL.setText("(x^a)^b = x^ab");
+
+        prodPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        prodPowJL.setForeground(new java.awt.Color(255, 255, 255));
+        prodPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prodPowJL.setText("Power of a product property:");
+
+        prodPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        prodPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
+        prodPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prodPowFormJL.setText("xy^a = x^a.y^a");
+
+        difPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        difPowJL.setForeground(new java.awt.Color(255, 255, 255));
+        difPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        difPowJL.setText("Difference of two squares:");
+
+        difPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        difPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
+        difPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        difPowFormJL.setText("(x+y)(y-x) = x^2 - y^2");
+
+        javax.swing.GroupLayout formula1JPLayout = new javax.swing.GroupLayout(formula1JP);
+        formula1JP.setLayout(formula1JPLayout);
+        formula1JPLayout.setHorizontalGroup(
+            formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formula1JPLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(difPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(raisingPowFormJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(mulPowJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(mulPowFormJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(jSeparator1)
+                        .addComponent(raisingPowJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(jSeparator2)
+                        .addComponent(prodPowJL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(prodPowFormJL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator3))
+                    .addComponent(difPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        formula1JPLayout.setVerticalGroup(
+            formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formula1JPLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(mulPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mulPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(raisingPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(raisingPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(prodPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prodPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(difPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(difPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        mainMenuPanel.add(formula1JP);
+        formula1JP.setBounds(20, 80, 360, 420);
+
+        nextBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nextBtn.setText("Next");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(nextBtn);
+        nextBtn.setBounds(260, 520, 89, 40);
+
+        previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        previousBtn.setText("Previous");
+        mainMenuPanel.add(previousBtn);
+        previousBtn.setBounds(50, 520, 120, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,13 +257,31 @@ public class AlgebraFormula extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JLabel difPowFormJL;
+    private javax.swing.JLabel difPowJL;
+    private javax.swing.JPanel formula1JP;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel mainMenuPanel;
+    private javax.swing.JLabel mulPowFormJL;
+    private javax.swing.JLabel mulPowJL;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JButton nextBtn;
+    private javax.swing.JButton previousBtn;
+    private javax.swing.JLabel prodPowFormJL;
+    private javax.swing.JLabel prodPowJL;
+    private javax.swing.JLabel raisingPowFormJL;
+    private javax.swing.JLabel raisingPowJL;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.ButtonGroup subjectGroup1;
     private javax.swing.ButtonGroup subjectGroup2;

@@ -131,13 +131,13 @@ public class GeomQuiz extends javax.swing.JPanel {
         multiAnsBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
 
         geomPic1.setBackground(new java.awt.Color(255, 255, 255));
-        geomPic1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1GeomPic1.png")); // NOI18N
+        geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
 
         geomPic2.setBackground(new java.awt.Color(255, 255, 255));
-        geomPic2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1GeomPic1.png")); // NOI18N
+        geomPic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
 
         geomPic3.setBackground(new java.awt.Color(255, 255, 255));
-        geomPic3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1GeomPic1.png")); // NOI18N
+        geomPic3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
 
         javax.swing.GroupLayout question1Layout = new javax.swing.GroupLayout(question1);
         question1.setLayout(question1Layout);

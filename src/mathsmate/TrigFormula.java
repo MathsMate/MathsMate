@@ -31,7 +31,6 @@ public class TrigFormula extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         subjectGroup1 = new javax.swing.ButtonGroup();
         subjectGroup2 = new javax.swing.ButtonGroup();
@@ -45,6 +44,10 @@ public class TrigFormula extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
+        videoLbl = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        nextBtn = new javax.swing.JButton();
+        previousBtn = new javax.swing.JButton();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -103,6 +106,47 @@ public class TrigFormula extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
+        videoLbl.setBackground(new java.awt.Color(142, 68, 173));
+        videoLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        videoLbl.setForeground(new java.awt.Color(255, 255, 255));
+        videoLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        videoLbl.setText("Right Angle Triangle:");
+        videoLbl.setOpaque(true);
+        mainMenuPanel.add(videoLbl);
+        videoLbl.setBounds(100, 80, 200, 40);
+
+        jPanel1.setBackground(new java.awt.Color(142, 68, 173));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 354, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 264, Short.MAX_VALUE)
+        );
+
+        mainMenuPanel.add(jPanel1);
+        jPanel1.setBounds(20, 150, 360, 270);
+
+        nextBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nextBtn.setText("Next");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(nextBtn);
+        nextBtn.setBounds(260, 520, 89, 40);
+
+        previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        previousBtn.setText("Previous");
+        mainMenuPanel.add(previousBtn);
+        previousBtn.setBounds(50, 520, 120, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,13 +179,20 @@ public class TrigFormula extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JButton nextBtn;
+    private javax.swing.JButton previousBtn;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.ButtonGroup subjectGroup1;
     private javax.swing.ButtonGroup subjectGroup2;
@@ -149,5 +200,6 @@ public class TrigFormula extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
+    private javax.swing.JLabel videoLbl;
     // End of variables declaration//GEN-END:variables
 }

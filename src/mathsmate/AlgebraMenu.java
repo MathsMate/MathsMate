@@ -10,7 +10,7 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Aaron/Ian Donnelly x14111659
+ * @author Aaron Meaney /Ian Donnelly x14111659
  */
 public class AlgebraMenu extends javax.swing.JPanel {
 

@@ -124,7 +124,7 @@ public class TrigQuiz extends javax.swing.JPanel {
         q1Lbl.setText("Q1. Find x and H in the right triangle below");
 
         q1Pic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        q1Pic.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leanne&Ben\\Desktop\\MathsMate\\q1TrigPic.png")); // NOI18N
+        q1Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1TrigPic.png"))); // NOI18N
 
         buttonGroup1.add(ans1TrigLbl);
         ans1TrigLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

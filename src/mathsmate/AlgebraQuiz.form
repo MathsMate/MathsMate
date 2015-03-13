@@ -263,7 +263,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  y = 4,   x = 3"/>
-                <Property name="opaque" type="boolean" value="false"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ans1RadBtnActionPerformed"/>
@@ -312,6 +312,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Next"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nxtBtn1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="chkAnsBtn">
               <Properties>
@@ -320,6 +323,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Check Answer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAnsBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ansLbl">
               <Properties>

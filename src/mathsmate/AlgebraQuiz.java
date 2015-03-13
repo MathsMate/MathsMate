@@ -17,8 +17,21 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     /**
      * Creates new form AlgebraMenu
      */
+    
+    int count;
+    AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array
+    AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "  y = 4,   x = 3", "  x = 7,   y = 3", "  x = 6,   y = 1", 2); //Question 1 object
+    AlgebraQuestion q2 = new AlgebraQuestion("What is 2+2?", "3", "4", "5", 2);
+    AlgebraQuestion q3 = new AlgebraQuestion("What 6*2?", "6", "2", "12", 3);
+    
     public AlgebraQuiz() {
         initComponents();
+        ansLbl.setText("");
+        nxtBtn1.setEnabled(false);
+        count = 0;
+        q[0] = q1;
+        q[1] = q2;
+        q[2] = q3;
     }
 
     /**
@@ -116,7 +129,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         ans1RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         ans1RadBtn.setForeground(new java.awt.Color(255, 255, 255));
         ans1RadBtn.setText("  y = 4,   x = 3");
-        ans1RadBtn.setOpaque(false);
+        ans1RadBtn.setContentAreaFilled(false);
         ans1RadBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ans1RadBtnActionPerformed(evt);
@@ -147,9 +160,19 @@ public class AlgebraQuiz extends javax.swing.JPanel {
 
         nxtBtn1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         nxtBtn1.setText("Next");
+        nxtBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nxtBtn1ActionPerformed(evt);
+            }
+        });
 
         chkAnsBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         chkAnsBtn.setText("Check Answer");
+        chkAnsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAnsBtnActionPerformed(evt);
+            }
+        });
 
         ansLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ansLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -238,7 +261,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void ans2RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans2RadBtnActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_ans2RadBtnActionPerformed
 
     private void ans1RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans1RadBtnActionPerformed
@@ -249,6 +272,23 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ans3RadBtnActionPerformed
 
+    private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
+        nxtBtn1.setEnabled(true);
+    }//GEN-LAST:event_chkAnsBtnActionPerformed
+
+    private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
+        nextQuestion();
+    }//GEN-LAST:event_nxtBtn1ActionPerformed
+
+    private void nextQuestion(){
+        count++;
+        q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
+        ans1RadBtn.setText(q[count].getA1());
+        ans2RadBtn.setText(q[count].getA2());
+        ans3RadBtn.setText(q[count].getA3());
+        nxtBtn1.setEnabled(false);
+        buttonGroup1.clearSelection();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton ans1RadBtn;

@@ -27,6 +27,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     public AlgebraQuiz() {
         initComponents();
         ansLbl.setText("");
+        chkAnsBtn.setEnabled(false);
         nxtBtn1.setEnabled(false);
         count = 0;
         q[0] = q1;
@@ -261,19 +262,31 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void ans2RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans2RadBtnActionPerformed
-       
+       chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans2RadBtnActionPerformed
 
     private void ans1RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans1RadBtnActionPerformed
-        // TODO add your handling code here:
+        chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans1RadBtnActionPerformed
 
     private void ans3RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans3RadBtnActionPerformed
-        // TODO add your handling code here:
+        chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans3RadBtnActionPerformed
 
     private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
         nxtBtn1.setEnabled(true);
+        ans1RadBtn.setEnabled(false);
+        ans2RadBtn.setEnabled(false);
+        ans3RadBtn.setEnabled(false);
+        if(ans1RadBtn.isSelected() && (q[count].getCorrectAns() == 1)){
+            ansLbl.setText("Correct!");
+        } else if(ans2RadBtn.isSelected() && (q[count].getCorrectAns() == 2)){
+            ansLbl.setText("Correct!");
+        } else if(ans3RadBtn.isSelected() && (q[count].getCorrectAns() == 3)){
+            ansLbl.setText("Correct!");
+        } else {
+            ansLbl.setText("Incorrect!");
+        }
     }//GEN-LAST:event_chkAnsBtnActionPerformed
 
     private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
@@ -286,7 +299,12 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         ans1RadBtn.setText(q[count].getA1());
         ans2RadBtn.setText(q[count].getA2());
         ans3RadBtn.setText(q[count].getA3());
+        ans1RadBtn.setEnabled(true);
+        ans2RadBtn.setEnabled(true);
+        ans3RadBtn.setEnabled(true);
         nxtBtn1.setEnabled(false);
+        ansLbl.setText("");
+        chkAnsBtn.setEnabled(false);
         buttonGroup1.clearSelection();
     }
 

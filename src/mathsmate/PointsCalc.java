@@ -7,6 +7,7 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,11 +15,28 @@ import java.awt.LayoutManager;
  */
 public class PointsCalc extends javax.swing.JPanel {
 
+    Subject[] subjectArr = new Subject[7];
+    Subject subject1 = new Subject("Choose a Subject", false, "A1", 0);
+    Subject subject2 = new Subject("Choose a Subject", false, "A1", 0);
+    Subject subject3 = new Subject("Choose a Subject", false, "A1", 0);
+    Subject subject4 = new Subject("Choose a Subject", false, "A1", 0);
+    Subject subject5 = new Subject("Choose a Subject", false, "A1", 0);
+    Subject subject6 = new Subject("Choose a Subject", false, "A1", 0);
+    Subject subject7 = new Subject("Choose a Subject", false, "A1", 0);
+
     /**
      * Creates new form AlgebraMenu
      */
     public PointsCalc() {
         initComponents();
+        subjectArr[0] = subject1;
+        subjectArr[1] = subject2;
+        subjectArr[2] = subject3;
+        subjectArr[3] = subject4;
+        subjectArr[4] = subject5;
+        subjectArr[5] = subject6;
+        subjectArr[6] = subject7;
+        errorLbl.setVisible(false);
     }
 
     /**
@@ -36,6 +54,7 @@ public class PointsCalc extends javax.swing.JPanel {
         subjectGroup4 = new javax.swing.ButtonGroup();
         subjectGroup5 = new javax.swing.ButtonGroup();
         subjectGroup6 = new javax.swing.ButtonGroup();
+        subjectGroup7 = new javax.swing.ButtonGroup();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
@@ -71,6 +90,11 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio6 = new javax.swing.JRadioButton();
         gradeBox6 = new javax.swing.JComboBox();
         calculateBtn = new javax.swing.JButton();
+        subjectBox7 = new javax.swing.JComboBox();
+        hlRadio7 = new javax.swing.JRadioButton();
+        olRadio7 = new javax.swing.JRadioButton();
+        gradeBox7 = new javax.swing.JComboBox();
+        errorLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -141,9 +165,9 @@ public class PointsCalc extends javax.swing.JPanel {
         pointsLbl.setFont(new java.awt.Font("Tahoma", 0, 72)); // NOI18N
         pointsLbl.setForeground(new java.awt.Color(255, 255, 255));
         pointsLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pointsLbl.setText("600 Points");
+        pointsLbl.setText("Ready!");
         mainMenuPanel.add(pointsLbl);
-        pointsLbl.setBounds(0, 470, 400, 70);
+        pointsLbl.setBounds(0, 490, 400, 90);
 
         subjectLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         subjectLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,7 +181,7 @@ public class PointsCalc extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        subjectBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
         subjectBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectBox1ActionPerformed(evt);
@@ -168,10 +192,16 @@ public class PointsCalc extends javax.swing.JPanel {
 
         subjectGroup1.add(hlRadio1);
         hlRadio1.setContentAreaFilled(false);
+        hlRadio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio1ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(hlRadio1);
         hlRadio1.setBounds(210, 100, 20, 21);
 
         subjectGroup1.add(olRadio1);
+        olRadio1.setSelected(true);
         olRadio1.setContentAreaFilled(false);
         olRadio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,10 +212,15 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio1.setBounds(240, 100, 20, 21);
 
         gradeBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox1ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(gradeBox1);
         gradeBox1.setBounds(290, 100, 80, 20);
 
-        subjectBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
         subjectBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectBox2ActionPerformed(evt);
@@ -196,10 +231,16 @@ public class PointsCalc extends javax.swing.JPanel {
 
         subjectGroup2.add(hlRadio2);
         hlRadio2.setContentAreaFilled(false);
+        hlRadio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio2ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(hlRadio2);
         hlRadio2.setBounds(210, 150, 20, 21);
 
         subjectGroup2.add(olRadio2);
+        olRadio2.setSelected(true);
         olRadio2.setContentAreaFilled(false);
         olRadio2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,10 +251,15 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio2.setBounds(240, 150, 20, 21);
 
         gradeBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox2ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(gradeBox2);
         gradeBox2.setBounds(290, 150, 80, 20);
 
-        subjectBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
         subjectBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectBox3ActionPerformed(evt);
@@ -224,10 +270,16 @@ public class PointsCalc extends javax.swing.JPanel {
 
         subjectGroup3.add(hlRadio3);
         hlRadio3.setContentAreaFilled(false);
+        hlRadio3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio3ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(hlRadio3);
         hlRadio3.setBounds(210, 200, 20, 21);
 
         subjectGroup3.add(olRadio3);
+        olRadio3.setSelected(true);
         olRadio3.setContentAreaFilled(false);
         olRadio3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,10 +290,15 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio3.setBounds(240, 200, 20, 21);
 
         gradeBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox3ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(gradeBox3);
         gradeBox3.setBounds(290, 200, 80, 20);
 
-        subjectBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
         subjectBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectBox4ActionPerformed(evt);
@@ -252,10 +309,16 @@ public class PointsCalc extends javax.swing.JPanel {
 
         subjectGroup4.add(hlRadio4);
         hlRadio4.setContentAreaFilled(false);
+        hlRadio4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio4ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(hlRadio4);
         hlRadio4.setBounds(210, 250, 20, 21);
 
         subjectGroup4.add(olRadio4);
+        olRadio4.setSelected(true);
         olRadio4.setContentAreaFilled(false);
         olRadio4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,10 +329,15 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio4.setBounds(240, 250, 20, 21);
 
         gradeBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox4ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(gradeBox4);
         gradeBox4.setBounds(290, 250, 80, 20);
 
-        subjectBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
         subjectBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectBox5ActionPerformed(evt);
@@ -280,10 +348,16 @@ public class PointsCalc extends javax.swing.JPanel {
 
         subjectGroup5.add(hlRadio5);
         hlRadio5.setContentAreaFilled(false);
+        hlRadio5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio5ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(hlRadio5);
         hlRadio5.setBounds(210, 300, 20, 21);
 
         subjectGroup5.add(olRadio5);
+        olRadio5.setSelected(true);
         olRadio5.setContentAreaFilled(false);
         olRadio5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,10 +368,15 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio5.setBounds(240, 300, 20, 21);
 
         gradeBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox5ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(gradeBox5);
         gradeBox5.setBounds(290, 300, 80, 20);
 
-        subjectBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
         subjectBox6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subjectBox6ActionPerformed(evt);
@@ -308,10 +387,16 @@ public class PointsCalc extends javax.swing.JPanel {
 
         subjectGroup6.add(hlRadio6);
         hlRadio6.setContentAreaFilled(false);
+        hlRadio6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio6ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(hlRadio6);
         hlRadio6.setBounds(210, 350, 20, 21);
 
         subjectGroup6.add(olRadio6);
+        olRadio6.setSelected(true);
         olRadio6.setContentAreaFilled(false);
         olRadio6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -322,12 +407,70 @@ public class PointsCalc extends javax.swing.JPanel {
         olRadio6.setBounds(240, 350, 20, 21);
 
         gradeBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox6ActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(gradeBox6);
         gradeBox6.setBounds(290, 350, 80, 20);
 
         calculateBtn.setText("Calculate Points");
+        calculateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateBtnActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(calculateBtn);
-        calculateBtn.setBounds(120, 430, 150, 23);
+        calculateBtn.setBounds(120, 460, 150, 23);
+
+        subjectBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose a Subject", "English", "Irish", "Maths", "Geography", "Technology", "French", "Applied Maths", "German", "Construction Studies", "Religion" }));
+        subjectBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subjectBox7ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(subjectBox7);
+        subjectBox7.setBounds(30, 400, 160, 20);
+
+        subjectGroup7.add(hlRadio7);
+        hlRadio7.setContentAreaFilled(false);
+        hlRadio7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlRadio7ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(hlRadio7);
+        hlRadio7.setBounds(210, 400, 20, 21);
+
+        subjectGroup7.add(olRadio7);
+        olRadio7.setSelected(true);
+        olRadio7.setContentAreaFilled(false);
+        olRadio7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                olRadio7ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(olRadio7);
+        olRadio7.setBounds(240, 400, 20, 21);
+
+        gradeBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3", "E", "F", "NG" }));
+        gradeBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradeBox7ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(gradeBox7);
+        gradeBox7.setBounds(290, 400, 80, 20);
+
+        errorLbl.setBackground(new java.awt.Color(255, 255, 255));
+        errorLbl.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        errorLbl.setForeground(new java.awt.Color(255, 255, 255));
+        errorLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorLbl.setText("Please enter at least 6 subjects!");
+        errorLbl.setAlignmentY(0.0F);
+        mainMenuPanel.add(errorLbl);
+        errorLbl.setBounds(30, 430, 340, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -348,7 +491,7 @@ public class PointsCalc extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
@@ -356,70 +499,162 @@ public class PointsCalc extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "EXTRAS_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void subjectBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox1ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[0].setSubjectName(subjectBox1.getSelectedItem().toString());
     }//GEN-LAST:event_subjectBox1ActionPerformed
 
     private void olRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio1ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[0].setIsHigher(false);
     }//GEN-LAST:event_olRadio1ActionPerformed
 
     private void subjectBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox2ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[1].setSubjectName(subjectBox2.getSelectedItem().toString());
     }//GEN-LAST:event_subjectBox2ActionPerformed
 
     private void olRadio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio2ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[1].setIsHigher(false);
     }//GEN-LAST:event_olRadio2ActionPerformed
 
     private void subjectBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox3ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[2].setSubjectName(subjectBox3.getSelectedItem().toString());
     }//GEN-LAST:event_subjectBox3ActionPerformed
 
     private void olRadio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio3ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[2].setIsHigher(false);
     }//GEN-LAST:event_olRadio3ActionPerformed
 
     private void subjectBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox4ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[3].setSubjectName(subjectBox4.getSelectedItem().toString());
     }//GEN-LAST:event_subjectBox4ActionPerformed
 
     private void olRadio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio4ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[3].setIsHigher(false);
     }//GEN-LAST:event_olRadio4ActionPerformed
 
     private void subjectBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox5ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[4].setSubjectName(subjectBox5.getSelectedItem().toString());
     }//GEN-LAST:event_subjectBox5ActionPerformed
 
     private void olRadio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio5ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[4].setIsHigher(false);
     }//GEN-LAST:event_olRadio5ActionPerformed
 
     private void subjectBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox6ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[5].setSubjectName(subjectBox6.getSelectedItem().toString());
     }//GEN-LAST:event_subjectBox6ActionPerformed
 
     private void olRadio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio6ActionPerformed
-        // TODO add your handling code here:
+        subjectArr[5].setIsHigher(false);
     }//GEN-LAST:event_olRadio6ActionPerformed
+
+    private void subjectBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectBox7ActionPerformed
+        subjectArr[6].setSubjectName(subjectBox7.getSelectedItem().toString());
+    }//GEN-LAST:event_subjectBox7ActionPerformed
+
+    private void olRadio7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_olRadio7ActionPerformed
+        subjectArr[6].setIsHigher(false);
+    }//GEN-LAST:event_olRadio7ActionPerformed
+
+    private void calculateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateBtnActionPerformed
+        int invalidCount = 0;
+        int points = 0;
+        int smallestNum = Integer.MAX_VALUE;
+        for (int i = 0; i < subjectArr.length; i++) {
+            if (subjectArr[i].getSubjectName().equals("Choose a Subject")) {
+                invalidCount++;
+            }
+            subjectArr[i].calculatePoints();
+            points += subjectArr[i].getPoints();
+            if(subjectArr[i].getPoints() < smallestNum){
+                smallestNum = subjectArr[i].getPoints();
+            }
+        }
+        if (invalidCount <= 1) {
+            points -= smallestNum;
+            if(points > 625){
+                points = 625;
+            }
+            pointsLbl.setText(points + " Points");
+            errorLbl.setVisible(false);
+        } else {
+            errorLbl.setVisible(true);
+        }
+    }//GEN-LAST:event_calculateBtnActionPerformed
+
+    private void hlRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio1ActionPerformed
+        subjectArr[0].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio1ActionPerformed
+
+    private void hlRadio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio2ActionPerformed
+        subjectArr[1].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio2ActionPerformed
+
+    private void hlRadio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio3ActionPerformed
+        subjectArr[2].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio3ActionPerformed
+
+    private void hlRadio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio4ActionPerformed
+        subjectArr[3].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio4ActionPerformed
+
+    private void hlRadio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio5ActionPerformed
+        subjectArr[4].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio5ActionPerformed
+
+    private void hlRadio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio6ActionPerformed
+        subjectArr[5].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio6ActionPerformed
+
+    private void hlRadio7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlRadio7ActionPerformed
+        subjectArr[0].setIsHigher(true);
+    }//GEN-LAST:event_hlRadio7ActionPerformed
+
+    private void gradeBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox1ActionPerformed
+        subjectArr[0].setGrade(gradeBox1.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox1ActionPerformed
+
+    private void gradeBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox2ActionPerformed
+        subjectArr[1].setGrade(gradeBox2.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox2ActionPerformed
+
+    private void gradeBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox3ActionPerformed
+        subjectArr[2].setGrade(gradeBox3.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox3ActionPerformed
+
+    private void gradeBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox4ActionPerformed
+        subjectArr[3].setGrade(gradeBox4.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox4ActionPerformed
+
+    private void gradeBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox5ActionPerformed
+        subjectArr[4].setGrade(gradeBox5.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox5ActionPerformed
+
+    private void gradeBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox6ActionPerformed
+        subjectArr[5].setGrade(gradeBox6.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox6ActionPerformed
+
+    private void gradeBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gradeBox7ActionPerformed
+        subjectArr[6].setGrade(gradeBox7.getSelectedItem().toString());
+    }//GEN-LAST:event_gradeBox7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton calculateBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JLabel errorLbl;
     private javax.swing.JComboBox gradeBox1;
     private javax.swing.JComboBox gradeBox2;
     private javax.swing.JComboBox gradeBox3;
     private javax.swing.JComboBox gradeBox4;
     private javax.swing.JComboBox gradeBox5;
     private javax.swing.JComboBox gradeBox6;
+    private javax.swing.JComboBox gradeBox7;
     private javax.swing.JLabel gradeLbl;
     private javax.swing.JRadioButton hlRadio1;
     private javax.swing.JRadioButton hlRadio2;
@@ -427,6 +662,7 @@ public class PointsCalc extends javax.swing.JPanel {
     private javax.swing.JRadioButton hlRadio4;
     private javax.swing.JRadioButton hlRadio5;
     private javax.swing.JRadioButton hlRadio6;
+    private javax.swing.JRadioButton hlRadio7;
     private javax.swing.JButton homeBtn;
     private javax.swing.JLabel levelLbl;
     private javax.swing.JPanel mainMenuPanel;
@@ -437,6 +673,7 @@ public class PointsCalc extends javax.swing.JPanel {
     private javax.swing.JRadioButton olRadio4;
     private javax.swing.JRadioButton olRadio5;
     private javax.swing.JRadioButton olRadio6;
+    private javax.swing.JRadioButton olRadio7;
     private javax.swing.JLabel pointsLbl;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.JComboBox subjectBox1;
@@ -445,12 +682,14 @@ public class PointsCalc extends javax.swing.JPanel {
     private javax.swing.JComboBox subjectBox4;
     private javax.swing.JComboBox subjectBox5;
     private javax.swing.JComboBox subjectBox6;
+    private javax.swing.JComboBox subjectBox7;
     private javax.swing.ButtonGroup subjectGroup1;
     private javax.swing.ButtonGroup subjectGroup2;
     private javax.swing.ButtonGroup subjectGroup3;
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
+    private javax.swing.ButtonGroup subjectGroup7;
     private javax.swing.JLabel subjectLbl;
     // End of variables declaration//GEN-END:variables
 }

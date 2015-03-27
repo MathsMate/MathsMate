@@ -21,8 +21,10 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     int count;
     AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array
     AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "  y = 4,   x = 3", "  x = 7,   y = 3", "  x = 6,   y = 1", 2); //Question 1 object
-    AlgebraQuestion q2 = new AlgebraQuestion("What is 2+2?", "3", "4", "5", 2);
-    AlgebraQuestion q3 = new AlgebraQuestion("What 6*2?", "6", "2", "12", 3);
+    AlgebraQuestion q2 = new AlgebraQuestion("What is 2+2?", "3", "4", "5", 2); //Question 2 object
+    AlgebraQuestion q3 = new AlgebraQuestion("What 6*2?", "6", "2", "12", 3); //Question 3 object
+    AlgebraQuestion q4 = new AlgebraQuestion("What 10/5?", "2", "8", "1", 1); //Question 4 object
+    AlgebraQuestion q5 = new AlgebraQuestion("What 20-4?", "16", "12", "19", 1); //Question 5 object
     
     public AlgebraQuiz() {
         initComponents();
@@ -33,6 +35,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         q[0] = q1;
         q[1] = q2;
         q[2] = q3;
+        q[3] = q4;
+        q[4] = q5;
     }
 
     /**

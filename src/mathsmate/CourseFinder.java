@@ -8,7 +8,9 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.text.ParseException;
 import java.util.ArrayList;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 public class CourseFinder extends javax.swing.JPanel {
 
     ArrayList<Course> courseList;
-    Course c1 = new Course("NCI", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
+    Course c1 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
     Course c2 = new Course("Waterford IT", "Waterford", "wit.ie", 2000, 405, 8, 4);
     Course c5 = new Course("Sligo IT", "Sligo", "itsligo.ie", 2000, 385, 6, 2);
     Course c6 = new Course("Royal College of Surgeons", "Dublin", "rcsi.ie", 3000, 600, 8, 2);
@@ -26,7 +28,7 @@ public class CourseFinder extends javax.swing.JPanel {
     Course c3 = new Course("University College Cork", "Cork", "ucc.ie", 2500, 405, 8, 4);
     Course c9 = new Course("Galway-Mayo IT", "Mayo", "gmit.ie", 2500, 385, 8, 4);
     Course c10 = new Course("Athlone IT", "Athlone", "ait.ie", 2000, 555, 7, 2);
-    Course c4 = new Course("NCI", "Dublin", "ncirl.ie", 1500, 385, 6, 2);
+    Course c4 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 1500, 385, 6, 2);
     
     public CourseFinder() {
         initComponents();
@@ -95,6 +97,7 @@ public class CourseFinder extends javax.swing.JPanel {
         searchBtn = new javax.swing.JButton();
         courseScrollPane = new javax.swing.JScrollPane();
         coursePanel = new javax.swing.JPanel();
+        resetBtn = new javax.swing.JButton();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -114,7 +117,7 @@ public class CourseFinder extends javax.swing.JPanel {
         instituteFilterLbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         instituteFilterLbl.setText("Institute Filter:");
         mainMenuPanel.add(instituteFilterLbl);
-        instituteFilterLbl.setBounds(20, 130, 120, 20);
+        instituteFilterLbl.setBounds(20, 70, 120, 20);
 
         priceFilterLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         priceFilterLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +131,7 @@ public class CourseFinder extends javax.swing.JPanel {
         addressFilterLbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         addressFilterLbl.setText("Address Filter:");
         mainMenuPanel.add(addressFilterLbl);
-        addressFilterLbl.setBounds(20, 70, 120, 20);
+        addressFilterLbl.setBounds(20, 130, 120, 20);
 
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/homeIcon.png"))); // NOI18N
         homeBtn.setAlignmentY(0.0F);
@@ -196,11 +199,11 @@ public class CourseFinder extends javax.swing.JPanel {
 
         instituteTxtField.setEditable(false);
         mainMenuPanel.add(instituteTxtField);
-        instituteTxtField.setBounds(150, 130, 200, 20);
+        instituteTxtField.setBounds(150, 70, 200, 20);
 
         addressTxtField.setEditable(false);
         mainMenuPanel.add(addressTxtField);
-        addressTxtField.setBounds(150, 70, 200, 20);
+        addressTxtField.setBounds(150, 130, 200, 20);
 
         priceTxtField.setEditable(false);
         mainMenuPanel.add(priceTxtField);
@@ -222,7 +225,7 @@ public class CourseFinder extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(instituteCheckBox);
-        instituteCheckBox.setBounds(360, 130, 21, 21);
+        instituteCheckBox.setBounds(360, 70, 21, 21);
 
         addressCheckBox.setContentAreaFilled(false);
         addressCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +234,7 @@ public class CourseFinder extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(addressCheckBox);
-        addressCheckBox.setBounds(360, 70, 20, 21);
+        addressCheckBox.setBounds(360, 130, 20, 21);
 
         searchBtn.setText("Search");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -240,17 +243,26 @@ public class CourseFinder extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(searchBtn);
-        searchBtn.setBounds(160, 190, 80, 23);
+        searchBtn.setBounds(110, 190, 80, 23);
 
         courseScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         courseScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         coursePanel.setBackground(new java.awt.Color(52, 152, 219));
-        coursePanel.setLayout(new java.awt.GridLayout());
+        coursePanel.setLayout(new java.awt.GridLayout(1, 0));
         courseScrollPane.setViewportView(coursePanel);
 
         mainMenuPanel.add(courseScrollPane);
         courseScrollPane.setBounds(10, 220, 380, 360);
+
+        resetBtn.setText("Reset");
+        resetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(resetBtn);
+        resetBtn.setBounds(220, 190, 80, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -305,8 +317,387 @@ public class CourseFinder extends javax.swing.JPanel {
     }//GEN-LAST:event_levelCheckBoxActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Course> show = new ArrayList<>();
+        if(!instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //0001
+            System.out.println("0001");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+            
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+            for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(!instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //0010
+            System.out.println("0010");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(!instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //0011
+            System.out.println("0011");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()){ //0100
+            System.out.println("0100");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //0101
+            System.out.println("0101");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+            
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //0110
+            System.out.println("0110");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //0111
+            System.out.println("0111");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1000
+            System.out.println("1000");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //1001
+            System.out.println("1001");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1010
+            System.out.println("1010");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //1011
+            System.out.println("1011");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1100
+            System.out.println("1100");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //1101
+            System.out.println("1101");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1110
+            System.out.println("1110");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+            
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+             for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //1111
+            System.out.println("1111");
+            for (int i = 0; i < courseList.size(); i++) {
+                if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
+                    if (!show.contains(courseList.get(i))) {
+                        show.add(courseList.get(i));
+                    }
+                }
+            }
+
+            coursePanel.removeAll();
+            coursePanel.updateUI();
+            for (int i = 0; i < show.size(); i++) {
+                CoursePanel p = new CoursePanel();
+                p.setName(show.get(i).getName());
+                p.setPrice(show.get(i).getPrice());
+                p.setAddress(show.get(i).getAddress());
+                p.setYears(show.get(i).getYears());
+                p.setLevel(show.get(i).getLevel());
+                p.setPoints(show.get(i).getPoints());
+                p.setURL(show.get(i).getUrl());
+
+                coursePanel.add(p);
+            }
+        }
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
+        coursePanel.removeAll();
+        for (int i = 0; i < courseList.size(); i++) {
+            CoursePanel p = new CoursePanel();
+            p.setName(courseList.get(i).getName());
+            p.setPrice(courseList.get(i).getPrice());
+            p.setAddress(courseList.get(i).getAddress());
+            p.setYears(courseList.get(i).getYears());
+            p.setLevel(courseList.get(i).getLevel());
+            p.setPoints(courseList.get(i).getPoints());
+            p.setURL(courseList.get(i).getUrl());
+
+            coursePanel.add(p);
+            coursePanel.updateUI();
+        }
+    }//GEN-LAST:event_resetBtnActionPerformed
     private void checkSearchBtn() {
         if (!addressTxtField.isEditable() && !instituteTxtField.isEditable() && !priceTxtField.isEditable() && !levelTxtField.isEditable()) {
             searchBtn.setEnabled(false);
@@ -335,6 +726,7 @@ public class CourseFinder extends javax.swing.JPanel {
     private javax.swing.JCheckBox priceCheckBox;
     private javax.swing.JLabel priceFilterLbl;
     private javax.swing.JTextField priceTxtField;
+    private javax.swing.JButton resetBtn;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.JButton searchBtn;
     private javax.swing.ButtonGroup subjectGroup1;

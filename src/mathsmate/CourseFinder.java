@@ -6,9 +6,9 @@
 package mathsmate;
 
 import java.awt.CardLayout;
-import java.awt.Desktop;
+import java.awt.GridLayout;
 import java.awt.LayoutManager;
-import java.net.URL;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,11 +16,47 @@ import java.net.URL;
  */
 public class CourseFinder extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AlgebraMenu
-     */
+    ArrayList<Course> courseList;
+    Course c1 = new Course("NCI", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
+    Course c2 = new Course("Waterford IT", "Waterford", "wit.ie", 2000, 405, 8, 4);
+    Course c5 = new Course("Sligo IT", "Sligo", "itsligo.ie", 2000, 385, 6, 2);
+    Course c6 = new Course("Royal College of Surgeons", "Dublin", "rcsi.ie", 3000, 600, 8, 2);
+    Course c7 = new Course("Galway-Mayo IT", "Galway", "gmit.ie", 3000, 405, 7, 2);
+    Course c8 = new Course("Waterford IT", "Waterford", "wit.ie", 2500, 555, 8, 1);
+    Course c3 = new Course("University College Cork", "Cork", "ucc.ie", 2500, 405, 8, 4);
+    Course c9 = new Course("Galway-Mayo IT", "Mayo", "gmit.ie", 2500, 385, 8, 4);
+    Course c10 = new Course("Athlone IT", "Athlone", "ait.ie", 2000, 555, 7, 2);
+    Course c4 = new Course("NCI", "Dublin", "ncirl.ie", 1500, 385, 6, 2);
+    
     public CourseFinder() {
         initComponents();
+        searchBtn.setEnabled(false);
+        courseList = new ArrayList<>();
+
+        courseList.add(c1);
+        courseList.add(c2);
+        courseList.add(c3);
+        courseList.add(c4);
+        courseList.add(c5);
+        courseList.add(c6);
+        courseList.add(c7);
+        courseList.add(c8);
+        courseList.add(c9);
+        courseList.add(c10);
+
+        coursePanel.setLayout(new GridLayout(courseList.size(), 0, 0, 5));
+        for (int i = 0; i < courseList.size(); i++) {
+            CoursePanel p = new CoursePanel();
+            p.setName(courseList.get(i).getName());
+            p.setPrice(courseList.get(i).getPrice());
+            p.setAddress(courseList.get(i).getAddress());
+            p.setYears(courseList.get(i).getYears());
+            p.setLevel(courseList.get(i).getLevel());
+            p.setPoints(courseList.get(i).getPoints());
+            p.setURL(courseList.get(i).getUrl());
+
+            coursePanel.add(p);
+        }
     }
 
     /**
@@ -31,7 +67,6 @@ public class CourseFinder extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         subjectGroup1 = new javax.swing.ButtonGroup();
         subjectGroup2 = new javax.swing.ButtonGroup();
@@ -60,36 +95,6 @@ public class CourseFinder extends javax.swing.JPanel {
         searchBtn = new javax.swing.JButton();
         courseScrollPane = new javax.swing.JScrollPane();
         coursePanel = new javax.swing.JPanel();
-        course1 = new javax.swing.JPanel();
-        courseCollege2 = new javax.swing.JLabel();
-        addressLbl2 = new javax.swing.JLabel();
-        courseNameLbl2 = new javax.swing.JLabel();
-        yearAndPriceLbl2 = new javax.swing.JLabel();
-        pointsLbl2 = new javax.swing.JLabel();
-        course3 = new javax.swing.JPanel();
-        courseCollege1 = new javax.swing.JLabel();
-        addressLbl1 = new javax.swing.JLabel();
-        courseNameLbl1 = new javax.swing.JLabel();
-        yearAndPriceLbl1 = new javax.swing.JLabel();
-        pointsLbl1 = new javax.swing.JLabel();
-        course4 = new javax.swing.JPanel();
-        courseCollege3 = new javax.swing.JLabel();
-        addressLbl3 = new javax.swing.JLabel();
-        courseNameLbl3 = new javax.swing.JLabel();
-        yearAndPriceLbl3 = new javax.swing.JLabel();
-        pointsLbl3 = new javax.swing.JLabel();
-        course5 = new javax.swing.JPanel();
-        courseCollege4 = new javax.swing.JLabel();
-        addressLbl4 = new javax.swing.JLabel();
-        courseNameLbl4 = new javax.swing.JLabel();
-        yearAndPriceLbl4 = new javax.swing.JLabel();
-        pointsLbl4 = new javax.swing.JLabel();
-        course2 = new javax.swing.JPanel();
-        courseCollege5 = new javax.swing.JLabel();
-        addressLbl5 = new javax.swing.JLabel();
-        courseNameLbl5 = new javax.swing.JLabel();
-        yearAndPriceLbl5 = new javax.swing.JLabel();
-        pointsLbl5 = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -237,383 +242,11 @@ public class CourseFinder extends javax.swing.JPanel {
         mainMenuPanel.add(searchBtn);
         searchBtn.setBounds(160, 190, 80, 23);
 
+        courseScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         courseScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        courseScrollPane.setWheelScrollingEnabled(false);
 
         coursePanel.setBackground(new java.awt.Color(52, 152, 219));
-        coursePanel.setLayout(new java.awt.GridBagLayout());
-
-        course1.setBackground(new java.awt.Color(142, 68, 173));
-        course1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        course1.setMaximumSize(new java.awt.Dimension(340, 100));
-        course1.setMinimumSize(new java.awt.Dimension(340, 100));
-        course1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                course1MouseClicked(evt);
-            }
-        });
-
-        courseCollege2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseCollege2.setForeground(new java.awt.Color(255, 255, 255));
-        courseCollege2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        courseCollege2.setText("NCI");
-
-        addressLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        addressLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        addressLbl2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        addressLbl2.setText("IFSC, Dublin");
-
-        courseNameLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseNameLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        courseNameLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        courseNameLbl2.setText("BSHC Computing (8)");
-
-        yearAndPriceLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        yearAndPriceLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        yearAndPriceLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        yearAndPriceLbl2.setText("4 Years, €2,500/year");
-
-        pointsLbl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        pointsLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        pointsLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pointsLbl2.setText("405 Points");
-
-        javax.swing.GroupLayout course1Layout = new javax.swing.GroupLayout(course1);
-        course1.setLayout(course1Layout);
-        course1Layout.setHorizontalGroup(
-            course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course1Layout.createSequentialGroup()
-                        .addComponent(addressLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearAndPriceLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                    .addGroup(course1Layout.createSequentialGroup()
-                        .addComponent(courseCollege2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseNameLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pointsLbl2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addGap(57, 57, 57))
-        );
-        course1Layout.setVerticalGroup(
-            course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(courseCollege2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseNameLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(course1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearAndPriceLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addComponent(pointsLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        coursePanel.add(course1, new java.awt.GridBagConstraints());
-
-        course3.setBackground(new java.awt.Color(142, 68, 173));
-        course3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        course3.setMaximumSize(new java.awt.Dimension(340, 100));
-        course3.setMinimumSize(new java.awt.Dimension(340, 100));
-        course3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                course3MouseClicked(evt);
-            }
-        });
-
-        courseCollege1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseCollege1.setForeground(new java.awt.Color(255, 255, 255));
-        courseCollege1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        courseCollege1.setText("NCI");
-
-        addressLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        addressLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        addressLbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        addressLbl1.setText("IFSC, Dublin");
-
-        courseNameLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseNameLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        courseNameLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        courseNameLbl1.setText("BSHC Computing (8)");
-
-        yearAndPriceLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        yearAndPriceLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        yearAndPriceLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        yearAndPriceLbl1.setText("4 Years, €2,500/year");
-
-        pointsLbl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        pointsLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        pointsLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pointsLbl1.setText("405 Points");
-
-        javax.swing.GroupLayout course3Layout = new javax.swing.GroupLayout(course3);
-        course3.setLayout(course3Layout);
-        course3Layout.setHorizontalGroup(
-            course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course3Layout.createSequentialGroup()
-                        .addComponent(addressLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearAndPriceLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                    .addGroup(course3Layout.createSequentialGroup()
-                        .addComponent(courseCollege1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseNameLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pointsLbl1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addGap(57, 57, 57))
-        );
-        course3Layout.setVerticalGroup(
-            course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(courseCollege1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseNameLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(course3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearAndPriceLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addComponent(pointsLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        coursePanel.add(course3, gridBagConstraints);
-
-        course4.setBackground(new java.awt.Color(142, 68, 173));
-        course4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        course4.setMaximumSize(new java.awt.Dimension(340, 100));
-        course4.setMinimumSize(new java.awt.Dimension(340, 100));
-        course4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                course4MouseClicked(evt);
-            }
-        });
-
-        courseCollege3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseCollege3.setForeground(new java.awt.Color(255, 255, 255));
-        courseCollege3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        courseCollege3.setText("NCI");
-
-        addressLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        addressLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        addressLbl3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        addressLbl3.setText("IFSC, Dublin");
-
-        courseNameLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseNameLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        courseNameLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        courseNameLbl3.setText("BSHC Computing (8)");
-
-        yearAndPriceLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        yearAndPriceLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        yearAndPriceLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        yearAndPriceLbl3.setText("4 Years, €2,500/year");
-
-        pointsLbl3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        pointsLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        pointsLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pointsLbl3.setText("405 Points");
-
-        javax.swing.GroupLayout course4Layout = new javax.swing.GroupLayout(course4);
-        course4.setLayout(course4Layout);
-        course4Layout.setHorizontalGroup(
-            course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course4Layout.createSequentialGroup()
-                        .addComponent(addressLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearAndPriceLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                    .addGroup(course4Layout.createSequentialGroup()
-                        .addComponent(courseCollege3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseNameLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pointsLbl3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addGap(57, 57, 57))
-        );
-        course4Layout.setVerticalGroup(
-            course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(courseCollege3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseNameLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(course4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearAndPriceLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addComponent(pointsLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        coursePanel.add(course4, gridBagConstraints);
-
-        course5.setBackground(new java.awt.Color(142, 68, 173));
-        course5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        course5.setMaximumSize(new java.awt.Dimension(340, 100));
-        course5.setMinimumSize(new java.awt.Dimension(340, 100));
-        course5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                course5MouseClicked(evt);
-            }
-        });
-
-        courseCollege4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseCollege4.setForeground(new java.awt.Color(255, 255, 255));
-        courseCollege4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        courseCollege4.setText("NCI");
-
-        addressLbl4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        addressLbl4.setForeground(new java.awt.Color(255, 255, 255));
-        addressLbl4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        addressLbl4.setText("IFSC, Dublin");
-
-        courseNameLbl4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseNameLbl4.setForeground(new java.awt.Color(255, 255, 255));
-        courseNameLbl4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        courseNameLbl4.setText("BSHC Computing (8)");
-
-        yearAndPriceLbl4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        yearAndPriceLbl4.setForeground(new java.awt.Color(255, 255, 255));
-        yearAndPriceLbl4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        yearAndPriceLbl4.setText("4 Years, €2,500/year");
-
-        pointsLbl4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        pointsLbl4.setForeground(new java.awt.Color(255, 255, 255));
-        pointsLbl4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pointsLbl4.setText("405 Points");
-
-        javax.swing.GroupLayout course5Layout = new javax.swing.GroupLayout(course5);
-        course5.setLayout(course5Layout);
-        course5Layout.setHorizontalGroup(
-            course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course5Layout.createSequentialGroup()
-                        .addComponent(addressLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearAndPriceLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                    .addGroup(course5Layout.createSequentialGroup()
-                        .addComponent(courseCollege4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseNameLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pointsLbl4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addGap(57, 57, 57))
-        );
-        course5Layout.setVerticalGroup(
-            course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(courseCollege4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseNameLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(course5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearAndPriceLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addComponent(pointsLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        coursePanel.add(course5, gridBagConstraints);
-
-        course2.setBackground(new java.awt.Color(142, 68, 173));
-        course2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        course2.setMaximumSize(new java.awt.Dimension(340, 100));
-        course2.setMinimumSize(new java.awt.Dimension(340, 100));
-        course2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                course2MouseClicked(evt);
-            }
-        });
-
-        courseCollege5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseCollege5.setForeground(new java.awt.Color(255, 255, 255));
-        courseCollege5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        courseCollege5.setText("NCI");
-
-        addressLbl5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        addressLbl5.setForeground(new java.awt.Color(255, 255, 255));
-        addressLbl5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        addressLbl5.setText("IFSC, Dublin");
-
-        courseNameLbl5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        courseNameLbl5.setForeground(new java.awt.Color(255, 255, 255));
-        courseNameLbl5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        courseNameLbl5.setText("BSHC Computing (8)");
-
-        yearAndPriceLbl5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        yearAndPriceLbl5.setForeground(new java.awt.Color(255, 255, 255));
-        yearAndPriceLbl5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        yearAndPriceLbl5.setText("4 Years, €2,500/year");
-
-        pointsLbl5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        pointsLbl5.setForeground(new java.awt.Color(255, 255, 255));
-        pointsLbl5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pointsLbl5.setText("405 Points");
-
-        javax.swing.GroupLayout course2Layout = new javax.swing.GroupLayout(course2);
-        course2.setLayout(course2Layout);
-        course2Layout.setHorizontalGroup(
-            course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, course2Layout.createSequentialGroup()
-                        .addComponent(addressLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearAndPriceLbl5, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
-                    .addGroup(course2Layout.createSequentialGroup()
-                        .addComponent(courseCollege5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(courseNameLbl5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pointsLbl5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addGap(57, 57, 57))
-        );
-        course2Layout.setVerticalGroup(
-            course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(course2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(courseCollege5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseNameLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(course2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearAndPriceLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addComponent(pointsLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        coursePanel.add(course2, gridBagConstraints);
-
+        coursePanel.setLayout(new java.awt.GridLayout());
         courseScrollPane.setViewportView(coursePanel);
 
         mainMenuPanel.add(courseScrollPane);
@@ -638,7 +271,7 @@ public class CourseFinder extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "EXTRAS_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
@@ -646,98 +279,48 @@ public class CourseFinder extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void priceCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceCheckBoxActionPerformed
         priceTxtField.setEditable(priceCheckBox.isSelected());
+        checkSearchBtn();
     }//GEN-LAST:event_priceCheckBoxActionPerformed
 
     private void instituteCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instituteCheckBoxActionPerformed
         instituteTxtField.setEditable(instituteCheckBox.isSelected());
+        checkSearchBtn();
     }//GEN-LAST:event_instituteCheckBoxActionPerformed
 
     private void addressCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressCheckBoxActionPerformed
         addressTxtField.setEditable(addressCheckBox.isSelected());
+        checkSearchBtn();
     }//GEN-LAST:event_addressCheckBoxActionPerformed
 
     private void levelCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelCheckBoxActionPerformed
         levelTxtField.setEditable(levelCheckBox.isSelected());
+        checkSearchBtn();
     }//GEN-LAST:event_levelCheckBoxActionPerformed
-
-    private void course1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_course1MouseClicked
-       try {
-            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_course1MouseClicked
-
-    private void course3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_course3MouseClicked
-        try {
-            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_course3MouseClicked
-
-    private void course4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_course4MouseClicked
-        try {
-            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_course4MouseClicked
-
-    private void course5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_course5MouseClicked
-        try {
-            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_course5MouseClicked
-
-    private void course2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_course2MouseClicked
-        try {
-            Desktop.getDesktop().browse(new URL("http://www.google.ie/").toURI());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_course2MouseClicked
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchBtnActionPerformed
-
+    private void checkSearchBtn() {
+        if (!addressTxtField.isEditable() && !instituteTxtField.isEditable() && !priceTxtField.isEditable() && !levelTxtField.isEditable()) {
+            searchBtn.setEnabled(false);
+        } else {
+            searchBtn.setEnabled(true);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox addressCheckBox;
     private javax.swing.JLabel addressFilterLbl;
-    private javax.swing.JLabel addressLbl1;
-    private javax.swing.JLabel addressLbl2;
-    private javax.swing.JLabel addressLbl3;
-    private javax.swing.JLabel addressLbl4;
-    private javax.swing.JLabel addressLbl5;
     private javax.swing.JTextField addressTxtField;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
-    private javax.swing.JPanel course1;
-    private javax.swing.JPanel course2;
-    private javax.swing.JPanel course3;
-    private javax.swing.JPanel course4;
-    private javax.swing.JPanel course5;
-    private javax.swing.JLabel courseCollege1;
-    private javax.swing.JLabel courseCollege2;
-    private javax.swing.JLabel courseCollege3;
-    private javax.swing.JLabel courseCollege4;
-    private javax.swing.JLabel courseCollege5;
-    private javax.swing.JLabel courseNameLbl1;
-    private javax.swing.JLabel courseNameLbl2;
-    private javax.swing.JLabel courseNameLbl3;
-    private javax.swing.JLabel courseNameLbl4;
-    private javax.swing.JLabel courseNameLbl5;
     private javax.swing.JPanel coursePanel;
     private javax.swing.JScrollPane courseScrollPane;
     private javax.swing.JButton homeBtn;
@@ -749,11 +332,6 @@ public class CourseFinder extends javax.swing.JPanel {
     private javax.swing.JTextField levelTxtField;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
-    private javax.swing.JLabel pointsLbl1;
-    private javax.swing.JLabel pointsLbl2;
-    private javax.swing.JLabel pointsLbl3;
-    private javax.swing.JLabel pointsLbl4;
-    private javax.swing.JLabel pointsLbl5;
     private javax.swing.JCheckBox priceCheckBox;
     private javax.swing.JLabel priceFilterLbl;
     private javax.swing.JTextField priceTxtField;
@@ -765,10 +343,5 @@ public class CourseFinder extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
-    private javax.swing.JLabel yearAndPriceLbl1;
-    private javax.swing.JLabel yearAndPriceLbl2;
-    private javax.swing.JLabel yearAndPriceLbl3;
-    private javax.swing.JLabel yearAndPriceLbl4;
-    private javax.swing.JLabel yearAndPriceLbl5;
     // End of variables declaration//GEN-END:variables
 }

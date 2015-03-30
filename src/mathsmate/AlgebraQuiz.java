@@ -17,21 +17,27 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     /**
      * Creates new form AlgebraMenu
      */
-    
     int count;
     AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array
     AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "  y = 4,   x = 3", "  x = 7,   y = 3", "  x = 6,   y = 1", 2); //Question 1 object
-    AlgebraQuestion q2 = new AlgebraQuestion("What is 2+2?", "3", "4", "5", 2); //Question 2 object
-    AlgebraQuestion q3 = new AlgebraQuestion("What 6*2?", "6", "2", "12", 3); //Question 3 object
-    AlgebraQuestion q4 = new AlgebraQuestion("What 10/5?", "2", "8", "1", 1); //Question 4 object
-    AlgebraQuestion q5 = new AlgebraQuestion("What 20-4?", "16", "12", "19", 1); //Question 5 object
-    
+    AlgebraQuestion q2 = new AlgebraQuestion("If f(x) = ln(x + 1) - 2, then f-1(x) =", "ex - 2 + 2", "ex + 2 - 1", "ex + 4 - 3", 2); //Question 2 object
+    AlgebraQuestion q3 = new AlgebraQuestion("If f(x) = 5 - 2x, then f-1(-3) =", "13", "5", "3", 3); //Question 3 object
+    AlgebraQuestion q4 = new AlgebraQuestion("If f(x) = -x2 + 1, then f(x + 1) =", "-x2 - 2x", "x - 4x", "x3 - x", 1); //Question 4 object
+    AlgebraQuestion q5 = new AlgebraQuestion("For all x real, √(x2 -4x + 4) =", "|x - 2|", "|x + 4|", "|x -4x|", 1); //Question 5 object
+    int correctAns;
+    boolean finished;
+
     public AlgebraQuiz() {
         initComponents();
         ansLbl.setText("");
+        endTitle.setVisible(false);
+        youGotLbl.setVisible(false);
+        numRltLbl.setVisible(false);
         chkAnsBtn.setEnabled(false);
         nxtBtn1.setEnabled(false);
         count = 0;
+        correctAns = 0;
+        finished = false;
         q[0] = q1;
         q[1] = q2;
         q[2] = q3;
@@ -56,6 +62,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
         question1 = new javax.swing.JPanel();
+        endTitle = new javax.swing.JLabel();
         q1Lbl = new javax.swing.JLabel();
         ans1RadBtn = new javax.swing.JRadioButton();
         ans2RadBtn = new javax.swing.JRadioButton();
@@ -63,6 +70,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         nxtBtn1 = new javax.swing.JButton();
         chkAnsBtn = new javax.swing.JButton();
         ansLbl = new javax.swing.JLabel();
+        youGotLbl = new javax.swing.JLabel();
+        numRltLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -123,12 +132,23 @@ public class AlgebraQuiz extends javax.swing.JPanel {
 
         question1.setBackground(new java.awt.Color(142, 68, 173));
         question1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        question1.setLayout(null);
 
-        q1Lbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        endTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        endTitle.setForeground(new java.awt.Color(255, 255, 255));
+        endTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        endTitle.setText("Results");
+        endTitle.setAlignmentY(0.0F);
+        question1.add(endTitle);
+        endTitle.setBounds(100, 40, 150, 50);
+
+        q1Lbl.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
         q1Lbl.setForeground(new java.awt.Color(255, 255, 255));
         q1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         q1Lbl.setText("Q1. Solve {x+y = 10, x-y = 4}");
         q1Lbl.setAlignmentY(0.0F);
+        question1.add(q1Lbl);
+        q1Lbl.setBounds(10, 10, 340, 120);
 
         buttonGroup1.add(ans1RadBtn);
         ans1RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -140,6 +160,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
                 ans1RadBtnActionPerformed(evt);
             }
         });
+        question1.add(ans1RadBtn);
+        ans1RadBtn.setBounds(100, 150, 240, 33);
 
         buttonGroup1.add(ans2RadBtn);
         ans2RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -151,6 +173,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
                 ans2RadBtnActionPerformed(evt);
             }
         });
+        question1.add(ans2RadBtn);
+        ans2RadBtn.setBounds(100, 210, 240, 40);
 
         buttonGroup1.add(ans3RadBtn);
         ans3RadBtn.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -162,6 +186,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
                 ans3RadBtnActionPerformed(evt);
             }
         });
+        question1.add(ans3RadBtn);
+        ans3RadBtn.setBounds(100, 280, 240, 33);
 
         nxtBtn1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         nxtBtn1.setText("Next");
@@ -170,6 +196,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
                 nxtBtn1ActionPerformed(evt);
             }
         });
+        question1.add(nxtBtn1);
+        nxtBtn1.setBounds(206, 406, 131, 41);
 
         chkAnsBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         chkAnsBtn.setText("Check Answer");
@@ -178,60 +206,33 @@ public class AlgebraQuiz extends javax.swing.JPanel {
                 chkAnsBtnActionPerformed(evt);
             }
         });
+        question1.add(chkAnsBtn);
+        chkAnsBtn.setBounds(23, 406, 173, 41);
 
         ansLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ansLbl.setForeground(new java.awt.Color(255, 255, 255));
         ansLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ansLbl.setText("Correct");
+        question1.add(ansLbl);
+        ansLbl.setBounds(96, 360, 160, 29);
 
-        javax.swing.GroupLayout question1Layout = new javax.swing.GroupLayout(question1);
-        question1.setLayout(question1Layout);
-        question1Layout.setHorizontalGroup(
-            question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(question1Layout.createSequentialGroup()
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(question1Layout.createSequentialGroup()
-                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(question1Layout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ans3RadBtn)
-                                    .addComponent(ans2RadBtn)
-                                    .addComponent(ans1RadBtn)
-                                    .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(question1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addGroup(question1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(q1Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        question1Layout.setVerticalGroup(
-            question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(question1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(q1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(ans1RadBtn)
-                .addGap(33, 33, 33)
-                .addComponent(ans2RadBtn)
-                .addGap(35, 35, 35)
-                .addComponent(ans3RadBtn)
-                .addGap(18, 18, 18)
-                .addComponent(ansLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
-        );
+        youGotLbl.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        youGotLbl.setForeground(new java.awt.Color(255, 255, 255));
+        youGotLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        youGotLbl.setText("You Answered");
+        youGotLbl.setAlignmentY(0.0F);
+        question1.add(youGotLbl);
+        youGotLbl.setBounds(60, 120, 230, 40);
+
+        numRltLbl.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        numRltLbl.setForeground(new java.awt.Color(255, 255, 255));
+        numRltLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numRltLbl.setAlignmentY(0.0F);
+        question1.add(numRltLbl);
+        numRltLbl.setBounds(70, 150, 220, 160);
 
         mainMenuPanel.add(question1);
-        question1.setBounds(20, 80, 360, 430);
+        question1.setBounds(20, 80, 360, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -252,7 +253,7 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "ALGEBRA_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
@@ -260,13 +261,13 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void ans2RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans2RadBtnActionPerformed
-       chkAnsBtn.setEnabled(true);
+        chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans2RadBtnActionPerformed
 
     private void ans1RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans1RadBtnActionPerformed
@@ -278,26 +279,94 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_ans3RadBtnActionPerformed
 
     private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
-        nxtBtn1.setEnabled(true);
-        ans1RadBtn.setEnabled(false);
-        ans2RadBtn.setEnabled(false);
-        ans3RadBtn.setEnabled(false);
-        if(ans1RadBtn.isSelected() && (q[count].getCorrectAns() == 1)){
-            ansLbl.setText("Correct!");
-        } else if(ans2RadBtn.isSelected() && (q[count].getCorrectAns() == 2)){
-            ansLbl.setText("Correct!");
-        } else if(ans3RadBtn.isSelected() && (q[count].getCorrectAns() == 3)){
-            ansLbl.setText("Correct!");
+        if (finished == true) {
+            LayoutManager layout = getParent().getLayout();
+            if (layout instanceof CardLayout) {
+                CardLayout cl = (CardLayout) layout;
+                cl.show(getParent(), "MAIN");
+            }
         } else {
-            ansLbl.setText("Incorrect!");
+            nxtBtn1.setEnabled(true);
+            ans1RadBtn.setEnabled(false);
+            ans2RadBtn.setEnabled(false);
+            ans3RadBtn.setEnabled(false);
+            if (ans1RadBtn.isSelected() && (q[count].getCorrectAns() == 1)) {
+                ansLbl.setText("Correct!");
+                correctAns++;
+            } else if (ans2RadBtn.isSelected() && (q[count].getCorrectAns() == 2)) {
+                ansLbl.setText("Correct!");
+                correctAns++;
+            } else if (ans3RadBtn.isSelected() && (q[count].getCorrectAns() == 3)) {
+                ansLbl.setText("Correct!");
+                correctAns++;
+            } else {
+                ansLbl.setText("Incorrect!");
+            }
         }
     }//GEN-LAST:event_chkAnsBtnActionPerformed
 
     private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
-        nextQuestion();
+        System.out.println("q " + q.length + " count: " + count);
+        if (finished == true) {
+            count = 0;
+            ansLbl.setText("");
+            endTitle.setVisible(false);
+            youGotLbl.setVisible(false);
+            numRltLbl.setVisible(false);
+            chkAnsBtn.setEnabled(false);
+            nxtBtn1.setEnabled(false);
+            q1Lbl.setVisible(true);
+            ans1RadBtn.setVisible(true);
+            ans2RadBtn.setVisible(true);
+            ans3RadBtn.setVisible(true);
+            q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
+            ans1RadBtn.setText(q[count].getA1());
+            ans2RadBtn.setText(q[count].getA2());
+            ans3RadBtn.setText(q[count].getA3());
+            ans1RadBtn.setEnabled(true);
+            ans2RadBtn.setEnabled(true);
+            ans3RadBtn.setEnabled(true);
+            nxtBtn1.setEnabled(false);
+            ansLbl.setText("");
+            chkAnsBtn.setEnabled(false);
+            buttonGroup1.clearSelection();
+            chkAnsBtn.setText("Check Answer");
+            nxtBtn1.setText("Next");
+            correctAns = 0;
+            finished = false;
+        } else {
+            if (q.length - 1 <= count) {
+                endTitle.setVisible(true);
+                youGotLbl.setVisible(true);
+                numRltLbl.setVisible(true);
+                numRltLbl.setText(correctAns + "/5");
+                ansLbl.setText("Correct!");
+                q1Lbl.setVisible(false);
+                ans1RadBtn.setVisible(false);
+                ans2RadBtn.setVisible(false);
+                ans3RadBtn.setVisible(false);
+                chkAnsBtn.setText("Main Menu");
+                nxtBtn1.setText("Reset");
+                finished = true;
+            } else {
+                nextQuestion();
+            }
+        }
     }//GEN-LAST:event_nxtBtn1ActionPerformed
 
-    private void nextQuestion(){
+    private void resetQuiz() {
+        ansLbl.setText("");
+        endTitle.setVisible(false);
+        youGotLbl.setVisible(false);
+        numRltLbl.setVisible(false);
+        chkAnsBtn.setEnabled(false);
+        nxtBtn1.setEnabled(false);
+        count = 0;
+        correctAns = 0;
+        finished = false;
+    }
+
+    private void nextQuestion() {
         count++;
         q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
         ans1RadBtn.setText(q[count].getA1());
@@ -310,6 +379,11 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         ansLbl.setText("");
         chkAnsBtn.setEnabled(false);
         buttonGroup1.clearSelection();
+        if (q.length <= count + 1) {
+            nxtBtn1.setText("Finished");
+        } else {
+            nxtBtn1.setEnabled(false);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -321,12 +395,15 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton chkAnsBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JLabel endTitle;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JLabel numRltLbl;
     private javax.swing.JButton nxtBtn1;
     private javax.swing.JLabel q1Lbl;
     private javax.swing.JPanel question1;
     private javax.swing.JLabel screenTitleLbl;
+    private javax.swing.JLabel youGotLbl;
     // End of variables declaration//GEN-END:variables
 }

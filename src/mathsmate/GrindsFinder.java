@@ -31,6 +31,7 @@ public class GrindsFinder extends javax.swing.JPanel {
 
     public GrindsFinder() {
         initComponents();
+        
         searchBtn.setEnabled(false);
         grindList = new ArrayList<>();
 
@@ -235,7 +236,7 @@ public class GrindsFinder extends javax.swing.JPanel {
         grindsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         grindsPanel.setBackground(new java.awt.Color(52, 152, 219));
-        grindsPanel.setLayout(new java.awt.GridLayout());
+        grindsPanel.setLayout(new java.awt.GridLayout(1, 0));
         grindsScrollPane.setViewportView(grindsPanel);
 
         mainMenuPanel.add(grindsScrollPane);
@@ -290,7 +291,7 @@ public class GrindsFinder extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         ArrayList<GrindInterface> show = new ArrayList<>();
-        if(instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable()){
+        if (instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable()) {
             for (int i = 0; i < grindList.size(); i++) {
                 if (grindList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && grindList.get(i).getCost() == Integer.parseInt(priceTxtField.getText()) && grindList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText())) {
                     if (!show.contains(grindList.get(i))) {
@@ -312,7 +313,7 @@ public class GrindsFinder extends javax.swing.JPanel {
 
                 grindsPanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable()){
+        } else if (instituteTxtField.isEditable() && priceTxtField.isEditable()) {
             for (int i = 0; i < grindList.size(); i++) {
                 if (grindList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && grindList.get(i).getCost() == Integer.parseInt(priceTxtField.getText())) {
                     if (!show.contains(grindList.get(i))) {
@@ -334,7 +335,7 @@ public class GrindsFinder extends javax.swing.JPanel {
 
                 grindsPanel.add(p);
             }
-        } else if(addressTxtField.isEditable() && instituteTxtField.isEditable()){
+        } else if (addressTxtField.isEditable() && instituteTxtField.isEditable()) {
             for (int i = 0; i < grindList.size(); i++) {
                 if (grindList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && grindList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText())) {
                     if (!show.contains(grindList.get(i))) {
@@ -356,7 +357,7 @@ public class GrindsFinder extends javax.swing.JPanel {
 
                 grindsPanel.add(p);
             }
-        } else if(addressTxtField.isEditable() && priceTxtField.isEditable()){
+        } else if (addressTxtField.isEditable() && priceTxtField.isEditable()) {
             for (int i = 0; i < grindList.size(); i++) {
                 if (grindList.get(i).getCost() == Integer.parseInt(priceTxtField.getText()) && grindList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText())) {
                     if (!show.contains(grindList.get(i))) {

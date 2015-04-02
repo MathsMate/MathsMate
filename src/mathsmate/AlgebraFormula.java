@@ -204,7 +204,7 @@ public class AlgebraFormula extends javax.swing.JPanel {
                 .addComponent(difPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(difPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainMenuPanel.add(formula1JP);
@@ -222,6 +222,11 @@ public class AlgebraFormula extends javax.swing.JPanel {
 
         previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         previousBtn.setText("Previous");
+        previousBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousBtnActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(previousBtn);
         previousBtn.setBounds(50, 520, 120, 40);
 
@@ -260,6 +265,10 @@ public class AlgebraFormula extends javax.swing.JPanel {
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_previousBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

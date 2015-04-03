@@ -196,19 +196,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="difPowJL" min="-2" pref="280" max="-2" attributes="0"/>
+                          <Component id="pageTitleJL" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                          <Component id="title4JL" min="-2" pref="280" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="raisingPowFormJL" pref="280" max="32767" attributes="0"/>
-                              <Component id="mulPowJL" pref="280" max="32767" attributes="0"/>
-                              <Component id="mulPowFormJL" pref="280" max="32767" attributes="0"/>
+                              <Component id="formula2JL" pref="280" max="32767" attributes="0"/>
+                              <Component id="title1JL" pref="280" max="32767" attributes="0"/>
+                              <Component id="formula1JL" pref="280" max="32767" attributes="0"/>
                               <Component id="jSeparator1" max="32767" attributes="0"/>
-                              <Component id="raisingPowJL" pref="280" max="32767" attributes="0"/>
+                              <Component id="title2JL" pref="280" max="32767" attributes="0"/>
                               <Component id="jSeparator2" max="32767" attributes="0"/>
-                              <Component id="prodPowJL" max="32767" attributes="0"/>
-                              <Component id="prodPowFormJL" max="32767" attributes="0"/>
+                              <Component id="title3JL" max="32767" attributes="0"/>
+                              <Component id="formula3JL" max="32767" attributes="0"/>
                               <Component id="jSeparator3" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="difPowFormJL" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                          <Component id="formula4JL" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
@@ -217,35 +218,37 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="mulPowJL" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Component id="pageTitleJL" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="mulPowFormJL" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="title1JL" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="formula1JL" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="raisingPowJL" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="title2JL" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="raisingPowFormJL" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="formula2JL" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="title3JL" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="formula3JL" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="prodPowJL" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="prodPowFormJL" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="difPowJL" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="title4JL" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="difPowFormJL" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <Component id="formula4JL" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="mulPowJL">
+            <Component class="javax.swing.JLabel" name="title1JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -260,7 +263,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="mulPowFormJL">
+            <Component class="javax.swing.JLabel" name="formula1JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -274,7 +277,7 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
-            <Component class="javax.swing.JLabel" name="raisingPowJL">
+            <Component class="javax.swing.JLabel" name="title2JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -286,7 +289,7 @@
                 <Property name="text" type="java.lang.String" value="Raising a power to a power:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="raisingPowFormJL">
+            <Component class="javax.swing.JLabel" name="formula2JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -300,7 +303,7 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
             </Component>
-            <Component class="javax.swing.JLabel" name="prodPowJL">
+            <Component class="javax.swing.JLabel" name="title3JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -312,7 +315,7 @@
                 <Property name="text" type="java.lang.String" value="Power of a product property:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="prodPowFormJL">
+            <Component class="javax.swing.JLabel" name="formula3JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -326,7 +329,7 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator3">
             </Component>
-            <Component class="javax.swing.JLabel" name="difPowJL">
+            <Component class="javax.swing.JLabel" name="title4JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -338,7 +341,7 @@
                 <Property name="text" type="java.lang.String" value="Difference of two squares:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="difPowFormJL">
+            <Component class="javax.swing.JLabel" name="formula4JL">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -348,6 +351,18 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="(x+y)(y-x) = x^2 - y^2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="pageTitleJL">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="3"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Multiplying Powers"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -375,6 +390,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Previous"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="previousBtnActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="50" y="520" width="120" height="40"/>

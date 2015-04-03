@@ -7,19 +7,55 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
 
 /**
  *
  * @author Ian Donnelly X14111659
  */
 public class AlgebraFormula extends javax.swing.JPanel {
+    
+    private ArrayList<AlgebraFormulaStorage> AForm;
+    AlgebraFormulaStorage AF1 = new AlgebraFormulaStorage("Multiplying Powers", "Multiplying powers with the same base:", 
+            "x^a . x^b = x^a+b", "Raising a power to a power:", "(x^a)^b = x^ab", 
+            "Power of a product property:", "xy^a = x^a.y^a", 
+            "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
+    AlgebraFormulaStorage AF2 = new AlgebraFormulaStorage("Multiplying Polynomials","First terms:", "(2x + 3)(x - 2) = 2x(x) = 2x^2", 
+            "Outer terms:", "(2x + 3)(x - 2) = 2x(-2) = -4x", 
+            "Inside terms:", "(2x + 3)(x - 2) = 3(x) = 3x", 
+            "Last terms:", "(2x + 3)(x - 2) = 3(-2) = -6");
+    AlgebraFormulaStorage AF3 = new AlgebraFormulaStorage("Squares and Cubes","Difference of Two Squares:", "(x+y)(x-y) = x^2 - y^2", 
+            "Difference of Two Squares:", "y^2 - x^2 = (x+y)(x-y)", 
+            "Sum of two cubes:", "x^3 + y^3 = (x-y)(x^2 - xy + y^2)", 
+            "Difference of two cubes:", "x^3 - y^3 = (x-y)(x^2 + xy + y)");
+    AlgebraFormulaStorage AF4 = new AlgebraFormulaStorage("Multiplying Powers","Thanks Aaron", "x^a . x^b = x^a+b", 
+            "Raising a power to a power:", "(x^a)^b = x^ab", 
+            "Power of a product property:", "xy^a = x^a.y^a", 
+            "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
+    AlgebraFormulaStorage AF5 = new AlgebraFormulaStorage("Multiplying Powers","Hello World", "x^a . x^b = x^a+b", 
+            "Raising a power to a power:", "(x^a)^b = x^ab", 
+            "Power of a product property:", "xy^a = x^a.y^a", 
+            "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
+    
+    private int count;
 
     /**
      * Creates new form AlgebraMenu
      */
     public AlgebraFormula() {
         initComponents();
+        AForm = new ArrayList<>();
+        AForm.add(AF1);        
+        AForm.add(AF2); 
+        AForm.add(AF3);
+        AForm.add(AF4);
+        AForm.add(AF5);
+        count = 0; 
     }
+
+    //private AlgebraFormula(String multiplying_powers_with_the_same_base, String xa__xb__xab, String raising_a_power_to_a_power, String xab__xab, String power_of_a_product_property, String xya__xaya, String difference_of_two_squares, String xyyx__x2__y2) {
+   
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,17 +79,18 @@ public class AlgebraFormula extends javax.swing.JPanel {
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
         formula1JP = new javax.swing.JPanel();
-        mulPowJL = new javax.swing.JLabel();
-        mulPowFormJL = new javax.swing.JLabel();
+        title1JL = new javax.swing.JLabel();
+        formula1JL = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        raisingPowJL = new javax.swing.JLabel();
-        raisingPowFormJL = new javax.swing.JLabel();
+        title2JL = new javax.swing.JLabel();
+        formula2JL = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        prodPowJL = new javax.swing.JLabel();
-        prodPowFormJL = new javax.swing.JLabel();
+        title3JL = new javax.swing.JLabel();
+        formula3JL = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        difPowJL = new javax.swing.JLabel();
-        difPowFormJL = new javax.swing.JLabel();
+        title4JL = new javax.swing.JLabel();
+        formula4JL = new javax.swing.JLabel();
+        pageTitleJL = new javax.swing.JLabel();
         nextBtn = new javax.swing.JButton();
         previousBtn = new javax.swing.JButton();
 
@@ -117,46 +154,51 @@ public class AlgebraFormula extends javax.swing.JPanel {
         formula1JP.setBackground(new java.awt.Color(142, 68, 173));
         formula1JP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
 
-        mulPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        mulPowJL.setForeground(new java.awt.Color(255, 255, 255));
-        mulPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mulPowJL.setText("Multiplying powers with the same base:");
-        mulPowJL.setPreferredSize(new java.awt.Dimension(270, 17));
+        title1JL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title1JL.setForeground(new java.awt.Color(255, 255, 255));
+        title1JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title1JL.setText("Multiplying powers with the same base:");
+        title1JL.setPreferredSize(new java.awt.Dimension(270, 17));
 
-        mulPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        mulPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
-        mulPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mulPowFormJL.setText("x^a . x^b = x^a+b");
+        formula1JL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        formula1JL.setForeground(new java.awt.Color(255, 255, 255));
+        formula1JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        formula1JL.setText("x^a . x^b = x^a+b");
 
-        raisingPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        raisingPowJL.setForeground(new java.awt.Color(255, 255, 255));
-        raisingPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        raisingPowJL.setText("Raising a power to a power:");
+        title2JL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title2JL.setForeground(new java.awt.Color(255, 255, 255));
+        title2JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title2JL.setText("Raising a power to a power:");
 
-        raisingPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        raisingPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
-        raisingPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        raisingPowFormJL.setText("(x^a)^b = x^ab");
+        formula2JL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        formula2JL.setForeground(new java.awt.Color(255, 255, 255));
+        formula2JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        formula2JL.setText("(x^a)^b = x^ab");
 
-        prodPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        prodPowJL.setForeground(new java.awt.Color(255, 255, 255));
-        prodPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prodPowJL.setText("Power of a product property:");
+        title3JL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title3JL.setForeground(new java.awt.Color(255, 255, 255));
+        title3JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title3JL.setText("Power of a product property:");
 
-        prodPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        prodPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
-        prodPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prodPowFormJL.setText("xy^a = x^a.y^a");
+        formula3JL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        formula3JL.setForeground(new java.awt.Color(255, 255, 255));
+        formula3JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        formula3JL.setText("xy^a = x^a.y^a");
 
-        difPowJL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        difPowJL.setForeground(new java.awt.Color(255, 255, 255));
-        difPowJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        difPowJL.setText("Difference of two squares:");
+        title4JL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title4JL.setForeground(new java.awt.Color(255, 255, 255));
+        title4JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title4JL.setText("Difference of two squares:");
 
-        difPowFormJL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        difPowFormJL.setForeground(new java.awt.Color(255, 255, 255));
-        difPowFormJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        difPowFormJL.setText("(x+y)(y-x) = x^2 - y^2");
+        formula4JL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        formula4JL.setForeground(new java.awt.Color(255, 255, 255));
+        formula4JL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        formula4JL.setText("(x+y)(y-x) = x^2 - y^2");
+
+        pageTitleJL.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        pageTitleJL.setForeground(new java.awt.Color(255, 255, 255));
+        pageTitleJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pageTitleJL.setText("Multiplying Powers");
 
         javax.swing.GroupLayout formula1JPLayout = new javax.swing.GroupLayout(formula1JP);
         formula1JP.setLayout(formula1JPLayout);
@@ -165,46 +207,49 @@ public class AlgebraFormula extends javax.swing.JPanel {
             .addGroup(formula1JPLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(difPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pageTitleJL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(title4JL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(raisingPowFormJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                        .addComponent(mulPowJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                        .addComponent(mulPowFormJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(formula2JL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(title1JL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(formula1JL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                         .addComponent(jSeparator1)
-                        .addComponent(raisingPowJL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                        .addComponent(title2JL, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                         .addComponent(jSeparator2)
-                        .addComponent(prodPowJL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(prodPowFormJL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(title3JL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(formula3JL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator3))
-                    .addComponent(difPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(formula4JL, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         formula1JPLayout.setVerticalGroup(
             formula1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formula1JPLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(mulPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(pageTitleJL, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mulPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title1JL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(formula1JL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(raisingPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(title2JL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(raisingPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(formula2JL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(title3JL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(formula3JL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(prodPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(prodPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(difPowJL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title4JL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(difPowFormJL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(formula4JL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainMenuPanel.add(formula1JP);
@@ -222,6 +267,11 @@ public class AlgebraFormula extends javax.swing.JPanel {
 
         previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         previousBtn.setText("Previous");
+        previousBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousBtnActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(previousBtn);
         previousBtn.setBounds(50, 520, 120, 40);
 
@@ -259,29 +309,32 @@ public class AlgebraFormula extends javax.swing.JPanel {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
+        nextFormula();
     }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
+        // TODO add your handling code here:
+        previousFormula();
+    }//GEN-LAST:event_previousBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
-    private javax.swing.JLabel difPowFormJL;
-    private javax.swing.JLabel difPowJL;
+    private javax.swing.JLabel formula1JL;
     private javax.swing.JPanel formula1JP;
+    private javax.swing.JLabel formula2JL;
+    private javax.swing.JLabel formula3JL;
+    private javax.swing.JLabel formula4JL;
     private javax.swing.JButton homeBtn;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPanel mainMenuPanel;
-    private javax.swing.JLabel mulPowFormJL;
-    private javax.swing.JLabel mulPowJL;
     private javax.swing.JLabel nameBg;
     private javax.swing.JButton nextBtn;
+    private javax.swing.JLabel pageTitleJL;
     private javax.swing.JButton previousBtn;
-    private javax.swing.JLabel prodPowFormJL;
-    private javax.swing.JLabel prodPowJL;
-    private javax.swing.JLabel raisingPowFormJL;
-    private javax.swing.JLabel raisingPowJL;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.ButtonGroup subjectGroup1;
     private javax.swing.ButtonGroup subjectGroup2;
@@ -289,5 +342,44 @@ public class AlgebraFormula extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
+    private javax.swing.JLabel title1JL;
+    private javax.swing.JLabel title2JL;
+    private javax.swing.JLabel title3JL;
+    private javax.swing.JLabel title4JL;
     // End of variables declaration//GEN-END:variables
+
+    private void nextFormula() {
+        if(count + 1 >= AForm.size()){
+            count = 0;
+        }else{
+            count++;
+        }
+        pageTitleJL.setText(AForm.get(count).getPageTitle());
+        title1JL.setText(AForm.get(count).getTitle1());
+        title2JL.setText(AForm.get(count).getTitle2());
+        title3JL.setText(AForm.get(count).getTitle3());
+        title4JL.setText(AForm.get(count).getTitle4());
+        formula1JL.setText(AForm.get(count).getFormula1());
+        formula2JL.setText(AForm.get(count).getFormula2());
+        formula3JL.setText(AForm.get(count).getFormula3());
+        formula4JL.setText(AForm.get(count).getFormula4());
+        
+    }
+    
+    private void previousFormula(){
+        if(count - 1 < 0){
+            count = AForm.size() - 1;
+        }else{
+            count--;
+        }
+        pageTitleJL.setText(AForm.get(count).getPageTitle());
+        title1JL.setText(AForm.get(count).getTitle1());
+        title2JL.setText(AForm.get(count).getTitle2());
+        title3JL.setText(AForm.get(count).getTitle3());
+        title4JL.setText(AForm.get(count).getTitle4());
+        formula1JL.setText(AForm.get(count).getFormula1());
+        formula2JL.setText(AForm.get(count).getFormula2());
+        formula3JL.setText(AForm.get(count).getFormula3());
+        formula4JL.setText(AForm.get(count).getFormula4());
+    }
 }

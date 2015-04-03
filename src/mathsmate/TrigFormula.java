@@ -9,18 +9,35 @@ import java.awt.CardLayout;
 import java.awt.Desktop;
 import java.awt.LayoutManager;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  *
  * @author Ian Donnelly x14111659
  */
 public class TrigFormula extends javax.swing.JPanel {
+    
+    private ArrayList<TrigFormulaStorage> TForm;
+    TrigFormulaStorage TF1 = new TrigFormulaStorage("Right Angle Triangle:","Trig_Formula.png");
+    TrigFormulaStorage TF2 = new TrigFormulaStorage("Pythagoras Theorem:","pythagorastheorem.gif");
+    TrigFormulaStorage TF3 = new TrigFormulaStorage("Z Rule:","ZRule.gif");
+    TrigFormulaStorage TF4 = new TrigFormulaStorage("Triangle Bisection:","bisection.png");
+    TrigFormulaStorage TF5 = new TrigFormulaStorage("Triangle Congruence:","congruence.gif");
+    private int count;
+    
 
     /**
      * Creates new form AlgebraMenu
      */
     public TrigFormula() {
         initComponents();
+        TForm = new ArrayList<>();
+        TForm.add(TF1);
+        TForm.add(TF2);
+        TForm.add(TF3);
+        TForm.add(TF4);
+        TForm.add(TF5);
+        count = 0; 
     }
 
     /**
@@ -44,9 +61,9 @@ public class TrigFormula extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        videoLbl = new javax.swing.JLabel();
+        titleJL = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        trigFormula = new javax.swing.JLabel();
+        imageJL = new javax.swing.JLabel();
         nextBtn = new javax.swing.JButton();
         previousBtn = new javax.swing.JButton();
 
@@ -107,30 +124,29 @@ public class TrigFormula extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        videoLbl.setBackground(new java.awt.Color(142, 68, 173));
-        videoLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        videoLbl.setForeground(new java.awt.Color(255, 255, 255));
-        videoLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        videoLbl.setText("Right Angle Triangle:");
-        videoLbl.setOpaque(true);
-        mainMenuPanel.add(videoLbl);
-        videoLbl.setBounds(100, 80, 200, 40);
+        titleJL.setBackground(new java.awt.Color(142, 68, 173));
+        titleJL.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titleJL.setForeground(new java.awt.Color(255, 255, 255));
+        titleJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleJL.setText("Right Angle Triangle:");
+        titleJL.setOpaque(true);
+        mainMenuPanel.add(titleJL);
+        titleJL.setBounds(100, 80, 200, 40);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
 
-        trigFormula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Trig_Formula.png"))); // NOI18N
-        trigFormula.setText("jLabel1");
+        imageJL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Trig_Formula.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(trigFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 354, Short.MAX_VALUE)
+            .addComponent(imageJL, javax.swing.GroupLayout.PREFERRED_SIZE, 354, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(trigFormula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
+            .addComponent(imageJL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 264, Short.MAX_VALUE)
         );
 
         mainMenuPanel.add(jPanel1);
@@ -148,6 +164,11 @@ public class TrigFormula extends javax.swing.JPanel {
 
         previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         previousBtn.setText("Previous");
+        previousBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousBtnActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(previousBtn);
         previousBtn.setBounds(50, 520, 120, 40);
 
@@ -185,13 +206,20 @@ public class TrigFormula extends javax.swing.JPanel {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
+        nextFormula();
     }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
+        // TODO add your handling code here:
+        previousFormula();
+    }//GEN-LAST:event_previousBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel imageJL;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
@@ -204,7 +232,26 @@ public class TrigFormula extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
-    private javax.swing.JLabel trigFormula;
-    private javax.swing.JLabel videoLbl;
+    private javax.swing.JLabel titleJL;
     // End of variables declaration//GEN-END:variables
+
+    private void nextFormula() {
+        if(count + 1 >= TForm.size()){
+            count = 0;
+        }else{
+            count++;
+        }
+        titleJL.setText(TForm.get(count).getTitle());
+        imageJL.setIcon(new javax.swing.ImageIcon(getClass().getResource(TForm.get(count).getPath())));
+    }
+
+    private void previousFormula() {
+        if(count - 1 < 0){
+            count = TForm.size() - 1;
+        }else{
+            count--;
+        }
+        titleJL.setText(TForm.get(count).getTitle());
+        imageJL.setIcon(new javax.swing.ImageIcon(getClass().getResource(TForm.get(count).getPath())));
+    }
 }

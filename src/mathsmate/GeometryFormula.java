@@ -18,10 +18,10 @@ import java.util.ArrayList;
 public class GeometryFormula extends javax.swing.JPanel {
     private ArrayList<GeomFormulaStorage> GForm;
     GeomFormulaStorage GF1 = new GeomFormulaStorage("Area of Triangle:","areaoftriangle.png","https://www.youtube.com/watch?v=xz6gBA0M9FY");
-    GeomFormulaStorage GF2 = new GeomFormulaStorage("","","");
-    GeomFormulaStorage GF3 = new GeomFormulaStorage("Area of Cone:","areaofcone.jpg","");
-    GeomFormulaStorage GF4 = new GeomFormulaStorage("Area of Cube:","areaofcube.gif","");
-    GeomFormulaStorage GF5 = new GeomFormulaStorage("Area of Triangle:","","");
+    GeomFormulaStorage GF2 = new GeomFormulaStorage("Volume of Pyramid","pyramid.jpg","https://www.youtube.com/results?search_query=area+of+pyramid+mathhelp");
+    GeomFormulaStorage GF3 = new GeomFormulaStorage("Volume of Cone:","areaofcone.jpg","https://www.youtube.com/watch?v=l_KW_pRkEzg");
+    GeomFormulaStorage GF4 = new GeomFormulaStorage("Volume of Cube:","areaofcube.gif","https://www.youtube.com/watch?v=sskf3tF2heU");
+    GeomFormulaStorage GF5 = new GeomFormulaStorage("Volume of Cylinder:","cylinder.gif","https://www.youtube.com/watch?v=bON3X7UpFRE");
     private int count;
     /**
      * Creates new form AlgebraMenu

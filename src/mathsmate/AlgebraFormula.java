@@ -28,14 +28,14 @@ public class AlgebraFormula extends javax.swing.JPanel {
             "Difference of Two Squares:", "y^2 - x^2 = (x+y)(x-y)", 
             "Sum of two cubes:", "x^3 + y^3 = (x-y)(x^2 - xy + y^2)", 
             "Difference of two cubes:", "x^3 - y^3 = (x-y)(x^2 + xy + y)");
-    AlgebraFormulaStorage AF4 = new AlgebraFormulaStorage("Multiplying Powers","Thanks Aaron", "x^a . x^b = x^a+b", 
-            "Raising a power to a power:", "(x^a)^b = x^ab", 
-            "Power of a product property:", "xy^a = x^a.y^a", 
-            "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
-    AlgebraFormulaStorage AF5 = new AlgebraFormulaStorage("Multiplying Powers","Hello World", "x^a . x^b = x^a+b", 
-            "Raising a power to a power:", "(x^a)^b = x^ab", 
-            "Power of a product property:", "xy^a = x^a.y^a", 
-            "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
+    AlgebraFormulaStorage AF4 = new AlgebraFormulaStorage("Calculus","Chain Rule:", "dy/dx = (dy/du)(du/dx)", 
+            "Derivative of the inverse:", "dy/dx = 1/dx/dy", 
+            "Power Rule:", "d/dx(x^n) = nx^n-1", 
+            "Product Rule:", "(fg)' = f'g + fg'");
+    AlgebraFormulaStorage AF5 = new AlgebraFormulaStorage("Linear Algebra","Associativity", "(x + y) + z = x + (y + z)", 
+            "Zero and unity:", "x + 0 = x = 0 + x",
+            "Distributivity:", "(x + y)*z = x*z + y*z", 
+            "Commutativity:", "x + y = Y + x");
     
     private int count;
 

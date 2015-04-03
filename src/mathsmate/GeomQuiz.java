@@ -19,16 +19,48 @@ public class GeomQuiz extends javax.swing.JPanel {
      */
     int count;
     GeomQuestion[] q = new GeomQuestion[5]; //Array
-    GeomQuestion q1 = new GeomQuestion("<html>Given: AC' bisects \u2221BAD and \u2221BCD. Which of the following methods can be used to prove \u2206ABC\u2245\u2206ADC.</html>", 1); //Question 1 object
-    GeomQuestion q2 = new GeomQuestion("<html>In the diagram below, AC'\u2245DC'\u2245DB'. If the m \u3c ACD = 48, find the m \u3c B.</html>", 2); //Question 2 object
-    GeomQuestion q3 = new GeomQuestion("<html>In the diagram below, the angles are represented as shown. Find the m \u3c DBC.</html>", 3); //Question 3 object
-    GeomQuestion q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 4); //Question 4 object
-    GeomQuestion q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 5); //Question 5 object
+    String[] s = new String[4];
+    String[] j = new String[4];
+    String[] k = new String[4];
+    String[] l = new String[4];
+    String[] m = new String[4];
+    GeomQuestion q1;
+    GeomQuestion q2;
+    GeomQuestion q3;
+    GeomQuestion q4;
+    GeomQuestion q5;
     int correctAns;
     boolean finished;
 
     public GeomQuiz() {
         initComponents();
+        
+        s[0] = "24 degrees";
+        s[1] = "33 degrees";
+        s[2] = "48 degrees";
+        s[3] = "66 degrees";
+        q1 = new GeomQuestion("<html>Given: AC' bisects \u2221BAD and \u2221BCD. Which of the following methods can be used to prove \u2206ABC\u2245\u2206ADC.</html>", 1, "q1GeomPic.png", s); //Question 1 object
+        j[0] = "gg";
+        j[1] = "hh";
+        j[2] = "jj";
+        j[3] = "kk";
+        q2 = new GeomQuestion("<html>In the diagram below, AC'\u2245DC'\u2245DB'. If the m&lt;ACD = 48, find the m&lt;B.</html>", 2, "q2GeomPic.png", j); //Question 2 object
+        k[0] = "asfd";
+        k[1] = "dfh";
+        k[2] = "5ey";
+        k[3] = "cvb";
+        q3 = new GeomQuestion("<html>In the diagram below, the angles are represented as shown. Find the m&lt;DBC.</html>", 3, "q3GeomPic.png", k); //Question 3 object
+        l[0] = "32";
+        l[1] = "46";
+        l[2] = "44";
+        l[3] = "60";
+        q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 4, "q4GeomPic.png", l); //Question 4 object
+        m[0] = "a";
+        m[1] = "b";
+        m[2] = "c";
+        m[3] = "d";
+        q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 5, "q5GeomPic.png", m); //Question 5 object
+        
         count = 0;
         ansLbl.setText("");
         endTitle.setVisible(false);
@@ -43,6 +75,7 @@ public class GeomQuiz extends javax.swing.JPanel {
         q[2] = q3;
         q[3] = q4;
         q[4] = q5;
+        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
         q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
     }
 
@@ -198,15 +231,15 @@ public class GeomQuiz extends javax.swing.JPanel {
         question1.add(youGotLbl);
         youGotLbl.setBounds(60, 120, 230, 40);
 
-        mainMenuPanel.add(question1);
-        question1.setBounds(20, 80, 360, 480);
-
         numRltLbl.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         numRltLbl.setForeground(new java.awt.Color(255, 255, 255));
         numRltLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numRltLbl.setAlignmentY(0.0F);
-        mainMenuPanel.add(numRltLbl);
-        numRltLbl.setBounds(90, 230, 220, 190);
+        question1.add(numRltLbl);
+        numRltLbl.setBounds(60, 170, 220, 190);
+
+        mainMenuPanel.add(question1);
+        question1.setBounds(20, 80, 360, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -249,9 +282,11 @@ public class GeomQuiz extends javax.swing.JPanel {
             }
         }else{
             nxtBtn1.setEnabled(true);
-            multiAnsBox1.setEnabled(true);
+            chkAnsBtn.setEnabled(false);
+            multiAnsBox1.setEnabled(false);
             if (multiAnsBox1.getSelectedIndex()==(q[count].getCorrectAns())) {
                 ansLbl.setText("Correct!");
+                correctAns++;
             } else {
                 ansLbl.setText("Incorrect!");
             }
@@ -269,6 +304,8 @@ public class GeomQuiz extends javax.swing.JPanel {
             nxtBtn1.setEnabled(false);
             q1GeomLbl.setVisible(true);
             multiAnsBox1.setVisible(true);
+            geomPic1.setVisible(true);
+            multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
             q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");            
             multiAnsBox1.setEnabled(true);
             chkAnsBtn.setText("Check Answer");
@@ -284,8 +321,11 @@ public class GeomQuiz extends javax.swing.JPanel {
                 ansLbl.setText("Correct!");
                 q1GeomLbl.setVisible(false);
                 multiAnsBox1.setVisible(false);
+                geomPic1.setVisible(false);
+                chkAnsBtn.setEnabled(true);
                 chkAnsBtn.setText("Main Menu");
                 nxtBtn1.setText("Reset");
+                finished = true;
             } else {
                 nextQuestion();
             }
@@ -295,28 +335,20 @@ public class GeomQuiz extends javax.swing.JPanel {
     private void multiAnsBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiAnsBox1ActionPerformed
         chkAnsBtn.setEnabled(true);    
     }//GEN-LAST:event_multiAnsBox1ActionPerformed
-    
-    private void resetQuiz() {
-        ansLbl.setText("");
-        endTitle.setVisible(false);
-        youGotLbl.setVisible(false);
-        numRltLbl.setVisible(false);
-        chkAnsBtn.setEnabled(false);
-        nxtBtn1.setEnabled(false);
-        count = 0;
-        correctAns = 0;
-        finished = false;
-    }
+
     
     private void nextQuestion() {
         count++;
         q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
+        geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource(q[count].getImage())));
+        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
         multiAnsBox1.setEnabled(true);
         nxtBtn1.setEnabled(false);
         ansLbl.setText("");
         chkAnsBtn.setEnabled(false);
         if (q.length <= count + 1) {
             nxtBtn1.setText("Finished");
+            
         } else {
             nxtBtn1.setEnabled(false);
         }

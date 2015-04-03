@@ -351,17 +351,6 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_nxtBtn1ActionPerformed
 
-    private void resetQuiz() {
-        ansLbl.setText("");
-        endTitle.setVisible(false);
-        youGotLbl.setVisible(false);
-        numRltLbl.setVisible(false);
-        chkAnsBtn.setEnabled(false);
-        nxtBtn1.setEnabled(false);
-        count = 0;
-        correctAns = 0;
-        finished = false;
-    }
 
     private void nextQuestion() {
         count++;

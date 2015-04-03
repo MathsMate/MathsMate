@@ -10,12 +10,23 @@ package mathsmate;
  * @author Ben, Aaron, Ian, Emlyn
  */
 public class GeomQuestion {
-    private String questionTitle;
+    private String questionTitle, image;
     private int correctAns;
+    private String[] answers;
     
-    public GeomQuestion(String questionTitle, int correctAns) {
+    public GeomQuestion(String questionTitle, int correctAns, String image, String[] answers) {
         this.questionTitle = questionTitle;
         this.correctAns = correctAns;
+        this.image = image;
+        this.answers = answers;
+    }
+
+    public String[] getAnswers() {
+        return answers;
+    }
+
+    public String getImage() {
+        return image;
     }
     
     public String getQuestionTitle(){

@@ -349,8 +349,7 @@ public class GeomQuiz extends javax.swing.JPanel {
         ansLbl.setText("");
         chkAnsBtn.setEnabled(false);
         if (q.length <= count + 1) {
-            nxtBtn1.setText("Finished");
-            
+            nxtBtn1.setText("Finished");    
         } else {
             nxtBtn1.setEnabled(false);
         }

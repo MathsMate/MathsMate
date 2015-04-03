@@ -17,10 +17,66 @@ public class NotesGeometry extends javax.swing.JPanel {
     /**
      * Creates new form AlgebraMenu
      */
+      int count;/*
+    geoNotes [] q = new TrigNotes [5]; //array start 
+    geoNotes q1 = new GeoNotes ("Calculating Perimiter of a rectangle is 7+3+7+3 = 20"
+);//Page 1
+    geoNotes q2 = new GeoNotes ("The perimeter of a circle is called the circumference:
+Circumference = 2π × radius");//Page 2
+    GeoNotes q3 = new GeoNotes ("Finding the area of a triangle 
+
+Height = h = 12
+Base = b = 20
+Area = ½ × b × h = ½ × 20 × 12 = 120 "");//Page 3
+    GeoNotes q4 = new GeoNotes ("Cartesian Coordinates 
+example 
+Point (6,4) is
+6 units across (in the x direction), and
+4 units up (in the y direction)"");//Page 4   
+    GeoNotes q5 = new GeoNotes  ("pythagoras Theorem
+Example
+ A 3,4,5 Triangle has a right angle in it.
+
+
+Let's check if the areas are the same
+32 + 42 = 52
+Calculating this becomes:
+9 + 16 = 25
+It works ... like Magic!
+"");//Page 5
+        
     public NotesGeometry() {
         initComponents();
+          ansLbl.setText("");
+        chkAnsBtn.setEnabled(false);
+        nxtBtn1.setEnabled(false);
+        count = 0;
+        q[0] = q1;
+        q[1] = q2;
+        q[2] = q3;
+        q[3] = q4;
+        q[4] = q5;
     }
 
+      int pic counter;
+    geoNotesPic [] q = new TrigNotes [5]; //array Pic start 
+    geoNotesPic q1 = new GeoNotesPic ();//Page 1
+    geoNotesPic q2 = new GeoNotesPic ();//Page 2
+    GeoNotesPic q3 = new GeoNotesPic ();//Page 3
+    GeoNotesPic q4 = new GeoNotesPic ();//Page 4   
+    GeoNotesPic q5 = new GeoNotesPic ();//Page 5
+        
+    public NotesGeometry() {
+        initComponents();
+          ansLbl.setText("");
+        chkAnsBtn.setEnabled(false);
+        nxtBtn1.setEnabled(false);
+        count = 0;
+        q[0] = q1;
+        q[1] = q2;
+        q[2] = q3;
+        q[3] = q4;
+        q[4] = q5;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +102,8 @@ public class NotesGeometry extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -114,7 +172,7 @@ public class NotesGeometry extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Geometry Diagram.fw.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         mainMenuPanel.add(jLabel3);
-        jLabel3.setBounds(40, 30, 300, 310);
+        jLabel3.setBounds(60, 70, 270, 230);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -122,7 +180,27 @@ public class NotesGeometry extends javax.swing.JPanel {
         jScrollPane4.setViewportView(jTextArea2);
 
         mainMenuPanel.add(jScrollPane4);
-        jScrollPane4.setBounds(30, 340, 330, 230);
+        jScrollPane4.setBounds(20, 310, 350, 190);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setText("Previous");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(jButton1);
+        jButton1.setBounds(40, 530, 93, 29);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setText("Next");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(jButton2);
+        jButton2.setBounds(280, 530, 69, 31);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,11 +234,23 @@ public class NotesGeometry extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    //nextQuestion(); 
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    //previousQuestion();                                             
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

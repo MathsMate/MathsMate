@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
 
@@ -189,21 +189,48 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="110" width="280" height="420"/>
+              <AbsoluteConstraints x="30" y="90" width="340" height="390"/>
             </Constraint>
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="notesArea">
               <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Far far away, behind the word &#xa;mountains, far from the countries V&#xa;okalia and Consonantia, there live &#xa;the blind texts. Separated they live&#xa; in Bookmarksgrove right at the coast&#xa; of the Semantics, a large language o&#xa;cean. A small river named Duden flow&#xa;s by their place and supplies it &#xa;with the necessary regelialia. I&#xa;t is a paradisematic country, in w&#xa;hich roasted parts of sentences fly into y&#xa;our mouth. Even the all-powerful &#xa;Pointing has no control about the &#xa;blind texts it is an almost unorthog&#xa;raphic life One day however a small &#xa;line of blind text by the name of Lorem Ip&#xa;sum decided to leave for the far World of Grammar. &#xa;The Big Oxmox advised her not to &#xa;do so, because there were thousands &#xa;of bad Commas, wild Question Marks&#xa; and devious Semikoli, but the Lit&#xa;tle Blind Text didn&#x2019;t listen. She p&#xa;acked her seven versalia, put her&#xa; initial into the belt and &#xa;&#xa;&#xa;,,,&#xa;,,,&#xa;&#xa;ma"/>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="columns" type="int" value="1"/>
+                <Property name="rows" type="int" value="1"/>
+                <Property name="text" type="java.lang.String" value="Far far away, behind the word &#xa;mountains, far from the countries V&#xa;okalia and Consonantia, there live &#xa;the blind texts. Separated they live&#xa; in Bookmarksgrove right at the coast&#xa; of the Semantics, a large language o&#xa;cean. A small river named Duden flow&#xa;s by their place and supplies it &#xa;with the necessary regelialia. I&#xa;t is a paradisematic country, in w&#xa;hich roasted parts of sentences fly\u005c&#xa;into y&#xa;our mouth. Even the all-powerful &#xa;Pointing has no control about the &#xa;blind texts it is an almost unorthog&#xa;raphic life One day however a small &#xa;line of blind text by the name of &#xa;Lorem Ip&#xa;sum decided to leave for the far World&#xa; of Grammar. &#xa;The Big Oxmox advised her not to &#xa;do so, because there were thousands &#xa;of bad Commas, wild Question Marks&#xa; and devious Semikoli, but the Lit&#xa;tle Blind Text didn&#x2019;t listen. She p&#xa;acked her seven versalia, put her&#xa; initial into the belt and &#xa;&#xa;&#xa;,,,&#xa;,,,&#xa;&#xa;ma" containsInvalidXMLChars="true"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="prevBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Previous"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prevBtnActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="540" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="nextBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Next"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextBtnActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="270" y="540" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

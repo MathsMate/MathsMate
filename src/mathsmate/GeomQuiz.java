@@ -17,8 +17,28 @@ public class GeomQuiz extends javax.swing.JPanel {
     /**
      * Creates new form AlgebraMenu
      */
+    int count;
+    GeomQuestion[] q = new GeomQuestion[5]; //Array
+    GeomQuestion q1 = new GeomQuestion("Solve {x+y = 10, x-y = 4}", 2); //Question 1 object
+    GeomQuestion q2 = new GeomQuestion("If f(x) = ln(x + 1) - 2, then f-1(x) =", 2); //Question 2 object
+    GeomQuestion q3 = new GeomQuestion("If f(x) = 5 - 2x, then f-1(-3) =", 3); //Question 3 object
+    GeomQuestion q4 = new GeomQuestion("If f(x) = -x2 + 1, then f(x + 1) =", 1); //Question 4 object
+    GeomQuestion q5 = new GeomQuestion("For all x real, √(x2 -4x + 4) =", 1); //Question 5 object
+
     public GeomQuiz() {
         initComponents();
+        ansLbl.setText("");
+        endTitle.setVisible(false);
+        youGotLbl.setVisible(false);
+        numRltLbl.setVisible(false);
+        chkAnsBtn.setEnabled(false);
+        nxtBtn1.setEnabled(false);
+        count = 0;
+        q[0] = q1;
+        q[1] = q2;
+        q[2] = q3;
+        q[3] = q4;
+        q[4] = q5;
     }
 
     /**
@@ -42,11 +62,10 @@ public class GeomQuiz extends javax.swing.JPanel {
         ansLbl = new javax.swing.JLabel();
         q1GeomLbl = new javax.swing.JLabel();
         multiAnsBox1 = new javax.swing.JComboBox();
-        multiAnsBox2 = new javax.swing.JComboBox();
-        multiAnsBox3 = new javax.swing.JComboBox();
         geomPic1 = new javax.swing.JLabel();
-        geomPic2 = new javax.swing.JLabel();
-        geomPic3 = new javax.swing.JLabel();
+        endTitle = new javax.swing.JLabel();
+        youGotLbl = new javax.swing.JLabel();
+        numRltLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -107,104 +126,82 @@ public class GeomQuiz extends javax.swing.JPanel {
 
         question1.setBackground(new java.awt.Color(142, 68, 173));
         question1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        question1.setLayout(null);
 
         nxtBtn1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         nxtBtn1.setText("Next");
+        nxtBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nxtBtn1ActionPerformed(evt);
+            }
+        });
+        question1.add(nxtBtn1);
+        nxtBtn1.setBounds(206, 406, 131, 41);
 
         chkAnsBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         chkAnsBtn.setText("Check Answer");
+        chkAnsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAnsBtnActionPerformed(evt);
+            }
+        });
+        question1.add(chkAnsBtn);
+        chkAnsBtn.setBounds(23, 406, 173, 41);
 
         ansLbl.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ansLbl.setForeground(new java.awt.Color(255, 255, 255));
         ansLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ansLbl.setText("Correct");
+        question1.add(ansLbl);
+        ansLbl.setBounds(6, 360, 350, 29);
 
         q1GeomLbl.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         q1GeomLbl.setForeground(new java.awt.Color(255, 255, 255));
         q1GeomLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         q1GeomLbl.setText("Q1. Match the diagram to the answer");
+        question1.add(q1GeomLbl);
+        q1GeomLbl.setBounds(13, 14, 334, 36);
 
+        multiAnsBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
-
-        multiAnsBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
-
-        multiAnsBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
+        multiAnsBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiAnsBox1ActionPerformed(evt);
+            }
+        });
+        question1.add(multiAnsBox1);
+        multiAnsBox1.setBounds(90, 250, 170, 30);
 
         geomPic1.setBackground(new java.awt.Color(255, 255, 255));
         geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
+        question1.add(geomPic1);
+        geomPic1.setBounds(40, 50, 280, 190);
 
-        geomPic2.setBackground(new java.awt.Color(255, 255, 255));
-        geomPic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
+        endTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        endTitle.setForeground(new java.awt.Color(255, 255, 255));
+        endTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        endTitle.setText("Results");
+        endTitle.setAlignmentY(0.0F);
+        question1.add(endTitle);
+        endTitle.setBounds(100, 40, 150, 50);
 
-        geomPic3.setBackground(new java.awt.Color(255, 255, 255));
-        geomPic3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
-
-        javax.swing.GroupLayout question1Layout = new javax.swing.GroupLayout(question1);
-        question1.setLayout(question1Layout);
-        question1Layout.setHorizontalGroup(
-            question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(question1Layout.createSequentialGroup()
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(question1Layout.createSequentialGroup()
-                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(question1Layout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addComponent(ansLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(question1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addGroup(question1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(q1GeomLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(question1Layout.createSequentialGroup()
-                                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, question1Layout.createSequentialGroup()
-                                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(geomPic1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(geomPic2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(multiAnsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(multiAnsBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(question1Layout.createSequentialGroup()
-                                        .addComponent(geomPic3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(multiAnsBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(12, 12, 12)))))
-                .addContainerGap())
-        );
-        question1Layout.setVerticalGroup(
-            question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(question1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(q1GeomLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(geomPic1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(multiAnsBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(multiAnsBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(geomPic2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(geomPic3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(multiAnsBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(ansLbl)
-                .addGap(18, 18, 18)
-                .addGroup(question1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkAnsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nxtBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
-        );
+        youGotLbl.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        youGotLbl.setForeground(new java.awt.Color(255, 255, 255));
+        youGotLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        youGotLbl.setText("You Answered");
+        youGotLbl.setAlignmentY(0.0F);
+        question1.add(youGotLbl);
+        youGotLbl.setBounds(60, 120, 230, 40);
 
         mainMenuPanel.add(question1);
         question1.setBounds(20, 80, 360, 480);
+
+        numRltLbl.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        numRltLbl.setForeground(new java.awt.Color(255, 255, 255));
+        numRltLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numRltLbl.setAlignmentY(0.0F);
+        mainMenuPanel.add(numRltLbl);
+        numRltLbl.setBounds(90, 230, 220, 190);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -225,7 +222,7 @@ public class GeomQuiz extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "GEOMETRY_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
@@ -233,29 +230,75 @@ public class GeomQuiz extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
+    private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
+        nxtBtn1.setEnabled(true);
+        multiAnsBox1.setEnabled(true);
+        if (multiAnsBox1.setSelectedItem().equals(q[count].getCorrectAns() == 1)) {
+            ansLbl.setText("Correct!");
+        } else if (multiAnsBox1.isSelected() && (q[count].getCorrectAns() == 2)) {
+            ansLbl.setText("Correct!");
+        } else if (multiAnsBox1.isSelected() && (q[count].getCorrectAns() == 3)) {
+            ansLbl.setText("Correct!");
+        } else {
+            ansLbl.setText("Incorrect!");
+        }
+    }//GEN-LAST:event_chkAnsBtnActionPerformed
+
+    private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
+        if (q.length - 1 <= count) {
+            endTitle.setVisible(true);
+            youGotLbl.setVisible(true);
+            numRltLbl.setVisible(true);
+            numRltLbl.setText(q[count].getCorrectAns() + "/5");
+            ansLbl.setText("Correct!");
+            q1GeomLbl.setVisible(false);
+            multiAnsBox1.setVisible(false);
+            chkAnsBtn.setText("Main Menu");
+            nxtBtn1.setText("Reset");
+        } else {
+            nextQuestion();
+        }
+    }//GEN-LAST:event_nxtBtn1ActionPerformed
+
+    private void multiAnsBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiAnsBox1ActionPerformed
+        chkAnsBtn.setEnabled(true);    
+    }//GEN-LAST:event_multiAnsBox1ActionPerformed
+    private void nextQuestion() {
+        count++;
+        q1GeomLbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
+        multiAnsBox1.setEnabled(true);
+        nxtBtn1.setEnabled(false);
+        ansLbl.setText("");
+        chkAnsBtn.setEnabled(false);
+        if (q.length <= count + 1) {
+            nxtBtn1.setText("Finished");
+        } else {
+            nxtBtn1.setEnabled(false);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ansLbl;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton chkAnsBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JLabel endTitle;
     private javax.swing.JLabel geomPic1;
-    private javax.swing.JLabel geomPic2;
-    private javax.swing.JLabel geomPic3;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JComboBox multiAnsBox1;
-    private javax.swing.JComboBox multiAnsBox2;
-    private javax.swing.JComboBox multiAnsBox3;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JLabel numRltLbl;
     private javax.swing.JButton nxtBtn1;
     private javax.swing.JLabel q1GeomLbl;
     private javax.swing.JPanel question1;
     private javax.swing.JLabel screenTitleLbl;
+    private javax.swing.JLabel youGotLbl;
     // End of variables declaration//GEN-END:variables
+
 }

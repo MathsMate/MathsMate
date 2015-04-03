@@ -311,7 +311,12 @@ public class AlgebraFormula extends javax.swing.JPanel {
         // TODO add your handling code here:
         nextFormula();
     }//GEN-LAST:event_nextBtnActionPerformed
-
+/* GitHub caused an error here - disregard code
+    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        previousFormula();
+    }                                           
+*/
     private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
         // TODO add your handling code here:
         previousFormula();

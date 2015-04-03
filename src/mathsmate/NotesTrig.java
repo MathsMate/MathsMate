@@ -7,6 +7,7 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,8 +18,18 @@ public class NotesTrig extends javax.swing.JPanel {
     /**
      * Creates new form AlgebraMenu
      */
+    int count;
+    ArrayList<Notes> n = new ArrayList<>();
+    Notes n1 = new Notes("The Sine of angle adjacent/hypotenuse  is: the \nlength of the side Opposite angle H^A divided \nby the length of the Hypotenuse");//Page 1
+    Notes n2 = new Notes("Inverse Sine sin-1 takes the ratio \n\"opposite/hypotenuse\" and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°");//Page 2
+  
+
     public NotesTrig() {
         initComponents();
+        count = 0;
+        n.add(n1);
+        n.add(n2);
+        notesArea.setText(n.get(count).getNote());
     }
 
     /**
@@ -44,7 +55,9 @@ public class NotesTrig extends javax.swing.JPanel {
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        notesArea = new javax.swing.JTextArea();
+        prevBtn = new javax.swing.JButton();
+        nextBtn = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -110,13 +123,32 @@ public class NotesTrig extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Far far away, behind the word \nmountains, far from the countries V\nokalia and Consonantia, there live \nthe blind texts. Separated they live\n in Bookmarksgrove right at the coast\n of the Semantics, a large language o\ncean. A small river named Duden flow\ns by their place and supplies it \nwith the necessary regelialia. I\nt is a paradisematic country, in w\nhich roasted parts of sentences fly into y\nour mouth. Even the all-powerful \nPointing has no control about the \nblind texts it is an almost unorthog\nraphic life One day however a small \nline of blind text by the name of Lorem Ip\nsum decided to leave for the far World of Grammar. \nThe Big Oxmox advised her not to \ndo so, because there were thousands \nof bad Commas, wild Question Marks\n and devious Semikoli, but the Lit\ntle Blind Text didn’t listen. She p\nacked her seven versalia, put her\n initial into the belt and \n\n\n,,,\n,,,\n\nma");
-        jScrollPane3.setViewportView(jTextArea1);
+        notesArea.setEditable(false);
+        notesArea.setColumns(1);
+        notesArea.setRows(1);
+        notesArea.setText("Far far away, behind the word \nmountains, far from the countries V\nokalia and Consonantia, there live \nthe blind texts. Separated they live\n in Bookmarksgrove right at the coast\n of the Semantics, a large language o\ncean. A small river named Duden flow\ns by their place and supplies it \nwith the necessary regelialia. I\nt is a paradisematic country, in w\nhich roasted parts of sentences fly\\\ninto y\nour mouth. Even the all-powerful \nPointing has no control about the \nblind texts it is an almost unorthog\nraphic life One day however a small \nline of blind text by the name of \nLorem Ip\nsum decided to leave for the far World\n of Grammar. \nThe Big Oxmox advised her not to \ndo so, because there were thousands \nof bad Commas, wild Question Marks\n and devious Semikoli, but the Lit\ntle Blind Text didn’t listen. She p\nacked her seven versalia, put her\n initial into the belt and \n\n\n,,,\n,,,\n\nma");
+        jScrollPane3.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(60, 110, 280, 420);
+        jScrollPane3.setBounds(30, 90, 340, 390);
+
+        prevBtn.setText("Previous");
+        prevBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(prevBtn);
+        prevBtn.setBounds(30, 540, 93, 29);
+
+        nextBtn.setText("Next");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(nextBtn);
+        nextBtn.setBounds(270, 540, 65, 29);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,7 +165,7 @@ public class NotesTrig extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
@@ -141,12 +173,35 @@ public class NotesTrig extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "TRIG_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBtnActionPerformed
+        prevNote();
+    }//GEN-LAST:event_prevBtnActionPerformed
 
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        nextNote();
+    }//GEN-LAST:event_nextBtnActionPerformed
+    private void nextNote() {
+        if(count + 1 >= n.size()){
+            count = 0;
+        } else {
+            count++;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
+    
+    private void prevNote() {
+        if(count - 1 < 0){
+            count = n.size() - 1;
+        } else {
+            count--;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
@@ -156,10 +211,12 @@ public class NotesTrig extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JButton nextBtn;
+    private javax.swing.JTextArea notesArea;
+    private javax.swing.JButton prevBtn;
     private javax.swing.JLabel screenTitleLbl;
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;

@@ -93,7 +93,7 @@ public class AlgebraMenu extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(quizBtn);
-        quizBtn.setBounds(50, 170, 310, 100);
+        quizBtn.setBounds(50, 160, 310, 100);
 
         formulaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/formulaIcon.png"))); // NOI18N
         formulaBtn.setAlignmentY(0.0F);

@@ -9,18 +9,32 @@ import java.awt.CardLayout;
 import java.awt.Desktop;
 import java.awt.LayoutManager;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  *
  * @author Ian Donnelly X14111659
  */
 public class GeometryFormula extends javax.swing.JPanel {
-
+    private ArrayList<GeomFormulaStorage> GForm;
+    GeomFormulaStorage GF1 = new GeomFormulaStorage("Area of Triangle:","areaoftriangle.png","https://www.youtube.com/watch?v=xz6gBA0M9FY");
+    GeomFormulaStorage GF2 = new GeomFormulaStorage("","","");
+    GeomFormulaStorage GF3 = new GeomFormulaStorage("Area of Cone:","areaofcone.jpg","");
+    GeomFormulaStorage GF4 = new GeomFormulaStorage("Area of Cube:","areaofcube.gif","");
+    GeomFormulaStorage GF5 = new GeomFormulaStorage("Area of Triangle:","","");
+    private int count;
     /**
      * Creates new form AlgebraMenu
      */
     public GeometryFormula() {
         initComponents();
+        GForm = new ArrayList<>();
+        GForm.add(GF1);        
+        GForm.add(GF2); 
+        GForm.add(GF3);
+        GForm.add(GF4);
+        GForm.add(GF5);
+        count = 0; 
     }
 
     /**
@@ -40,13 +54,13 @@ public class GeometryFormula extends javax.swing.JPanel {
         subjectGroup6 = new javax.swing.ButtonGroup();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
-        videoLbl = new javax.swing.JLabel();
+        titleJL = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        geomVideoLbl = new javax.swing.JButton();
+        videoJL = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
         previousBtn = new javax.swing.JButton();
 
@@ -63,14 +77,14 @@ public class GeometryFormula extends javax.swing.JPanel {
         mainMenuPanel.add(copyrightLbl);
         copyrightLbl.setBounds(30, 580, 340, 30);
 
-        videoLbl.setBackground(new java.awt.Color(142, 68, 173));
-        videoLbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        videoLbl.setForeground(new java.awt.Color(255, 255, 255));
-        videoLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        videoLbl.setText("Area of Triangle:");
-        videoLbl.setOpaque(true);
-        mainMenuPanel.add(videoLbl);
-        videoLbl.setBounds(110, 80, 180, 40);
+        titleJL.setBackground(new java.awt.Color(142, 68, 173));
+        titleJL.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titleJL.setForeground(new java.awt.Color(255, 255, 255));
+        titleJL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleJL.setText("Area of Triangle:");
+        titleJL.setOpaque(true);
+        mainMenuPanel.add(titleJL);
+        titleJL.setBounds(110, 80, 180, 40);
 
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/homeIcon.png"))); // NOI18N
         homeBtn.setAlignmentY(0.0F);
@@ -119,17 +133,18 @@ public class GeometryFormula extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(142, 68, 173));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
 
-        geomVideoLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/play_button.png"))); // NOI18N
-        geomVideoLbl.setAlignmentY(0.0F);
-        geomVideoLbl.setBorderPainted(false);
-        geomVideoLbl.setContentAreaFilled(false);
-        geomVideoLbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        geomVideoLbl.setMaximumSize(new java.awt.Dimension(100, 100));
-        geomVideoLbl.setMinimumSize(new java.awt.Dimension(100, 100));
-        geomVideoLbl.setPreferredSize(new java.awt.Dimension(100, 100));
-        geomVideoLbl.addActionListener(new java.awt.event.ActionListener() {
+        videoJL.setForeground(new java.awt.Color(255, 255, 255));
+        videoJL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/areaoftriangle.png"))); // NOI18N
+        videoJL.setAlignmentY(0.0F);
+        videoJL.setBorderPainted(false);
+        videoJL.setContentAreaFilled(false);
+        videoJL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        videoJL.setMaximumSize(new java.awt.Dimension(100, 100));
+        videoJL.setMinimumSize(new java.awt.Dimension(100, 100));
+        videoJL.setPreferredSize(new java.awt.Dimension(100, 100));
+        videoJL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                geomVideoLblActionPerformed(evt);
+                videoJLActionPerformed(evt);
             }
         });
 
@@ -137,15 +152,11 @@ public class GeometryFormula extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(geomVideoLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
+            .addComponent(videoJL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 264, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(geomVideoLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
+            .addComponent(videoJL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
         );
 
         mainMenuPanel.add(jPanel1);
@@ -163,6 +174,11 @@ public class GeometryFormula extends javax.swing.JPanel {
 
         previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         previousBtn.setText("Previous");
+        previousBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousBtnActionPerformed(evt);
+            }
+        });
         mainMenuPanel.add(previousBtn);
         previousBtn.setBounds(50, 520, 120, 40);
 
@@ -200,17 +216,27 @@ public class GeometryFormula extends javax.swing.JPanel {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
+        nextFormula();
     }//GEN-LAST:event_nextBtnActionPerformed
 
-    private void geomVideoLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geomVideoLblActionPerformed
+    private void videoJLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoJLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_geomVideoLblActionPerformed
+        try {
+            Desktop.getDesktop().browse(new URL(GForm.get(count).getUrl()).toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_videoJLActionPerformed
+
+    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
+        // TODO add your handling code here:
+        previousFormula();
+    }//GEN-LAST:event_previousBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
-    private javax.swing.JButton geomVideoLbl;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainMenuPanel;
@@ -224,6 +250,27 @@ public class GeometryFormula extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
-    private javax.swing.JLabel videoLbl;
+    private javax.swing.JLabel titleJL;
+    private javax.swing.JButton videoJL;
     // End of variables declaration//GEN-END:variables
+
+    private void nextFormula() {
+        if(count + 1 >= GForm.size()){
+            count = 0;
+        }else{
+            count++;
+        }
+        titleJL.setText(GForm.get(count).getTitle());
+        videoJL.setIcon(new javax.swing.ImageIcon(getClass().getResource(GForm.get(count).getPath())));
+    }
+
+    private void previousFormula() {
+        if(count - 1 < 0){
+            count = GForm.size() - 1;
+        }else{
+            count--;
+        }
+        titleJL.setText(GForm.get(count).getTitle());
+        videoJL.setIcon(new javax.swing.ImageIcon(getClass().getResource(GForm.get(count).getPath())));
+    }
 }

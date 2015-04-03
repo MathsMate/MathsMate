@@ -7,7 +7,7 @@ package mathsmate;
 
 /**
  *
- * @author IanandNicole
+ * @author Ian Donnelly X14111659
  */
 public class TrigFormulaStorage {
     private String title, path;

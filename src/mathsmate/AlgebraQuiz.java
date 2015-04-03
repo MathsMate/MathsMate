@@ -10,13 +10,10 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Bernard Skerritt
+ * @author Bernard Skerritt x14110717
  */
 public class AlgebraQuiz extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AlgebraMenu
-     */
     int count;
     AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array
     AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "  y = 4,   x = 3", "  x = 7,   y = 3", "  x = 6,   y = 1", 2); //Question 1 object

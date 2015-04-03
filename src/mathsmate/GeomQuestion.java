@@ -7,7 +7,7 @@ package mathsmate;
 
 /**
  *
- * @author Ben, Aaron, Ian, Emlyn
+ * @author Bernard Skerritt x14110717
  */
 public class GeomQuestion {
     private String questionTitle, image;

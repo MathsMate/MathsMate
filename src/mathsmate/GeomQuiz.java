@@ -10,20 +10,17 @@ import java.awt.LayoutManager;
 
 /**
  *
- * @author Bernard Skerritt
+ * @author Bernard Skerritt x14110717
  */
 public class GeomQuiz extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AlgebraMenu
-     */
     int count;
     GeomQuestion[] q = new GeomQuestion[5]; //Array
-    String[] s = new String[4];
-    String[] j = new String[4];
-    String[] k = new String[4];
-    String[] l = new String[4];
-    String[] m = new String[4];
+    String[] s = new String[5];
+    String[] j = new String[5];
+    String[] k = new String[5];
+    String[] l = new String[5];
+    String[] m = new String[5];
     GeomQuestion q1;
     GeomQuestion q2;
     GeomQuestion q3;
@@ -35,31 +32,36 @@ public class GeomQuiz extends javax.swing.JPanel {
     public GeomQuiz() {
         initComponents();
         
-        s[0] = "24 degrees";
-        s[1] = "33 degrees";
-        s[2] = "48 degrees";
-        s[3] = "66 degrees";
+        s[0] = "Select an Answer";
+        s[1] = "Angle-Side-Angle (ASA)";
+        s[2] = "Side-Angle-Side (SAS)";
+        s[3] = "Angle-Angle-Side (AAS)";
+        s[4] = "None of these";
         q1 = new GeomQuestion("<html>Given: AC' bisects \u2221BAD and \u2221BCD. Which of the following methods can be used to prove \u2206ABC\u2245\u2206ADC.</html>", 1, "q1GeomPic.png", s); //Question 1 object
-        j[0] = "gg";
-        j[1] = "hh";
-        j[2] = "jj";
-        j[3] = "kk";
+        j[0] = "Select an Answer";
+        j[1] = "24 degrees";
+        j[2] = "33 degrees";
+        j[3] = "48 degrees";
+        j[4] = "66 degrees";
         q2 = new GeomQuestion("<html>In the diagram below, AC'\u2245DC'\u2245DB'. If the m&lt;ACD = 48, find the m&lt;B.</html>", 2, "q2GeomPic.png", j); //Question 2 object
-        k[0] = "asfd";
-        k[1] = "dfh";
-        k[2] = "5ey";
-        k[3] = "cvb";
+        k[0] = "Select an Answer";
+        k[1] = "25 degrees";
+        k[2] = "125 degrees";
+        k[3] = "155 degrees";
+        k[4] = "158 degrees";
         q3 = new GeomQuestion("<html>In the diagram below, the angles are represented as shown. Find the m&lt;DBC.</html>", 3, "q3GeomPic.png", k); //Question 3 object
-        l[0] = "32";
-        l[1] = "46";
-        l[2] = "44";
-        l[3] = "60";
-        q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 4, "q4GeomPic.png", l); //Question 4 object
-        m[0] = "a";
-        m[1] = "b";
-        m[2] = "c";
-        m[3] = "d";
-        q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 5, "q5GeomPic.png", m); //Question 5 object
+        l[0] = "Select an Answer";
+        l[1] = "32";
+        l[2] = "36";
+        l[3] = "40";
+        l[4] = "60";
+        q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 3, "q4GeomPic.png", l); //Question 4 object
+        m[0] = "Select an Answer";
+        m[1] = "117";
+        m[2] = "110";
+        m[3] = "27";
+        m[4] = "63";
+        q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 4, "q5GeomPic.png", m); //Question 5 object
         
         count = 0;
         ansLbl.setText("");

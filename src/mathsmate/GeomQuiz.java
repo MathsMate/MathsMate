@@ -19,26 +19,31 @@ public class GeomQuiz extends javax.swing.JPanel {
      */
     int count;
     GeomQuestion[] q = new GeomQuestion[5]; //Array
-    GeomQuestion q1 = new GeomQuestion("Solve {x+y = 10, x-y = 4}", 2); //Question 1 object
-    GeomQuestion q2 = new GeomQuestion("If f(x) = ln(x + 1) - 2, then f-1(x) =", 2); //Question 2 object
-    GeomQuestion q3 = new GeomQuestion("If f(x) = 5 - 2x, then f-1(-3) =", 3); //Question 3 object
-    GeomQuestion q4 = new GeomQuestion("If f(x) = -x2 + 1, then f(x + 1) =", 1); //Question 4 object
-    GeomQuestion q5 = new GeomQuestion("For all x real, √(x2 -4x + 4) =", 1); //Question 5 object
+    GeomQuestion q1 = new GeomQuestion("<html>Given: AC' bisects \u2221BAD and \u2221BCD. Which of the following methods can be used to prove \u2206ABC\u2245\u2206ADC.</html>", 1); //Question 1 object
+    GeomQuestion q2 = new GeomQuestion("<html>In the diagram below, AC'\u2245DC'\u2245DB'. If the m \u3c ACD = 48, find the m \u3c B.</html>", 2); //Question 2 object
+    GeomQuestion q3 = new GeomQuestion("<html>In the diagram below, the angles are represented as shown. Find the m \u3c DBC.</html>", 3); //Question 3 object
+    GeomQuestion q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 4); //Question 4 object
+    GeomQuestion q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 5); //Question 5 object
+    int correctAns;
+    boolean finished;
 
     public GeomQuiz() {
         initComponents();
+        count = 0;
         ansLbl.setText("");
         endTitle.setVisible(false);
         youGotLbl.setVisible(false);
         numRltLbl.setVisible(false);
         chkAnsBtn.setEnabled(false);
         nxtBtn1.setEnabled(false);
-        count = 0;
+        correctAns = 0;
+        finished = false;
         q[0] = q1;
         q[1] = q2;
         q[2] = q3;
         q[3] = q4;
         q[4] = q5;
+        q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
     }
 
     /**
@@ -155,27 +160,27 @@ public class GeomQuiz extends javax.swing.JPanel {
         question1.add(ansLbl);
         ansLbl.setBounds(6, 360, 350, 29);
 
-        q1GeomLbl.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        q1GeomLbl.setFont(new java.awt.Font("Arial Unicode MS", 0, 18)); // NOI18N
         q1GeomLbl.setForeground(new java.awt.Color(255, 255, 255));
         q1GeomLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        q1GeomLbl.setText("Q1. Match the diagram to the answer");
+        q1GeomLbl.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         question1.add(q1GeomLbl);
-        q1GeomLbl.setBounds(13, 14, 334, 36);
+        q1GeomLbl.setBounds(13, 14, 334, 100);
 
-        multiAnsBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Item 2", "Item 3", "Item 4" }));
+        multiAnsBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select an Answer", "Angle-Side-Angle (ASA)", "Side-Angle-Side (SAS)", "Angle-Angle-Side (AAS)", "None of these." }));
         multiAnsBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 multiAnsBox1ActionPerformed(evt);
             }
         });
         question1.add(multiAnsBox1);
-        multiAnsBox1.setBounds(90, 250, 170, 30);
+        multiAnsBox1.setBounds(90, 310, 170, 30);
 
         geomPic1.setBackground(new java.awt.Color(255, 255, 255));
-        geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic1.png"))); // NOI18N
+        geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic.png"))); // NOI18N
         question1.add(geomPic1);
-        geomPic1.setBounds(40, 50, 280, 190);
+        geomPic1.setBounds(70, 110, 210, 190);
 
         endTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         endTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,41 +241,76 @@ public class GeomQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
-        nxtBtn1.setEnabled(true);
-        multiAnsBox1.setEnabled(true);
-        if (multiAnsBox1.setSelectedItem().equals(q[count].getCorrectAns() == 1)) {
-            ansLbl.setText("Correct!");
-        } else if (multiAnsBox1.isSelected() && (q[count].getCorrectAns() == 2)) {
-            ansLbl.setText("Correct!");
-        } else if (multiAnsBox1.isSelected() && (q[count].getCorrectAns() == 3)) {
-            ansLbl.setText("Correct!");
-        } else {
-            ansLbl.setText("Incorrect!");
+        if (finished == true) {
+            LayoutManager layout = getParent().getLayout();
+            if (layout instanceof CardLayout) {
+                CardLayout cl = (CardLayout) layout;
+                cl.show(getParent(), "MAIN");
+            }
+        }else{
+            nxtBtn1.setEnabled(true);
+            multiAnsBox1.setEnabled(true);
+            if (multiAnsBox1.getSelectedIndex()==(q[count].getCorrectAns())) {
+                ansLbl.setText("Correct!");
+            } else {
+                ansLbl.setText("Incorrect!");
+            }
         }
     }//GEN-LAST:event_chkAnsBtnActionPerformed
 
     private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
-        if (q.length - 1 <= count) {
-            endTitle.setVisible(true);
-            youGotLbl.setVisible(true);
-            numRltLbl.setVisible(true);
-            numRltLbl.setText(q[count].getCorrectAns() + "/5");
-            ansLbl.setText("Correct!");
-            q1GeomLbl.setVisible(false);
-            multiAnsBox1.setVisible(false);
-            chkAnsBtn.setText("Main Menu");
-            nxtBtn1.setText("Reset");
-        } else {
-            nextQuestion();
-        }
+        if(finished == true){
+            count = 0;
+            ansLbl.setText("");
+            endTitle.setVisible(false);
+            youGotLbl.setVisible(false);
+            numRltLbl.setVisible(false);
+            chkAnsBtn.setEnabled(false);
+            nxtBtn1.setEnabled(false);
+            q1GeomLbl.setVisible(true);
+            multiAnsBox1.setVisible(true);
+            q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");            
+            multiAnsBox1.setEnabled(true);
+            chkAnsBtn.setText("Check Answer");
+            nxtBtn1.setText("Next");
+            correctAns = 0;
+            finished = false;
+        }else{
+            if (q.length - 1 <= count) {
+                endTitle.setVisible(true);
+                youGotLbl.setVisible(true);
+                numRltLbl.setVisible(true);
+                numRltLbl.setText(correctAns + "/5");
+                ansLbl.setText("Correct!");
+                q1GeomLbl.setVisible(false);
+                multiAnsBox1.setVisible(false);
+                chkAnsBtn.setText("Main Menu");
+                nxtBtn1.setText("Reset");
+            } else {
+                nextQuestion();
+            }
+        }    
     }//GEN-LAST:event_nxtBtn1ActionPerformed
 
     private void multiAnsBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiAnsBox1ActionPerformed
         chkAnsBtn.setEnabled(true);    
     }//GEN-LAST:event_multiAnsBox1ActionPerformed
+    
+    private void resetQuiz() {
+        ansLbl.setText("");
+        endTitle.setVisible(false);
+        youGotLbl.setVisible(false);
+        numRltLbl.setVisible(false);
+        chkAnsBtn.setEnabled(false);
+        nxtBtn1.setEnabled(false);
+        count = 0;
+        correctAns = 0;
+        finished = false;
+    }
+    
     private void nextQuestion() {
         count++;
-        q1GeomLbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
+        q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
         multiAnsBox1.setEnabled(true);
         nxtBtn1.setEnabled(false);
         ansLbl.setText("");

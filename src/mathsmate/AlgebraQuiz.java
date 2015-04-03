@@ -326,9 +326,6 @@ public class AlgebraQuiz extends javax.swing.JPanel {
             ans1RadBtn.setEnabled(true);
             ans2RadBtn.setEnabled(true);
             ans3RadBtn.setEnabled(true);
-            nxtBtn1.setEnabled(false);
-            ansLbl.setText("");
-            chkAnsBtn.setEnabled(false);
             buttonGroup1.clearSelection();
             chkAnsBtn.setText("Check Answer");
             nxtBtn1.setText("Next");

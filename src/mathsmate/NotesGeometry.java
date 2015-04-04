@@ -20,11 +20,11 @@ public class NotesGeometry extends javax.swing.JPanel {
      */
       int count;
       ArrayList<Notes> n = new ArrayList<>();
-    Notes n1 = new Notes("");//Page 1
-    Notes n2 = new Notes("");//Page 2
-    Notes n3 = new Notes("");//Page 3
-    Notes n4 = new Notes("");//Page 4
-    Notes n5 = new Notes("");//Page 5
+    Notes n1 = new Notes("The perimeter of a circle is called the circumference:\\n\\Circumference = 2π × radius\\n\\");//Page 1
+    Notes n2 = new Notes("Finding the area of a triangle \\n\\Height = h = 12\\n\\Base = b = 20\\n\\Area = ½ × b × h = ½ × 20 × 12 = 120\\n\\");//Page 2
+    Notes n3 = new Notes("Cartesian Coordinates\\n\\ example \\n\\Point (6,4) is\\n\\6 units across (in the x direction), and\\n\\4 units up (in the y direction)\\n\\So (6,4) means:\\n\\Go along 6 and then go up 4 then \"plot the dot\".\\n\\");//Page 3
+    Notes n4 = new Notes("Pythagoras Theorem\\n\\Example\\n\\ A 3,4,5 Triangle has a right angle in it.\\n\\Let's check if the areas are the same:\\n\\32 + 42 = 52\\n\\Calculating this becomes:\\n\\9 + 16 = 25\\n\\It works ... like Magic!\\n\\");//Page 4
+    
     public NotesGeometry() {
         initComponents();
          count = 0;

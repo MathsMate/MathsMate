@@ -7,6 +7,7 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,12 +16,22 @@ import java.awt.LayoutManager;
 public class TrigQuiz extends javax.swing.JPanel {
 
     int count;
-    TrigQuestion[] q = new TrigQuestion[5]; //Array
-    TrigQuestion q1 = new TrigQuestion("In the triangle below, what is sin &#945;?", "13 / 9", "9 / 13", "13 &#8730;10 / 50", 3, "q1TrigPic.png"); //Question 1 object
-    TrigQuestion q2 = new TrigQuestion("What is the length of AB in the figure below?", "12 &#8730;2", "12 &#8730;6", "12 &#8730;3", 3, "q2TrigPic.png"); //Question 2 object
-    TrigQuestion q3 = new TrigQuestion("If f(x) = 5 - 2x, then f-1(-3) =", "13", "5", "3", 3, ""); //Question 3 object
-    TrigQuestion q4 = new TrigQuestion("If f(x) = -x2 + 1, then f(x + 1) =", "-x2 - 2x", "x - 4x", "x3 - x", 1, ""); //Question 4 object
-    TrigQuestion q5 = new TrigQuestion("For all x real, √(x2 -4x + 4) =", "|x - 2|", "|x + 4|", "|x -4x|", 1, "q5TrigPic.png"); //Question 5 object
+    private ArrayList<TrigQuestion> q; //ArrayList
+    TrigQuestion q1 = new TrigQuestion("<html>In the triangle below, what is sin &#945;?</html>",
+                                        "13 / 9", "9 / 13", "<html>13 &#8730;10 / 50</html>", 3,
+                                        "q1TrigPic.png"); //Question 1 object
+    TrigQuestion q2 = new TrigQuestion("<html>What is the length of AB in the figure below?</html>", 
+                                        "<html>12 &#8730;2</html>", "<html>12 &#8730;6</html>", "<html>12 &#8730;3</html>", 3,
+                                        "q2TrigPic.png"); //Question 2 object
+    TrigQuestion q3 = new TrigQuestion("<html>In the figure below, find cosθ.</html>", 
+                                        " 3 / 5 ", " 4 / 5 ", " 1 / 5 ", 2, 
+                                        "q3TrigPic.png"); //Question 3 object
+    TrigQuestion q4 = new TrigQuestion("<html>In the triangle below, m = ?</html>", 
+                                        " 5 ", "<html> 20 &#8730;2 </html", "<html> 5 &#8730;2 </html>", 3, 
+                                        "q4TrigPic.png"); //Question 4 object
+    TrigQuestion q5 = new TrigQuestion("<html>What is the period of the graph shown below?</html>", 
+                                        "<html> 2 &#960; </html>", "<html> 5 &#960;/3 </html>", "<html> &#960;/3 </html>", 1, 
+                                        "q5TrigPic.png"); //Question 5 object
     int correctAns;
     boolean finished;
     
@@ -35,11 +46,13 @@ public class TrigQuiz extends javax.swing.JPanel {
         count = 0;
         correctAns = 0;
         finished = false;
-        q[0] = q1;
-        q[1] = q2;
-        q[2] = q3;
-        q[3] = q4;
-        q[4] = q5;
+        q = new ArrayList<>();
+        q.add(q1);
+        q.add(q2);
+        q.add(q3);
+        q.add(q4);
+        q.add(q5);
+        q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>");
     }
 
     /**
@@ -163,19 +176,20 @@ public class TrigQuiz extends javax.swing.JPanel {
         q1Lbl.setForeground(new java.awt.Color(255, 255, 255));
         q1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         q1Lbl.setText("Q1. Find x and H in the right triangle below");
+        q1Lbl.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         question1.add(q1Lbl);
-        q1Lbl.setBounds(13, 14, 334, 28);
+        q1Lbl.setBounds(13, 14, 334, 70);
 
         q1Pic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         q1Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1TrigPic.png"))); // NOI18N
         question1.add(q1Pic);
-        q1Pic.setBounds(108, 48, 140, 180);
+        q1Pic.setBounds(10, 60, 340, 180);
 
         buttonGroup1.add(ans1TrigRbtn);
         ans1TrigRbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ans1TrigRbtn.setForeground(new java.awt.Color(255, 255, 255));
         ans1TrigRbtn.setText("x = 10 / H = 13");
-        ans1TrigRbtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ans1TrigRbtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ans1TrigRbtn.setOpaque(false);
         ans1TrigRbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,13 +197,13 @@ public class TrigQuiz extends javax.swing.JPanel {
             }
         });
         question1.add(ans1TrigRbtn);
-        ans1TrigRbtn.setBounds(108, 246, 135, 25);
+        ans1TrigRbtn.setBounds(120, 250, 135, 30);
 
         buttonGroup1.add(ans2TrigRbtn);
         ans2TrigRbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ans2TrigRbtn.setForeground(new java.awt.Color(255, 255, 255));
         ans2TrigRbtn.setText("x = 8 / H = 15");
-        ans2TrigRbtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ans2TrigRbtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ans2TrigRbtn.setOpaque(false);
         ans2TrigRbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,13 +211,13 @@ public class TrigQuiz extends javax.swing.JPanel {
             }
         });
         question1.add(ans2TrigRbtn);
-        ans2TrigRbtn.setBounds(108, 274, 125, 39);
+        ans2TrigRbtn.setBounds(120, 280, 125, 40);
 
         buttonGroup1.add(ans3TrigRbtn);
         ans3TrigRbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ans3TrigRbtn.setForeground(new java.awt.Color(255, 255, 255));
         ans3TrigRbtn.setText("x = 11 / H = 12");
-        ans3TrigRbtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ans3TrigRbtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ans3TrigRbtn.setOpaque(false);
         ans3TrigRbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +225,7 @@ public class TrigQuiz extends javax.swing.JPanel {
             }
         });
         question1.add(ans3TrigRbtn);
-        ans3TrigRbtn.setBounds(108, 316, 135, 25);
+        ans3TrigRbtn.setBounds(120, 320, 135, 30);
 
         numRltLbl.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         numRltLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,31 +286,101 @@ public class TrigQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void ans1TrigRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans1TrigRbtnActionPerformed
-        // TODO add your handling code here:
+        chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans1TrigRbtnActionPerformed
 
     private void ans2TrigRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans2TrigRbtnActionPerformed
-        // TODO add your handling code here:
+        chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans2TrigRbtnActionPerformed
 
     private void ans3TrigRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans3TrigRbtnActionPerformed
-        // TODO add your handling code here:
+        chkAnsBtn.setEnabled(true);
     }//GEN-LAST:event_ans3TrigRbtnActionPerformed
 
     private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
-        // TODO add your handling code here:
+        if (finished == true) {
+            LayoutManager layout = getParent().getLayout();
+            if (layout instanceof CardLayout) {
+                CardLayout cl = (CardLayout) layout;
+                cl.show(getParent(), "MAIN");
+            }
+        } else {
+            nxtBtn1.setEnabled(true);
+            chkAnsBtn.setEnabled(false);
+            ans1TrigRbtn.setEnabled(false);
+            ans2TrigRbtn.setEnabled(false);
+            ans3TrigRbtn.setEnabled(false);
+            if (ans1TrigRbtn.isSelected() && (q.get(count).getCorrectAns() == 1)) {
+                ansLbl.setText("Correct!");
+                correctAns++;
+            } else if (ans2TrigRbtn.isSelected() && (q.get(count).getCorrectAns() == 2)) {
+                ansLbl.setText("Correct!");
+                correctAns++;
+            } else if (ans3TrigRbtn.isSelected() && (q.get(count).getCorrectAns() == 3)) {
+                ansLbl.setText("Correct!");
+                correctAns++;
+            } else {
+                ansLbl.setText("Incorrect!");
+            }
+        }
     }//GEN-LAST:event_chkAnsBtnActionPerformed
 
     private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
-        // TODO add your handling code here:
+        if (finished == true) {
+            count = 0;
+            ansLbl.setText("");
+            endTitle.setVisible(false);
+            youGotLbl.setVisible(false);
+            numRltLbl.setVisible(false);
+            chkAnsBtn.setEnabled(false);
+            nxtBtn1.setEnabled(false);
+            q1Lbl.setVisible(true);
+            q1Pic.setVisible(true);
+            ans1TrigRbtn.setVisible(true);
+            ans2TrigRbtn.setVisible(true);
+            ans3TrigRbtn.setVisible(true);
+            q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>");
+            q1Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource(q.get(count).getImage())));
+            ans1TrigRbtn.setText(q.get(count).getA1());
+            ans2TrigRbtn.setText(q.get(count).getA2());
+            ans3TrigRbtn.setText(q.get(count).getA3());
+            ans1TrigRbtn.setEnabled(true);
+            ans2TrigRbtn.setEnabled(true);
+            ans3TrigRbtn.setEnabled(true);
+            buttonGroup1.clearSelection();
+            chkAnsBtn.setText("Check Answer");
+            nxtBtn1.setText("Next");
+            correctAns = 0;
+            finished = false;
+        } else {
+            if (q.size() - 1 <= count) {
+                endTitle.setVisible(true);
+                youGotLbl.setVisible(true);
+                numRltLbl.setVisible(true);
+                numRltLbl.setText(correctAns + "/5");
+                ansLbl.setText("Correct!");
+                q1Lbl.setVisible(false);
+                q1Pic.setVisible(false);
+                ans1TrigRbtn.setVisible(false);
+                ans2TrigRbtn.setVisible(false);
+                ans3TrigRbtn.setVisible(false);
+                chkAnsBtn.setEnabled(true);
+                chkAnsBtn.setText("Main Menu");
+                nxtBtn1.setText("Reset");
+                finished = true;
+            } else {
+                nextQuestion();
+            }
+        }
     }//GEN-LAST:event_nxtBtn1ActionPerformed
 
     private void nextQuestion() {
         count++;
-        q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
-        ans1TrigRbtn.setText(q[count].getA1());
-        ans2TrigRbtn.setText(q[count].getA2());
-        ans3TrigRbtn.setText(q[count].getA3());
+        q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>");
+        q1Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource(q.get(count).getImage())));
+        ans1TrigRbtn.setText(q.get(count).getA1());
+        ans2TrigRbtn.setText(q.get(count).getA2());
+        ans3TrigRbtn.setText(q.get(count).getA3());
         ans1TrigRbtn.setEnabled(true);
         ans2TrigRbtn.setEnabled(true);
         ans3TrigRbtn.setEnabled(true);
@@ -304,7 +388,7 @@ public class TrigQuiz extends javax.swing.JPanel {
         ansLbl.setText("");
         chkAnsBtn.setEnabled(false);
         buttonGroup1.clearSelection();
-        if (q.length <= count + 1) {
+        if (q.size() <= count + 1) {
             nxtBtn1.setText("Finished");
         } else {
             nxtBtn1.setEnabled(false);

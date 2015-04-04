@@ -7,6 +7,7 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,8 +18,19 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     /**
      * Creates new form AlgebraMenu
      */
+     int count;
+    ArrayList<Notes> n = new ArrayList<>();
+    Notes n1 = new Notes("");//Page 1
+    Notes n2 = new Notes("");//Page 2
+    Notes n3 = new Notes("");//Page 3
+    Notes n4 = new Notes("");//Page 4
+    Notes n5 = new Notes("");//Page 5
     public NotesAlgerbra() {
         initComponents();
+         count = 0;
+        n.add(n1);
+        n.add(n2);
+        notesArea.setText(n.get(count).getNote());
     }
 
     /**
@@ -46,6 +58,8 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -124,6 +138,24 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         mainMenuPanel.add(jScrollPane3);
         jScrollPane3.setBounds(40, 70, 320, 340);
 
+        jButton1.setText("Previous");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(jButton1);
+        jButton1.setBounds(20, 530, 93, 29);
+
+        jButton2.setText("Next");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(jButton2);
+        jButton2.setBounds(280, 530, 65, 29);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,11 +184,39 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+     nextNote();        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   prevNote();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+      private void nextNote() {
+        if(count + 1 >= n.size()){
+            count = 0;
+        } else {
+            count++;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
+    
+    private void prevNote() {
+        if(count - 1 < 0){
+            count = n.size() - 1;
+        } else {
+            count--;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

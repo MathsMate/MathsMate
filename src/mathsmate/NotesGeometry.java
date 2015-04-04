@@ -7,6 +7,7 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,69 +15,24 @@ import java.awt.LayoutManager;
  */
 public class NotesGeometry extends javax.swing.JPanel {
 
-    /**
+    /*
      * Creates new form AlgebraMenu
      */
-      int count;/*
-    geoNotes [] q = new TrigNotes [5]; //array start 
-    geoNotes q1 = new GeoNotes ("Calculating Perimiter of a rectangle is 7+3+7+3 = 20"
-);//Page 1
-    geoNotes q2 = new GeoNotes ("The perimeter of a circle is called the circumference:
-Circumference = 2π × radius");//Page 2
-    GeoNotes q3 = new GeoNotes ("Finding the area of a triangle 
-
-Height = h = 12
-Base = b = 20
-Area = ½ × b × h = ½ × 20 × 12 = 120 "");//Page 3
-    GeoNotes q4 = new GeoNotes ("Cartesian Coordinates 
-example 
-Point (6,4) is
-6 units across (in the x direction), and
-4 units up (in the y direction)"");//Page 4   
-    GeoNotes q5 = new GeoNotes  ("pythagoras Theorem
-Example
- A 3,4,5 Triangle has a right angle in it.
-
-
-Let's check if the areas are the same
-32 + 42 = 52
-Calculating this becomes:
-9 + 16 = 25
-It works ... like Magic!
-"");//Page 5
-        
+      int count;
+      ArrayList<Notes> n = new ArrayList<>();
+    Notes n1 = new Notes("");//Page 1
+    Notes n2 = new Notes("");//Page 2
+    Notes n3 = new Notes("");//Page 3
+    Notes n4 = new Notes("");//Page 4
+    Notes n5 = new Notes("");//Page 5
     public NotesGeometry() {
         initComponents();
-          ansLbl.setText("");
-        chkAnsBtn.setEnabled(false);
-        nxtBtn1.setEnabled(false);
-        count = 0;
-        q[0] = q1;
-        q[1] = q2;
-        q[2] = q3;
-        q[3] = q4;
-        q[4] = q5;
-    }
+         count = 0;
+        n.add(n1);
+        n.add(n2);
+        notesArea.setText(n.get(count).getNote());
 
-      int pic counter;
-    geoNotesPic [] q = new TrigNotes [5]; //array Pic start 
-    geoNotesPic q1 = new GeoNotesPic ();//Page 1
-    geoNotesPic q2 = new GeoNotesPic ();//Page 2
-    GeoNotesPic q3 = new GeoNotesPic ();//Page 3
-    GeoNotesPic q4 = new GeoNotesPic ();//Page 4   
-    GeoNotesPic q5 = new GeoNotesPic ();//Page 5
-        
-    public NotesGeometry() {
-        initComponents();
-          ansLbl.setText("");
-        chkAnsBtn.setEnabled(false);
-        nxtBtn1.setEnabled(false);
-        count = 0;
-        q[0] = q1;
-        q[1] = q2;
-        q[2] = q3;
-        q[3] = q4;
-        q[4] = q5;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,15 +191,31 @@ It works ... like Magic!
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    //nextQuestion(); 
+    nextNote(); 
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    //previousQuestion();                                             
+    prevNote();                                             
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     private void nextNote() {
+        if(count + 1 >= n.size()){
+            count = 0;
+        } else {
+            count++;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
+    
+    private void prevNote() {
+        if(count - 1 < 0){
+            count = n.size() - 1;
+        } else {
+            count--;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
@@ -265,4 +237,8 @@ It works ... like Magic!
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void initComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+

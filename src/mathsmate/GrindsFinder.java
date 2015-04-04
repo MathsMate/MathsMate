@@ -291,6 +291,9 @@ public class GrindsFinder extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         ArrayList<GrindInterface> show = new ArrayList<>();
+        
+        
+        
         if (instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable()) {
             for (int i = 0; i < grindList.size(); i++) {
                 if (grindList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && grindList.get(i).getCost() == Integer.parseInt(priceTxtField.getText()) && grindList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText())) {

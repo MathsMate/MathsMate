@@ -52,6 +52,13 @@ public class TrigQuiz extends javax.swing.JPanel {
         q.add(q3);
         q.add(q4);
         q.add(q5);
+        //Fixed answer bug
+        ans1TrigRbtn.setText(q.get(count).getA1()); //Set text from constructors
+        ans2TrigRbtn.setText(q.get(count).getA2());
+        ans3TrigRbtn.setText(q.get(count).getA3());
+        ans1TrigRbtn.setEnabled(true); //Enable button to be clicked
+        ans2TrigRbtn.setEnabled(true);
+        ans3TrigRbtn.setEnabled(true);
         q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>");
     }
 

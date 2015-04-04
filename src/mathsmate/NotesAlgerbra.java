@@ -57,7 +57,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         nameBg = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        notesArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -130,10 +130,10 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         mainMenuPanel.add(jLabel1);
         jLabel1.setBounds(50, 430, 300, 90);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Con\nsonantia, there live the blind texts. Se\nparated they live in Bookmarksgrove right at \nthe coast of the Semantics, a large languag\ne ocean. A small river named Duden flo\nws by their place and supplies it with t\nhe necessary regelialia. It is a paradisem\natic country, in which roasted parts\n of sentences fly into your mouth. Even t\\h\ne all-powerful Pointing has no control ab\nout the blind texts it is an almost unorth\nographic life One day however a small lin\ne of blind text by the name of Lorem Ips\num decided to leave for the far World of G\nrammar. The Big Oxmox advised her no\nt to do so, because there were thou\nsands of bad Commas, wild Question \nMarks and devious Semikoli, but the Li\nttle Blind Text didn’t listen. She pac\nked her seven versalia, put her initia\nl into the belt and \n\nma");
-        jScrollPane3.setViewportView(jTextArea1);
+        notesArea.setColumns(20);
+        notesArea.setRows(5);
+        notesArea.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Con\nsonantia, there live the blind texts. Se\nparated they live in Bookmarksgrove right at \nthe coast of the Semantics, a large languag\ne ocean. A small river named Duden flo\nws by their place and supplies it with t\nhe necessary regelialia. It is a paradisem\natic country, in which roasted parts\n of sentences fly into your mouth. Even t\\h\ne all-powerful Pointing has no control ab\nout the blind texts it is an almost unorth\nographic life One day however a small lin\ne of blind text by the name of Lorem Ips\num decided to leave for the far World of G\nrammar. The Big Oxmox advised her no\nt to do so, because there were thou\nsands of bad Commas, wild Question \nMarks and devious Semikoli, but the Li\nttle Blind Text didn’t listen. She pac\nked her seven versalia, put her initia\nl into the belt and \n\nma");
+        jScrollPane3.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane3);
         jScrollPane3.setBounds(40, 70, 320, 340);
@@ -145,7 +145,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton1);
-        jButton1.setBounds(20, 530, 93, 29);
+        jButton1.setBounds(20, 530, 73, 23);
 
         jButton2.setText("Next");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +154,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton2);
-        jButton2.setBounds(280, 530, 65, 29);
+        jButton2.setBounds(280, 530, 55, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -223,10 +223,10 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JTextArea notesArea;
     private javax.swing.JLabel screenTitleLbl;
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;

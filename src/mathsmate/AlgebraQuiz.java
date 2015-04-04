@@ -16,11 +16,11 @@ public class AlgebraQuiz extends javax.swing.JPanel {
 
     int count;
     AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array
-    AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "  y = 4,   x = 3", "  x = 7,   y = 3", "  x = 6,   y = 1", 2); //Question 1 object
+    AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "y = 4,   x = 3", "x = 7,   y = 3", "x = 6,   y = 1", 2); //Question 1 object
     AlgebraQuestion q2 = new AlgebraQuestion("If f(x) = ln(x + 1) - 2, then f-1(x) =", "ex - 2 + 2", "ex + 2 - 1", "ex + 4 - 3", 2); //Question 2 object
-    AlgebraQuestion q3 = new AlgebraQuestion("If f(x) = 5 - 2x, then f-1(-3) =", "13", "5", "3", 3); //Question 3 object
-    AlgebraQuestion q4 = new AlgebraQuestion("If f(x) = -x2 + 1, then f(x + 1) =", "-x2 - 2x", "x - 4x", "x3 - x", 1); //Question 4 object
-    AlgebraQuestion q5 = new AlgebraQuestion("For all x real, √(x2 -4x + 4) =", "|x - 2|", "|x + 4|", "|x -4x|", 1); //Question 5 object
+    AlgebraQuestion q3 = new AlgebraQuestion("If f(x) = 5 - 2x, then f-1(-3) =", " 13 ", " 5 ", " 3 ", 3); //Question 3 object
+    AlgebraQuestion q4 = new AlgebraQuestion("If f(x) = -x2 + 1, then f(x + 1) =", " -x2 - 2x ", " x - 4x ", " x3 - x ", 1); //Question 4 object
+    AlgebraQuestion q5 = new AlgebraQuestion("For all x real, (x2 -4x + 4) =", " |x - 2| ", " |x + 4| ", " |x -4x| ", 1); //Question 5 object
     int correctAns;
     boolean finished;
 

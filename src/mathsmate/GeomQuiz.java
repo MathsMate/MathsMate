@@ -213,9 +213,10 @@ public class GeomQuiz extends javax.swing.JPanel {
         multiAnsBox1.setBounds(90, 310, 170, 30);
 
         geomPic1.setBackground(new java.awt.Color(255, 255, 255));
+        geomPic1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/q1GeomPic.png"))); // NOI18N
         question1.add(geomPic1);
-        geomPic1.setBounds(70, 110, 210, 190);
+        geomPic1.setBounds(10, 120, 340, 180);
 
         endTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         endTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -308,7 +309,8 @@ public class GeomQuiz extends javax.swing.JPanel {
             multiAnsBox1.setVisible(true);
             geomPic1.setVisible(true);
             multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
-            q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");            
+            q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
+            geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource(q[count].getImage())));
             multiAnsBox1.setEnabled(true);
             chkAnsBtn.setText("Check Answer");
             nxtBtn1.setText("Next");

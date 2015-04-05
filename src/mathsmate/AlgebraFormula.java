@@ -20,11 +20,11 @@ public class AlgebraFormula extends javax.swing.JPanel {
             "x^a . x^b = x^a+b", "Raising a power to a power:", "(x^a)^b = x^ab", 
             "Power of a product property:", "xy^a = x^a.y^a", 
             "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
-    AlgebraFormulaStorage AF2 = new AlgebraFormulaStorage("<html>Multiplying Polynomials (<font color=\"red\">FOIL</font>)</html>",
-            "<html><font color=\"\">F</font>irst terms:</html>", "(2x + 3)(x - 2) = 2x(x) = 2x^2", 
-            "Outer terms:", "<html>(<font color=\"yellow\">2x </font> + 3)(x - 2) = 2x(-2) = -4x</html>", 
-            "Inside terms:", "(2x + 3)(x - 2) = 3(x) = 3x", 
-            "Last terms:", "(2x + 3)(x - 2) = 3(-2) = -6");
+    AlgebraFormulaStorage AF2 = new AlgebraFormulaStorage("<html>Multiplying Polynomials (<font color=\"#6699FF\">FOIL</font>)</html>",
+            "<html><font color=\"#6699FF\">F</font>irst terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(<font color=\"yellow\">x</font> - 2) = 2x(x) = <font color=\"yellow\">2x^2</font></html>", 
+            "<html><font color=\"#6699FF\">O</font>uter terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(x <font color=\"yellow\">- 2</font>) = 2x(-2) = <font color=\"yellow\">-4x</font></html>", 
+            "<html><font color=\"#6699FF\">I</font>nside terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(<font color=\"yellow\">x</font> - 2) = 3(x) = <font color=\"yellow\">3x</font></html>", 
+            "<html><font color=\"#6699FF\">L</font>ast terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(x <font color=\"yellow\">- 2</font>) = 3(-2) = <font color=\"yellow\">-6</font></html>");
     AlgebraFormulaStorage AF3 = new AlgebraFormulaStorage("Squares and Cubes","Difference of Two Squares:", "(x+y)(x-y) = x^2 - y^2", 
             "Difference of Two Squares:", "y^2 - x^2 = (x+y)(x-y)", 
             "Sum of two cubes:", "x^3 + y^3 = (x-y)(x^2 - xy + y^2)", 

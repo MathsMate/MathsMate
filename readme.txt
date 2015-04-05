@@ -57,3 +57,22 @@ I added in an ArrayList to the TrigQuiz.java
 I have TrigQuestion.java as a subclass of AlgebraQuestion.java superclass.
 
 ==========
+Emlyn Farrell [x14438218]:
+Algebra notes, Geometry notes and Trig notes
+
+AlgebraNotes.java
+GeometryNotes.java
+TrigNotes.java
+
+
+With AlgebraNotes I added a JText Area and 2 JButtons to cycle to cycle through through the notes pages 
+
+TrigNotes 
+
+GeomQuiz.similar except i added an image which refer to the notes 
+
+made a  class imagenotes as class to extend the class Notes .
+I added an ArrayList to the three sections to hold the questions 
+
+=================
+

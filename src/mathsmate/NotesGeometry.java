@@ -26,6 +26,7 @@ public class NotesGeometry extends javax.swing.JPanel {
     ImageNotes n2 = new ImageNotes("Finding the area of a triangle \n Height = h = 12\n Base = b = 20\n Area = ½ × b × h = ½ × 20 × 12 = 120\n ", "Question2 Geometry.gif");//Page 2
     ImageNotes n3 = new ImageNotes("Cartesian Coordinates\n  example \n Point (6,4) is\n 6 units across (in the x direction), and\n 4 units up (in the y direction)\n So (6,4) means:\n Go along 6 and then go up 4 then \"plot the dot\".\n ", "Question3 Geometry.gif");//Page 3
     ImageNotes n4 = new ImageNotes("Pythagoras Theorem\n Example\n  A 3,4,5 Triangle has a right angle in it.\n Let's check if the areas are the same:\n 32 + 42 = 52\n Calculating this becomes:\n 9 + 16 = 25\n It works ... like Magic!\n ", "Question4 Geometry.gif");//Page 4
+    private Object jLabel1;
     
     public NotesGeometry() {
         initComponents();
@@ -196,11 +197,13 @@ public class NotesGeometry extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     nextNote(); 
+    nextImageNotes();
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    prevNote();                                             
+    prevNote();
+    PrevImageNotes();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
      private void nextNote() {
@@ -208,6 +211,7 @@ public class NotesGeometry extends javax.swing.JPanel {
             count = 0;
         } else {
             count++;
+            jLabel3.setIcon(new javax.swing.ImageIcon(n.get(count).getNote()));
         }
         notesArea.setText(n.get(count).getNote());
     }
@@ -241,4 +245,12 @@ public class NotesGeometry extends javax.swing.JPanel {
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
+
+    private void PrevImageNotes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void nextImageNotes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -7,11 +7,11 @@ package mathsmate;
 
 /**
  *
- * @author Ben, Aaron, Ian, Emlyn
+ * @author Benrnard Skerritt x14110717
  */
 public class AlgebraQuestion {
-    private String questionTitle, a1, a2, a3;
-    private int correctAns;
+    String questionTitle, a1, a2, a3;
+    int correctAns;
     
     public AlgebraQuestion(String questionTitle, String a1, String a2, String a3, int correctAns) {
         this.questionTitle = questionTitle;

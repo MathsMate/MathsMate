@@ -7,6 +7,7 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,69 +15,24 @@ import java.awt.LayoutManager;
  */
 public class NotesGeometry extends javax.swing.JPanel {
 
-    /**
+    /*
      * Creates new form AlgebraMenu
      */
-      int count;/*
-    geoNotes [] q = new TrigNotes [5]; //array start 
-    geoNotes q1 = new GeoNotes ("Calculating Perimiter of a rectangle is 7+3+7+3 = 20"
-);//Page 1
-    geoNotes q2 = new GeoNotes ("The perimeter of a circle is called the circumference:
-Circumference = 2π × radius");//Page 2
-    GeoNotes q3 = new GeoNotes ("Finding the area of a triangle 
-
-Height = h = 12
-Base = b = 20
-Area = ½ × b × h = ½ × 20 × 12 = 120 "");//Page 3
-    GeoNotes q4 = new GeoNotes ("Cartesian Coordinates 
-example 
-Point (6,4) is
-6 units across (in the x direction), and
-4 units up (in the y direction)"");//Page 4   
-    GeoNotes q5 = new GeoNotes  ("pythagoras Theorem
-Example
- A 3,4,5 Triangle has a right angle in it.
-
-
-Let's check if the areas are the same
-32 + 42 = 52
-Calculating this becomes:
-9 + 16 = 25
-It works ... like Magic!
-"");//Page 5
-        
+      int count;
+      ArrayList<Notes> n = new ArrayList<>();
+    Notes n1 = new Notes("The perimeter of a circle is called the circumference:\\n\\Circumference = 2π × radius\\n\\");//Page 1
+    Notes n2 = new Notes("Finding the area of a triangle \\n\\Height = h = 12\\n\\Base = b = 20\\n\\Area = ½ × b × h = ½ × 20 × 12 = 120\\n\\");//Page 2
+    Notes n3 = new Notes("Cartesian Coordinates\\n\\ example \\n\\Point (6,4) is\\n\\6 units across (in the x direction), and\\n\\4 units up (in the y direction)\\n\\So (6,4) means:\\n\\Go along 6 and then go up 4 then \"plot the dot\".\\n\\");//Page 3
+    Notes n4 = new Notes("Pythagoras Theorem\\n\\Example\\n\\ A 3,4,5 Triangle has a right angle in it.\\n\\Let's check if the areas are the same:\\n\\32 + 42 = 52\\n\\Calculating this becomes:\\n\\9 + 16 = 25\\n\\It works ... like Magic!\\n\\");//Page 4
+    
     public NotesGeometry() {
         initComponents();
-          ansLbl.setText("");
-        chkAnsBtn.setEnabled(false);
-        nxtBtn1.setEnabled(false);
-        count = 0;
-        q[0] = q1;
-        q[1] = q2;
-        q[2] = q3;
-        q[3] = q4;
-        q[4] = q5;
+         count = 0;
+        n.add(n1);
+        n.add(n2);
+        notesArea.setText(n.get(count).getNote());
     }
-
-      int pic counter;
-    geoNotesPic [] q = new TrigNotes [5]; //array Pic start 
-    geoNotesPic q1 = new GeoNotesPic ();//Page 1
-    geoNotesPic q2 = new GeoNotesPic ();//Page 2
-    GeoNotesPic q3 = new GeoNotesPic ();//Page 3
-    GeoNotesPic q4 = new GeoNotesPic ();//Page 4   
-    GeoNotesPic q5 = new GeoNotesPic ();//Page 5
-        
-    public NotesGeometry() {
-        initComponents();
-          ansLbl.setText("");
-        chkAnsBtn.setEnabled(false);
-        nxtBtn1.setEnabled(false);
-        count = 0;
-        q[0] = q1;
-        q[1] = q2;
-        q[2] = q3;
-        q[3] = q4;
-        q[4] = q5;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,7 +57,7 @@ It works ... like Magic!
         nameBg = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        notesArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -174,10 +130,10 @@ It works ... like Magic!
         mainMenuPanel.add(jLabel3);
         jLabel3.setBounds(60, 70, 270, 230);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Cons\nonantia, there live the blind texts. Separ\nated they live in Bookmarksgrove right at th\ne coast of the Semantics, a large language o\ncean. A small river named Duden flows by th\neir place and supplies it with the necessa\nry regelialia. It is a paradisematic country, in which r\noasted parts of sentences fly into your mo\nuth. Even the all-powerful Pointing has\n no control about the blind texts it \nis an almost unorthographic life One d\nay however a small line of blind text by\n the name of Lorem Ipsum decided to leave f\nor the far World of Grammar. The Big Ox\nmox advised her not to do so, because ther\ne were thousands of bad Commas, wild Ques\ntion Marks and devious Semikoli, but the\n Little Blind Text didn’t listen. She \npacked her seven versalia, put her initi\nal into the belt an\nd \nma\n,,,,");
-        jScrollPane4.setViewportView(jTextArea2);
+        notesArea.setColumns(20);
+        notesArea.setRows(5);
+        notesArea.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Cons\nonantia, there live the blind texts. Separ\nated they live in Bookmarksgrove right at th\ne coast of the Semantics, a large language o\ncean. A small river named Duden flows by th\neir place and supplies it with the necessa\nry regelialia. It is a paradisematic country, in which r\noasted parts of sentences fly into your mo\nuth. Even the all-powerful Pointing has\n no control about the blind texts it \nis an almost unorthographic life One d\nay however a small line of blind text by\n the name of Lorem Ipsum decided to leave f\nor the far World of Grammar. The Big Ox\nmox advised her not to do so, because ther\ne were thousands of bad Commas, wild Ques\ntion Marks and devious Semikoli, but the\n Little Blind Text didn’t listen. She \npacked her seven versalia, put her initi\nal into the belt an\nd \nma\n,,,,");
+        jScrollPane4.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane4);
         jScrollPane4.setBounds(20, 310, 350, 190);
@@ -235,15 +191,31 @@ It works ... like Magic!
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    //nextQuestion(); 
+    nextNote(); 
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    //previousQuestion();                                             
+    prevNote();                                             
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+     private void nextNote() {
+        if(count + 1 >= n.size()){
+            count = 0;
+        } else {
+            count++;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
+    
+    private void prevNote() {
+        if(count - 1 < 0){
+            count = n.size() - 1;
+        } else {
+            count--;
+        }
+        notesArea.setText(n.get(count).getNote());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
@@ -257,10 +229,10 @@ It works ... like Magic!
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JTextArea notesArea;
     private javax.swing.JLabel screenTitleLbl;
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;

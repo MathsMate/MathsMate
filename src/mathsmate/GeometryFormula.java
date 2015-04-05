@@ -130,7 +130,7 @@ public class GeometryFormula extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        jPanel1.setBackground(new java.awt.Color(142, 68, 173));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
 
         videoJL.setForeground(new java.awt.Color(255, 255, 255));

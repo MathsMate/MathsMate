@@ -25,7 +25,7 @@ public class NotesTrig extends javax.swing.JPanel {
     Notes n3 = new Notes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ");//Page 3
     Notes n4 = new Notes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ");//Page 4
     Notes n5 = new Notes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ");//Page 5
-    public NotesTrig() {
+   public NotesTrig() {
         initComponents();
         count = 0;
         n.add(n1);
@@ -34,6 +34,26 @@ public class NotesTrig extends javax.swing.JPanel {
         n.add(n4);
         n.add(n5);
         notesArea.setText(n.get(count).getNote());
+        
+         private ArrayList<TrigimageStorage> GForm;
+   TrigimageStorage GF1 = new TrigimageStorage("Question1 trig.gif");
+   TrigimageStorage GF2 = new TrigimageStorage("Question2 trig.gif");
+   TrigimageStorage GF3 = new TrigimageStorage("Question3 trig.gif");
+   TrigimageStorage GF4 = new TrigimageStorage("Question4 trig.gif");
+   TrigimageStorage GF5 = new TrigimageStorage("Question 5 trig.gif");
+    private int count;
+    /**
+     * Creates new form AlgebraMenu
+     */
+    public GeometryFormula() {
+        initComponents();
+        GForm = new ArrayList<>();
+        GForm.add(GF1);        
+        GForm.add(GF2); 
+        GForm.add(GF3);
+        GForm.add(GF4);
+        GForm.add(GF5);
+        count = 0; 
     }
 
     /**
@@ -62,6 +82,7 @@ public class NotesTrig extends javax.swing.JPanel {
         notesArea = new javax.swing.JTextArea();
         prevBtn = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         textField1.setText("textField1");
 
@@ -134,7 +155,7 @@ public class NotesTrig extends javax.swing.JPanel {
         jScrollPane3.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(30, 90, 340, 390);
+        jScrollPane3.setBounds(30, 90, 340, 210);
 
         prevBtn.setText("Previous");
         prevBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +174,11 @@ public class NotesTrig extends javax.swing.JPanel {
         });
         mainMenuPanel.add(nextBtn);
         nextBtn.setBounds(270, 540, 65, 29);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/question1 trig.gif"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        mainMenuPanel.add(jLabel1);
+        jLabel1.setBounds(40, 320, 330, 190);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -210,6 +236,7 @@ public class NotesTrig extends javax.swing.JPanel {
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

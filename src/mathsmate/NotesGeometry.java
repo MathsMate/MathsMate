@@ -8,6 +8,8 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
+import java.awt.CardLayout;
+import java.awt.Desktop;
 
 /**
  *
@@ -33,6 +35,13 @@ public class NotesGeometry extends javax.swing.JPanel {
         n.add(n3);
         n.add(n4);
         notesArea.setText(n.get(count).getNote());
+        
+       TrigimageStorage GF1 = new TrigimageStorage();
+   TrigimageStorage GF2 = new TrigimageStorage("Q1 Geometry.gif");
+   TrigimageStorage GF3 = new TrigimageStorage("Question 2 Geometry.gif");
+   TrigimageStorage GF4 = new TrigimageStorage("Question 3 Geometry.gif");
+   TrigimageStorage GF5 = new TrigimageStorage("Question 4 Geometry.gif");
+   
     }
     
     /**

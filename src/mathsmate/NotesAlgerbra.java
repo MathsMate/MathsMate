@@ -34,6 +34,12 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         n.add(n4);
         n.add(n5);
         notesArea.setText(n.get(count).getNote());
+           TrigimageStorage GF1 = new TrigimageStorage();
+   TrigimageStorage GF2 = new TrigimageStorage("");
+   TrigimageStorage GF2 = new TrigimageStorage("Q2 Algerbra notes.gif");
+   TrigimageStorage GF2 = new TrigimageStorage("");
+   TrigimageStorage GF2 = new TrigimageStorage("Q4 Algerbra notes.gif");
+   TrigimageStorage GF2 = new TrigimageStorage("");
     }
 
     /**

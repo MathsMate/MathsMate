@@ -20,11 +20,11 @@ public class NotesTrig extends javax.swing.JPanel {
      */
     int count;
     ArrayList<ImageNotes> n = new ArrayList<>();
-    ImageNotes n1 = new ImageNotes("The Sine of angle adjacent/hypotenuse  is: the \nlength of the side Opposite angle H^A divided \nby the length of the Hypotenuse", );//Page 1
-    ImageNotes n2 = new ImageNotes("Inverse Sine sin-1 takes the ratio \n  opposite/hypotenuse and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°", );//Page 2
-    ImageNotes n3 = new ImageNotes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ", );//Page 3
-    ImageNotes n4 = new ImageNotes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ", );//Page 4
-    ImageNotes n5 = new ImageNotes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ", );//Page 5
+    ImageNotes n1 = new ImageNotes("The Sine of angle adjacent/hypotenuse  is: the \nlength of the side Opposite angle H^A divided \nby the length of the Hypotenuse",("Question1 trig.gif") );//Page 1
+    ImageNotes n2 = new ImageNotes("Inverse Sine sin-1 takes the ratio \n  opposite/hypotenuse and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°",("Question2 trig.gif") );//Page 2
+    ImageNotes n3 = new ImageNotes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ",("Question3 trig.gif") );//Page 3
+    ImageNotes n4 = new ImageNotes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ", ("Question4 trig.gif"));
+    ImageNotes n5 = new ImageNotes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ", ("Question 5 trig.gif"));//Page 5
    public NotesTrig() {
         initComponents();
         count = 0;

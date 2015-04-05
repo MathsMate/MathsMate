@@ -27,7 +27,7 @@ I setup the navigation bar on the top of each page.
 
 Ian Donnelly [x14111659]:
 AlgebraMenu.java
-* Created the GUI in similar format to MainMenu.java to have
+* Created the GUI in similar format to MainMenu.java, using some of Aaron’s initial set up.
 AlgebraFormula.java
 * Used Arraylists to switch JLabels and change text formulas when scrolling through next and previous.
 * Used created class AlgebraFormulaStorage as class in Arraylist.
@@ -35,6 +35,23 @@ AlgebraFormula.java
 * Used <html> on AF2 to change font color in order to clarify the formula to the student further.
 AlgebraFormulaStorage.java
 * Used for getters, setters and constructor of AlgebraFormula.java
+TrigFormula.java
+* Used Arraylists to switch JLabels and change images.
+* Used created class TrigFormulaStorage as class in Arraylist
+* Created next and previous formulas method for buttons, inserted code to make it loop back to start when next is hit on last and go to last when previous is hit on first.
+TrigFormulaStorage.java
+* Used for getters, setters and constructor of TrigFormula.java
+* Used as superclass to GeomFormulaStorage.Java
+GeomFormula.java
+* Used Arraylists to switch JLabels and change title, image and link.
+* Used created class GeomFormulaStorage.java as class in Arraylist.
+* VideoJLActionPerformed used to link url to image to open up youtube video on content formulas.
+* Used try/catch for exceptions
+* Created next and previous formulas method for buttons, inserted code to make it loop back to start when next is hit on last and go to last when previous is hit on first.
+GeomFormulaStorage.java
+* Used for getters, setters and constructor of GeomFormula.java.
+* Subclass of TrigFormulaStorage.java.
+* Added url that opens link, which differs from superclass.
 
 ==========
 

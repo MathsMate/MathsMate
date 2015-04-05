@@ -72,7 +72,7 @@ TrigNotes
 GeomQuiz.similar except i added an image which refer to the notes 
 
 made a  class imagenotes as class to extend the class Notes .
-I added an ArrayList to the three sections to hold the questions 
+I added an ArrayList  to the three sections to hold the questions 
 
 =================
 

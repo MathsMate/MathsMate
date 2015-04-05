@@ -20,8 +20,9 @@ public class AlgebraFormula extends javax.swing.JPanel {
             "x^a . x^b = x^a+b", "Raising a power to a power:", "(x^a)^b = x^ab", 
             "Power of a product property:", "xy^a = x^a.y^a", 
             "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
-    AlgebraFormulaStorage AF2 = new AlgebraFormulaStorage("Multiplying Polynomials","First terms:", "(2x + 3)(x - 2) = 2x(x) = 2x^2", 
-            "Outer terms:", "(2x + 3)(x - 2) = 2x(-2) = -4x", 
+    AlgebraFormulaStorage AF2 = new AlgebraFormulaStorage("<html>Multiplying Polynomials (<font color=\"red\">FOIL</font>)</html>",
+            "<html><font color=\"\">F</font>irst terms:</html>", "(2x + 3)(x - 2) = 2x(x) = 2x^2", 
+            "Outer terms:", "<html>(<font color=\"yellow\">2x </font> + 3)(x - 2) = 2x(-2) = -4x</html>", 
             "Inside terms:", "(2x + 3)(x - 2) = 3(x) = 3x", 
             "Last terms:", "(2x + 3)(x - 2) = 3(-2) = -6");
     AlgebraFormulaStorage AF3 = new AlgebraFormulaStorage("Squares and Cubes","Difference of Two Squares:", "(x+y)(x-y) = x^2 - y^2", 

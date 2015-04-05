@@ -19,12 +19,12 @@ public class NotesTrig extends javax.swing.JPanel {
      * Creates new form AlgebraMenu
      */
     int count;
-    ArrayList<Notes> n = new ArrayList<>();
-    Notes n1 = new Notes("The Sine of angle adjacent/hypotenuse  is: the \nlength of the side Opposite angle H^A divided \nby the length of the Hypotenuse");//Page 1
-    Notes n2 = new Notes("Inverse Sine sin-1 takes the ratio \n  opposite/hypotenuse and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°");//Page 2
-    Notes n3 = new Notes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ");//Page 3
-    Notes n4 = new Notes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ");//Page 4
-    Notes n5 = new Notes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ");//Page 5
+    ArrayList<ImageNotes> n = new ArrayList<>();
+    ImageNotes n1 = new ImageNotes("The Sine of angle adjacent/hypotenuse  is: the \nlength of the side Opposite angle H^A divided \nby the length of the Hypotenuse", );//Page 1
+    ImageNotes n2 = new ImageNotes("Inverse Sine sin-1 takes the ratio \n  opposite/hypotenuse and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°", );//Page 2
+    ImageNotes n3 = new ImageNotes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ", );//Page 3
+    ImageNotes n4 = new ImageNotes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ", );//Page 4
+    ImageNotes n5 = new ImageNotes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ", );//Page 5
    public NotesTrig() {
         initComponents();
         count = 0;
@@ -34,27 +34,11 @@ public class NotesTrig extends javax.swing.JPanel {
         n.add(n4);
         n.add(n5);
         notesArea.setText(n.get(count).getNote());
-        
-         private ArrayList<TrigimageStorage> GForm;
-   TrigimageStorage GF1 = new TrigimageStorage("Question1 trig.gif");
-   TrigimageStorage GF2 = new TrigimageStorage("Question2 trig.gif");
-   TrigimageStorage GF3 = new TrigimageStorage("Question3 trig.gif");
-   TrigimageStorage GF4 = new TrigimageStorage("Question4 trig.gif");
-   TrigimageStorage GF5 = new TrigimageStorage("Question 5 trig.gif");
-    private int count;
+   }
+
     /**
      * Creates new form AlgebraMenu
      */
-    public GeometryFormula() {
-        initComponents();
-        GForm = new ArrayList<>();
-        GForm.add(GF1);        
-        GForm.add(GF2); 
-        GForm.add(GF3);
-        GForm.add(GF4);
-        GForm.add(GF5);
-        count = 0; 
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

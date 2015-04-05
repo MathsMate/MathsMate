@@ -11,9 +11,15 @@ package mathsmate;
  */
 public class ImageNotes extends Notes{
 
-    public ImageNotes(String note) {
+    String link;
+    
+    public ImageNotes(String note, String link) {
         super(note);
-        
+        this.link = link;
+    }
+
+    public String getLink() {
+        return link;
     }
     
 }

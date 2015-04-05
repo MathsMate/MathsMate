@@ -21,11 +21,11 @@ public class NotesGeometry extends javax.swing.JPanel {
      * Creates new form AlgebraMenu
      */
       int count;
-      ArrayList<Notes> n = new ArrayList<>();
-    Notes n1 = new Notes("The perimeter of a circle is called the circumference:\n Circumference = 2π × radius\n ");//Page 1
-    Notes n2 = new Notes("Finding the area of a triangle \n Height = h = 12\n Base = b = 20\n Area = ½ × b × h = ½ × 20 × 12 = 120\n ");//Page 2
-    Notes n3 = new Notes("Cartesian Coordinates\n  example \n Point (6,4) is\n 6 units across (in the x direction), and\n 4 units up (in the y direction)\n So (6,4) means:\n Go along 6 and then go up 4 then \"plot the dot\".\n ");//Page 3
-    Notes n4 = new Notes("Pythagoras Theorem\n Example\n  A 3,4,5 Triangle has a right angle in it.\n Let's check if the areas are the same:\n 32 + 42 = 52\n Calculating this becomes:\n 9 + 16 = 25\n It works ... like Magic!\n ");//Page 4
+      ArrayList<ImageNotes> n = new ArrayList<>();
+    ImageNotes n1 = new ImageNotes("The perimeter of a circle is called the circumference:\n Circumference = 2π × radius\n ", );//Page 1
+    ImageNotes n2 = new ImageNotes("Finding the area of a triangle \n Height = h = 12\n Base = b = 20\n Area = ½ × b × h = ½ × 20 × 12 = 120\n ", );//Page 2
+    ImageNotes n3 = new ImageNotes("Cartesian Coordinates\n  example \n Point (6,4) is\n 6 units across (in the x direction), and\n 4 units up (in the y direction)\n So (6,4) means:\n Go along 6 and then go up 4 then \"plot the dot\".\n ", );//Page 3
+    ImageNotes n4 = new ImageNotes("Pythagoras Theorem\n Example\n  A 3,4,5 Triangle has a right angle in it.\n Let's check if the areas are the same:\n 32 + 42 = 52\n Calculating this becomes:\n 9 + 16 = 25\n It works ... like Magic!\n ", );//Page 4
     
     public NotesGeometry() {
         initComponents();
@@ -35,13 +35,6 @@ public class NotesGeometry extends javax.swing.JPanel {
         n.add(n3);
         n.add(n4);
         notesArea.setText(n.get(count).getNote());
-        
-       TrigimageStorage GF1 = new TrigimageStorage();
-   TrigimageStorage GF2 = new TrigimageStorage("Q1 Geometry.gif");
-   TrigimageStorage GF3 = new TrigimageStorage("Question 2 Geometry.gif");
-   TrigimageStorage GF4 = new TrigimageStorage("Question 3 Geometry.gif");
-   TrigimageStorage GF5 = new TrigimageStorage("Question 4 Geometry.gif");
-   
     }
     
     /**

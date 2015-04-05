@@ -131,7 +131,6 @@ public class NotesGeometry extends javax.swing.JPanel {
         nameBg.setBounds(90, 10, 220, 50);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Q1 Geometry.gif"))); // NOI18N
-        jLabel3.setText("jLabel3");
         mainMenuPanel.add(jLabel3);
         jLabel3.setBounds(60, 70, 270, 230);
 
@@ -151,7 +150,7 @@ public class NotesGeometry extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton1);
-        jButton1.setBounds(40, 530, 93, 29);
+        jButton1.setBounds(40, 530, 110, 29);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Next");
@@ -197,13 +196,11 @@ public class NotesGeometry extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     nextNote(); 
-    nextImageNotes();
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     prevNote();
-    PrevImageNotes();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
      private void nextNote() {
@@ -211,9 +208,9 @@ public class NotesGeometry extends javax.swing.JPanel {
             count = 0;
         } else {
             count++;
-            jLabel3.setIcon(new javax.swing.ImageIcon(n.get(count).getNote()));
         }
         notesArea.setText(n.get(count).getNote());
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
     }
     
     private void prevNote() {
@@ -223,6 +220,7 @@ public class NotesGeometry extends javax.swing.JPanel {
             count--;
         }
         notesArea.setText(n.get(count).getNote());
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -245,12 +243,4 @@ public class NotesGeometry extends javax.swing.JPanel {
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
-
-    private void PrevImageNotes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void nextImageNotes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

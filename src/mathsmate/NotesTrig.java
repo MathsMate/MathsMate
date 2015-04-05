@@ -21,10 +21,10 @@ public class NotesTrig extends javax.swing.JPanel {
     int count;
     ArrayList<ImageNotes> n = new ArrayList<>();
     ImageNotes n1 = new ImageNotes("The Sine of angle adjacent/hypotenuse  is: the \nlength of the side Opposite angle H^A divided \nby the length of the Hypotenuse","question1 trig.gif");//Page 1
-    ImageNotes n2 = new ImageNotes("Inverse Sine sin-1 takes the ratio \n  opposite/hypotenuse and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°","Question2 trig.gif");//Page 2
-    ImageNotes n3 = new ImageNotes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ","Question3 trig.gif");//Page 3
-    ImageNotes n4 = new ImageNotes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ","Question4 trig.gif");
-    ImageNotes n5 = new ImageNotes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ","Question 5 trig.gif");//Page 5
+    ImageNotes n2 = new ImageNotes("Inverse Sine sin-1 takes the ratio \n  opposite/hypotenuse and gives us the angle.\n Example: Sine Function: sin(30°) = 0.5 Inverse Sine: \nsin-1(0.5) 30°","question2 trig.gif");//Page 2
+    ImageNotes n3 = new ImageNotes("Example: Find the size of angle x°\n tan x° = Opposite / Adjacent\n tan x° = 300/400 = 0.75\n x° = tan-1 (0.75) = 36.9° (correct to 1 decimal place)\n ","question3 trig.gif");//Page 3
+    ImageNotes n4 = new ImageNotes("The Tangent of angle ? is: tan(?) = Opposite / Adjacent\n So Inverse Tangent is :tan-1 (Opposite / Adjacent) = ?\n ","question4 trig.gif");
+    ImageNotes n5 = new ImageNotes("Example: Find the size of angle a°\n cos a° = Adjacent / Hypotenuse\n cos a° = 6,750/8,100 = 0.8333...\n a° = cos-1 (0.8333...) = 33.6° (to 1 decimal place)\n ","question 5 trig.gif");//Page 5
    public NotesTrig() {
         initComponents();
         count = 0;
@@ -148,7 +148,7 @@ public class NotesTrig extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(prevBtn);
-        prevBtn.setBounds(30, 540, 93, 29);
+        prevBtn.setBounds(30, 540, 73, 23);
 
         nextBtn.setText("Next");
         nextBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -157,10 +157,9 @@ public class NotesTrig extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(nextBtn);
-        nextBtn.setBounds(270, 540, 65, 29);
+        nextBtn.setBounds(270, 540, 55, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/question1 trig.gif"))); // NOI18N
-        jLabel1.setText("jLabel1");
         mainMenuPanel.add(jLabel1);
         jLabel1.setBounds(40, 320, 330, 190);
 
@@ -204,9 +203,9 @@ public class NotesTrig extends javax.swing.JPanel {
             count = 0;
         } else {
             count++;
-            jLabel1.setIcon(new javax.swing.ImageIcon(n.get(count).getNote()));
         }
         notesArea.setText(n.get(count).getNote());
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
     }
     
     private void prevNote() {
@@ -216,6 +215,7 @@ public class NotesTrig extends javax.swing.JPanel {
             count--;
         }
         notesArea.setText(n.get(count).getNote());
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;

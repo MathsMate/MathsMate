@@ -30,6 +30,9 @@ public class NotesTrig extends javax.swing.JPanel {
         count = 0;
         n.add(n1);
         n.add(n2);
+        n.add(n3);
+        n.add(n4);
+        n.add(n5);
         notesArea.setText(n.get(count).getNote());
     }
 

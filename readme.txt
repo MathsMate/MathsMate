@@ -33,3 +33,27 @@ AlgebraFormulaStorage.java
 * Used for getters, setters and constructor of AlgebraFormula.java
 
 ==========
+
+Bernard Skerritt [x14110717]:
+Algebra Quiz, Geometry Quiz and Trigonometry Quiz
+
+AlgebraQuiz.java
+AlgebraQuestion.java
+GeomQuiz.java
+GeomQuestion.java
+TrigQuiz.java
+TrigQuestion.java
+
+With AlgebraQuiz.java I first created the GUI. I put a jLabel for the question and a radiobutton group for the answers. I then added 2 jButtons, 1 to check answer and 1 to move to the next question. When you hit the check answer button a jLabel tells you if your answer choice is correct or incorrect. There are 5 questions in total and when you check your answers to your last question the next changes to finished and when you hit finished your tally out of 5 is displayed. The buttons then change to main menu or reset the quiz again.
+
+TrigQuiz.java works in the same way except I added in a image for each question.
+
+GeomQuiz.java again works in the same way except I added in a image for each question and changed the answers to be in a jComboBox.
+
+I used html code to allow the questions to flow onto multiple lines. I also used unicode and html symbol code to display mathematical symbols in the questions and answers.
+
+I added in an ArrayList to the TrigQuiz.java
+
+I have TrigQuestion.java as a subclass of AlgebraQuestion.java superclass.
+
+==========

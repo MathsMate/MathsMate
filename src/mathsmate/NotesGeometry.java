@@ -136,7 +136,7 @@ public class NotesGeometry extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Geometry Diagram.fw.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Q1 Geometry.gif"))); // NOI18N
         jLabel3.setText("jLabel3");
         mainMenuPanel.add(jLabel3);
         jLabel3.setBounds(60, 70, 270, 230);

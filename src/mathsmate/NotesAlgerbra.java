@@ -34,12 +34,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         n.add(n4);
         n.add(n5);
         notesArea.setText(n.get(count).getNote());
-           TrigimageStorage GF1 = new TrigimageStorage();
-   TrigimageStorage GF2 = new TrigimageStorage("");
-   TrigimageStorage GF2 = new TrigimageStorage("Q2 Algerbra notes.gif");
-   TrigimageStorage GF2 = new TrigimageStorage("");
-   TrigimageStorage GF2 = new TrigimageStorage("Q4 Algerbra notes.gif");
-   TrigimageStorage GF2 = new TrigimageStorage("");
+        
     }
 
     /**
@@ -137,7 +132,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/algerbra Equation.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         mainMenuPanel.add(jLabel1);
-        jLabel1.setBounds(50, 430, 300, 90);
+        jLabel1.setBounds(50, 410, 300, 90);
 
         notesArea.setColumns(20);
         notesArea.setRows(5);
@@ -145,7 +140,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         jScrollPane3.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 70, 320, 340);
+        jScrollPane3.setBounds(40, 70, 330, 310);
 
         jButton1.setText("Previous");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +149,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton1);
-        jButton1.setBounds(20, 530, 73, 23);
+        jButton1.setBounds(20, 530, 93, 29);
 
         jButton2.setText("Next");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +158,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton2);
-        jButton2.setBounds(280, 530, 55, 23);
+        jButton2.setBounds(280, 530, 65, 29);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package mathsmate;
+import java.io.Serializable;
 
 /**
  *
  * @author Aaron
  */
-public class Course {
+public class Course implements Serializable{
     String name, address, url;
     int price, points, level, years;
 

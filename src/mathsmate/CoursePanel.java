@@ -12,7 +12,7 @@ import java.net.URL;
  *
  * @author Aaron
  */
-public class CoursePanel extends javax.swing.JPanel {
+public class CoursePanel extends javax.swing.JPanel{
 
     /**
      * Creates new form CoursePanel

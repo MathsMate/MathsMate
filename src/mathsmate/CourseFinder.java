@@ -8,9 +8,7 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
-import java.text.ParseException;
 import java.util.ArrayList;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -19,6 +17,7 @@ import javax.swing.text.MaskFormatter;
 public class CourseFinder extends javax.swing.JPanel {
 
     ArrayList<Course> courseList;
+
     Course c1 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
     Course c2 = new Course("Waterford IT", "Waterford", "wit.ie", 2000, 405, 8, 4);
     Course c5 = new Course("Sligo IT", "Sligo", "itsligo.ie", 2000, 385, 6, 2);
@@ -59,6 +58,10 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.add(p);
         }
+    }
+    
+    public ArrayList<Course> getArrayListCourse(){
+        return courseList;
     }
 
     /**

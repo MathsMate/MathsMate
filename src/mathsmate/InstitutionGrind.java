@@ -19,6 +19,7 @@ public class InstitutionGrind extends PrivateGrind implements GrindInterface{
         this.places = places;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
@@ -27,6 +28,7 @@ public class InstitutionGrind extends PrivateGrind implements GrindInterface{
         this.address = address;
     }
 
+    @Override
     public int getPlaces() {
         return places;
     }

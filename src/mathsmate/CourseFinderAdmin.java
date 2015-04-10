@@ -6,11 +6,7 @@
 package mathsmate;
 
 import java.awt.CardLayout;
-import java.awt.GridLayout;
 import java.awt.LayoutManager;
-import java.text.ParseException;
-import java.util.ArrayList;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -43,6 +39,12 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
+        titleLbl = new javax.swing.JLabel();
+        addressLbl = new javax.swing.JLabel();
+        priceLbl = new javax.swing.JLabel();
+        levelLbl = new javax.swing.JLabel();
+        yearsLbl = new javax.swing.JLabel();
+        pointsLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -101,6 +103,48 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
+        titleLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        titleLbl.setForeground(new java.awt.Color(255, 255, 255));
+        titleLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        titleLbl.setText("Title:");
+        mainMenuPanel.add(titleLbl);
+        titleLbl.setBounds(20, 80, 40, 22);
+
+        addressLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        addressLbl.setForeground(new java.awt.Color(255, 255, 255));
+        addressLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        addressLbl.setText("Address:");
+        mainMenuPanel.add(addressLbl);
+        addressLbl.setBounds(20, 110, 70, 22);
+
+        priceLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        priceLbl.setForeground(new java.awt.Color(255, 255, 255));
+        priceLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        priceLbl.setText("Price:");
+        mainMenuPanel.add(priceLbl);
+        priceLbl.setBounds(20, 140, 70, 22);
+
+        levelLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        levelLbl.setForeground(new java.awt.Color(255, 255, 255));
+        levelLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        levelLbl.setText("Level:");
+        mainMenuPanel.add(levelLbl);
+        levelLbl.setBounds(20, 170, 50, 22);
+
+        yearsLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        yearsLbl.setForeground(new java.awt.Color(255, 255, 255));
+        yearsLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        yearsLbl.setText("Years:");
+        mainMenuPanel.add(yearsLbl);
+        yearsLbl.setBounds(20, 200, 50, 22);
+
+        pointsLbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        pointsLbl.setForeground(new java.awt.Color(255, 255, 255));
+        pointsLbl.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pointsLbl.setText("Points:");
+        mainMenuPanel.add(pointsLbl);
+        pointsLbl.setBounds(20, 230, 60, 22);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,11 +178,15 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addressLbl;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel levelLbl;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JLabel pointsLbl;
+    private javax.swing.JLabel priceLbl;
     private javax.swing.JLabel screenTitleLbl;
     private javax.swing.ButtonGroup subjectGroup1;
     private javax.swing.ButtonGroup subjectGroup2;
@@ -146,5 +194,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     private javax.swing.ButtonGroup subjectGroup4;
     private javax.swing.ButtonGroup subjectGroup5;
     private javax.swing.ButtonGroup subjectGroup6;
+    private javax.swing.JLabel titleLbl;
+    private javax.swing.JLabel yearsLbl;
     // End of variables declaration//GEN-END:variables
 }

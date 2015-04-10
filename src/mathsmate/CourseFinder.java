@@ -98,11 +98,6 @@ public class CourseFinder extends javax.swing.JPanel {
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
-        mainMenuPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mainMenuPanelMouseEntered(evt);
-            }
-        });
         mainMenuPanel.setLayout(null);
 
         copyrightLbl.setBackground(new java.awt.Color(255, 255, 255));
@@ -262,7 +257,7 @@ public class CourseFinder extends javax.swing.JPanel {
         courseScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         coursePanel.setBackground(new java.awt.Color(52, 152, 219));
-        coursePanel.setLayout(new java.awt.GridLayout(1, 0));
+        coursePanel.setLayout(new java.awt.GridLayout(20, 0));
         courseScrollPane.setViewportView(coursePanel);
 
         mainMenuPanel.add(courseScrollPane);
@@ -712,9 +707,10 @@ public class CourseFinder extends javax.swing.JPanel {
             p.setLevel(courseList.get(i).getLevel());
             p.setPoints(courseList.get(i).getPoints());
             p.setURL(courseList.get(i).getUrl());
-
+            
             coursePanel.add(p);
             coursePanel.updateUI();
+            coursePanel.setLayout(new GridLayout(courseList.size(), 0, 0, 5));
         }
     }//GEN-LAST:event_resetBtnActionPerformed
 
@@ -726,40 +722,6 @@ public class CourseFinder extends javax.swing.JPanel {
             cl.show(getParent(), "COURSE_FINDER_ADMIN");
         }
     }//GEN-LAST:event_adminBtnActionPerformed
-
-    private void mainMenuPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mainMenuPanelMouseEntered
-        System.out.println("Mouse Detected!");
-        try {
-            FileInputStream fIn = new FileInputStream("courseSave.data");
-            ObjectInputStream oIn = new ObjectInputStream(fIn);
-            courseList = (ArrayList<Course>) oIn.readObject();
-
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error Loading File: " + e);
-        }
-
-        coursePanel.removeAll();
-        try {
-            FileInputStream fIn = new FileInputStream("courseSave.data");
-            ObjectInputStream oIn = new ObjectInputStream(fIn);
-            courseList = (ArrayList<Course>) oIn.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Fatal Error: " + e);
-        }
-        for (int i = 0; i < courseList.size(); i++) {
-            CoursePanel p = new CoursePanel();
-            p.setName(courseList.get(i).getName());
-            p.setPrice(courseList.get(i).getPrice());
-            p.setAddress(courseList.get(i).getAddress());
-            p.setYears(courseList.get(i).getYears());
-            p.setLevel(courseList.get(i).getLevel());
-            p.setPoints(courseList.get(i).getPoints());
-            p.setURL(courseList.get(i).getUrl());
-
-            coursePanel.add(p);
-            coursePanel.updateUI();
-        }
-    }//GEN-LAST:event_mainMenuPanelMouseEntered
     private void checkSearchBtn() {
         if (!addressTxtField.isEditable() && !instituteTxtField.isEditable() && !priceTxtField.isEditable() && !levelTxtField.isEditable()) {
             searchBtn.setEnabled(false);

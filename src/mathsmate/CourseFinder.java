@@ -8,6 +8,9 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 public class CourseFinder extends javax.swing.JPanel {
 
     ArrayList<Course> courseList;
-
+    //Default Data
     Course c1 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
     Course c2 = new Course("Waterford IT", "Waterford", "wit.ie", 2000, 405, 8, 4);
     Course c5 = new Course("Sligo IT", "Sligo", "itsligo.ie", 2000, 385, 6, 2);
@@ -28,23 +31,17 @@ public class CourseFinder extends javax.swing.JPanel {
     Course c9 = new Course("Galway-Mayo IT", "Mayo", "gmit.ie", 2500, 385, 8, 4);
     Course c10 = new Course("Athlone IT", "Athlone", "ait.ie", 2000, 555, 7, 2);
     Course c4 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 1500, 385, 6, 2);
-    
+
     public CourseFinder() {
         initComponents();
         searchBtn.setEnabled(false);
-        courseList = new ArrayList<>();
-
-        courseList.add(c1);
-        courseList.add(c2);
-        courseList.add(c3);
-        courseList.add(c4);
-        courseList.add(c5);
-        courseList.add(c6);
-        courseList.add(c7);
-        courseList.add(c8);
-        courseList.add(c9);
-        courseList.add(c10);
-
+        try {
+            FileInputStream fIn = new FileInputStream("courseSave.data");
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            courseList = (ArrayList<Course>) oIn.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Fatal Error: " + e);
+        }
         coursePanel.setLayout(new GridLayout(courseList.size(), 0, 0, 5));
         for (int i = 0; i < courseList.size(); i++) {
             CoursePanel p = new CoursePanel();
@@ -58,10 +55,6 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.add(p);
         }
-    }
-    
-    public ArrayList<Course> getArrayListCourse(){
-        return courseList;
     }
 
     /**
@@ -105,6 +98,11 @@ public class CourseFinder extends javax.swing.JPanel {
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
+        mainMenuPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mainMenuPanelMouseEntered(evt);
+            }
+        });
         mainMenuPanel.setLayout(null);
 
         copyrightLbl.setBackground(new java.awt.Color(255, 255, 255));
@@ -333,7 +331,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         ArrayList<Course> show = new ArrayList<>();
-        if(!instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //0001
+        if (!instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()) { //0001
             System.out.println("0001");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
@@ -342,7 +340,6 @@ public class CourseFinder extends javax.swing.JPanel {
                     }
                 }
             }
-            
 
             coursePanel.removeAll();
             coursePanel.updateUI();
@@ -358,7 +355,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(!instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //0010
+        } else if (!instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()) { //0010
             System.out.println("0010");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText())) {
@@ -370,7 +367,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -382,7 +379,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(!instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //0011
+        } else if (!instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()) { //0011
             System.out.println("0011");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
@@ -394,7 +391,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -406,7 +403,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()){ //0100
+        } else if (!instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()) { //0100
             System.out.println("0100");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -418,7 +415,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -430,7 +427,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //0101
+        } else if (!instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()) { //0101
             System.out.println("0101");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -439,10 +436,10 @@ public class CourseFinder extends javax.swing.JPanel {
                     }
                 }
             }
-            
+
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -454,7 +451,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //0110
+        } else if (!instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()) { //0110
             System.out.println("0110");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -466,7 +463,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -478,7 +475,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(!instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //0111
+        } else if (!instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()) { //0111
             System.out.println("0111");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -490,7 +487,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -502,7 +499,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1000
+        } else if (instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()) { //1000
             System.out.println("1000");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText())) {
@@ -514,7 +511,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -526,7 +523,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //1001
+        } else if (instituteTxtField.isEditable() && !priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()) { //1001
             System.out.println("1001");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
@@ -538,7 +535,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -550,7 +547,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1010
+        } else if (instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()) { //1010
             System.out.println("1010");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText())) {
@@ -562,7 +559,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -574,7 +571,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //1011
+        } else if (instituteTxtField.isEditable() && !priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()) { //1011
             System.out.println("1011");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText())) {
@@ -586,7 +583,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -598,7 +595,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1100
+        } else if (instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && !levelTxtField.isEditable()) { //1100
             System.out.println("1100");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -610,7 +607,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -622,7 +619,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()){ //1101
+        } else if (instituteTxtField.isEditable() && priceTxtField.isEditable() && !addressTxtField.isEditable() && levelTxtField.isEditable()) { //1101
             System.out.println("1101");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -634,7 +631,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -646,7 +643,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()){ //1110
+        } else if (instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && !levelTxtField.isEditable()) { //1110
             System.out.println("1110");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -655,10 +652,10 @@ public class CourseFinder extends javax.swing.JPanel {
                     }
                 }
             }
-            
+
             coursePanel.removeAll();
             coursePanel.updateUI();
-             for (int i = 0; i < show.size(); i++) {
+            for (int i = 0; i < show.size(); i++) {
                 CoursePanel p = new CoursePanel();
                 p.setName(show.get(i).getName());
                 p.setPrice(show.get(i).getPrice());
@@ -670,7 +667,7 @@ public class CourseFinder extends javax.swing.JPanel {
 
                 coursePanel.add(p);
             }
-        } else if(instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()){ //1111
+        } else if (instituteTxtField.isEditable() && priceTxtField.isEditable() && addressTxtField.isEditable() && levelTxtField.isEditable()) { //1111
             System.out.println("1111");
             for (int i = 0; i < courseList.size(); i++) {
                 if (courseList.get(i).getAddress().equalsIgnoreCase(addressTxtField.getText()) && courseList.get(i).getName().equalsIgnoreCase(instituteTxtField.getText()) && courseList.get(i).getLevel() == Integer.parseInt(levelTxtField.getText()) && courseList.get(i).getPrice() == Integer.parseInt(priceTxtField.getText())) {
@@ -699,6 +696,13 @@ public class CourseFinder extends javax.swing.JPanel {
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
         coursePanel.removeAll();
+        try {
+            FileInputStream fIn = new FileInputStream("courseSave.data");
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            courseList = (ArrayList<Course>) oIn.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Fatal Error: " + e);
+        }
         for (int i = 0; i < courseList.size(); i++) {
             CoursePanel p = new CoursePanel();
             p.setName(courseList.get(i).getName());
@@ -722,6 +726,40 @@ public class CourseFinder extends javax.swing.JPanel {
             cl.show(getParent(), "COURSE_FINDER_ADMIN");
         }
     }//GEN-LAST:event_adminBtnActionPerformed
+
+    private void mainMenuPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mainMenuPanelMouseEntered
+        System.out.println("Mouse Detected!");
+        try {
+            FileInputStream fIn = new FileInputStream("courseSave.data");
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            courseList = (ArrayList<Course>) oIn.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error Loading File: " + e);
+        }
+
+        coursePanel.removeAll();
+        try {
+            FileInputStream fIn = new FileInputStream("courseSave.data");
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            courseList = (ArrayList<Course>) oIn.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Fatal Error: " + e);
+        }
+        for (int i = 0; i < courseList.size(); i++) {
+            CoursePanel p = new CoursePanel();
+            p.setName(courseList.get(i).getName());
+            p.setPrice(courseList.get(i).getPrice());
+            p.setAddress(courseList.get(i).getAddress());
+            p.setYears(courseList.get(i).getYears());
+            p.setLevel(courseList.get(i).getLevel());
+            p.setPoints(courseList.get(i).getPoints());
+            p.setURL(courseList.get(i).getUrl());
+
+            coursePanel.add(p);
+            coursePanel.updateUI();
+        }
+    }//GEN-LAST:event_mainMenuPanelMouseEntered
     private void checkSearchBtn() {
         if (!addressTxtField.isEditable() && !instituteTxtField.isEditable() && !priceTxtField.isEditable() && !levelTxtField.isEditable()) {
             searchBtn.setEnabled(false);

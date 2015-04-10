@@ -20,26 +20,50 @@ import java.util.ArrayList;
  * @author Aaron
  */
 public class CourseFinderAdmin extends javax.swing.JPanel {
-    
+
     private int index;
-    ArrayList<Course> courseList;
-    CourseFinder courseFinder;
-    
+    private ArrayList<Course> courseList;
+    private ArrayList<Course> defaultList;
+    private CourseFinder courseFinder;
+    private boolean awaitingRecord;
+
+    //DEFAULTS
+    Course c1 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
+    Course c2 = new Course("Waterford IT", "Waterford", "wit.ie", 2000, 405, 8, 4);
+    Course c5 = new Course("Sligo IT", "Sligo", "itsligo.ie", 2000, 385, 6, 2);
+    Course c6 = new Course("Royal College of Surgeons", "Dublin", "rcsi.ie", 3000, 600, 8, 2);
+    Course c7 = new Course("Galway-Mayo IT", "Galway", "gmit.ie", 3000, 405, 7, 2);
+    Course c8 = new Course("Waterford IT", "Waterford", "wit.ie", 2500, 555, 8, 1);
+    Course c3 = new Course("University College Cork", "Cork", "ucc.ie", 2500, 405, 8, 4);
+    Course c9 = new Course("Galway-Mayo IT", "Mayo", "gmit.ie", 2500, 385, 8, 4);
+    Course c10 = new Course("Athlone IT", "Athlone", "ait.ie", 2000, 555, 7, 2);
+    Course c4 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 1500, 385, 6, 2);
+
     public CourseFinderAdmin() {
         initComponents();
+        defaultList = new ArrayList<>();
+        awaitingRecord = false;
+
+        //Add defaults
+        defaultList.add(c1);
+        defaultList.add(c2);
+        defaultList.add(c3);
+        defaultList.add(c4);
+        defaultList.add(c5);
+        defaultList.add(c6);
+        defaultList.add(c7);
+        defaultList.add(c8);
+        defaultList.add(c9);
+        defaultList.add(c10);
+
         index = 0;
         indexLbl.setText("File Index: " + index);
         courseFinder = new CourseFinder();
-        courseList = courseFinder.getArrayListCourse();
-        
-        try{
+
+        try {
             FileInputStream fIn = new FileInputStream("courseSave.data");
             ObjectInputStream oIn = new ObjectInputStream(fIn);
-            while(fIn.available() > 0){
-                Course cTemp = (Course)oIn.readObject();
-                courseList.add(cTemp);
-            }
-            index = 0;
+            courseList = (ArrayList<Course>) oIn.readObject();
             titleField.setText(courseList.get(index).getName());
             addressField.setText(courseList.get(index).getAddress());
             urlField.setText(courseList.get(index).getUrl());
@@ -47,10 +71,20 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
             pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
             levelField.setText(Integer.toString(courseList.get(index).getLevel()));
             yearsField.setText(Integer.toString(courseList.get(index).getYears()));
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Error Loading Object: " + e);
-        }catch(IOException | ClassNotFoundException f){
+        } catch (IOException | ClassNotFoundException f) {
             System.out.println("Error Loading Object: " + f);
+        }
+
+        if (index + 1 >= courseList.size()) {
+            nextBtn.setText("Add");
+            nextBtn.setEnabled(true);
+        }
+        if (courseList.size() == 1) {
+            deleteBtn.setEnabled(false);
+        } else {
+            deleteBtn.setEnabled(true);
         }
     }
 
@@ -95,6 +129,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         urlField = new javax.swing.JTextField();
         urlLabel = new javax.swing.JLabel();
         statusLbl = new javax.swing.JLabel();
+        defaultBtn = new javax.swing.JButton();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -266,6 +301,17 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         mainMenuPanel.add(statusLbl);
         statusLbl.setBounds(0, 500, 400, 30);
 
+        defaultBtn.setBackground(new java.awt.Color(255, 0, 51));
+        defaultBtn.setForeground(new java.awt.Color(255, 255, 255));
+        defaultBtn.setText("RESET");
+        defaultBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defaultBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(defaultBtn);
+        defaultBtn.setBounds(143, 550, 120, 23);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -299,24 +345,36 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        try{
+        try {
             FileOutputStream fOut = new FileOutputStream("courseSave.data");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             Course cTemp = new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText()));
-            oOut.writeObject(cTemp);
+            oOut.writeObject(courseList);
             statusLbl.setText("Status: File Written!");
             oOut.close();
             fOut.close();
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Error Saving Object: " + e);
-        }catch(IOException f){
+        } catch (IOException f) {
             System.out.println("Error Saving Object: " + f);
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         courseList.remove(index);
-        index--;
+        if (index - 1 >= 0) {
+            index--;
+        }
+        if (index + 1 < courseList.size()) {
+            nextBtn.setText("Next");
+        } else {
+            nextBtn.setText("Add");
+        }
+        if (courseList.size() == 1) {
+            deleteBtn.setEnabled(false);
+        } else {
+            deleteBtn.setEnabled(true);
+        }
         indexLbl.setText("File Index: " + index);
         titleField.setText(courseList.get(index).getName());
         addressField.setText(courseList.get(index).getAddress());
@@ -328,21 +386,57 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
-        if(index+1 < courseList.size()){
-            index++;
+        //courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+        if (awaitingRecord) {
+            courseList.add(new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+            statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
+            awaitingRecord = false;
+        } else {
+            try {
+                if (index < courseList.size()) {
+                    index++;
+                    indexLbl.setText("File Index: " + index);
+                    titleField.setText(courseList.get(index).getName());
+                    addressField.setText(courseList.get(index).getAddress());
+                    urlField.setText(courseList.get(index).getUrl());
+                    priceField.setText(Integer.toString(courseList.get(index).getPrice()));
+                    pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
+                    levelField.setText(Integer.toString(courseList.get(index).getLevel()));
+                    yearsField.setText(Integer.toString(courseList.get(index).getYears()));
+                    statusLbl.setText("Status: Idle");
+                    nextBtn.setText("Next");
+                    nextBtn.setEnabled(true);
+                    awaitingRecord = false;
+                }
+                if (index + 1 >= courseList.size()) {
+                    nextBtn.setText("Add");
+                    nextBtn.setEnabled(true);
+                }
+                if (courseList.size() == 1) {
+                    deleteBtn.setEnabled(false);
+                } else {
+                    deleteBtn.setEnabled(true);
+                }
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(e);
+                indexLbl.setText("File Index: " + index);
+                titleField.setText("");
+                addressField.setText("");
+                urlField.setText("");
+                priceField.setText("");
+                pointsField.setText("");
+                levelField.setText("");
+                yearsField.setText("");
+                statusLbl.setText("<html>Status: <span style=\"Color:#FFFF00\">Awaiting New Record</span></html>");
+                nextBtn.setText("Add");
+                awaitingRecord = true;
+            }
         }
-        indexLbl.setText("File Index: " + index);
-        titleField.setText(courseList.get(index).getName());
-        addressField.setText(courseList.get(index).getAddress());
-        urlField.setText(courseList.get(index).getUrl());
-        priceField.setText(Integer.toString(courseList.get(index).getPrice()));
-        pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
-        levelField.setText(Integer.toString(courseList.get(index).getLevel()));
-        yearsField.setText(Integer.toString(courseList.get(index).getYears()));
     }//GEN-LAST:event_nextBtnActionPerformed
 
     private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBtnActionPerformed
-        if(index-1 >= 0){
+        //courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+        if (index - 1 >= 0) {
             index--;
         }
         indexLbl.setText("File Index: " + index);
@@ -353,13 +447,52 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
         levelField.setText(Integer.toString(courseList.get(index).getLevel()));
         yearsField.setText(Integer.toString(courseList.get(index).getYears()));
+        statusLbl.setText("Status: Idle");
+        nextBtn.setText("");
+        if (index + 1 < courseList.size()) {
+            nextBtn.setText("Next");
+        } else {
+            nextBtn.setText("Add");
+        }
+        awaitingRecord = false;
     }//GEN-LAST:event_prevBtnActionPerformed
+
+    private void defaultBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultBtnActionPerformed
+        try {
+            FileOutputStream fOut = new FileOutputStream("courseSave.data");
+            FileInputStream fIn = new FileInputStream("courseSave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(defaultList);
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            courseList = (ArrayList<Course>) oIn.readObject();
+            index = 0;
+            indexLbl.setText("File Index: " + index);
+            titleField.setText(courseList.get(index).getName());
+            addressField.setText(courseList.get(index).getAddress());
+            urlField.setText(courseList.get(index).getUrl());
+            priceField.setText(Integer.toString(courseList.get(index).getPrice()));
+            pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
+            levelField.setText(Integer.toString(courseList.get(index).getLevel()));
+            yearsField.setText(Integer.toString(courseList.get(index).getYears()));
+            awaitingRecord = false;
+            deleteBtn.setEnabled(true);
+            nextBtn.setText("Next");
+            statusLbl.setText("<html>Status: <span style=\"color:#ff0000\">FILE RESET</span></html>");
+        } catch (FileNotFoundException e) {
+            System.out.println("Error Saving Object: " + e);
+        } catch (IOException f) {
+            System.out.println("Error Saving Object: " + f);
+        } catch (ClassNotFoundException g) {
+            System.out.println("Error Loading Object: " + g);
+        }
+    }//GEN-LAST:event_defaultBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLbl;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JButton defaultBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JLabel indexLbl;

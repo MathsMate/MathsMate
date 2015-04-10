@@ -95,6 +95,7 @@ public class CourseFinder extends javax.swing.JPanel {
         instituteCheckBox = new javax.swing.JCheckBox();
         addressCheckBox = new javax.swing.JCheckBox();
         searchBtn = new javax.swing.JButton();
+        adminBtn = new javax.swing.JButton();
         courseScrollPane = new javax.swing.JScrollPane();
         coursePanel = new javax.swing.JPanel();
         resetBtn = new javax.swing.JButton();
@@ -244,6 +245,17 @@ public class CourseFinder extends javax.swing.JPanel {
         });
         mainMenuPanel.add(searchBtn);
         searchBtn.setBounds(110, 190, 80, 23);
+
+        adminBtn.setBackground(new java.awt.Color(204, 51, 0));
+        adminBtn.setForeground(new java.awt.Color(255, 255, 255));
+        adminBtn.setText("Admin");
+        adminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(adminBtn);
+        adminBtn.setBounds(10, 190, 70, 23);
 
         courseScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         courseScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -698,6 +710,15 @@ public class CourseFinder extends javax.swing.JPanel {
             coursePanel.updateUI();
         }
     }//GEN-LAST:event_resetBtnActionPerformed
+
+    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
+        System.out.println("Admin Panel Opened || Course Finder");
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout) layout;
+            cl.show(getParent(), "COURSE_FINDER_ADMIN");
+        }
+    }//GEN-LAST:event_adminBtnActionPerformed
     private void checkSearchBtn() {
         if (!addressTxtField.isEditable() && !instituteTxtField.isEditable() && !priceTxtField.isEditable() && !levelTxtField.isEditable()) {
             searchBtn.setEnabled(false);
@@ -710,6 +731,7 @@ public class CourseFinder extends javax.swing.JPanel {
     private javax.swing.JCheckBox addressCheckBox;
     private javax.swing.JLabel addressFilterLbl;
     private javax.swing.JTextField addressTxtField;
+    private javax.swing.JButton adminBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JPanel coursePanel;

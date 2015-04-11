@@ -297,7 +297,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         statusLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         statusLbl.setForeground(new java.awt.Color(255, 255, 255));
         statusLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statusLbl.setText("Status: Idle");
+        statusLbl.setText("Status: Ready");
         mainMenuPanel.add(statusLbl);
         statusLbl.setBounds(0, 500, 400, 30);
 
@@ -385,13 +385,23 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
-        if(!awaitingRecord){
+        if (!awaitingRecord) {
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
         }
         if (awaitingRecord) {
-            courseList.add(new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
-            statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
-            awaitingRecord = false;
+            if (titleField.getText().equals("") && addressField.getText().equals("") && urlField.getText().equals("") && priceField.getText().equals("") && pointsField.getText().equals("") && levelField.getText().equals("") && yearsField.getText().equals("")) {
+                statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Data Missing</span></html>");
+            } else {
+                try {
+                    courseList.add(new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+                    statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
+                    awaitingRecord = false;
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: " + e);
+                    statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Number Error</span></html>");
+                }
+            }
+
         } else {
             try {
                 if (index < courseList.size()) {
@@ -404,7 +414,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
                     pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
                     levelField.setText(Integer.toString(courseList.get(index).getLevel()));
                     yearsField.setText(Integer.toString(courseList.get(index).getYears()));
-                    statusLbl.setText("Status: Idle");
+                    statusLbl.setText("Status: Ready");
                     nextBtn.setText("Next");
                     nextBtn.setEnabled(true);
                     awaitingRecord = false;
@@ -436,7 +446,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_nextBtnActionPerformed
 
     private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBtnActionPerformed
-        if(!awaitingRecord){
+        if (!awaitingRecord) {
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
         }
         if (index - 1 >= 0) {
@@ -450,7 +460,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
         levelField.setText(Integer.toString(courseList.get(index).getLevel()));
         yearsField.setText(Integer.toString(courseList.get(index).getYears()));
-        statusLbl.setText("Status: Idle");
+        statusLbl.setText("Status: Ready");
         nextBtn.setText("");
         if (index + 1 < courseList.size()) {
             nextBtn.setText("Next");

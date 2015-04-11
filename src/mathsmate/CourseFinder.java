@@ -20,17 +20,6 @@ import java.util.ArrayList;
 public class CourseFinder extends javax.swing.JPanel {
 
     ArrayList<Course> courseList;
-    //Default Data
-    Course c1 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
-    Course c2 = new Course("Waterford IT", "Waterford", "wit.ie", 2000, 405, 8, 4);
-    Course c5 = new Course("Sligo IT", "Sligo", "itsligo.ie", 2000, 385, 6, 2);
-    Course c6 = new Course("Royal College of Surgeons", "Dublin", "rcsi.ie", 3000, 600, 8, 2);
-    Course c7 = new Course("Galway-Mayo IT", "Galway", "gmit.ie", 3000, 405, 7, 2);
-    Course c8 = new Course("Waterford IT", "Waterford", "wit.ie", 2500, 555, 8, 1);
-    Course c3 = new Course("University College Cork", "Cork", "ucc.ie", 2500, 405, 8, 4);
-    Course c9 = new Course("Galway-Mayo IT", "Mayo", "gmit.ie", 2500, 385, 8, 4);
-    Course c10 = new Course("Athlone IT", "Athlone", "ait.ie", 2000, 555, 7, 2);
-    Course c4 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 1500, 385, 6, 2);
 
     public CourseFinder() {
         initComponents();

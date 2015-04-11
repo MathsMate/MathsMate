@@ -13,9 +13,9 @@ import java.util.ArrayList;
 /**
  *
  * @author Aaron
- * 
- * Note: User has to click "Reset" on CourseFinder panel
- * to update any changes from the file "courseSave.data"
+ *
+ * Note: User has to click "Reset" on CourseFinder panel to update any changes
+ * from the file "courseSave.data"
  */
 public class CourseFinderAdmin extends javax.swing.JPanel {
 
@@ -39,7 +39,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
 
     public CourseFinderAdmin() {
         initComponents();
-        
+
         //Initialising variables and objects
         defaultList = new ArrayList<>();
         awaitingRecord = false;
@@ -81,12 +81,12 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
             statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Fatal Error</span></html>");
             System.out.println("Error Loading Object: " + f);
         }
-        
+
         //If next index is outside of arrayList bounds, set name to "Add" for new record.
         if (index + 1 >= courseList.size()) {
             nextBtn.setText("Add");
         }
-        
+
         //If there is only one record, prevent deletion.
         if (courseList.size() == 1) {
             deleteBtn.setEnabled(false);
@@ -354,7 +354,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         //Saves ArrayList to file courseSave.data
         try {
-            FileOutputStream fOut = new FileOutputStream("courseSave.data"); 
+            FileOutputStream fOut = new FileOutputStream("courseSave.data");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
             oOut.writeObject(courseList);
@@ -374,21 +374,21 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         //Deletes record
         courseList.remove(index);
-        
+
         //Change next button text appropriately
         if (index + 1 < courseList.size()) {
             nextBtn.setText("Next");
         } else {
             nextBtn.setText("Add");
         }
-        
-        //Disable delete button if courseList size is one
-        if (courseList.size() == 1) {
+
+        //Disable delete button if courseList size is one or next index is outside array bounds
+        if (courseList.size() == 1 || index + 1 >= courseList.size()) {
             deleteBtn.setEnabled(false);
         } else {
             deleteBtn.setEnabled(true);
         }
-        
+
         //Clear fields
         indexLbl.setText("File Index: " + index);
         titleField.setText(courseList.get(index).getName());
@@ -447,7 +447,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
                     nextBtn.setText("Add");
                     nextBtn.setEnabled(true);
                 }
-                //Change delete button depending on list size
+                //Change delete button depending on list size and position
                 if (courseList.size() == 1) {
                     deleteBtn.setEnabled(false);
                 } else {
@@ -467,8 +467,15 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
                 //Notify user that program is awaiting record
                 statusLbl.setText("<html>Status: <span style=\"Color:#FFFF00\">Awaiting New Record</span></html>");
                 nextBtn.setText("Add");
+                deleteBtn.setEnabled(false);
                 awaitingRecord = true;
             }
+        }
+        //Disable delete button if courseList size is one or next index is outside array bounds
+        if (courseList.size() == 1 || index + 1 >= courseList.size()) {
+            deleteBtn.setEnabled(false);
+        } else {
+            deleteBtn.setEnabled(true);
         }
     }//GEN-LAST:event_nextBtnActionPerformed
 
@@ -492,14 +499,19 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         yearsField.setText(Integer.toString(courseList.get(index).getYears()));
         statusLbl.setText("Status: Ready");
         nextBtn.setText("");
-        
+
         //Change next button text accordingly
         if (index + 1 < courseList.size()) {
             nextBtn.setText("Next");
         } else {
             nextBtn.setText("Add");
         }
-        
+        //Disable delete button if courseList size is one or next index is outside array bounds
+        if (courseList.size() == 1 || index + 1 >= courseList.size()) {
+            deleteBtn.setEnabled(false);
+        } else {
+            deleteBtn.setEnabled(true);
+        }
         //Set awaiting record to false
         awaitingRecord = false;
     }//GEN-LAST:event_prevBtnActionPerformed

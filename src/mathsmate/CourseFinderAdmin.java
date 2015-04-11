@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mathsmate;
 
 import java.awt.CardLayout;
@@ -18,14 +13,17 @@ import java.util.ArrayList;
 /**
  *
  * @author Aaron
+ * 
+ * Note: User has to click "Reset" on CourseFinder panel
+ * to update any changes from the file "courseSave.data"
  */
 public class CourseFinderAdmin extends javax.swing.JPanel {
 
-    private int index;
-    private ArrayList<Course> courseList;
-    private ArrayList<Course> defaultList;
-    private CourseFinder courseFinder;
-    private boolean awaitingRecord;
+    //Declare variables
+    private int index; //Keeps track of ArrayList index
+    private ArrayList<Course> courseList; //Normal ArrayList
+    private ArrayList<Course> defaultList; //Default ArrayList
+    private boolean awaitingRecord; //Checks if program is awaiting new record
 
     //DEFAULTS
     Course c1 = new Course("National College of Ireland", "Dublin", "ncirl.ie", 2500, 385, 8, 4);
@@ -41,6 +39,8 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
 
     public CourseFinderAdmin() {
         initComponents();
+        
+        //Initialising variables and objects
         defaultList = new ArrayList<>();
         awaitingRecord = false;
 
@@ -58,8 +58,8 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
 
         index = 0;
         indexLbl.setText("File Index: " + index);
-        courseFinder = new CourseFinder();
 
+        //Reading data from courseSave.data
         try {
             FileInputStream fIn = new FileInputStream("courseSave.data");
             ObjectInputStream oIn = new ObjectInputStream(fIn);
@@ -71,16 +71,23 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
             pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
             levelField.setText(Integer.toString(courseList.get(index).getLevel()));
             yearsField.setText(Integer.toString(courseList.get(index).getYears()));
+            fIn.close();
+            oIn.close(); //Closing streams
         } catch (FileNotFoundException e) {
+            //Catch errors
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">File Not Found</span></html>");
             System.out.println("Error Loading Object: " + e);
         } catch (IOException | ClassNotFoundException f) {
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Fatal Error</span></html>");
             System.out.println("Error Loading Object: " + f);
         }
-
+        
+        //If next index is outside of arrayList bounds, set name to "Add" for new record.
         if (index + 1 >= courseList.size()) {
             nextBtn.setText("Add");
-            nextBtn.setEnabled(true);
         }
+        
+        //If there is only one record, prevent deletion.
         if (courseList.size() == 1) {
             deleteBtn.setEnabled(false);
         } else {
@@ -345,34 +352,44 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        //Saves ArrayList to file courseSave.data
         try {
-            FileOutputStream fOut = new FileOutputStream("courseSave.data");
+            FileOutputStream fOut = new FileOutputStream("courseSave.data"); 
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
             oOut.writeObject(courseList);
-            statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">File Written!</span></html>");
+            statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">File Saved!</span></html>"); //Alert user to succesful save
+            fOut.close();
+            oOut.close(); //Close steams
         } catch (FileNotFoundException e) {
+            //Alert user to errors
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">File Not Found</span></html>");
             System.out.println("Error Saving Object: " + e);
         } catch (IOException f) {
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">IO Exception</span></html>");
             System.out.println("Error Saving Object: " + f);
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        //Deletes record
         courseList.remove(index);
-        if (index - 1 >= 0) {
-            index--;
-        }
+        
+        //Change next button text appropriately
         if (index + 1 < courseList.size()) {
             nextBtn.setText("Next");
         } else {
             nextBtn.setText("Add");
         }
+        
+        //Disable delete button if courseList size is one
         if (courseList.size() == 1) {
             deleteBtn.setEnabled(false);
         } else {
             deleteBtn.setEnabled(true);
         }
+        
+        //Clear fields
         indexLbl.setText("File Index: " + index);
         titleField.setText(courseList.get(index).getName());
         addressField.setText(courseList.get(index).getAddress());
@@ -381,22 +398,27 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         pointsField.setText(Integer.toString(courseList.get(index).getPoints()));
         levelField.setText(Integer.toString(courseList.get(index).getLevel()));
         yearsField.setText(Integer.toString(courseList.get(index).getYears()));
-        statusLbl.setText("<html>Status: <span style=\"color:#FFFF00\">Record Deleted</span></html>");
+        statusLbl.setText("<html>Status: <span style=\"color:#FFFF00\">Record Deleted</span></html>"); //Alert user to deleted record
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        //If not awaiting record, save any changes to record the user was previously at
         if (!awaitingRecord) {
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
         }
+        //If awaiting record, try to add record to courseList, else setup panel for input
         if (awaitingRecord) {
+            //Verify user filled every field with information
             if (titleField.getText().equals("") && addressField.getText().equals("") && urlField.getText().equals("") && priceField.getText().equals("") && pointsField.getText().equals("") && levelField.getText().equals("") && yearsField.getText().equals("")) {
                 statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Data Missing</span></html>");
             } else {
                 try {
+                    //Attempt to add record to list
                     courseList.add(new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
                     statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
                     awaitingRecord = false;
                 } catch (NumberFormatException e) {
+                    //If user input String inside number field, show error
                     System.out.println("Error: " + e);
                     statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Number Error</span></html>");
                 }
@@ -404,6 +426,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
 
         } else {
             try {
+                //Display data from existing record
                 if (index < courseList.size()) {
                     index++;
                     indexLbl.setText("File Index: " + index);
@@ -419,16 +442,19 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
                     nextBtn.setEnabled(true);
                     awaitingRecord = false;
                 }
+                //Change next button to "Add"
                 if (index + 1 >= courseList.size()) {
                     nextBtn.setText("Add");
                     nextBtn.setEnabled(true);
                 }
+                //Change delete button depending on list size
                 if (courseList.size() == 1) {
                     deleteBtn.setEnabled(false);
                 } else {
                     deleteBtn.setEnabled(true);
                 }
             } catch (IndexOutOfBoundsException e) {
+                //Clear all fields
                 System.out.println(e);
                 indexLbl.setText("File Index: " + index);
                 titleField.setText("");
@@ -438,6 +464,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
                 pointsField.setText("");
                 levelField.setText("");
                 yearsField.setText("");
+                //Notify user that program is awaiting record
                 statusLbl.setText("<html>Status: <span style=\"Color:#FFFF00\">Awaiting New Record</span></html>");
                 nextBtn.setText("Add");
                 awaitingRecord = true;
@@ -446,12 +473,15 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_nextBtnActionPerformed
 
     private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBtnActionPerformed
+        //Save any changes to record when user navigates away
         if (!awaitingRecord) {
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
         }
+        //Go to previous index if the result is more than or equal to 0
         if (index - 1 >= 0) {
             index--;
         }
+        //Update fields from existing record
         indexLbl.setText("File Index: " + index);
         titleField.setText(courseList.get(index).getName());
         addressField.setText(courseList.get(index).getAddress());
@@ -462,22 +492,30 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         yearsField.setText(Integer.toString(courseList.get(index).getYears()));
         statusLbl.setText("Status: Ready");
         nextBtn.setText("");
+        
+        //Change next button text accordingly
         if (index + 1 < courseList.size()) {
             nextBtn.setText("Next");
         } else {
             nextBtn.setText("Add");
         }
+        
+        //Set awaiting record to false
         awaitingRecord = false;
     }//GEN-LAST:event_prevBtnActionPerformed
 
     private void defaultBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultBtnActionPerformed
+        //Reset entire list and file to default settings
         try {
             FileOutputStream fOut = new FileOutputStream("courseSave.data");
             FileInputStream fIn = new FileInputStream("courseSave.data");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            //Overwrite file with defaultList
             oOut.writeObject(defaultList);
             ObjectInputStream oIn = new ObjectInputStream(fIn);
+            //Update courseList from file
             courseList = (ArrayList<Course>) oIn.readObject();
+            //Reset admin panel
             index = 0;
             indexLbl.setText("File Index: " + index);
             titleField.setText(courseList.get(index).getName());
@@ -490,12 +528,20 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
             awaitingRecord = false;
             deleteBtn.setEnabled(true);
             nextBtn.setText("Next");
+            //Notifty user of reset
             statusLbl.setText("<html>Status: <span style=\"color:#ff0000\">FILE RESET</span></html>");
+            fOut.close();
+            fIn.close();
+            oIn.close();
+            oOut.close(); //Close all streams
         } catch (FileNotFoundException e) {
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">File Not Found</span></html>");
             System.out.println("Error Saving Object: " + e);
         } catch (IOException f) {
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">IO Exception</span></html>");
             System.out.println("Error Saving Object: " + f);
         } catch (ClassNotFoundException g) {
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">ClassNotFound Exception</span></html>");
             System.out.println("Error Loading Object: " + g);
         }
     }//GEN-LAST:event_defaultBtnActionPerformed

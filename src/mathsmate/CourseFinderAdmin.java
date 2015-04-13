@@ -485,6 +485,21 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         if (!awaitingRecord) {
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
         }
+        //Verify user filled every field with information
+        if (titleField.getText().equals("") && addressField.getText().equals("") && urlField.getText().equals("") && priceField.getText().equals("") && pointsField.getText().equals("") && levelField.getText().equals("") && yearsField.getText().equals("")) {
+            statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Data Missing</span></html>");
+        } else {
+            try {
+                //Attempt to add record to list
+                courseList.add(new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+                statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
+                awaitingRecord = false;
+            } catch (NumberFormatException e) {
+                //If user input String inside number field, show error
+                System.out.println("Error: " + e);
+                statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Number Error</span></html>");
+            }
+        }
         //Go to previous index if the result is more than or equal to 0
         if (index - 1 >= 0) {
             index--;

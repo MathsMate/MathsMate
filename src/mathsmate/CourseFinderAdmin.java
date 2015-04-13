@@ -305,8 +305,9 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
         statusLbl.setForeground(new java.awt.Color(255, 255, 255));
         statusLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         statusLbl.setText("Status: Ready");
+        statusLbl.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         mainMenuPanel.add(statusLbl);
-        statusLbl.setBounds(0, 500, 400, 30);
+        statusLbl.setBounds(0, 480, 400, 70);
 
         defaultBtn.setBackground(new java.awt.Color(255, 0, 51));
         defaultBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -358,7 +359,7 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
             oOut.writeObject(courseList);
-            statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">File Saved!</span></html>"); //Alert user to succesful save
+            statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">File Saved!</span><br/><span style=\"font-size:75%;\">Click Reset to update list</span></html>"); //Alert user to succesful save
             fOut.close();
             oOut.close(); //Close steams
         } catch (FileNotFoundException e) {

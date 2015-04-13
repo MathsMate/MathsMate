@@ -418,10 +418,11 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Status: Ready"/>
+            <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="500" width="400" height="30"/>
+              <AbsoluteConstraints x="0" y="480" width="400" height="70"/>
             </Constraint>
           </Constraints>
         </Component>

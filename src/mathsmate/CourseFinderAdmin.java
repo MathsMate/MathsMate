@@ -405,7 +405,17 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         //If not awaiting record, save any changes to record the user was previously at
         if (!awaitingRecord) {
-            courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+            try {
+                //Attempt to add record to list
+                courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+                statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
+                awaitingRecord = false;
+            } catch (NumberFormatException e) {
+                //If user input String inside number field, show error
+                System.out.println("Error: " + e);
+                statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Number Error</span></html>");
+                return;
+            }
         }
         //If awaiting record, try to add record to courseList, else setup panel for input
         if (awaitingRecord) {
@@ -481,23 +491,20 @@ public class CourseFinderAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_nextBtnActionPerformed
 
     private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBtnActionPerformed
-        //Save any changes to record when user navigates away
-        if (!awaitingRecord) {
-            courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
-        }
         //Verify user filled every field with information
         if (titleField.getText().equals("") && addressField.getText().equals("") && urlField.getText().equals("") && priceField.getText().equals("") && pointsField.getText().equals("") && levelField.getText().equals("") && yearsField.getText().equals("")) {
             statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Data Missing</span></html>");
         } else {
             try {
                 //Attempt to add record to list
-                courseList.add(new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
+                courseList.set(index, new Course(titleField.getText(), addressField.getText(), urlField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(pointsField.getText()), Integer.parseInt(levelField.getText()), Integer.parseInt(yearsField.getText())));
                 statusLbl.setText("<html>Status: <span style=\"color:#00FF00\">Added Record</span></html>");
                 awaitingRecord = false;
             } catch (NumberFormatException e) {
                 //If user input String inside number field, show error
                 System.out.println("Error: " + e);
                 statusLbl.setText("<html>Status: <span style=\"color:#FF0000\">Number Error</span></html>");
+                return;
             }
         }
         //Go to previous index if the result is more than or equal to 0

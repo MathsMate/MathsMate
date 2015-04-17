@@ -14,16 +14,17 @@ import java.awt.LayoutManager;
  */
 public class AlgebraQuiz extends javax.swing.JPanel {
 
-    int count;
-    AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array
-    AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "y = 4,   x = 3", "x = 7,   y = 3", "x = 6,   y = 1", 2); //Question 1 object
-    AlgebraQuestion q2 = new AlgebraQuestion("If f(x) = ln(x + 1) - 2, then f-1(x) =", "ex - 2 + 2", "ex + 2 - 1", "ex + 4 - 3", 2); //Question 2 object
-    AlgebraQuestion q3 = new AlgebraQuestion("If f(x) = 5 - 2x, then f-1(-3) =", " 13 ", " 5 ", " 3 ", 3); //Question 3 object
-    AlgebraQuestion q4 = new AlgebraQuestion("If f(x) = -x2 + 1, then f(x + 1) =", " -x2 - 2x ", " x - 4x ", " x3 - x ", 1); //Question 4 object
-    AlgebraQuestion q5 = new AlgebraQuestion("For all x real, (x2 -4x + 4) =", " |x - 2| ", " |x + 4| ", " |x -4x| ", 1); //Question 5 object
-    int correctAns;
-    boolean finished;
-
+    int count; //Creates a counter for the array.
+    AlgebraQuestion[] q = new AlgebraQuestion[5]; //Array to hold questions and answers.
+    AlgebraQuestion q1 = new AlgebraQuestion("Solve {x+y = 10, x-y = 4}", "y = 4,   x = 3", "x = 7,   y = 3", "x = 6,   y = 1", 2); //q1 of array with correct answer set at 2
+    AlgebraQuestion q2 = new AlgebraQuestion("If f(x) = ln(x + 1) - 2, then f-1(x) =", "ex - 2 + 2", "ex + 2 - 1", "ex + 4 - 3", 2); //q2 of array with correct answer set at 2
+    AlgebraQuestion q3 = new AlgebraQuestion("If f(x) = 5 - 2x, then f-1(-3) =", " 13 ", " 5 ", " 3 ", 3); //q3 of array with correct answer set at 3
+    AlgebraQuestion q4 = new AlgebraQuestion("If f(x) = -x2 + 1, then f(x + 1) =", " -x2 - 2x ", " x - 4x ", " x3 - x ", 1); //q4 of array with correct answer set at 1
+    AlgebraQuestion q5 = new AlgebraQuestion("For all x real, (x2 -4x + 4) =", " |x - 2| ", " |x + 4| ", " |x -4x| ", 1); //q5 of arrayt with correct answer set at 1
+    int correctAns; //Creates a variable to store the amount of correct answers.
+    boolean finished; //Creates a boolean variable to store if user has completed the quiz.
+    
+    //Contructor to set the components
     public AlgebraQuiz() {
         initComponents();
         ansLbl.setText("");
@@ -32,10 +33,10 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         numRltLbl.setVisible(false);
         chkAnsBtn.setEnabled(false);
         nxtBtn1.setEnabled(false);
-        count = 0;
-        correctAns = 0;
-        finished = false;
-        q[0] = q1;
+        count = 0; //Initialise counter to 0.
+        correctAns = 0; //Initialise correct answers to 0.
+        finished = false; //Initialise boolean variable to false.
+        q[0] = q1; //Initialising the array to start at index 0.
         q[1] = q2;
         q[2] = q3;
         q[3] = q4;
@@ -264,31 +265,33 @@ public class AlgebraQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void ans2RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans2RadBtnActionPerformed
-        chkAnsBtn.setEnabled(true);
+        chkAnsBtn.setEnabled(true); //Initialising radio button to be on.
     }//GEN-LAST:event_ans2RadBtnActionPerformed
 
     private void ans1RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans1RadBtnActionPerformed
-        chkAnsBtn.setEnabled(true);
+        chkAnsBtn.setEnabled(true); //Initialising radio button to be on.
     }//GEN-LAST:event_ans1RadBtnActionPerformed
 
     private void ans3RadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ans3RadBtnActionPerformed
-        chkAnsBtn.setEnabled(true);
+        chkAnsBtn.setEnabled(true); //Initialising radio button to be on.
     }//GEN-LAST:event_ans3RadBtnActionPerformed
 
     private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
+        // outer if statement only when the finished button is activated and 
+        // pressed does the check answer button change to Main Menu.
         if (finished == true) {
             LayoutManager layout = getParent().getLayout();
             if (layout instanceof CardLayout) {
                 CardLayout cl = (CardLayout) layout;
                 cl.show(getParent(), "MAIN");
             }
-        } else {
-            nxtBtn1.setEnabled(true);
+        } else {  // outer else statement to display next button and disable radio buttons
+            nxtBtn1.setEnabled(true);       // once check answer button has been clicked.
             ans1RadBtn.setEnabled(false);
             ans2RadBtn.setEnabled(false);
             ans3RadBtn.setEnabled(false);
-            if (ans1RadBtn.isSelected() && (q[count].getCorrectAns() == 1)) {
-                ansLbl.setText("Correct!");
+            if (ans1RadBtn.isSelected() && (q[count].getCorrectAns() == 1)) {   // nested if else statement to check if answer selected
+                ansLbl.setText("Correct!");                                     // matches the correct set answer in the Array q.
                 correctAns++;
             } else if (ans2RadBtn.isSelected() && (q[count].getCorrectAns() == 2)) {
                 ansLbl.setText("Correct!");
@@ -304,8 +307,8 @@ public class AlgebraQuiz extends javax.swing.JPanel {
 
     private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
         System.out.println("q " + q.length + " count: " + count);
-        if (finished == true) {
-            count = 0;
+        if (finished == true) {   // when next button is pressed the outer if statement sets the 
+            count = 0;            // required components as required. 
             ansLbl.setText("");
             endTitle.setVisible(false);
             youGotLbl.setVisible(false);
@@ -316,24 +319,24 @@ public class AlgebraQuiz extends javax.swing.JPanel {
             ans1RadBtn.setVisible(true);
             ans2RadBtn.setVisible(true);
             ans3RadBtn.setVisible(true);
-            q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
-            ans1RadBtn.setText(q[count].getA1());
-            ans2RadBtn.setText(q[count].getA2());
-            ans3RadBtn.setText(q[count].getA3());
-            ans1RadBtn.setEnabled(true);
-            ans2RadBtn.setEnabled(true);
+            q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle()); // This component sets the next question depending on
+            ans1RadBtn.setText(q[count].getA1());                                  // the array count and so prints the correct question number
+            ans2RadBtn.setText(q[count].getA2()); // This sets the correct         // and question.
+            ans3RadBtn.setText(q[count].getA3()); // answer options in the radio
+            ans1RadBtn.setEnabled(true);          // buttons by getting the answer 
+            ans2RadBtn.setEnabled(true);          // stored in the array q count.
             ans3RadBtn.setEnabled(true);
             buttonGroup1.clearSelection();
             chkAnsBtn.setText("Check Answer");
             nxtBtn1.setText("Next");
             correctAns = 0;
             finished = false;
-        } else {
-            if (q.length - 1 <= count) {
+        } else {                        // This else statement is enacted when the last question has been answered.
+            if (q.length - 1 <= count) {  
                 endTitle.setVisible(true);
                 youGotLbl.setVisible(true);
                 numRltLbl.setVisible(true);
-                numRltLbl.setText(correctAns + "/5");
+                numRltLbl.setText(correctAns + "/5"); // This set the result by returning all the correct answers stored.
                 ansLbl.setText("Correct!");
                 q1Lbl.setVisible(false);
                 ans1RadBtn.setVisible(false);
@@ -343,17 +346,17 @@ public class AlgebraQuiz extends javax.swing.JPanel {
                 nxtBtn1.setText("Reset");
                 finished = true;
             } else {
-                nextQuestion();
+                nextQuestion(); // This enacts the below method.
             }
         }
     }//GEN-LAST:event_nxtBtn1ActionPerformed
 
 
-    private void nextQuestion() {
+    private void nextQuestion() {   // This method sets the next question using the count.
         count++;
-        q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle());
+        q1Lbl.setText("Q" + (count + 1) + ". " + q[count].getQuestionTitle()); // Same as above.
         ans1RadBtn.setText(q[count].getA1());
-        ans2RadBtn.setText(q[count].getA2());
+        ans2RadBtn.setText(q[count].getA2());     // Same as above.
         ans3RadBtn.setText(q[count].getA3());
         ans1RadBtn.setEnabled(true);
         ans2RadBtn.setEnabled(true);
@@ -362,10 +365,10 @@ public class AlgebraQuiz extends javax.swing.JPanel {
         ansLbl.setText("");
         chkAnsBtn.setEnabled(false);
         buttonGroup1.clearSelection();
-        if (q.length <= count + 1) {
-            nxtBtn1.setText("Finished");
-        } else {
-            nxtBtn1.setEnabled(false);
+        if (q.length <= count + 1) {        // if the length of the array is less than or equal to the count + 1,
+            nxtBtn1.setText("Finished");    // then it sets the next button to finished
+        } else {                            // or else
+            nxtBtn1.setEnabled(false);      // it sets it to be de-active.
         }
     }
 

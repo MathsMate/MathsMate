@@ -7,7 +7,11 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,27 +20,6 @@ import java.util.ArrayList;
 public class AlgebraFormula extends javax.swing.JPanel {
     
     private ArrayList<AlgebraFormulaStorage> AForm;
-    AlgebraFormulaStorage AF1 = new AlgebraFormulaStorage("Multiplying Powers", "Multiplying powers with the same base:", 
-            "x^a . x^b = x^a+b", "Raising a power to a power:", "(x^a)^b = x^ab", 
-            "Power of a product property:", "xy^a = x^a.y^a", 
-            "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
-    AlgebraFormulaStorage AF2 = new AlgebraFormulaStorage("<html>Multiplying Polynomials (<font color=\"#6699FF\">FOIL</font>)</html>",
-            "<html><font color=\"#6699FF\">F</font>irst terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(<font color=\"yellow\">x</font> - 2) = 2x(x) = <font color=\"yellow\">2x^2</font></html>", 
-            "<html><font color=\"#6699FF\">O</font>uter terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(x <font color=\"yellow\">- 2</font>) = 2x(-2) = <font color=\"yellow\">-4x</font></html>", 
-            "<html><font color=\"#6699FF\">I</font>nside terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(<font color=\"yellow\">x</font> - 2) = 3(x) = <font color=\"yellow\">3x</font></html>", 
-            "<html><font color=\"#6699FF\">L</font>ast terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(x <font color=\"yellow\">- 2</font>) = 3(-2) = <font color=\"yellow\">-6</font></html>");
-    AlgebraFormulaStorage AF3 = new AlgebraFormulaStorage("Squares and Cubes","Difference of Two Squares:", "(x+y)(x-y) = x^2 - y^2", 
-            "Difference of Two Squares:", "y^2 - x^2 = (x+y)(x-y)", 
-            "Sum of two cubes:", "x^3 + y^3 = (x-y)(x^2 - xy + y^2)", 
-            "Difference of two cubes:", "x^3 - y^3 = (x-y)(x^2 + xy + y)");
-    AlgebraFormulaStorage AF4 = new AlgebraFormulaStorage("Calculus","Chain Rule:", "dy/dx = (dy/du)(du/dx)", 
-            "Derivative of the inverse:", "dy/dx = 1/dx/dy", 
-            "Power Rule:", "d/dx(x^n) = nx^n-1", 
-            "Product Rule:", "(fg)' = f'g + fg'");
-    AlgebraFormulaStorage AF5 = new AlgebraFormulaStorage("Linear Algebra","Associativity", "(x + y) + z = x + (y + z)", 
-            "Zero and unity:", "x + 0 = x = 0 + x",
-            "Distributivity:", "(x + y)*z = x*z + y*z", 
-            "Commutativity:", "x + y = Y + x");
     
     private int count;
 
@@ -46,11 +29,17 @@ public class AlgebraFormula extends javax.swing.JPanel {
     public AlgebraFormula() {
         initComponents();
         AForm = new ArrayList<>();
-        AForm.add(AF1);        
-        AForm.add(AF2); 
-        AForm.add(AF3);
-        AForm.add(AF4);
-        AForm.add(AF5);
+        try{
+        FileInputStream fIS = new FileInputStream("algFormSave.data");
+        ObjectInputStream oIS = new ObjectInputStream(fIS);
+        AForm = (ArrayList<AlgebraFormulaStorage>) oIS.readObject();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "IOException!");
+            System.out.println(e);
+        } catch (ClassNotFoundException f){
+            JOptionPane.showMessageDialog(null, "Class Not Found Exception!");
+            System.out.println(f);
+        }
         count = 0; 
     }
 
@@ -73,6 +62,7 @@ public class AlgebraFormula extends javax.swing.JPanel {
         subjectGroup4 = new javax.swing.ButtonGroup();
         subjectGroup5 = new javax.swing.ButtonGroup();
         subjectGroup6 = new javax.swing.ButtonGroup();
+        jButton1 = new javax.swing.JButton();
         mainMenuPanel = new javax.swing.JPanel();
         copyrightLbl = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
@@ -94,6 +84,9 @@ public class AlgebraFormula extends javax.swing.JPanel {
         pageTitleJL = new javax.swing.JLabel();
         nextBtn = new javax.swing.JButton();
         previousBtn = new javax.swing.JButton();
+        adminBtn = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -264,7 +257,7 @@ public class AlgebraFormula extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(nextBtn);
-        nextBtn.setBounds(260, 520, 89, 40);
+        nextBtn.setBounds(260, 520, 90, 40);
 
         previousBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         previousBtn.setText("Previous");
@@ -275,6 +268,18 @@ public class AlgebraFormula extends javax.swing.JPanel {
         });
         mainMenuPanel.add(previousBtn);
         previousBtn.setBounds(50, 520, 120, 40);
+
+        adminBtn.setBackground(new java.awt.Color(255, 51, 51));
+        adminBtn.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        adminBtn.setForeground(new java.awt.Color(255, 255, 255));
+        adminBtn.setText("Admin");
+        adminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(adminBtn);
+        adminBtn.setBounds(180, 530, 70, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -323,8 +328,17 @@ public class AlgebraFormula extends javax.swing.JPanel {
         previousFormula();
     }//GEN-LAST:event_previousBtnActionPerformed
 
+    private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout)layout;
+            cl.show(getParent(), "ALGEBRA_FORMULA_ADMIN");
+        }
+    }//GEN-LAST:event_adminBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adminBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JLabel formula1JL;
@@ -333,6 +347,7 @@ public class AlgebraFormula extends javax.swing.JPanel {
     private javax.swing.JLabel formula3JL;
     private javax.swing.JLabel formula4JL;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -355,6 +370,17 @@ public class AlgebraFormula extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void nextFormula() {
+        try{
+        FileInputStream fIS = new FileInputStream("algFormSave.data");
+        ObjectInputStream oIS = new ObjectInputStream(fIS);
+        AForm = (ArrayList<AlgebraFormulaStorage>) oIS.readObject();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "IOException!");
+            System.out.println(e);
+        } catch (ClassNotFoundException f){
+            JOptionPane.showMessageDialog(null, "Class Not Found Exception!");
+            System.out.println(f);
+        }
         if(count + 1 >= AForm.size()){
             count = 0;
         }else{
@@ -373,6 +399,17 @@ public class AlgebraFormula extends javax.swing.JPanel {
     }
     
     private void previousFormula(){
+        try{
+        FileInputStream fIS = new FileInputStream("algFormSave.data");
+        ObjectInputStream oIS = new ObjectInputStream(fIS);
+        AForm = (ArrayList<AlgebraFormulaStorage>) oIS.readObject();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "IOException!");
+            System.out.println(e);
+        } catch (ClassNotFoundException f){
+            JOptionPane.showMessageDialog(null, "Class Not Found Exception!");
+            System.out.println(f);
+        }
         if(count - 1 < 0){
             count = AForm.size() - 1;
         }else{

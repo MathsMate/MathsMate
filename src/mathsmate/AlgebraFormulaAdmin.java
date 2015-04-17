@@ -7,38 +7,45 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Ian Donnelly X14111659
  */
 public class AlgebraFormulaAdmin extends javax.swing.JPanel {
-    
+
     private ArrayList<AlgebraFormulaStorage> AFormAd;
     private ArrayList<AlgebraFormulaStorage> AFormSave;
-    AlgebraFormulaStorage AFA1 = new AlgebraFormulaStorage("Multiplying Powers", "Multiplying powers with the same base:", 
-            "x^a . x^b = x^a+b", "Raising a power to a power:", "(x^a)^b = x^ab", 
-            "Power of a product property:", "xy^a = x^a.y^a", 
+    AlgebraFormulaStorage AFA1 = new AlgebraFormulaStorage("Multiplying Powers", "Multiplying powers with the same base:",
+            "x^a . x^b = x^a+b", "Raising a power to a power:", "(x^a)^b = x^ab",
+            "Power of a product property:", "xy^a = x^a.y^a",
             "Difference of two squares:", "(x+y)(y-x) = x^2 - y^2");
     AlgebraFormulaStorage AFA2 = new AlgebraFormulaStorage("<html>Multiplying Polynomials (<font color=\"#6699FF\">FOIL</font>)</html>",
-            "<html><font color=\"#6699FF\">F</font>irst terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(<font color=\"yellow\">x</font> - 2) = 2x(x) = <font color=\"yellow\">2x^2</font></html>", 
-            "<html><font color=\"#6699FF\">O</font>uter terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(x <font color=\"yellow\">- 2</font>) = 2x(-2) = <font color=\"yellow\">-4x</font></html>", 
-            "<html><font color=\"#6699FF\">I</font>nside terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(<font color=\"yellow\">x</font> - 2) = 3(x) = <font color=\"yellow\">3x</font></html>", 
+            "<html><font color=\"#6699FF\">F</font>irst terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(<font color=\"yellow\">x</font> - 2) = 2x(x) = <font color=\"yellow\">2x^2</font></html>",
+            "<html><font color=\"#6699FF\">O</font>uter terms:</html>", "<html>(<font color=\"yellow\">2x </font> + 3)(x <font color=\"yellow\">- 2</font>) = 2x(-2) = <font color=\"yellow\">-4x</font></html>",
+            "<html><font color=\"#6699FF\">I</font>nside terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(<font color=\"yellow\">x</font> - 2) = 3(x) = <font color=\"yellow\">3x</font></html>",
             "<html><font color=\"#6699FF\">L</font>ast terms:</html>", "<html>(2x <font color=\"yellow\">+ 3</font>)(x <font color=\"yellow\">- 2</font>) = 3(-2) = <font color=\"yellow\">-6</font></html>");
-    AlgebraFormulaStorage AFA3 = new AlgebraFormulaStorage("Squares and Cubes","Difference of Two Squares:", "(x+y)(x-y) = x^2 - y^2", 
-            "Difference of Two Squares:", "y^2 - x^2 = (x+y)(x-y)", 
-            "Sum of two cubes:", "x^3 + y^3 = (x-y)(x^2 - xy + y^2)", 
+    AlgebraFormulaStorage AFA3 = new AlgebraFormulaStorage("Squares and Cubes", "Difference of Two Squares:", "(x+y)(x-y) = x^2 - y^2",
+            "Difference of Two Squares:", "y^2 - x^2 = (x+y)(x-y)",
+            "Sum of two cubes:", "x^3 + y^3 = (x-y)(x^2 - xy + y^2)",
             "Difference of two cubes:", "x^3 - y^3 = (x-y)(x^2 + xy + y)");
-    AlgebraFormulaStorage AFA4 = new AlgebraFormulaStorage("Calculus","Chain Rule:", "dy/dx = (dy/du)(du/dx)", 
-            "Derivative of the inverse:", "dy/dx = 1/dx/dy", 
-            "Power Rule:", "d/dx(x^n) = nx^n-1", 
+    AlgebraFormulaStorage AFA4 = new AlgebraFormulaStorage("Calculus", "Chain Rule:", "dy/dx = (dy/du)(du/dx)",
+            "Derivative of the inverse:", "dy/dx = 1/dx/dy",
+            "Power Rule:", "d/dx(x^n) = nx^n-1",
             "Product Rule:", "(fg)' = f'g + fg'");
-    AlgebraFormulaStorage AFA5 = new AlgebraFormulaStorage("Linear Algebra","Associativity", "(x + y) + z = x + (y + z)", 
+    AlgebraFormulaStorage AFA5 = new AlgebraFormulaStorage("Linear Algebra", "Associativity", "(x + y) + z = x + (y + z)",
             "Zero and unity:", "x + 0 = x = 0 + x",
-            "Distributivity:", "(x + y)*z = x*z + y*z", 
+            "Distributivity:", "(x + y)*z = x*z + y*z",
             "Commutativity:", "x + y = Y + x");
-    
+
     private int count;
 
     /**
@@ -47,17 +54,36 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
     public AlgebraFormulaAdmin() {
         initComponents();
         AFormAd = new ArrayList<>();
-        AFormAd.add(AFA1);        
-        AFormAd.add(AFA2); 
+        AFormAd.add(AFA1);
+        AFormAd.add(AFA2);
         AFormAd.add(AFA3);
         AFormAd.add(AFA4);
         AFormAd.add(AFA5);
         AFormSave = new ArrayList<>();
-        count = 0; 
-    }
+        count = 0;
 
-    //private AlgebraFormula(String multiplying_powers_with_the_same_base, String xa__xb__xab, String raising_a_power_to_a_power, String xab__xab, String power_of_a_product_property, String xya__xaya, String difference_of_two_squares, String xyyx__x2__y2) {
-   
+        try {
+            FileInputStream fIS = new FileInputStream("algFormSave.data");
+            ObjectInputStream oIS = new ObjectInputStream(fIS);
+            AFormSave = (ArrayList<AlgebraFormulaStorage>) oIS.readObject();
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());
+            title1Field.setText(AFormSave.get(count).getTitle1());
+            formula1Field.setText(AFormSave.get(count).getFormula1());
+            title2Field.setText(AFormSave.get(count).getTitle2());
+            formula2Field.setText(AFormSave.get(count).getFormula2());
+            title3Field.setText(AFormSave.get(count).getTitle3());
+            formula3Field.setText(AFormSave.get(count).getFormula3());
+            title4Field.setText(AFormSave.get(count).getTitle4());
+            formula4Field.setText(AFormSave.get(count).getFormula4());
+            fIS.close();
+            oIS.close();
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "Error: File not found");
+        } catch (IOException | ClassNotFoundException f) {
+            JOptionPane.showMessageDialog(null, "Error: Class not found!");
+        }
+
+    }
     //}
 
     /**
@@ -241,7 +267,7 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(saveBtn);
-        saveBtn.setBounds(40, 510, 100, 20);
+        saveBtn.setBounds(150, 530, 100, 20);
 
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +285,7 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(addBtn);
-        addBtn.setBounds(150, 525, 100, 20);
+        addBtn.setBounds(40, 510, 100, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -280,15 +306,15 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "ALGEBRA_MENU");
+            CardLayout cl = (CardLayout) layout;
+            cl.show(getParent(), "ALGEBRA_FORMULA");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
@@ -297,19 +323,32 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
         nextFormula();
     }//GEN-LAST:event_nextBtnActionPerformed
-/* GitHub caused an error here - disregard code
-    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-        previousFormula();
-    }                                           
-*/
+    /* GitHub caused an error here - disregard code
+     private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {                                            
+     // TODO add your handling code here:
+     previousFormula();
+     }                                           
+     */
     private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
         // TODO add your handling code here:
         previousFormula();
     }//GEN-LAST:event_previousBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        // TODO add your handling code here:
+        try {
+            FileOutputStream fOut = new FileOutputStream("algFormSave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(AFormSave);
+            fOut.close();
+            oOut.close();
+            JOptionPane.showMessageDialog(null, "File Saved Successfully!");
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "File Not Found!");
+            System.out.println(e);
+        } catch (IOException f) {
+            JOptionPane.showMessageDialog(null, "IO Exception!");
+            System.out.println(f);
+        }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
@@ -323,15 +362,28 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
         String formula2 = formula2Field.getText();
         String formula3 = formula3Field.getText();
         String formula4 = formula4Field.getText();
-        AlgebraFormulaStorage algStor = new AlgebraFormulaStorage(pageTitle, title1, formula1, title2, formula2, title3, formula3, title4, formula4 );
+        AlgebraFormulaStorage algStor = new AlgebraFormulaStorage(pageTitle, title1, formula1, title2, formula2, title3, formula3, title4, formula4);
         AFormSave.add(algStor);
-        count ++;
+        count++;
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
-        AFormSave.remove(count);
-        count --;
+        try {
+            AFormSave.remove(count);
+            count--;
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());
+            title1Field.setText(AFormSave.get(count).getTitle1());
+            formula1Field.setText(AFormSave.get(count).getFormula1());
+            title2Field.setText(AFormSave.get(count).getTitle2());
+            formula2Field.setText(AFormSave.get(count).getFormula2());
+            title3Field.setText(AFormSave.get(count).getTitle3());
+            formula3Field.setText(AFormSave.get(count).getFormula3());
+            title4Field.setText(AFormSave.get(count).getTitle4());
+            formula4Field.setText(AFormSave.get(count).getFormula4());
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Can not delete unadded record");
+        }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
 
@@ -369,20 +421,37 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void nextFormula() {
-        count++;
-        pageTitleField.setText(AFormSave.get(count).getPageTitle());
-        title1Field.setText(AFormSave.get(count).getTitle1());
-        formula1Field.setText(AFormSave.get(count).getFormula1());
-        title2Field.setText(AFormSave.get(count).getTitle2());
-        formula2Field.setText(AFormSave.get(count).getFormula2());
-        title3Field.setText(AFormSave.get(count).getTitle3());
-        formula3Field.setText(AFormSave.get(count).getFormula3());
-        title4Field.setText(AFormSave.get(count).getTitle4());
-        formula4Field.setText(AFormSave.get(count).getFormula4());
+        if (count + 1 < AFormSave.size()) {
+            count++;
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());
+            title1Field.setText(AFormSave.get(count).getTitle1());
+            formula1Field.setText(AFormSave.get(count).getFormula1());
+            title2Field.setText(AFormSave.get(count).getTitle2());
+            formula2Field.setText(AFormSave.get(count).getFormula2());
+            title3Field.setText(AFormSave.get(count).getTitle3());
+            formula3Field.setText(AFormSave.get(count).getFormula3());
+            title4Field.setText(AFormSave.get(count).getTitle4());
+            formula4Field.setText(AFormSave.get(count).getFormula4());
+        } else {
+            pageTitleField.setText("");
+            title1Field.setText("");
+            formula1Field.setText("");
+            title2Field.setText("");
+            formula2Field.setText("");
+            title3Field.setText("");
+            formula3Field.setText("");
+            title4Field.setText("");
+            formula4Field.setText("");
+            count = AFormSave.size();
+        }
     }
-    
-    private void previousFormula(){
-        count--;
+
+    private void previousFormula() {
+        if (count - 1 < 0) {
+            count = AFormSave.size() - 1;
+        } else {
+            count--;
+        }
         pageTitleField.setText(AFormSave.get(count).getPageTitle());
         title1Field.setText(AFormSave.get(count).getTitle1());
         formula1Field.setText(AFormSave.get(count).getFormula1());

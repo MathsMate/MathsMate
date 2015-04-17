@@ -38,6 +38,7 @@ public class MathsMate extends javax.swing.JFrame {
         TrigFormula trigFormCard = new TrigFormula();
         GeometryFormula geometryFormCard = new GeometryFormula();
         CourseFinderAdmin courseAdminCard = new CourseFinderAdmin();
+        AlgebraFormulaAdmin algebraFormulaCard = new AlgebraFormulaAdmin();
         
         cardsContainer = new JPanel(new CardLayout());
         cardsContainer.add(mainCard, "MAIN");
@@ -58,6 +59,7 @@ public class MathsMate extends javax.swing.JFrame {
         cardsContainer.add(trigFormCard, "TRIG_FORM");
         cardsContainer.add(geometryFormCard, "GEOMETRY_FORM");
         cardsContainer.add(courseAdminCard, "COURSE_FINDER_ADMIN");
+        cardsContainer.add(algebraFormulaCard, "ALGEBRA_FORMULA_ADMIN");
         this.add(cardsContainer);
         CardLayout cl = (CardLayout)(cardsContainer.getLayout());
         cl.show(cardsContainer, "MAIN");

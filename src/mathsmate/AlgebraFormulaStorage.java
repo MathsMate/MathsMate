@@ -5,11 +5,13 @@
  */
 package mathsmate;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ian Donnelly X14111659
  */
-public class AlgebraFormulaStorage {
+public class AlgebraFormulaStorage implements Serializable{
     private String title1, formula1, title2, formula2, title3, formula3, title4, formula4, pageTitle;
 
     public String getPageTitle() {

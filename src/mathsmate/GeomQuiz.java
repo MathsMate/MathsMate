@@ -14,71 +14,72 @@ import java.awt.LayoutManager;
  */
 public class GeomQuiz extends javax.swing.JPanel {
 
-    int count;
-    GeomQuestion[] q = new GeomQuestion[5]; //Array
-    String[] s = new String[5];
-    String[] j = new String[5];
-    String[] k = new String[5];
-    String[] l = new String[5];
-    String[] m = new String[5];
-    GeomQuestion q1;
-    GeomQuestion q2;
-    GeomQuestion q3;
-    GeomQuestion q4;
-    GeomQuestion q5;
-    int correctAns;
-    boolean finished;
-
+    int count;  //Creates a counter for the array.
+    GeomQuestion[] q = new GeomQuestion[5]; //Array of 5 spaces declared and created to hold questions and picture.
+    String[] s = new String[5]; // String Array of 5 spaces declared and created to hold answers for question 1.
+    String[] j = new String[5]; // String Array of 5 spaces declared and created to hold answers for question 2.
+    String[] k = new String[5]; // String Array of 5 spaces declared and created to hold answers for question 3.
+    String[] l = new String[5]; // String Array of 5 spaces declared and created to hold answers for question 4.
+    String[] m = new String[5]; // String Array of 5 spaces declared and created to hold answers for question 5.
+    GeomQuestion q1; // 1st index of question array declared.
+    GeomQuestion q2; // 2nd index of question array declared.
+    GeomQuestion q3; // 3rd index of question array declared.
+    GeomQuestion q4; // 4th index of question array declared.
+    GeomQuestion q5; // 5th index of question array declared.
+    int correctAns; //Creates a variable to store the amount of correct answers.
+    boolean finished; //Creates a boolean variable to store if user has completed the quiz.
+    
+    //Contructor to set the components
     public GeomQuiz() {
         initComponents();
         
-        s[0] = "Select an Answer";
+        s[0] = "Select an Answer"; // Answers initialised for String Array s.
         s[1] = "Angle-Side-Angle (ASA)";
         s[2] = "Side-Angle-Side (SAS)";
         s[3] = "Angle-Angle-Side (AAS)";
         s[4] = "None of these";
-        q1 = new GeomQuestion("<html>Given: AC' bisects \u2221BAD and \u2221BCD. Which of the following methods can be used to prove \u2206ABC\u2245\u2206ADC.</html>", 1, "q1GeomPic.png", s); //Question 1 object
-        j[0] = "Select an Answer";
+        q1 = new GeomQuestion("<html>Given: AC' bisects \u2221BAD and \u2221BCD. Which of the following methods can be used to prove \u2206ABC\u2245\u2206ADC.</html>", 1, "q1GeomPic.png", s); //1st index of question q array initialised with answer and picture set.
+        j[0] = "Select an Answer"; // Answers initialised for String Array j.
         j[1] = "24 degrees";
         j[2] = "33 degrees";
         j[3] = "48 degrees";
         j[4] = "66 degrees";
-        q2 = new GeomQuestion("<html>In the diagram below, AC'\u2245DC'\u2245DB'. If the m&lt;ACD = 48, find the m&lt;B.</html>", 2, "q2GeomPic.png", j); //Question 2 object
-        k[0] = "Select an Answer";
+        q2 = new GeomQuestion("<html>In the diagram below, AC'\u2245DC'\u2245DB'. If the m&lt;ACD = 48, find the m&lt;B.</html>", 2, "q2GeomPic.png", j); //2nd index of question q array initialised with answer and picture set.
+        k[0] = "Select an Answer"; // Answers initialised for String Array k.
         k[1] = "25 degrees";
         k[2] = "125 degrees";
         k[3] = "155 degrees";
         k[4] = "158 degrees";
-        q3 = new GeomQuestion("<html>In the diagram below, the angles are represented as shown. Find the m&lt;DBC.</html>", 3, "q3GeomPic.png", k); //Question 3 object
-        l[0] = "Select an Answer";
+        q3 = new GeomQuestion("<html>In the diagram below, the angles are represented as shown. Find the m&lt;DBC.</html>", 3, "q3GeomPic.png", k); //3rd index of question q array initialised with answer and picture set.
+        l[0] = "Select an Answer"; // Answers initialised for String Array l.
         l[1] = "32";
         l[2] = "36";
         l[3] = "40";
         l[4] = "60";
-        q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 3, "q4GeomPic.png", l); //Question 4 object
-        m[0] = "Select an Answer";
+        q4 = new GeomQuestion("<html>In the diagram below, triangle ABC is similar to triangle DEF, AC = 6, AB = BC = 12, and DF = 8. Find the perimeter of triangle DEF.</html>", 3, "q4GeomPic.png", l); //4th index of question q array initialised with answer and picture set.
+        m[0] = "Select an Answer"; // Answers initialised for String Array m.
         m[1] = "117";
         m[2] = "110";
         m[3] = "27";
         m[4] = "63";
-        q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 4, "q5GeomPic.png", m); //Question 5 object
+        q5 = new GeomQuestion("<html>In the diagram below, BA'\u2245BC' and m\u2221x = 117. Find m\u2221y.</html>", 4, "q5GeomPic.png", m); //5th index of question q array initialised with answer and picture set.
         
-        count = 0;
+        count = 0; //Initialise counter to 0.
         ansLbl.setText("");
         endTitle.setVisible(false);
         youGotLbl.setVisible(false);
         numRltLbl.setVisible(false);
         chkAnsBtn.setEnabled(false);
         nxtBtn1.setEnabled(false);
-        correctAns = 0;
-        finished = false;
-        q[0] = q1;
+        correctAns = 0; //Initialise correct answers to 0.
+        finished = false; //Initialise boolean variable to false.
+        q[0] = q1; //Initialising the array to start at index 0.
         q[1] = q2;
         q[2] = q3;
         q[3] = q4;
         q[4] = q5;
-        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
-        q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
+        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers())); // Sets the combobox to the correct answer as specified in the q array above. 
+        q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");  // Set the question as specified in the q array above.
     }
 
     /**
@@ -277,18 +278,20 @@ public class GeomQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void chkAnsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAnsBtnActionPerformed
+        // outer if statement only when the finished button is activated and 
+        // pressed does the check answer button change to Main Menu.      
         if (finished == true) {
             LayoutManager layout = getParent().getLayout();
             if (layout instanceof CardLayout) {
                 CardLayout cl = (CardLayout) layout;
                 cl.show(getParent(), "MAIN");
             }
-        }else{
-            nxtBtn1.setEnabled(true);
+        }else{             // outer else statement to display next button and disable combobox
+            nxtBtn1.setEnabled(true);         // once check answer button has been clicked.
             chkAnsBtn.setEnabled(false);
             multiAnsBox1.setEnabled(false);
-            if (multiAnsBox1.getSelectedIndex()==(q[count].getCorrectAns())) {
-                ansLbl.setText("Correct!");
+            if (multiAnsBox1.getSelectedIndex()==(q[count].getCorrectAns())) {   // nested if else statement to check if answer selected
+                ansLbl.setText("Correct!");                                      // matches the correct set answer in the Array q.
                 correctAns++;
             } else {
                 ansLbl.setText("Incorrect!");
@@ -297,8 +300,8 @@ public class GeomQuiz extends javax.swing.JPanel {
     }//GEN-LAST:event_chkAnsBtnActionPerformed
 
     private void nxtBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nxtBtn1ActionPerformed
-        if(finished == true){
-            count = 0;
+        if(finished == true){     // when next button is pressed the outer if statement sets the
+            count = 0;            // required components as required.
             ansLbl.setText("");
             endTitle.setVisible(false);
             youGotLbl.setVisible(false);
@@ -308,20 +311,20 @@ public class GeomQuiz extends javax.swing.JPanel {
             q1GeomLbl.setVisible(true);
             multiAnsBox1.setVisible(true);
             geomPic1.setVisible(true);
-            multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
-            q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
-            geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource(q[count].getImage())));
+            multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));  // Sets the combobox to the correct answer as specified in the q array above.
+            q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");  // Set the question as specified in the q array above.
+            geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource(q[count].getImage())));  // Set the image as specified in the q array above.
             multiAnsBox1.setEnabled(true);
             chkAnsBtn.setText("Check Answer");
             nxtBtn1.setText("Next");
             correctAns = 0;
             finished = false;
-        }else{
+        }else{                            // This else statement is enacted when the last question has been answered.
             if (q.length - 1 <= count) {
                 endTitle.setVisible(true);
                 youGotLbl.setVisible(true);
                 numRltLbl.setVisible(true);
-                numRltLbl.setText(correctAns + "/5");
+                numRltLbl.setText(correctAns + "/5");   // This set the result by returning all the correct answers stored.
                 ansLbl.setText("Correct!");
                 q1GeomLbl.setVisible(false);
                 multiAnsBox1.setVisible(false);
@@ -331,29 +334,29 @@ public class GeomQuiz extends javax.swing.JPanel {
                 nxtBtn1.setText("Reset");
                 finished = true;
             } else {
-                nextQuestion();
+                nextQuestion();  // This enacts the below method.
             }
         }    
     }//GEN-LAST:event_nxtBtn1ActionPerformed
 
     private void multiAnsBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiAnsBox1ActionPerformed
-        chkAnsBtn.setEnabled(true);    
+        chkAnsBtn.setEnabled(true); //Initialising combobox to be on.
     }//GEN-LAST:event_multiAnsBox1ActionPerformed
 
     
-    private void nextQuestion() {
+    private void nextQuestion() {   // This method sets the next question using the count.
         count++;
-        q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");
-        geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource(q[count].getImage())));
-        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));
+        q1GeomLbl.setText("<html>Q" + (count + 1) + ". " + q[count].getQuestionTitle()+"</html>");  // As above.
+        geomPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource(q[count].getImage())));   // As above.
+        multiAnsBox1.setModel(new javax.swing.DefaultComboBoxModel(q[count].getAnswers()));     // As above.
         multiAnsBox1.setEnabled(true);
         nxtBtn1.setEnabled(false);
         ansLbl.setText("");
         chkAnsBtn.setEnabled(false);
-        if (q.length <= count + 1) {
-            nxtBtn1.setText("Finished");    
-        } else {
-            nxtBtn1.setEnabled(false);
+        if (q.length <= count + 1) {        // if the length of the array is less than or equal to the count + 1,
+            nxtBtn1.setText("Finished");    // then it sets the next button to finished
+        } else {                            // or else
+            nxtBtn1.setEnabled(false);      // it sets it to be de-active.
         }
     }
 

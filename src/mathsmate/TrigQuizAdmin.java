@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 public class TrigQuizAdmin extends javax.swing.JPanel {
 
     int count;  //Creates a counter for the ArrayList.
+    String newQ, ans1, ans2, ans3, image;
     private ArrayList<TrigQuestion> q; //ArrayList declared.
     private ArrayList<TrigQuestion> addQst;
     TrigQuestion q1 = new TrigQuestion("<html>In the triangle below, what is sin &#945;?</html>", //Object of type TrigQuestion q1 created to hold questions, answers and picture.
@@ -56,6 +57,37 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         q.add(q3);
         q.add(q4);
         q.add(q5);
+
+        //Test Code
+        addQst = q;
+        //
+
+        addQtnField.setText(addQst.get(count).getQuestionTitle());
+        ansField1.setText(addQst.get(count).getA1());
+        ansField2.setText(addQst.get(count).getA2());
+        ansField3.setText(addQst.get(count).getA3());
+        image = addQst.get(count).getImage();
+        correctAns = addQst.get(count).getCorrectAns();
+
+        if (count - 1 < 0) {
+            previousBtn.setEnabled(false);
+        } else {
+            previousBtn.setEnabled(true);
+        }
+
+        if (correctAns == 1) {
+            selectAns1.setSelected(true);
+            selectAns2.setSelected(false);
+            selectAns3.setSelected(false);
+        } else if (correctAns == 2) {
+            selectAns1.setSelected(false);
+            selectAns2.setSelected(true);
+            selectAns3.setSelected(false);
+        } else {
+            selectAns1.setSelected(false);
+            selectAns2.setSelected(false);
+            selectAns3.setSelected(true);
+        }
     }
 
     /**
@@ -224,6 +256,11 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
 
         previousBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         previousBtn.setText("PREVIOUS");
+        previousBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousBtnActionPerformed(evt);
+            }
+        });
         question1.add(previousBtn);
         previousBtn.setBounds(30, 410, 100, 23);
 
@@ -254,6 +291,11 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
 
         nextBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nextBtn1.setText("NEXT");
+        nextBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBtn1ActionPerformed(evt);
+            }
+        });
         question1.add(nextBtn1);
         nextBtn1.setBounds(250, 410, 80, 23);
 
@@ -320,49 +362,110 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             img = TrigQuizAdmin.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + "../../customimg/" + chooser.getSelectedFile().getName();
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No image selected: " + e);
-        } catch (URISyntaxException f){
+        } catch (URISyntaxException f) {
             JOptionPane.showMessageDialog(null, "Something went wrong: " + f);
         }
     }//GEN-LAST:event_imageBtnActionPerformed
 
     private void saveBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtn2ActionPerformed
-        String newQ, ans1, ans2, ans3, image;
+
         int correctAns;
-        
+
         newQ = addQtnField.getText();
         ans1 = ansField1.getText();
         ans2 = ansField2.getText();
         ans3 = ansField3.getText();
-        
-        
+
+
     }//GEN-LAST:event_saveBtn2ActionPerformed
 
     private void addBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtn1ActionPerformed
         String newQ, ans1, ans2, ans3;
         int correctAns;
-        
+
         newQ = addQtnField.getText();
         ans1 = ansField1.getText();
         ans2 = ansField2.getText();
         ans3 = ansField3.getText();
-        
-        if(selectAns1.isEnabled()){
+
+        if (selectAns1.isEnabled()) {
             correctAns = 1;
-        }else if(selectAns2.isEnabled()){
+        } else if (selectAns2.isEnabled()) {
             correctAns = 2;
-        }else{
+        } else {
             correctAns = 3;
         }
-        
+
         TrigQuestion aQ = new TrigQuestion(newQ, ans1, ans2, ans3, correctAns, img);
         addQst.add(aQ);
         count++;
     }//GEN-LAST:event_addBtn1ActionPerformed
 
     private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        addQst.remove();
+        addQst.remove(count);
         count--;
     }//GEN-LAST:event_deleteBtn1ActionPerformed
+
+    private void nextBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtn1ActionPerformed
+        count++;
+        addQtnField.setText(addQst.get(count).getQuestionTitle());
+        ansField1.setText(addQst.get(count).getA1());
+        ansField2.setText(addQst.get(count).getA2());
+        ansField3.setText(addQst.get(count).getA3());
+        image = addQst.get(count).getImage();
+        correctAns = addQst.get(count).getCorrectAns();
+
+        if (correctAns == 1) {
+            selectAns1.setSelected(true);
+            selectAns2.setSelected(false);
+            selectAns3.setSelected(false);
+        } else if (correctAns == 2) {
+            selectAns1.setSelected(false);
+            selectAns2.setSelected(true);
+            selectAns3.setSelected(false);
+        } else {
+            selectAns1.setSelected(false);
+            selectAns2.setSelected(false);
+            selectAns3.setSelected(true);
+        }
+
+        if (count - 1 < 0) {
+            previousBtn.setEnabled(false);
+        } else {
+            previousBtn.setEnabled(true);
+        }
+
+    }//GEN-LAST:event_nextBtn1ActionPerformed
+
+    private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
+        count--;
+        addQtnField.setText(addQst.get(count).getQuestionTitle());
+        ansField1.setText(addQst.get(count).getA1());
+        ansField2.setText(addQst.get(count).getA2());
+        ansField3.setText(addQst.get(count).getA3());
+        image = addQst.get(count).getImage();
+        correctAns = addQst.get(count).getCorrectAns();
+
+        if (correctAns == 1) {
+            selectAns1.setSelected(true);
+            selectAns2.setSelected(false);
+            selectAns3.setSelected(false);
+        } else if (correctAns == 2) {
+            selectAns1.setSelected(false);
+            selectAns2.setSelected(true);
+            selectAns3.setSelected(false);
+        } else {
+            selectAns1.setSelected(false);
+            selectAns2.setSelected(false);
+            selectAns3.setSelected(true);
+        }
+
+        if (count - 1 < 0) {
+            previousBtn.setEnabled(false);
+        } else {
+            previousBtn.setEnabled(true);
+        }
+    }//GEN-LAST:event_previousBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addAnsLbl;

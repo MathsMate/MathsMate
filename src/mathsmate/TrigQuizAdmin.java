@@ -8,7 +8,9 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import javax.swing.JOptionPane;
  */
 public class TrigQuizAdmin extends javax.swing.JPanel {
 
-    int count;  //Creates a counter for the ArrayList.
+    private int count;  //Creates a counter for the ArrayList.
     String newQ, ans1, ans2, ans3, image;
     private ArrayList<TrigQuestion> q; //ArrayList declared.
     private ArrayList<TrigQuestion> addQst;
@@ -51,29 +53,19 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         correctAns = 0;
         finished = false;
         q = new ArrayList<>(); //ArrayList created.
-        addQst = new ArrayList<>();
         q.add(q1);  //Objects of type TrigQuestion added to ArrayList.
         q.add(q2);
         q.add(q3);
         q.add(q4);
         q.add(q5);
+        addQst = new ArrayList<>();
 
-        //Test Code
-        addQst = q;
-        //
-
-        addQtnField.setText(addQst.get(count).getQuestionTitle());
+        addQstField.setText(addQst.get(count).getQuestionTitle());
         ansField1.setText(addQst.get(count).getA1());
         ansField2.setText(addQst.get(count).getA2());
         ansField3.setText(addQst.get(count).getA3());
         image = addQst.get(count).getImage();
         correctAns = addQst.get(count).getCorrectAns();
-
-        if (count - 1 < 0) {
-            previousBtn.setEnabled(false);
-        } else {
-            previousBtn.setEnabled(true);
-        }
 
         if (correctAns == 1) {
             selectAns1.setSelected(true);
@@ -87,6 +79,21 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             selectAns1.setSelected(false);
             selectAns2.setSelected(false);
             selectAns3.setSelected(true);
+        }
+        
+        try {
+            FileOutputStream fOut = new FileOutputStream("quizQuestionSave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(addQst);
+            fOut.close();
+            oOut.close();
+            JOptionPane.showMessageDialog(null, "New Question Saved Successfully");
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "File Not Found!");
+            System.out.println(e);
+        } catch (IOException f) {
+            JOptionPane.showMessageDialog(null, "IO Exception!");
+            System.out.println(f);
         }
     }
 
@@ -110,7 +117,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         question1 = new javax.swing.JPanel();
         resetBtn = new javax.swing.JButton();
         addQtn = new javax.swing.JLabel();
-        addQtnField = new javax.swing.JTextField();
+        addQstField = new javax.swing.JTextField();
         addAnsLbl = new javax.swing.JLabel();
         ans2Lbl = new javax.swing.JLabel();
         ansField1 = new javax.swing.JTextField();
@@ -124,7 +131,6 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         selectAns3 = new javax.swing.JRadioButton();
         previousBtn = new javax.swing.JButton();
         addBtn1 = new javax.swing.JButton();
-        editBtn1 = new javax.swing.JButton();
         deleteBtn1 = new javax.swing.JButton();
         nextBtn1 = new javax.swing.JButton();
         saveBtn2 = new javax.swing.JButton();
@@ -195,16 +201,21 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         resetBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         resetBtn.setForeground(new java.awt.Color(255, 255, 255));
         resetBtn.setText("RESET");
+        resetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetBtnActionPerformed(evt);
+            }
+        });
         question1.add(resetBtn);
-        resetBtn.setBounds(135, 447, 90, 25);
+        resetBtn.setBounds(140, 430, 100, 25);
 
         addQtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addQtn.setForeground(new java.awt.Color(255, 255, 255));
         addQtn.setText("Add a new question");
         question1.add(addQtn);
         addQtn.setBounds(20, 10, 170, 30);
-        question1.add(addQtnField);
-        addQtnField.setBounds(20, 40, 320, 70);
+        question1.add(addQstField);
+        addQstField.setBounds(20, 40, 320, 70);
 
         addAnsLbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addAnsLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -262,7 +273,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(previousBtn);
-        previousBtn.setBounds(30, 410, 100, 23);
+        previousBtn.setBounds(30, 430, 100, 23);
 
         addBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         addBtn1.setText("ADD");
@@ -272,12 +283,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(addBtn1);
-        addBtn1.setBounds(149, 410, 80, 23);
-
-        editBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        editBtn1.setText("EDIT");
-        question1.add(editBtn1);
-        editBtn1.setBounds(30, 370, 73, 23);
+        addBtn1.setBounds(30, 390, 80, 23);
 
         deleteBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         deleteBtn1.setText("DELETE");
@@ -287,7 +293,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(deleteBtn1);
-        deleteBtn1.setBounds(250, 370, 80, 23);
+        deleteBtn1.setBounds(250, 390, 80, 23);
 
         nextBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nextBtn1.setText("NEXT");
@@ -297,7 +303,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(nextBtn1);
-        nextBtn1.setBounds(250, 410, 80, 23);
+        nextBtn1.setBounds(250, 430, 80, 23);
 
         saveBtn2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         saveBtn2.setText("SAVE");
@@ -307,7 +313,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(saveBtn2);
-        saveBtn2.setBounds(140, 370, 73, 23);
+        saveBtn2.setBounds(140, 390, 80, 23);
 
         imageBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         imageBtn.setText("SELECT IMAGE");
@@ -368,22 +374,25 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_imageBtnActionPerformed
 
     private void saveBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtn2ActionPerformed
-
-        int correctAns;
-
-        newQ = addQtnField.getText();
-        ans1 = ansField1.getText();
-        ans2 = ansField2.getText();
-        ans3 = ansField3.getText();
-
-
+        try {
+            FileOutputStream fOut = new FileOutputStream("quizQuestionSave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(addQst);
+            fOut.close();
+            oOut.close();
+            JOptionPane.showMessageDialog(null, "New Question Saved Successfully");
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "File Not Found!");
+            System.out.println(e);
+        } catch (IOException f) {
+            JOptionPane.showMessageDialog(null, "IO Exception!");
+            System.out.println(f);
+        }
     }//GEN-LAST:event_saveBtn2ActionPerformed
 
     private void addBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtn1ActionPerformed
-        String newQ, ans1, ans2, ans3;
-        int correctAns;
 
-        newQ = addQtnField.getText();
+        newQ = addQstField.getText();
         ans1 = ansField1.getText();
         ans2 = ansField2.getText();
         ans3 = ansField3.getText();
@@ -396,57 +405,39 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             correctAns = 3;
         }
 
-        TrigQuestion aQ = new TrigQuestion(newQ, ans1, ans2, ans3, correctAns, img);
-        addQst.add(aQ);
+        TrigQuestion Q1 = new TrigQuestion(newQ, ans1, ans2, ans3, correctAns, img);
+        addQst.add(Q1);
         count++;
     }//GEN-LAST:event_addBtn1ActionPerformed
 
     private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        addQst.remove(count);
-        count--;
+        try {
+            addQst.remove(count);
+            count--;
+            addQstField.setText(addQst.get(count).getQuestionTitle());
+            ansField1.setText(addQst.get(count).getA1());
+            ansField2.setText(addQst.get(count).getA2());
+            ansField3.setText(addQst.get(count).getA3());
+            image = addQst.get(count).getImage();
+            correctAns = addQst.get(count).getCorrectAns();
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Can not delete unadded record");
+        }
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
     private void nextBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtn1ActionPerformed
-        count++;
-        addQtnField.setText(addQst.get(count).getQuestionTitle());
-        ansField1.setText(addQst.get(count).getA1());
-        ansField2.setText(addQst.get(count).getA2());
-        ansField3.setText(addQst.get(count).getA3());
-        image = addQst.get(count).getImage();
-        correctAns = addQst.get(count).getCorrectAns();
-
-        if (correctAns == 1) {
-            selectAns1.setSelected(true);
-            selectAns2.setSelected(false);
-            selectAns3.setSelected(false);
-        } else if (correctAns == 2) {
-            selectAns1.setSelected(false);
-            selectAns2.setSelected(true);
-            selectAns3.setSelected(false);
-        } else {
-            selectAns1.setSelected(false);
-            selectAns2.setSelected(false);
-            selectAns3.setSelected(true);
-        }
-
-        if (count - 1 < 0) {
-            previousBtn.setEnabled(false);
-        } else {
-            previousBtn.setEnabled(true);
-        }
-        
-
+        nextQuestion();
     }//GEN-LAST:event_nextBtn1ActionPerformed
 
     private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
-        count--;
-        addQtnField.setText(addQst.get(count).getQuestionTitle());
-        ansField1.setText(addQst.get(count).getA1());
-        ansField2.setText(addQst.get(count).getA2());
-        ansField3.setText(addQst.get(count).getA3());
-        image = addQst.get(count).getImage();
-        correctAns = addQst.get(count).getCorrectAns();
+        previousQuestion();
+    }//GEN-LAST:event_previousBtnActionPerformed
 
+    private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetBtnActionPerformed
+
+    private void nextQuestion() {
         if (correctAns == 1) {
             selectAns1.setSelected(true);
             selectAns2.setSelected(false);
@@ -460,20 +451,62 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             selectAns2.setSelected(false);
             selectAns3.setSelected(true);
         }
-
-        if (count - 1 < 0) {
-            previousBtn.setEnabled(false);
+        if (count + 1 < addQst.size()) {
+            count++;
+            addQstField.setText(addQst.get(count).getQuestionTitle());
+            ansField1.setText(addQst.get(count).getA1());
+            ansField2.setText(addQst.get(count).getA2());
+            ansField3.setText(addQst.get(count).getA3());
+            image = addQst.get(count).getImage();
+            correctAns = addQst.get(count).getCorrectAns();
+            nextBtn1.setEnabled(false);
         } else {
-            previousBtn.setEnabled(true);
+            addQstField.setText("");
+            ansField1.setText("");
+            ansField2.setText("");
+            ansField3.setText("");
+            image = "";
+            correctAns = 0;
+            count = addQst.size();
+            nextBtn1.setEnabled(true);
         }
-    }//GEN-LAST:event_previousBtnActionPerformed
+    }
+
+    private void previousQuestion() {
+        /*if (correctAns == 1) {
+         selectAns1.setSelected(true);
+         selectAns2.setSelected(false);
+         selectAns3.setSelected(false);
+         } else if (correctAns == 2) {
+         selectAns1.setSelected(false);
+         selectAns2.setSelected(true);
+         selectAns3.setSelected(false);
+         } else {
+         selectAns1.setSelected(false);
+         selectAns2.setSelected(false);
+         selectAns3.setSelected(true);
+         }*/
+        if (count - 1 < 0) {
+            count = addQst.size() - 1;
+            nextBtn1.setEnabled(false);
+        } else {
+            count--;
+            nextBtn1.setEnabled(true);
+        }
+        addQstField.setText(addQst.get(count).getQuestionTitle());
+        ansField1.setText(addQst.get(count).getA1());
+        ansField2.setText(addQst.get(count).getA2());
+        ansField3.setText(addQst.get(count).getA3());
+        image = addQst.get(count).getImage();
+        correctAns = addQst.get(count).getCorrectAns();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addAnsLbl;
     private javax.swing.JButton addBtn1;
     private javax.swing.JLabel addPicLbl2;
+    private javax.swing.JTextField addQstField;
     private javax.swing.JLabel addQtn;
-    private javax.swing.JTextField addQtnField;
     private javax.swing.JLabel ans1Lbl1;
     private javax.swing.JLabel ans2Lbl;
     private javax.swing.JLabel ans2Lbl1;
@@ -485,7 +518,6 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton deleteBtn1;
-    private javax.swing.JButton editBtn1;
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton imageBtn;
     private javax.swing.JPanel mainMenuPanel;

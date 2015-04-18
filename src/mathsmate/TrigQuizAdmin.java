@@ -392,6 +392,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         try {
             FileOutputStream fOut = new FileOutputStream("quizQuestionSave.data");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            addQst.set(count, new TrigQuestion(addQstField.getText(), ansField1.getText(), ansField2.getText(), ansField3.getText(), Integer.parseInt(correctAns.getText()), image.getText())));
             oOut.writeObject(addQst);
             fOut.close();
             oOut.close();
@@ -438,7 +439,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             correctAns = addQst.get(count).getCorrectAns();
             statusLbl.setText("<html><span style=\"color:#FFFF0C\">Question Deleted</span></html>");
         } catch (IndexOutOfBoundsException e) {
-            JOptionPane.showMessageDialog(null, "Can not delete unadded record");
+            statusLbl.setText("<html><span style=\"color:#FFFF0C\">Can not delete unadded record</span></html>");
         }
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 

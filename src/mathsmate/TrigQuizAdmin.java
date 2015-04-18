@@ -434,6 +434,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         } else {
             previousBtn.setEnabled(true);
         }
+        
 
     }//GEN-LAST:event_nextBtn1ActionPerformed
 

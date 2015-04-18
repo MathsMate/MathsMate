@@ -60,39 +60,44 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         q.add(q5);
         addQst = new ArrayList<>();
 
-        addQstField.setText(addQst.get(count).getQuestionTitle());
-        ansField1.setText(addQst.get(count).getA1());
-        ansField2.setText(addQst.get(count).getA2());
-        ansField3.setText(addQst.get(count).getA3());
-        image = addQst.get(count).getImage();
-        correctAns = addQst.get(count).getCorrectAns();
+        /*try {
+         addQstField.setText(addQst.get(count).getQuestionTitle());
+         ansField1.setText(addQst.get(count).getA1());
+         ansField2.setText(addQst.get(count).getA2());
+         ansField3.setText(addQst.get(count).getA3());
+         image = addQst.get(count).getImage();
+         correctAns = addQst.get(count).getCorrectAns();
+         } catch (IndexOutOfBoundsException e) {
+         JOptionPane.showMessageDialog(null, "Can not delete unadded record");
+         }*/
+        selectAns1.setSelected(false);
+        selectAns2.setSelected(false);
+        selectAns3.setSelected(false);
+        /*if (correctAns == 1) {
+         selectAns1.setSelected(true);
+         selectAns2.setSelected(false);
+         selectAns3.setSelected(false);
+         } else if (correctAns == 2) {
+         selectAns1.setSelected(false);
+         selectAns2.setSelected(true);
+         selectAns3.setSelected(false);
+         } else {
+         selectAns1.setSelected(false);
+         selectAns2.setSelected(false);
+         selectAns3.setSelected(true);
+         }*/
 
-        if (correctAns == 1) {
-            selectAns1.setSelected(true);
-            selectAns2.setSelected(false);
-            selectAns3.setSelected(false);
-        } else if (correctAns == 2) {
-            selectAns1.setSelected(false);
-            selectAns2.setSelected(true);
-            selectAns3.setSelected(false);
-        } else {
-            selectAns1.setSelected(false);
-            selectAns2.setSelected(false);
-            selectAns3.setSelected(true);
-        }
-        
         try {
             FileOutputStream fOut = new FileOutputStream("quizQuestionSave.data");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             oOut.writeObject(addQst);
             fOut.close();
             oOut.close();
-            JOptionPane.showMessageDialog(null, "New Question Saved Successfully");
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "File Not Found!");
+            statusLbl.setText("File Not Found!");
             System.out.println(e);
         } catch (IOException f) {
-            JOptionPane.showMessageDialog(null, "IO Exception!");
+            statusLbl.setText("IO Exception!");
             System.out.println(f);
         }
     }
@@ -135,6 +140,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         nextBtn1 = new javax.swing.JButton();
         saveBtn2 = new javax.swing.JButton();
         imageBtn = new javax.swing.JButton();
+        statusLbl = new javax.swing.JLabel();
 
         mainMenuPanel.setBackground(new java.awt.Color(52, 152, 219));
         mainMenuPanel.setPreferredSize(new java.awt.Dimension(400, 640));
@@ -207,7 +213,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(resetBtn);
-        resetBtn.setBounds(140, 430, 100, 25);
+        resetBtn.setBounds(140, 440, 100, 25);
 
         addQtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         addQtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -273,7 +279,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(previousBtn);
-        previousBtn.setBounds(30, 430, 100, 23);
+        previousBtn.setBounds(30, 440, 100, 23);
 
         addBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         addBtn1.setText("ADD");
@@ -283,7 +289,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(addBtn1);
-        addBtn1.setBounds(30, 390, 80, 23);
+        addBtn1.setBounds(30, 410, 80, 23);
 
         deleteBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         deleteBtn1.setText("DELETE");
@@ -293,7 +299,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(deleteBtn1);
-        deleteBtn1.setBounds(250, 390, 80, 23);
+        deleteBtn1.setBounds(250, 410, 80, 23);
 
         nextBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         nextBtn1.setText("NEXT");
@@ -303,7 +309,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(nextBtn1);
-        nextBtn1.setBounds(250, 430, 80, 23);
+        nextBtn1.setBounds(250, 440, 80, 23);
 
         saveBtn2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         saveBtn2.setText("SAVE");
@@ -313,7 +319,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             }
         });
         question1.add(saveBtn2);
-        saveBtn2.setBounds(140, 390, 80, 23);
+        saveBtn2.setBounds(140, 410, 80, 23);
 
         imageBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         imageBtn.setText("SELECT IMAGE");
@@ -324,6 +330,13 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         });
         question1.add(imageBtn);
         imageBtn.setBounds(20, 150, 140, 23);
+
+        statusLbl.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        statusLbl.setForeground(new java.awt.Color(255, 255, 0));
+        statusLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        statusLbl.setText("Status");
+        question1.add(statusLbl);
+        statusLbl.setBounds(4, 350, 350, 50);
 
         mainMenuPanel.add(question1);
         question1.setBounds(20, 80, 360, 480);
@@ -367,9 +380,11 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             chooser.showOpenDialog(nameBg);
             img = TrigQuizAdmin.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath() + "../../customimg/" + chooser.getSelectedFile().getName();
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No image selected: " + e);
+            statusLbl.setText("No image selected!");
+            System.out.println(e);
         } catch (URISyntaxException f) {
-            JOptionPane.showMessageDialog(null, "Something went wrong: " + f);
+            statusLbl.setText("Something went wrong!");
+            System.out.println(f);
         }
     }//GEN-LAST:event_imageBtnActionPerformed
 
@@ -380,12 +395,12 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             oOut.writeObject(addQst);
             fOut.close();
             oOut.close();
-            JOptionPane.showMessageDialog(null, "New Question Saved Successfully");
+            statusLbl.setText("<html><span style=\"color:#FFFF0C\">Question Saved</span></html>");
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "File Not Found!");
+            statusLbl.setText("<html><span style=\"color:#FFFF0C\">File Not Found!</span></html>");
             System.out.println(e);
         } catch (IOException f) {
-            JOptionPane.showMessageDialog(null, "IO Exception!");
+            statusLbl.setText("<html><span style=\"color:#FFFF0C\">IO Exception!</span></html>");
             System.out.println(f);
         }
     }//GEN-LAST:event_saveBtn2ActionPerformed
@@ -408,6 +423,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         TrigQuestion Q1 = new TrigQuestion(newQ, ans1, ans2, ans3, correctAns, img);
         addQst.add(Q1);
         count++;
+        statusLbl.setText("<html><span style=\"color:#FFFF0C\">Question Added Successfully</span></html>");
     }//GEN-LAST:event_addBtn1ActionPerformed
 
     private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
@@ -420,6 +436,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             ansField3.setText(addQst.get(count).getA3());
             image = addQst.get(count).getImage();
             correctAns = addQst.get(count).getCorrectAns();
+            statusLbl.setText("<html><span style=\"color:#FFFF0C\">Question Deleted</span></html>");
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "Can not delete unadded record");
         }
@@ -438,19 +455,10 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_resetBtnActionPerformed
 
     private void nextQuestion() {
-        if (correctAns == 1) {
-            selectAns1.setSelected(true);
-            selectAns2.setSelected(false);
-            selectAns3.setSelected(false);
-        } else if (correctAns == 2) {
-            selectAns1.setSelected(false);
-            selectAns2.setSelected(true);
-            selectAns3.setSelected(false);
-        } else {
-            selectAns1.setSelected(false);
-            selectAns2.setSelected(false);
-            selectAns3.setSelected(true);
-        }
+        selectAns1.setSelected(false);
+        selectAns2.setSelected(false);
+        selectAns3.setSelected(false);
+
         if (count + 1 < addQst.size()) {
             count++;
             addQstField.setText(addQst.get(count).getQuestionTitle());
@@ -459,6 +467,19 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             ansField3.setText(addQst.get(count).getA3());
             image = addQst.get(count).getImage();
             correctAns = addQst.get(count).getCorrectAns();
+            if (correctAns == 1) {
+                selectAns1.setSelected(true);
+                selectAns2.setSelected(false);
+                selectAns3.setSelected(false);
+            } else if (correctAns == 2) {
+                selectAns1.setSelected(false);
+                selectAns2.setSelected(true);
+                selectAns3.setSelected(false);
+            } else {
+                selectAns1.setSelected(false);
+                selectAns2.setSelected(false);
+                selectAns3.setSelected(true);
+            }
             nextBtn1.setEnabled(false);
         } else {
             addQstField.setText("");
@@ -531,5 +552,6 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
     private javax.swing.JRadioButton selectAns1;
     private javax.swing.JRadioButton selectAns2;
     private javax.swing.JRadioButton selectAns3;
+    private javax.swing.JLabel statusLbl;
     // End of variables declaration//GEN-END:variables
 }

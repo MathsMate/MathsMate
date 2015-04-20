@@ -5,11 +5,13 @@
  */
 package mathsmate;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Benrnard Skerritt x14110717
  */
-public class AlgebraQuestion {
+public class AlgebraQuestion implements Serializable{
     String questionTitle, a1, a2, a3;
     int correctAns;
     

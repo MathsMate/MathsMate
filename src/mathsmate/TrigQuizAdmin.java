@@ -8,9 +8,11 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
     TrigQuestion q5 = new TrigQuestion("<html>What is the period of the graph shown below?</html>", //Object of type TrigQuestion q5 created to hold questions, answers and picture.
             "<html> 2 &#960; </html>", "<html> 5 &#960;/3 </html>", "<html> &#960;/3 </html>", 1,
             "q5TrigPic.png");
-    int correctAns;  //Creates a variable to store the amount of correct answers.
+    private int correctAns;  //Creates a variable to store the amount of correct answers.
     boolean finished;  //Creates a boolean variable to store if user has completed the quiz.
     String img;
 
@@ -88,17 +90,27 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
          }*/
 
         try {
-            FileOutputStream fOut = new FileOutputStream("quizQuestionSave.data");
-            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
-            oOut.writeObject(addQst);
-            fOut.close();
-            oOut.close();
+            FileInputStream fIn = new FileInputStream("quizQuestionSave.data");
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            addQst = (ArrayList<TrigQuestion>) oIn.readObject();
+            addQstField.setText(addQst.get(count).getQuestionTitle());
+            ansField1.setText(addQst.get(count).getA1());
+            ansField2.setText(addQst.get(count).getA2());
+            ansField3.setText(addQst.get(count).getA3());
+            image = addQst.get(count).getImage();
+            correctAns = addQst.get(count).getCorrectAns();
+            fIn.close();
+            oIn.close();
         } catch (FileNotFoundException e) {
             statusLbl.setText("File Not Found!");
             System.out.println(e);
         } catch (IOException f) {
             statusLbl.setText("IO Exception!");
+            JOptionPane.showMessageDialog(null, f);
             System.out.println(f);
+        } catch (ClassNotFoundException g) {
+            statusLbl.setText("ClassNotFound!");
+            System.out.println(g);
         }
     }
 
@@ -392,7 +404,6 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
         try {
             FileOutputStream fOut = new FileOutputStream("quizQuestionSave.data");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
-            addQst.set(count, new TrigQuestion(addQstField.getText(), ansField1.getText(), ansField2.getText(), ansField3.getText(), Integer.parseInt(correctAns.getText()), image.getText())));
             oOut.writeObject(addQst);
             fOut.close();
             oOut.close();
@@ -421,8 +432,8 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             correctAns = 3;
         }
 
-        TrigQuestion Q1 = new TrigQuestion(newQ, ans1, ans2, ans3, correctAns, img);
-        addQst.add(Q1);
+        TrigQuestion TrigQ = new TrigQuestion(newQ, ans1, ans2, ans3, correctAns, image);
+        addQst.add(TrigQ);
         count++;
         statusLbl.setText("<html><span style=\"color:#FFFF0C\">Question Added Successfully</span></html>");
     }//GEN-LAST:event_addBtn1ActionPerformed
@@ -481,7 +492,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
                 selectAns2.setSelected(false);
                 selectAns3.setSelected(true);
             }
-            nextBtn1.setEnabled(false);
+            nextBtn1.setEnabled(true);
         } else {
             addQstField.setText("");
             ansField1.setText("");
@@ -490,7 +501,7 @@ public class TrigQuizAdmin extends javax.swing.JPanel {
             image = "";
             correctAns = 0;
             count = addQst.size();
-            nextBtn1.setEnabled(true);
+            nextBtn1.setEnabled(false);
         }
     }
 

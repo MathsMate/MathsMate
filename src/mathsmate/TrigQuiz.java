@@ -7,7 +7,11 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +42,17 @@ public class TrigQuiz extends javax.swing.JPanel {
     //Contructor to set the components.
     public TrigQuiz() {
         initComponents();
+        try{
+        FileInputStream fIn = new FileInputStream("quizQuestionSave.data");
+        ObjectInputStream oIn = new ObjectInputStream(fIn);
+        q = (ArrayList<TrigQuestion>) oIn.readObject();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "IOException!");
+            System.out.println(e);
+        } catch (ClassNotFoundException f){
+            JOptionPane.showMessageDialog(null, "Class Not Found Exception!");
+            System.out.println(f);
+        }
         ansLbl.setText("");
         endTitle.setVisible(false);
         youGotLbl.setVisible(false);

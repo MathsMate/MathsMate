@@ -6,7 +6,6 @@
 package mathsmate;
 
 import java.awt.CardLayout;
-import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 /**
@@ -40,6 +39,7 @@ public class MathsMate extends javax.swing.JFrame {
         CourseFinderAdmin courseAdminCard = new CourseFinderAdmin();
         TrigQuizAdmin trigQuizAdminCard = new TrigQuizAdmin();
         AlgebraFormulaAdmin algebraFormulaCard = new AlgebraFormulaAdmin();
+        NotesAlgerbraAddNotes algebraNotesAdmin = new NotesAlgerbraAddNotes();
         
         cardsContainer = new JPanel(new CardLayout());
         cardsContainer.add(mainCard, "MAIN");
@@ -62,6 +62,7 @@ public class MathsMate extends javax.swing.JFrame {
         cardsContainer.add(courseAdminCard, "COURSE_FINDER_ADMIN");
         cardsContainer.add(trigQuizAdminCard, "TRIG_QUIZ_ADMIN");
         cardsContainer.add(algebraFormulaCard, "ALGEBRA_FORMULA_ADMIN");
+        cardsContainer.add(algebraNotesAdmin, "ALGEBRA_NOTES_ADMIN");
         this.add(cardsContainer);
         CardLayout cl = (CardLayout)(cardsContainer.getLayout());
         cl.show(cardsContainer, "MAIN");

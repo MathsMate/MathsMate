@@ -67,7 +67,6 @@ public class NotesTrig extends javax.swing.JPanel {
         prevBtn = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -149,7 +148,7 @@ public class NotesTrig extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(prevBtn);
-        prevBtn.setBounds(30, 540, 93, 29);
+        prevBtn.setBounds(30, 540, 100, 23);
 
         nextBtn.setText("Next");
         nextBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -158,20 +157,11 @@ public class NotesTrig extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(nextBtn);
-        nextBtn.setBounds(270, 540, 65, 29);
+        nextBtn.setBounds(275, 540, 80, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/question1 trig.gif"))); // NOI18N
         mainMenuPanel.add(jLabel1);
         jLabel1.setBounds(40, 320, 330, 190);
-
-        jButton1.setText("add Notes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        mainMenuPanel.add(jButton1);
-        jButton1.setBounds(140, 540, 110, 29);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,13 +198,6 @@ public class NotesTrig extends javax.swing.JPanel {
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         nextNote();
     }//GEN-LAST:event_nextBtnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  LayoutManager layout = getParent().getLayout();
-        if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout) layout;
-            cl.show(getParent(), "TRIG_MENU");        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
     private void nextNote() {
         if(count + 1 >= n.size()){
             count = 0;
@@ -238,7 +221,6 @@ public class NotesTrig extends javax.swing.JPanel {
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

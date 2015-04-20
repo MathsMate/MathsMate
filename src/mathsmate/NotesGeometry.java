@@ -5,11 +5,9 @@
  */
 package mathsmate;
 
-import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.awt.CardLayout;
-import java.awt.Desktop;
 
 /**
  *

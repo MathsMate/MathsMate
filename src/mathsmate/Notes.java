@@ -5,11 +5,13 @@
  */
 package mathsmate;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Emlyn Farrell
  */
-class Notes {
+class Notes implements Serializable{
     String note;
     
     public Notes(String note){

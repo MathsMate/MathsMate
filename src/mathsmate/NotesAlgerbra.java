@@ -7,6 +7,9 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 /**
@@ -20,21 +23,21 @@ public class NotesAlgerbra extends javax.swing.JPanel {
      */
      int count;
     ArrayList<Notes> n = new ArrayList<>();
-    Notes n1 = new Notes(" BOMDAS (order of operations\nBrackets First\n(Powers,Roots) before Multiply,Divide, add or subtract\n Multiply or Divide before you add or subtract\n otherwise just go left to right\n B \nBrackets first\n O \n Orders (ie Powers and Square Roots, etc.)\n DM \n Division and Multiplication (left-to-right)\n AS \n Addition and Subtraction (left-to-right)\n");//Page 1
-    Notes n2 = new Notes("Quadratic Equation\n Example: Solve 5x² + 2x + 1 = 0\nCoefficients are:\n a = 5, b = 2, c = 1 \n Note that The Discriminant is negative: \n b2 - 4ac = 22 - 4×5×1 = -16 \n Use the Quadratic Formula:\n x = [ -2 ± v(-16) ] / 10 \n The square root of -16 is 4i\n (i is v-1, read Imaginary Numbers to find out more)\n So: x=(-2± 4i )/10\n Answer: x = -0.2 ± 0.4i\n");//Page 2
-    Notes n3 = new Notes("Sequences\n When the sequence goes on forever it is called an infinite sequence,\notherwise it is a finite sequence\nExamples\n{1, 2, 3, 4, ...} is a very simple sequence (and it is an infinite sequence)\n{20, 25, 30, 35, ...} is also an infinite sequence\n {1, 3, 5, 7} is the sequence of the first 4 odd numbers (and is a finite sequence)\n{4, 3, 2, 1} is 4 to 1 backwards\n{1, 2, 4, 8, 16, 32, ...} is an infinite sequence where every term doubles\n{a, b, c, d, e} is the sequence of the first 5 letters alphabetically\n{f, r, e, d} is the sequence of letters in the name \"fred\"\n{0, 1, 0, 1, 0, 1, ...} is the sequence of alternating 0s and 1s (yes they are in order, it is an alternating order in this case)\n");//Page 3
-    Notes n4 = new Notes("Dividing fractions\n To divide fractions, first \"flip\" the fraction we want to divide by, then use the same method as for multiplying:\nExample:\n3y2x+1  ÷  y2  =  3y2x+1  ×  2y\n  = (3y2)(2)(x+1)(y)\n= 6y2(x+1)(y)\n  =  6yx+1\n");//Page 4
-    Notes n5 = new Notes("Summary \nQuadratic Equation in Standard Form: ax2 + bx + c = 0\nQuadratic Equations can be factored\nQuadratic Formula: x = [ -b ± v(b2-4ac) ] / 2a\nWhen the Discriminant (b2-4ac) is:\npositive, there are 2 real solutions\nzero, there is one real solution\nnegative, there are 2 complex solutions\nNotes Geometry\nCalculating Perimiter of a rectangle is 7+3+7+3 = 20\n");//Page 5
+    
     public NotesAlgerbra() {
         initComponents();
-         count = 0;
-        n.add(n1);
-        n.add(n2);
-        n.add(n3);
-        n.add(n4);
-        n.add(n5);
-        notesArea.setText(n.get(count).getNote());
+        count = 0;
         
+        try {
+            FileInputStream fIS = new FileInputStream("AlgebraNotesSave.data");
+            ObjectInputStream oIS = new ObjectInputStream(fIS);
+            n = (ArrayList<Notes>) oIS.readObject();
+            notesArea.setText(n.get(count).getNote());
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println(e);
+        }
+        
+        notesArea.setText(n.get(count).getNote());
     }
 
     /**
@@ -150,7 +153,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton1);
-        jButton1.setBounds(20, 530, 93, 29);
+        jButton1.setBounds(40, 530, 90, 23);
 
         jButton2.setText("Next");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -159,16 +162,16 @@ public class NotesAlgerbra extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(jButton2);
-        jButton2.setBounds(280, 530, 65, 29);
+        jButton2.setBounds(290, 530, 80, 23);
 
-        jButton3.setText("add Notes");
+        jButton3.setText("Add Notes");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         mainMenuPanel.add(jButton3);
-        jButton3.setBounds(140, 530, 110, 29);
+        jButton3.setBounds(160, 530, 100, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,7 +212,11 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        LayoutManager layout = getParent().getLayout();
+        if (layout instanceof CardLayout) {
+            CardLayout cl = (CardLayout) layout;
+            cl.show(getParent(), "ALGEBRA_NOTES_ADMIN");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
       private void nextNote() {
         if(count + 1 >= n.size()){

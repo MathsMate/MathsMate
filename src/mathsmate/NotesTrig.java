@@ -148,7 +148,7 @@ public class NotesTrig extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(prevBtn);
-        prevBtn.setBounds(30, 540, 73, 23);
+        prevBtn.setBounds(30, 540, 100, 23);
 
         nextBtn.setText("Next");
         nextBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +157,7 @@ public class NotesTrig extends javax.swing.JPanel {
             }
         });
         mainMenuPanel.add(nextBtn);
-        nextBtn.setBounds(270, 540, 55, 23);
+        nextBtn.setBounds(275, 540, 80, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/question1 trig.gif"))); // NOI18N
         mainMenuPanel.add(jLabel1);

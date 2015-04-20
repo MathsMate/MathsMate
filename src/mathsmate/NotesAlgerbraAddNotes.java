@@ -8,27 +8,34 @@ package mathsmate;
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Elmo
  */
-public class NotesAlgerbra extends javax.swing.JPanel {
+public class NotesAlgerbraAddNotes extends javax.swing.JPanel {
 
     /**
      * Creates new form AlgebraMenu
      */
-     int count;
-    ArrayList<Notes> n = new ArrayList<>();
-    
-    public NotesAlgerbra() {
+    ArrayList<Notes> n = new ArrayList<>();/*
+     * Creates new form AlgebraMenu
+     */
+    private int count;
+
+    public NotesAlgerbraAddNotes() {
         initComponents();
         count = 0;
-        
-        try {
+        prevBtn.setEnabled(false);
+
+       try {
             FileInputStream fIS = new FileInputStream("AlgebraNotesSave.data");
             ObjectInputStream oIS = new ObjectInputStream(fIS);
             n = (ArrayList<Notes>) oIS.readObject();
@@ -36,8 +43,6 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e);
         }
-        
-        notesArea.setText(n.get(count).getNote());
     }
 
     /**
@@ -62,12 +67,13 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         notesArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        prevBtn = new javax.swing.JButton();
+        nextBtn = new javax.swing.JButton();
+        addBtn = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -124,7 +130,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Algebra Notes");
+        screenTitleLbl.setText("AN - Admin");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -133,45 +139,57 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/algerbra Equation.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        mainMenuPanel.add(jLabel1);
-        jLabel1.setBounds(50, 410, 300, 90);
-
         notesArea.setColumns(20);
         notesArea.setRows(5);
-        notesArea.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Con\nsonantia, there live the blind texts. Se\nparated they live in Bookmarksgrove right at \nthe coast of the Semantics, a large languag\ne ocean. A small river named Duden flo\nws by their place and supplies it with t\nhe necessary regelialia. It is a paradisem\natic country, in which roasted parts\n of sentences fly into your mouth. Even t\\h\ne all-powerful Pointing has no control ab\nout the blind texts it is an almost unorth\nographic life One day however a small lin\ne of blind text by the name of Lorem Ips\num decided to leave for the far World of G\nrammar. The Big Oxmox advised her no\nt to do so, because there were thou\nsands of bad Commas, wild Question \nMarks and devious Semikoli, but the Li\nttle Blind Text didn’t listen. She pac\nked her seven versalia, put her initia\nl into the belt and \n\nma");
         jScrollPane3.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 80, 330, 310);
+        jScrollPane3.setBounds(40, 80, 330, 390);
 
-        jButton1.setText("Previous");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveBtnActionPerformed(evt);
             }
         });
-        mainMenuPanel.add(jButton1);
-        jButton1.setBounds(40, 530, 90, 23);
+        mainMenuPanel.add(saveBtn);
+        saveBtn.setBounds(40, 530, 110, 23);
 
-        jButton2.setText("Next");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                deleteBtnActionPerformed(evt);
             }
         });
-        mainMenuPanel.add(jButton2);
-        jButton2.setBounds(290, 530, 80, 23);
+        mainMenuPanel.add(deleteBtn);
+        deleteBtn.setBounds(270, 530, 100, 23);
 
-        jButton3.setText("Add Notes");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        prevBtn.setText("Prev");
+        prevBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                prevBtnActionPerformed(evt);
             }
         });
-        mainMenuPanel.add(jButton3);
-        jButton3.setBounds(160, 530, 100, 23);
+        mainMenuPanel.add(prevBtn);
+        prevBtn.setBounds(40, 500, 110, 23);
+
+        nextBtn.setText("Next");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(nextBtn);
+        nextBtn.setBounds(270, 500, 100, 23);
+
+        addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(addBtn);
+        addBtn.setBounds(160, 530, 100, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -188,7 +206,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
@@ -196,54 +214,79 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "ALGEBRA_MENU");
+            CardLayout cl = (CardLayout) layout;
+            cl.show(getParent(), "ALGERBRA_NOTES");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     nextNote();        
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   prevNote();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        LayoutManager layout = getParent().getLayout();
-        if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout) layout;
-            cl.show(getParent(), "ALGEBRA_NOTES_ADMIN");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-      private void nextNote() {
-        if(count + 1 >= n.size()){
-            count = 0;
-        } else {
-            count++;
-        }
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        n.remove(count);
+        count--;
         notesArea.setText(n.get(count).getNote());
-    }
-    
-    private void prevNote() {
-        if(count - 1 < 0){
-            count = n.size() - 1;
-        } else {
-            count--;
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        Notes nN = new Notes(notesArea.getText());
+        try{
+            n.set(count, nN);
+        } catch(IndexOutOfBoundsException e) {
+            n.add(nN);
         }
+        try {
+            FileOutputStream fOut = new FileOutputStream("AlgebraNotesSave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(n);
+            fOut.close();
+            oOut.close();
+            JOptionPane.showMessageDialog(null, "File Saved Successfully!");
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "File Not Found!");
+            System.out.println(e);
+        } catch (IOException f) {
+            JOptionPane.showMessageDialog(null, "IO Exception!");
+            System.out.println(f);
+        }
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        count++;
+        if(count + 1 < n.size()){    
+            prevBtn.setEnabled(true);
+        } else {
+            notesArea.setText("");
+            nextBtn.setEnabled(false);
+        }
+        
         notesArea.setText(n.get(count).getNote());
-    }
+    }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void prevBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevBtnActionPerformed
+        count--; 
+        if(count - 1 >= 0){
+            nextBtn.setEnabled(true);
+        } else {
+            notesArea.setText("");
+            prevBtn.setEnabled(false);
+        }
+        
+        notesArea.setText(n.get(count).getNote());
+    }//GEN-LAST:event_prevBtnActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        count = n.size();
+        notesArea.setText("");
+        nextBtn.setEnabled(false);
+        prevBtn.setEnabled(false);
+        addBtn.setEnabled(false);
+    }//GEN-LAST:event_addBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -252,9 +295,13 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JButton nextBtn;
     private javax.swing.JTextArea notesArea;
+    private javax.swing.JButton prevBtn;
+    private javax.swing.JButton saveBtn;
     private javax.swing.JLabel screenTitleLbl;
     private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
+
 }

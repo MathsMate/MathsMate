@@ -5,11 +5,13 @@
  */
 package mathsmate;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Emlyn Farrell
  */
-public class ImageNotes extends Notes{
+public class ImageNotes extends Notes implements Serializable{
 
     String link;
     
@@ -17,7 +19,7 @@ public class ImageNotes extends Notes{
         super(note);
         this.link = link;
     }
-
+    
     public String getLink() {
         return link;
     }

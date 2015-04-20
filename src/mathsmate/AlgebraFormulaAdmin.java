@@ -59,7 +59,6 @@ public class AlgebraFormulaAdmin extends javax.swing.JPanel {
         AFormAd.add(AFA3);
         AFormAd.add(AFA4);
         AFormAd.add(AFA5);
-        AFormSave = new ArrayList<>();
         count = 0;
 
         try {

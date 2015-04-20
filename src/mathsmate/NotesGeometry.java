@@ -5,11 +5,9 @@
  */
 package mathsmate;
 
-import java.awt.CardLayout;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.awt.CardLayout;
-import java.awt.Desktop;
 
 /**
  *
@@ -190,7 +188,7 @@ public class NotesGeometry extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "GEOMETRY_MENU");
+            cl.show(getParent(), "NotesGeometryAddNotes");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

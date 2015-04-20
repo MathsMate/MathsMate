@@ -21,35 +21,20 @@ public class TrigQuiz extends javax.swing.JPanel {
 
     int count;  //Creates a counter for the ArrayList.
     private ArrayList<TrigQuestion> q; //ArrayList declared.
-    TrigQuestion q1 = new TrigQuestion("<html>In the triangle below, what is sin &#945;?</html>",  //Object of type TrigQuestion q1 created to hold questions, answers and picture.
-                                        "13 / 9", "9 / 13", "<html>13 &#8730;10 / 50</html>", 3,
-                                        "q1TrigPic.png");
-    TrigQuestion q2 = new TrigQuestion("<html>What is the length of AB in the figure below?</html>", //Object of type TrigQuestion q2 created to hold questions, answers and picture.
-                                        "<html>12 &#8730;2</html>", "<html>12 &#8730;6</html>", "<html>12 &#8730;3</html>", 3,
-                                        "q2TrigPic.png");
-    TrigQuestion q3 = new TrigQuestion("<html>In the figure below, find cosθ.</html>",  //Object of type TrigQuestion q3 created to hold questions, answers and picture.
-                                        " 3 / 5 ", " 4 / 5 ", " 1 / 5 ", 2, 
-                                        "q3TrigPic.png");
-    TrigQuestion q4 = new TrigQuestion("<html>In the triangle below, m = ?</html>",  //Object of type TrigQuestion q4 created to hold questions, answers and picture.
-                                        " 5 ", "<html> 20 &#8730;2 </html", "<html> 5 &#8730;2 </html>", 3, 
-                                        "q4TrigPic.png");
-    TrigQuestion q5 = new TrigQuestion("<html>What is the period of the graph shown below?</html>",  //Object of type TrigQuestion q5 created to hold questions, answers and picture.
-                                        "<html> 2 &#960; </html>", "<html> 5 &#960;/3 </html>", "<html> &#960;/3 </html>", 1, 
-                                        "q5TrigPic.png");
     int correctAns;  //Creates a variable to store the amount of correct answers.
     boolean finished;  //Creates a boolean variable to store if user has completed the quiz.
-    
+
     //Contructor to set the components.
     public TrigQuiz() {
         initComponents();
-        try{
-        FileInputStream fIn = new FileInputStream("quizQuestionSave.data");
-        ObjectInputStream oIn = new ObjectInputStream(fIn);
-        q = (ArrayList<TrigQuestion>) oIn.readObject();
-        } catch (IOException e){
+        try {
+            FileInputStream fIn = new FileInputStream("quizQuestionSave.data");
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            q = (ArrayList<TrigQuestion>) oIn.readObject();
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "IOException!");
             System.out.println(e);
-        } catch (ClassNotFoundException f){
+        } catch (ClassNotFoundException f) {
             JOptionPane.showMessageDialog(null, "Class Not Found Exception!");
             System.out.println(f);
         }
@@ -62,19 +47,13 @@ public class TrigQuiz extends javax.swing.JPanel {
         count = 0;
         correctAns = 0;
         finished = false;
-        q = new ArrayList<>(); //ArrayList created.
-        q.add(q1);  //Objects of type TrigQuestion added to ArrayList.
-        q.add(q2);
-        q.add(q3);
-        q.add(q4);
-        q.add(q5);
         ans1TrigRbtn.setText(q.get(count).getA1()); //Sets answers from constructors.
         ans2TrigRbtn.setText(q.get(count).getA2());
         ans3TrigRbtn.setText(q.get(count).getA3());
         ans1TrigRbtn.setEnabled(true); //Enables button to be clicked.
         ans2TrigRbtn.setEnabled(true);
         ans3TrigRbtn.setEnabled(true);
-        q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>"); // Sets the questions as specified in the q arraylist.
+        q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle() + "</html>"); // Sets the questions as specified in the q arraylist.
     }
 
     /**
@@ -307,7 +286,7 @@ public class TrigQuiz extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "TRIG_MENU");
         }
     }//GEN-LAST:event_backBtnActionPerformed
@@ -315,7 +294,7 @@ public class TrigQuiz extends javax.swing.JPanel {
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
@@ -376,7 +355,9 @@ public class TrigQuiz extends javax.swing.JPanel {
             ans1TrigRbtn.setVisible(true);
             ans2TrigRbtn.setVisible(true);
             ans3TrigRbtn.setVisible(true);
-            q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>"); // Sets the next question depending on the array count and so prints the correct question number and question.
+            q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle() + "</html>"); // Sets the next question depending on the array count and so prints the correct question number and question.
+            
+            //Icon i = new (Icon) javax.swing.ImageIcon(getClass().getResource(q.get(count).getImage()));
             q1Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource(q.get(count).getImage()))); // Sets the image as specified in the q array above.
             ans1TrigRbtn.setText(q.get(count).getA1());
             ans2TrigRbtn.setText(q.get(count).getA2());  //Sets the correct answer.
@@ -394,7 +375,7 @@ public class TrigQuiz extends javax.swing.JPanel {
                 endTitle.setVisible(true);
                 youGotLbl.setVisible(true);
                 numRltLbl.setVisible(true);
-                numRltLbl.setText(correctAns + "/5"); // Set the result by returning all the correct answers stored.
+                numRltLbl.setText(correctAns + "/" + (count + 1)); // Set the result by returning all the correct answers stored.
                 ansLbl.setText("Correct!");
                 q1Lbl.setVisible(false);
                 q1Pic.setVisible(false);
@@ -414,14 +395,14 @@ public class TrigQuiz extends javax.swing.JPanel {
     private void adminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "TRIG_QUIZ_ADMIN");
         }
     }//GEN-LAST:event_adminBtnActionPerformed
 
     private void nextQuestion() {  // This method sets the next question using the count.
         count++;
-        q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle()+"</html>"); // Same as above.
+        q1Lbl.setText("<html>Q" + (count + 1) + ". " + q.get(count).getQuestionTitle() + "</html>"); // Same as above.
         q1Pic.setIcon(new javax.swing.ImageIcon(getClass().getResource(q.get(count).getImage()))); // Same as above.
         ans1TrigRbtn.setText(q.get(count).getA1());
         ans2TrigRbtn.setText(q.get(count).getA2()); // Same as above.

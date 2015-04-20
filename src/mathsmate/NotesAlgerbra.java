@@ -64,6 +64,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         notesArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -140,7 +141,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         jScrollPane3.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 70, 330, 310);
+        jScrollPane3.setBounds(40, 80, 330, 310);
 
         jButton1.setText("Previous");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +160,15 @@ public class NotesAlgerbra extends javax.swing.JPanel {
         });
         mainMenuPanel.add(jButton2);
         jButton2.setBounds(280, 530, 65, 29);
+
+        jButton3.setText("add Notes");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(jButton3);
+        jButton3.setBounds(140, 530, 110, 29);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -197,6 +207,10 @@ public class NotesAlgerbra extends javax.swing.JPanel {
    prevNote();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
       private void nextNote() {
         if(count + 1 >= n.size()){
             count = 0;
@@ -221,6 +235,7 @@ public class NotesAlgerbra extends javax.swing.JPanel {
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -7,37 +7,59 @@ package mathsmate;
 
 import java.awt.CardLayout;
 import java.awt.LayoutManager;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.awt.CardLayout;
-import java.awt.Desktop;
 
 /**
  *
- * @author Elmo
+ * @author EMLYN FARRELL
  */
-public class NotesGeometry extends javax.swing.JPanel {
-
-    /*
+public class NotesTrigAddNotes extends NotesTrig javax.swing.JPanel {
+    private ArrayList<NotesTrigAddNotesStorage> AFormAd;
+    private ArrayList<NotesTrigAddNotesStorage> AFormSave;
+    NotesTrigAddNotesStorage AFA1 = new NotesTrigAddNotesStorage("Add your Own notes here"); 
+    
+     /*
      * Creates new form AlgebraMenu
      */
-      int count;
-      ArrayList<ImageNotes> n = new ArrayList<>();
-    ImageNotes n1 = new ImageNotes("The perimeter of a circle is called the circumference:\n Circumference = 2π × radius\n", "Q1 Geometry.gif");//Page 1
-    ImageNotes n2 = new ImageNotes("Finding the area of a triangle \n Height = h = 12\n Base = b = 20\n Area = ½ × b × h = ½ × 20 × 12 = 120\n ", "Question2 Geometry.gif");//Page 2
-    ImageNotes n3 = new ImageNotes("Cartesian Coordinates\n  example \n Point (6,4) is\n 6 units across (in the x direction), and\n 4 units up (in the y direction)\n So (6,4) means:\n Go along 6 and then go up 4 then \"plot the dot\".\n ", "Question3 Geometry.gif");//Page 3
-    ImageNotes n4 = new ImageNotes("Pythagoras Theorem\n Example\n  A 3,4,5 Triangle has a right angle in it.\n Let's check if the areas are the same:\n 32 + 42 = 52\n Calculating this becomes:\n 9 + 16 = 25\n It works ... like Magic!\n ", "Question4 Geometry.gif");//Page 4
+     private int count;
+     
+     
+      public NotesTrigAddNotes() {
+        initComponents();
+        AFormAd = new ArrayList<>();
+        AFormAd.add(AFA1);
+        count = 0;
+        
+        
+        
+         ArrayList<ImageNotes> n = new ArrayList<>();
+    NotesTrigAddNotesStorage n1 = new NNotesTrigAddNotesStorage("Put your own noes here tobe saved ");//Page 1
+   
     private Object jLabel1;
     
-    public NotesGeometry() {
+    public NotesTrigAddNotesStorage() {
         initComponents();
          count = 0;
         n.add(n1);
-        n.add(n2);
-        n.add(n3);
-        n.add(n4);
         notesArea.setText(n.get(count).getNote());
+        
+       try {
+            FileInputStream fIS = new FileInputStream("NoteTrigSave.data");
+            ObjectInputStream oIS = new ObjectInputStream(fIS);
+            AFormSave = (ArrayList<NotesTrigAddNotesStorage>) oIS.readObject();
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());  
     }
     
+    
+    
+}
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,11 +82,10 @@ public class NotesGeometry extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         notesArea = new javax.swing.JTextArea();
+        nextBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -121,7 +142,7 @@ public class NotesGeometry extends javax.swing.JPanel {
         screenTitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         screenTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         screenTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        screenTitleLbl.setText("Geometry Notes");
+        screenTitleLbl.setText("Trig Add Notes");
         mainMenuPanel.add(screenTitleLbl);
         screenTitleLbl.setBounds(110, 10, 180, 50);
 
@@ -130,114 +151,101 @@ public class NotesGeometry extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Q1 Geometry.gif"))); // NOI18N
-        mainMenuPanel.add(jLabel3);
-        jLabel3.setBounds(60, 70, 270, 230);
+        notesArea.setEditable(false);
+        notesArea.setColumns(1);
+        notesArea.setRows(1);
+        notesArea.setText("Add your Own Notes Here to be saved ");
+        jScrollPane3.setViewportView(notesArea);
 
-        notesArea.setColumns(20);
-        notesArea.setRows(5);
-        notesArea.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Cons\nonantia, there live the blind texts. Separ\nated they live in Bookmarksgrove right at th\ne coast of the Semantics, a large language o\ncean. A small river named Duden flows by th\neir place and supplies it with the necessa\nry regelialia. It is a paradisematic country, in which r\noasted parts of sentences fly into your mo\nuth. Even the all-powerful Pointing has\n no control about the blind texts it \nis an almost unorthographic life One d\nay however a small line of blind text by\n the name of Lorem Ipsum decided to leave f\nor the far World of Grammar. The Big Ox\nmox advised her not to do so, because ther\ne were thousands of bad Commas, wild Ques\ntion Marks and devious Semikoli, but the\n Little Blind Text didn’t listen. She \npacked her seven versalia, put her initi\nal into the belt an\nd \nma\n,,,,");
-        jScrollPane4.setViewportView(notesArea);
+        mainMenuPanel.add(jScrollPane3);
+        jScrollPane3.setBounds(30, 90, 340, 420);
 
-        mainMenuPanel.add(jScrollPane4);
-        jScrollPane4.setBounds(20, 310, 350, 190);
+        nextBtn.setText("Delete");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBtnActionPerformed(evt);
+            }
+        });
+        mainMenuPanel.add(nextBtn);
+        nextBtn.setBounds(260, 540, 100, 29);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Previous");
+        jButton1.setText("Save Notes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         mainMenuPanel.add(jButton1);
-        jButton1.setBounds(40, 530, 110, 29);
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Next");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        mainMenuPanel.add(jButton2);
-        jButton2.setBounds(280, 530, 69, 31);
+        jButton1.setBounds(20, 540, 110, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
+            CardLayout cl = (CardLayout) layout;
             cl.show(getParent(), "MAIN");
         }
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        LayoutManager layout = getParent().getLayout();
+   LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
-            CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "NotesGeometryAddNotes");
-        }
+            CardLayout cl = (CardLayout) layout;
+            cl.show(getParent(), "NOTES TRIG");
+        }}
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    nextNote(); 
-    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+//delete button 
+ 
+     // TODO add your handling code here:
+        try {
+            
+            AFormSave.remove(count);
+            count--;
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());
+            title1Field.setText(AFormSave.get(count).getTitle1());
+    }//GEN-LAST:event_nextBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    prevNote();
-        // TODO add your handling code here:
+//save notes 
+//save 
+      try {
+            FileOutputStream fOut = new FileOutputStream("NoteTrigSave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(AFormSave);
+            fOut.close();
+            oOut.close();   
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-     private void nextNote() {
-        if(count + 1 >= n.size()){
-            count = 0;
-        } else {
-            count++;
-        }
-        notesArea.setText(n.get(count).getNote());
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
-    }
     
-    private void prevNote() {
-        if(count - 1 < 0){
-            count = n.size() - 1;
-        } else {
-            count--;
-        }
-        notesArea.setText(n.get(count).getNote());
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
-    }
-
+    
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel copyrightLbl;
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainMenuPanel;
     private javax.swing.JLabel nameBg;
+    private javax.swing.JButton nextBtn;
     private javax.swing.JTextArea notesArea;
     private javax.swing.JLabel screenTitleLbl;
     private java.awt.TextArea textArea1;

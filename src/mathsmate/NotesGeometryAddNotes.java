@@ -10,32 +10,51 @@ import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.awt.CardLayout;
 import java.awt.Desktop;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 /**
  *
- * @author Elmo
+ * @author Emlyn Farrell x14438218 
  */
-public class NotesGeometry extends javax.swing.JPanel {
+public class NotesGeometryAddNotes extends javax.swing.JPanel {
+    
+    private ArrayList<NotesGeometryAddNotesStorage> AFormAd;
+    private ArrayList<NotesGeometryAddNotesStorage> AFormSave;
+    NotesGeometryAddNotesStorage AFA1 = new NotesGeometryAddNotesStorage("Add your Own notes here to be saved for another time");   
 
     /*
      * Creates new form AlgebraMenu
      */
-      int count;
+     private int count;
+     
+     
+      public NotesGeometryAddNotesStorage() {
+        initComponents();
+        AFormAd = new ArrayList<>();
+        AFormAd.add(AFA1);
+        count = 0;
+        
+        
+        
       ArrayList<ImageNotes> n = new ArrayList<>();
-    ImageNotes n1 = new ImageNotes("The perimeter of a circle is called the circumference:\n Circumference = 2π × radius\n", "Q1 Geometry.gif");//Page 1
-    ImageNotes n2 = new ImageNotes("Finding the area of a triangle \n Height = h = 12\n Base = b = 20\n Area = ½ × b × h = ½ × 20 × 12 = 120\n ", "Question2 Geometry.gif");//Page 2
-    ImageNotes n3 = new ImageNotes("Cartesian Coordinates\n  example \n Point (6,4) is\n 6 units across (in the x direction), and\n 4 units up (in the y direction)\n So (6,4) means:\n Go along 6 and then go up 4 then \"plot the dot\".\n ", "Question3 Geometry.gif");//Page 3
-    ImageNotes n4 = new ImageNotes("Pythagoras Theorem\n Example\n  A 3,4,5 Triangle has a right angle in it.\n Let's check if the areas are the same:\n 32 + 42 = 52\n Calculating this becomes:\n 9 + 16 = 25\n It works ... like Magic!\n ", "Question4 Geometry.gif");//Page 4
+    NotesGeometryAddNotesStorage n1 = new NotesGeometryAddNotesStorage("Put your own noes here tobe saved ");//Page 1
+   
     private Object jLabel1;
     
-    public NotesGeometry() {
+    public NotesGeometryAddNotes() {
         initComponents();
          count = 0;
         n.add(n1);
-        n.add(n2);
-        n.add(n3);
-        n.add(n4);
         notesArea.setText(n.get(count).getNote());
+        
+       try {
+            FileInputStream fIS = new FileInputStream("NoteGeometrySave.data");
+            ObjectInputStream oIS = new ObjectInputStream(fIS);
+            AFormSave = (ArrayList<NotesGeometryAddNotesStorage>) oIS.readObject();
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());  
     }
     
     /**
@@ -60,7 +79,6 @@ public class NotesGeometry extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         screenTitleLbl = new javax.swing.JLabel();
         nameBg = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         notesArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
@@ -130,20 +148,16 @@ public class NotesGeometry extends javax.swing.JPanel {
         mainMenuPanel.add(nameBg);
         nameBg.setBounds(90, 10, 220, 50);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mathsmate/Q1 Geometry.gif"))); // NOI18N
-        mainMenuPanel.add(jLabel3);
-        jLabel3.setBounds(60, 70, 270, 230);
-
         notesArea.setColumns(20);
         notesArea.setRows(5);
-        notesArea.setText("Far far away, behind the word mountains,\n far from the countries Vokalia and Cons\nonantia, there live the blind texts. Separ\nated they live in Bookmarksgrove right at th\ne coast of the Semantics, a large language o\ncean. A small river named Duden flows by th\neir place and supplies it with the necessa\nry regelialia. It is a paradisematic country, in which r\noasted parts of sentences fly into your mo\nuth. Even the all-powerful Pointing has\n no control about the blind texts it \nis an almost unorthographic life One d\nay however a small line of blind text by\n the name of Lorem Ipsum decided to leave f\nor the far World of Grammar. The Big Ox\nmox advised her not to do so, because ther\ne were thousands of bad Commas, wild Ques\ntion Marks and devious Semikoli, but the\n Little Blind Text didn’t listen. She \npacked her seven versalia, put her initi\nal into the belt an\nd \nma\n,,,,");
+        notesArea.setText("Add your own notes here ");
         jScrollPane4.setViewportView(notesArea);
 
         mainMenuPanel.add(jScrollPane4);
-        jScrollPane4.setBounds(20, 310, 350, 190);
+        jScrollPane4.setBounds(20, 90, 350, 410);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Previous");
+        jButton1.setText("Save Notes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -153,14 +167,14 @@ public class NotesGeometry extends javax.swing.JPanel {
         jButton1.setBounds(40, 530, 110, 29);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Next");
+        jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         mainMenuPanel.add(jButton2);
-        jButton2.setBounds(280, 530, 69, 31);
+        jButton2.setBounds(229, 530, 120, 31);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -190,37 +204,33 @@ public class NotesGeometry extends javax.swing.JPanel {
         LayoutManager layout = getParent().getLayout();
         if (layout instanceof CardLayout) {
             CardLayout cl = (CardLayout)layout;
-            cl.show(getParent(), "NotesGeometryAddNotes");
+            cl.show(getParent(), "NOTES_GEOMETRY");
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    nextNote(); 
+   //Delete Code goes here 
+     // TODO add your handling code here:
+        try {
+            
+            AFormSave.remove(count);
+            count--;
+            pageTitleField.setText(AFormSave.get(count).getPageTitle());
+            title1Field.setText(AFormSave.get(count).getTitle1());
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    prevNote();
+   //save 
+      try {
+            FileOutputStream fOut = new FileOutputStream("NoteGeometrySave.data");
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(AFormSave);
+            fOut.close();
+            oOut.close();   
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-     private void nextNote() {
-        if(count + 1 >= n.size()){
-            count = 0;
-        } else {
-            count++;
-        }
-        notesArea.setText(n.get(count).getNote());
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
-    }
     
-    private void prevNote() {
-        if(count - 1 < 0){
-            count = n.size() - 1;
-        } else {
-            count--;
-        }
-        notesArea.setText(n.get(count).getNote());
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(n.get(count).getLink())));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -230,7 +240,6 @@ public class NotesGeometry extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
